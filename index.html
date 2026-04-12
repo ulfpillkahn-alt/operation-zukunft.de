@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operation Zukunft | Prof. Dr. Ulf Pillkahn – KI, Foresight & Strategieentwicklung</title>
+    <meta name="description" content="Prof. Dr. Ulf Pillkahn: KI-gestützte Strategieentwicklung, Foresight und Innovationsmanagement. Autor von 'The Automated Future'. Beratung, Forschung, Vorträge.">
+    <meta name="keywords" content="KI Agenten, Foresight, Strategieentwicklung, Innovationsmanagement, OpenClaw, Zukunftsforschung, Prof. Pillkahn, Automated Future">
+    <meta name="author" content="Prof. Dr. Ulf Pillkahn">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://operation-zukunft.de">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Operation Zukunft – KI-gestützte Strategieentwicklung">
+    <meta property="og:description" content="Prof. Dr. Ulf Pillkahn: Wie KI-Agenten Foresight, Strategieplanung und Innovationsmanagement revolutionieren.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://operation-zukunft.de">
+    <meta property="og:locale" content="de_DE">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Operation Zukunft",
+        "description": "KI-gestützte Strategieentwicklung, Foresight und Innovationsmanagement",
+        "url": "https://operation-zukunft.de",
+        "founder": {
+            "@type": "Person",
+            "name": "Prof. Dr. Ulf Pillkahn",
+            "jobTitle": "Professor für Innovationsmanagement",
+            "affiliation": {
+                "@type": "Organization",
+                "name": "FOM Hochschule"
+            }
+        },
+        "sameAs": [
+            "https://www.linkedin.com/in/prof-dr-ulf-pillkahn-1b7a6131/",
+            "https://www.pillkahn.com",
+            "https://www.picturesofthefuture.de"
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Book",
+        "name": "The Automated Future",
+        "author": {
+            "@type": "Person",
+            "name": "Prof. Dr. Ulf Pillkahn"
+        },
+        "isbn": "9798254694953",
+        "description": "Wie KI Foresight, Strategieplanung und Innovationsmanagement revolutioniert. Mit Kapitel zu OpenClaw.",
+        "inLanguage": "de",
+        "bookFormat": "https://schema.org/Paperback"
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-primary: #0a0e17;
+            --bg-secondary: #0f1520;
+            --bg-card: #141c2b;
+            --bg-card-hover: #1a2438;
+            --accent-cyan: #00d4ff;
+            --accent-cyan-dim: #00a3c7;
+            --accent-red: #ff3d5a;
+            --accent-orange: #ff6b35;
+            --text-primary: #e8edf5;
+            --text-secondary: #8a95a8;
+            --text-dim: #5a6578;
+            --border: #1e2a3d;
+            --glow-cyan: rgba(0, 212, 255, 0.15);
+            --glow-red: rgba(255, 61, 90, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+            background: rgba(10, 14, 23, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--accent-cyan);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-logo span {
+            color: var(--text-dim);
+            font-weight: 400;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- HERO --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 80vw;
+            height: 80vw;
+            background: radial-gradient(circle, var(--glow-cyan) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -20%;
+            width: 60vw;
+            height: 60vw;
+            background: radial-gradient(circle, var(--glow-red) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent-cyan);
+            border: 1px solid var(--accent-cyan-dim);
+            padding: 0.3rem 0.8rem;
+            border-radius: 2px;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-red));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 480px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.6rem;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+        }
+
+        .btn-primary:hover {
+            background: #33ddff;
+            box-shadow: 0 0 30px var(--glow-cyan);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* --- GRID LINES BACKGROUND --- */
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                linear-gradient(var(--border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 80px 80px;
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* --- SECTION COMMON --- */
+        section {
+            position: relative;
+            z-index: 1;
+            padding: 6rem 2rem;
+        }
+
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--accent-cyan);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+            line-height: 1.15;
+        }
+
+        /* --- BOOK SECTION --- */
+        #buch {
+            background: var(--bg-secondary);
+        }
+
+        .book-grid {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .book-cover {
+            position: relative;
+        }
+
+        .book-cover img {
+            width: 100%;
+            border-radius: 6px;
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                0 0 40px var(--glow-cyan);
+        }
+
+        .book-cover .badge-new {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: var(--accent-red);
+            color: white;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 0.75rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .book-content h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+            letter-spacing: -0.02em;
+        }
+
+        .book-content .book-subtitle {
+            font-size: 1.1rem;
+            color: var(--accent-cyan);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .book-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1.2rem;
+            font-size: 1.02rem;
+        }
+
+        .book-meta {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            background: var(--bg-primary);
+        }
+
+        .book-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-amazon {
+            background: #ff9900;
+            color: #111;
+            font-weight: 700;
+        }
+
+        .btn-amazon:hover {
+            background: #ffaa22;
+            box-shadow: 0 0 20px rgba(255, 153, 0, 0.3);
+        }
+
+        /* --- WORKBOOK SECTION --- */
+        #workbook {
+            background: var(--bg-primary);
+        }
+
+        .workbook-grid {
+            display: grid;
+            grid-template-columns: 1fr 360px;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .workbook-content h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .workbook-content .wb-subtitle {
+            color: var(--accent-orange);
+            font-weight: 500;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .workbook-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1.2rem;
+            font-size: 1.02rem;
+        }
+
+        .wb-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .wb-feature {
+            padding: 1rem 1.2rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            background: var(--bg-card);
+        }
+
+        .wb-feature-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent-cyan);
+            margin-bottom: 0.3rem;
+        }
+
+        .wb-feature-desc {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+
+        .workbook-cover img {
+            width: 100%;
+            border-radius: 6px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .badge-coming {
+            display: inline-block;
+            background: var(--accent-orange);
+            color: #111;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 0.75rem;
+            padding: 0.3rem 0.7rem;
+            border-radius: 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        /* --- SERVICES --- */
+        #leistungen {
+            background: var(--bg-secondary);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--accent-cyan-dim);
+            transform: translateY(-3px);
+        }
+
+        .service-icon {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* --- ABOUT --- */
+        #ueber {
+            background: var(--bg-primary);
+        }
+
+        .about-content {
+            max-width: 800px;
+        }
+
+        .about-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+        }
+
+        .about-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .about-link {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent-cyan);
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent-cyan-dim);
+            padding-bottom: 2px;
+            transition: all 0.3s;
+        }
+
+        .about-link:hover {
+            color: #33ddff;
+            border-color: #33ddff;
+        }
+
+        /* --- BLOG TEASER --- */
+        #blog {
+            background: var(--bg-secondary);
+        }
+
+        .blog-list {
+            display: grid;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .blog-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 1.5rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            background: var(--bg-card);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .blog-item:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--accent-cyan-dim);
+        }
+
+        .blog-item-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--text-primary);
+        }
+
+        .blog-item-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+        }
+
+        /* --- CONTACT --- */
+        #kontakt {
+            background: var(--bg-primary);
+            border-top: 1px solid var(--border);
+        }
+
+        .contact-inner {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-inner p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .contact-email {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.1rem;
+            color: var(--accent-cyan);
+            text-decoration: none;
+            border: 1px solid var(--accent-cyan-dim);
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .contact-email:hover {
+            background: var(--glow-cyan);
+            box-shadow: 0 0 30px var(--glow-cyan);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            position: relative;
+            z-index: 1;
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            background: var(--bg-primary);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .footer-copy {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+
+        /* --- PROTOTYPE BANNER --- */
+        .prototype-banner {
+            background: linear-gradient(135deg, var(--bg-card), var(--bg-card-hover));
+            border: 1px solid var(--accent-cyan-dim);
+            border-radius: 6px;
+            padding: 1.5rem 2rem;
+            margin-top: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .prototype-banner .proto-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .prototype-banner p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .prototype-banner a {
+            color: var(--accent-cyan);
+            font-weight: 600;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 900px) {
+            .hero-inner {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-visual {
+                order: -1;
+            }
+
+            .book-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .book-cover {
+                max-width: 280px;
+            }
+
+            .workbook-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .workbook-cover {
+                order: -1;
+                max-width: 300px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .wb-features {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(10, 14, 23, 0.95);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 1.5rem 2rem;
+                gap: 1rem;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .prototype-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate {
+            animation: fadeUp 0.8s ease-out forwards;
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+
+<!-- NAVIGATION -->
+<nav>
+    <a href="#" class="nav-logo">OPERATION<span>::ZUKUNFT</span></a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menü">☰</button>
+    <ul class="nav-links">
+        <li><a href="#buch">Buch</a></li>
+        <li><a href="#workbook">Workbook</a></li>
+        <li><a href="#leistungen">Leistungen</a></li>
+        <li><a href="#ueber">Über mich</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+        <li><a href="impressum.html">Impressum</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-inner">
+        <div class="hero-text">
+            <span class="hero-badge animate">KI-Agenten × Foresight × Strategie</span>
+            <h1 class="animate delay-1">
+                Strategie&shy;entwicklung<br>
+                <span class="highlight">mit KI-Agenten</span>
+            </h1>
+            <p class="hero-subtitle animate delay-2">
+                Wie autonome KI-Agenten die strategische Vorausschau von einem monatelangen Prozess in einen 48-Stunden-Sprint transformieren.
+            </p>
+            <div class="hero-cta animate delay-3">
+                <a href="#buch" class="btn btn-primary">Zum Buch →</a>
+                <a href="#leistungen" class="btn btn-outline">Beratung & Forschung</a>
+            </div>
+        </div>
+        <div class="hero-visual animate delay-2">
+            <img src="Titelbild.png" alt="The Automated Future – Buchcover" style="max-width: 380px; width: 100%; border-radius: 8px; box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 60px var(--glow-cyan);">
+        </div>
+    </div>
+</section>
+
+<!-- BOOK SECTION -->
+<section id="buch">
+    <div class="section-inner">
+        <div class="book-grid">
+            <div class="book-cover">
+                <img src="Titelbild.png" alt="The Automated Future – Buchcover">
+                <span class="badge-new">Neu 2026</span>
+            </div>
+            <div class="book-content">
+                <p class="section-label">Das Buch</p>
+                <h2>The Automated Future</h2>
+                <p class="book-subtitle">Wie KI Foresight, Strategieplanung und Innovationsmanagement revolutioniert</p>
+
+                <p>
+                    Dieses Buch transformiert die strategische Vorausschau von einem monatelangen Prozess in einen hocheffizienten 48-Stunden-KI-Sprint. Basierend auf dem methodischen Fundament des Klassikers von 2007 etabliert es die „OpenClaw"-Methodik, bei der autonome KI-Agenten die globale Recherche übernehmen, während der Mensch als Regisseur die finale Intuition beisteuert.
+                </p>
+                <p>
+                    Entscheider lernen, wie sie blinde Flecken durch systematisches „Friendly Fire" eliminieren und aufgeblähte Strategieabteilungen durch agile, KI-augmentierte Einheiten ersetzen. Das Ergebnis: eine radikale Beschleunigung bei gleichzeitig massiv gesteigerter Vorhersagequalität.
+                </p>
+
+                <div class="book-meta">
+                    ISBN 979-8254694953 &nbsp;·&nbsp; Mit Kapitel zu OpenClaw &nbsp;·&nbsp; 2026
+                </div>
+
+                <div class="book-actions">
+                    <a href="https://www.amazon.de/dp/B0GW838SFR" class="btn btn-amazon" target="_blank" rel="noopener">Bei Amazon kaufen →</a>
+                    <a href="https://www.picturesofthefuture.de" class="btn btn-outline" target="_blank" rel="noopener">OpenClaw Prototyp</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WORKBOOK SECTION -->
+<section id="workbook">
+    <div class="section-inner">
+        <div class="workbook-grid">
+            <div class="workbook-content">
+                <span class="badge-coming">In Kürze verfügbar</span>
+                <p class="section-label">Teil 2</p>
+                <h2>Workbook: Strategieentwicklung mit KI</h2>
+                <p class="wb-subtitle">Der operative Leitfaden für den Einstieg</p>
+
+                <p>
+                    Sie haben die Dringlichkeit erkannt — KI-Agenten werden Foresight und Strategieentwicklung grundlegend verändern. Aber wo anfangen? Das Workbook liefert den konkreten Fahrplan: von der Dateninventur über die Auswahl der KI-Plattform bis zur Agenten-Architektur und den ersten Pilot-Szenarien.
+                </p>
+                <p>
+                    Kein Theoriebuch, sondern eine Schritt-für-Schritt-Anleitung für Entscheider, die jetzt handeln wollen.
+                </p>
+
+                <div class="wb-features">
+                    <div class="wb-feature">
+                        <div class="wb-feature-title">Agenten-Architektur</div>
+                        <div class="wb-feature-desc">Welche Agenten brauchen Sie und wie arbeiten sie zusammen?</div>
+                    </div>
+                    <div class="wb-feature">
+                        <div class="wb-feature-title">Daten-Infrastruktur</div>
+                        <div class="wb-feature-desc">Dateninventur, Zugriffsrechte und Integration</div>
+                    </div>
+                    <div class="wb-feature">
+                        <div class="wb-feature-title">Erste Schritte</div>
+                        <div class="wb-feature-desc">Checkliste von der Plattformwahl bis zum Piloten</div>
+                    </div>
+                    <div class="wb-feature">
+                        <div class="wb-feature-title">Organisation & Rolle</div>
+                        <div class="wb-feature-desc">Das Zusammenspiel von Mensch und KI-Agent</div>
+                    </div>
+                </div>
+
+                <div class="book-actions">
+                    <!-- TODO: Digistore24-Link einsetzen, wenn Produkt angelegt -->
+                    <a href="#kontakt" class="btn btn-primary">Interesse vormerken →</a>
+                </div>
+            </div>
+            <div class="workbook-cover">
+                <img src="Workbook.png" alt="Workbook: Strategieentwicklung mit KI">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section id="leistungen">
+    <div class="section-inner">
+        <p class="section-label">Zusammenarbeit</p>
+        <h2 class="section-title">Forschung, Beratung, Vorträge</h2>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">⟁</div>
+                <h3>Forschung</h3>
+                <p>
+                    Aktuelle Forschungsprojekte: „KI revolutioniert Foresight und Innovation" sowie „Theorie der Zukunft". Die Zukunftsforschung leidet darunter, theoriefrei zu agieren — hier setze ich an, von Humes Induktionsskeptizismus bis zur KI-gestützten Szenarioentwicklung.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">◈</div>
+                <h3>Beratung</h3>
+                <p>
+                    Beratungsprojekte zu KI, Innovation, Technologiemanagement und Zukunftsbetrachtungen. Aktuell: Beratung zur Inbetriebnahme von KI-Agenten für Foresight und Strategieentwicklung. Langjährige Erfahrung aus der Strategieberatung bei Siemens Corporate Technology.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">◉</div>
+                <h3>Vorträge</h3>
+                <p>
+                    Keynotes und Fachvorträge zu KI-Agenten in der Strategieentwicklung, Innovationsmanagement, Zukunftsforschung und der OpenClaw-Methodik. Für Konferenzen, Unternehmen und akademische Veranstaltungen.
+                </p>
+            </div>
+        </div>
+
+        <div class="prototype-banner">
+            <div class="proto-icon">🦀</div>
+            <p>
+                <strong>Prototyp: KI-Agenten in Foresight und Strategieentwicklung</strong><br>
+                Die OpenClaw-Methodik live erleben unter <a href="https://www.picturesofthefuture.de" target="_blank" rel="noopener">picturesofthefuture.de</a>
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="ueber">
+    <div class="section-inner">
+        <div class="about-content">
+            <p class="section-label">Über mich</p>
+            <h2 class="section-title">Prof. Dr. Ulf Pillkahn</h2>
+            <p>
+                Professor an der FOM Hochschule mit den Lehrgebieten Innovationsmanagement, Technologiemanagement, Business Model Innovation und Plattformökonomie. Promotion an der Ludwig-Maximilians-Universität München zum Thema „Innovation zwischen Planung und Zufall — Bausteine einer Theorie der bewussten Irritation" (magna cum laude).
+            </p>
+            <p>
+                Langjährige Tätigkeit als Strategy Consultant bei Siemens Corporate Technology, wo unter anderem die „Pictures of the Future"-Methodik mitentwickelt wurde. Inhaber zahlreicher Patente und Erfindungsmeldungen. Lehraufträge an der Zeppelin Universität Friedrichshafen und der TU München.
+            </p>
+
+            <div class="about-links">
+                <a href="https://www.pillkahn.com" target="_blank" rel="noopener" class="about-link">pillkahn.com</a>
+                <a href="https://www.pillkahn.cloud" target="_blank" rel="noopener" class="about-link">pillkahn.cloud</a>
+                <a href="https://www.picturesofthefuture.de" target="_blank" rel="noopener" class="about-link">picturesofthefuture.de</a>
+                <a href="https://www.innovation-review.de" target="_blank" rel="noopener" class="about-link">innovation-review.de</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+    <div class="section-inner">
+        <p class="section-label">Blog</p>
+        <h2 class="section-title">Neueste Beiträge</h2>
+
+        <div class="blog-list">
+            <a href="blog/einstein-openclaw.html" class="blog-item">
+                <span class="blog-item-title">Einstein würde OpenClaw nutzen</span>
+                <span class="blog-item-date">März 2026</span>
+            </a>
+            <a href="blog/hype-openclaw.html" class="blog-item">
+                <span class="blog-item-title">Der Hype um OpenClaw – gerechtfertigt?</span>
+                <span class="blog-item-date">Februar 2026</span>
+            </a>
+            <a href="blog/strategieplanung-ki.html" class="blog-item">
+                <span class="blog-item-title">Strategieplanung mit KI</span>
+                <span class="blog-item-date">September 2025</span>
+            </a>
+            <a href="blog/dilemma-organisationen.html" class="blog-item">
+                <span class="blog-item-title">Das Dilemma von Organisationen</span>
+                <span class="blog-item-date">Juni 2025</span>
+            </a>
+            <a href="blog/lebenszyklus-innovationen.html" class="blog-item">
+                <span class="blog-item-title">Der Lebenszyklus von Innovationen</span>
+                <span class="blog-item-date">Februar 2025</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="kontakt">
+    <div class="section-inner">
+        <div class="contact-inner">
+            <p class="section-label">Kontakt</p>
+            <h2 class="section-title">Zusammenarbeit</h2>
+            <p>
+                Bei Interesse an Beratung, Forschungskooperation oder Vorträgen — oder wenn Sie sich für das Workbook vormerken lassen möchten:
+            </p>
+            <a href="mailto:info@operation-zukunft.de" class="contact-email">info@operation-zukunft.de</a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-links">
+        <a href="impressum.html">Impressum</a>
+        <a href="https://www.pillkahn.com" target="_blank" rel="noopener">pillkahn.com</a>
+        <a href="https://www.picturesofthefuture.de" target="_blank" rel="noopener">picturesofthefuture.de</a>
+    </div>
+    <p class="footer-copy">© 2026 Prof. Dr. Ulf Pillkahn · Operation Zukunft</p>
+</footer>
+
+</body>
+</html>
