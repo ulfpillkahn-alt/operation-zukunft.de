@@ -714,3 +714,57 @@ footer {
     .footer-top { flex-direction: column; text-align: center; }
     section { padding: 4.5rem 0; }
 }
+
+/* ---------- 13. Verweis-Block: picturesoftomorrow.com ----------
+   Interaktive Szenariogeneration (Ergebnis des Yoko/John-Flusses),
+   Optik angelehnt an prototype-banner / cluster-claim. */
+.scenario-link {
+    margin-top: 1.6rem;
+    background: linear-gradient(135deg, var(--bg-card), var(--bg-card-hover));
+    border: 1px solid var(--accent-dim);
+    border-radius: 10px;
+    padding: 1.8rem 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.5s var(--ease-soft), box-shadow 0.5s var(--ease-soft);
+}
+.scenario-link::before {
+    /* dezenter Lichtakzent oben links, passend zum Cluster-Glow */
+    content: ''; position: absolute; top: -40%; left: -10%;
+    width: 55%; height: 120%;
+    background: radial-gradient(ellipse at center, var(--accent-soft) 0%, transparent 70%);
+    pointer-events: none;
+}
+.scenario-link:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 44px var(--glow);
+}
+.scenario-link-body { position: relative; }
+.scenario-link-kicker {
+    font-family: var(--font-mono); font-size: 0.66rem;
+    color: var(--accent); letter-spacing: 0.18em;
+    text-transform: uppercase; margin-bottom: 0.5rem;
+}
+.scenario-link-title {
+    font-family: var(--font-display);
+    font-size: 1.35rem; font-weight: 700;
+    letter-spacing: -0.01em; margin-bottom: 0.7rem;
+}
+.scenario-link-desc {
+    color: var(--text-secondary); font-size: 0.93rem;
+    line-height: 1.65; max-width: 68ch; margin-bottom: 1.3rem;
+}
+.scenario-link-cta {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.9rem; font-weight: 600;
+    color: var(--accent); text-decoration: none;
+    border: 1px solid var(--accent-dim);
+    padding: 0.65rem 1.4rem; border-radius: 5px;
+    transition: background 0.35s var(--ease-soft), box-shadow 0.35s var(--ease-soft),
+                border-color 0.35s var(--ease-soft);
+}
+.scenario-link-cta:hover {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    box-shadow: 0 0 26px var(--glow);
+}
