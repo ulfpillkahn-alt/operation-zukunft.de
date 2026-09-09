@@ -1,0 +1,29 @@
+# robots.txt — operation-zukunft.de
+# Prof. Dr. Ulf Pillkahn · Stand: 2026-07-28
+
+User-agent: *
+Allow: /
+
+# Sitemap (absolute URL, Pflicht laut Protokoll)
+Sitemap: https://operation-zukunft.de/sitemap.xml
+
+# ---------------------------------------------------------------
+# Optional: KI-Crawler aussperren.
+# Aktuell bewusst NICHT aktiv — Sichtbarkeit in ChatGPT, Perplexity
+# & Co. ist für ein Foresight-Beratungsangebot eher Nutzen als Risiko.
+# Zum Sperren einfach die Rauten in den folgenden Zeilen entfernen.
+# ---------------------------------------------------------------
+# User-agent: GPTBot
+# Disallow: /
+#
+# User-agent: ClaudeBot
+# Disallow: /
+#
+# User-agent: CCBot
+# Disallow: /
+#
+# User-agent: PerplexityBot
+# Disallow: /
+#
+# User-agent: Google-Extended
+# Disallow: /

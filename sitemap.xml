@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Startseite (One-Pager). Anker wie #leistungen oder #kontakt
+       gehoeren NICHT in die Sitemap: Google ignoriert Fragmente. -->
+  <url>
+    <loc>https://operation-zukunft.de/</loc>
+    <lastmod>2026-09-09</lastmod>
+  </url>
+
+  <!-- Blogbeitraege (lastmod = Publikationsdatum aus posts.json) -->
+  <url>
+    <loc>https://operation-zukunft.de/blog/einstein-openclaw.html</loc>
+    <lastmod>2026-03-01</lastmod>
+  </url>
+  <url>
+    <loc>https://operation-zukunft.de/blog/hype-openclaw.html</loc>
+    <lastmod>2026-02-01</lastmod>
+  </url>
+  <url>
+    <loc>https://operation-zukunft.de/blog/strategieplanung-ki.html</loc>
+    <lastmod>2025-09-01</lastmod>
+  </url>
+  <url>
+    <loc>https://operation-zukunft.de/blog/dilemma-organisationen.html</loc>
+    <lastmod>2025-06-01</lastmod>
+  </url>
+  <url>
+    <loc>https://operation-zukunft.de/blog/lebenszyklus-innovationen.html</loc>
+    <lastmod>2025-02-01</lastmod>
+  </url>
+  <url>
+    <loc>https://operation-zukunft.de/blog/red-queen-effekt.html</loc>
+    <lastmod>2019-05-10</lastmod>
+  </url>
+  <url>
+    <loc>https://operation-zukunft.de/blog/pictures-of-the-future.html</loc>
+    <lastmod>2017-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://operation-zukunft.de/blog/warum-prognosen-scheitern.html</loc>
+    <lastmod>2016-03-15</lastmod>
+  </url>
+
+  <!-- Indexierbares PDF (OpenClaw Setup-Anleitung, Basis v1.0) -->
+  <url>
+    <loc>https://operation-zukunft.de/downloads/OpenClaw-Basis-upload.pdf</loc>
+    <lastmod>2026-07-04</lastmod>
+  </url>
+
+</urlset>

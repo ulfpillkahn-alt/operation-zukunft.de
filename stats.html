@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stats · operation-zukunft.de</title>
+    <!-- Interne Besucherstatistik. Unverlinkt, nicht in der Sitemap. -->
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Palette der Hauptseite (style.css), bewusst eigenständig gehalten */
+        :root {
+            --bg-0: #0b0e15; --bg-card: #131b2c; --border: #1d2739;
+            --accent: #4fd8ff; --accent-dim: #2aa8cc;
+            --text-primary: #e9edf6; --text-secondary: #93a0b6; --text-dim: #5c6880;
+            --glow: rgba(79, 216, 255, 0.16);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-0); color: var(--text-primary);
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
+            padding: 2rem;
+        }
+        .panel { width: 100%; max-width: 640px; }
+        h1 { font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; margin-bottom: 0.3rem; }
+        .sub { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-dim); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 2rem; }
+        .kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2rem; }
+        .kpi { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem; }
+        .kpi-label { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; color: var(--text-dim); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.4rem; }
+        .kpi-value { font-family: 'Space Grotesk', sans-serif; font-size: 1.9rem; font-weight: 700; color: var(--accent); }
+        .chart { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 1.4rem; }
+        .chart-title { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; color: var(--text-dim); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1rem; }
+        .bars { display: flex; align-items: flex-end; gap: 4px; height: 120px; }
+        .bar-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.35rem; height: 100%; justify-content: flex-end; }
+        .bar { width: 100%; background: linear-gradient(180deg, var(--accent), var(--accent-dim)); border-radius: 2px 2px 0 0; min-height: 2px; box-shadow: 0 0 12px var(--glow); }
+        .bar-label { font-family: 'JetBrains Mono', monospace; font-size: 0.55rem; color: var(--text-dim); }
+        .bar-count { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: var(--text-secondary); }
+        .note { font-size: 0.75rem; color: var(--text-dim); margin-top: 1.5rem; line-height: 1.6; }
+        @media (max-width: 520px) { .kpis { grid-template-columns: 1fr; } .bar-label { display: none; } }
+    </style>
+</head>
+<body>
+<div class="panel">
+    <h1>operation-zukunft.de</h1>
+    <p class="sub">Besucher · intern</p>
+    <div class="kpis">
+        <div class="kpi"><div class="kpi-label">Heute</div><div class="kpi-value" id="k-heute">–</div></div>
+        <div class="kpi"><div class="kpi-label">14 Tage</div><div class="kpi-value" id="k-14">–</div></div>
+        <div class="kpi"><div class="kpi-label">Gesamt seit 09/2026</div><div class="kpi-value" id="k-total">–</div></div>
+    </div>
+    <div class="chart">
+        <div class="chart-title">Letzte 14 Tage</div>
+        <div class="bars" id="bars"></div>
+    </div>
+    <p class="note">Zählung: einmal pro Browser-Sitzung, über Abacus (abacus.jasoncameron.dev) — GitHub Pages führt kein PHP aus, daher weicht die Technik vom /stats-Muster der all-inkl-Seiten ab. Keine IPs, keine Cookies.</p>
+</div>
+<script>
+(function () {
+    var NS = 'operation-zukunft.de';
+    var BASE = 'https://abacus.jasoncameron.dev/get/' + NS + '/';
+
+    function get(key) {
+        return fetch(BASE + key)
+            .then(function (r) { return r.ok ? r.json() : null; })
+            .then(function (d) { return (d && typeof d.value === 'number') ? d.value : 0; })
+            .catch(function () { return 0; });
+    }
+    function dayKey(offset) {
+        var d = new Date(); d.setDate(d.getDate() - offset);
+        return d.toISOString().slice(0, 10);
+    }
+    function fmt(n) { return n.toLocaleString('de-DE'); }
+
+    var days = [];
+    for (var i = 13; i >= 0; i--) days.push(dayKey(i));
+
+    Promise.all([get('visits')].concat(days.map(function (d) { return get('visits-' + d); })))
+        .then(function (vals) {
+            var total = vals[0], daily = vals.slice(1);
+            var sum14 = daily.reduce(function (a, b) { return a + b; }, 0);
+            document.getElementById('k-heute').textContent = fmt(daily[daily.length - 1]);
+            document.getElementById('k-14').textContent = fmt(sum14);
+            document.getElementById('k-total').textContent = fmt(total);
+
+            var max = Math.max.apply(null, daily.concat([1]));
+            var bars = document.getElementById('bars');
+            daily.forEach(function (v, idx) {
+                var wrap = document.createElement('div'); wrap.className = 'bar-wrap';
+                var count = document.createElement('div'); count.className = 'bar-count'; count.textContent = v || '';
+                var bar = document.createElement('div'); bar.className = 'bar';
+                bar.style.height = Math.max(2, Math.round(v / max * 100)) + '%';
+                var label = document.createElement('div'); label.className = 'bar-label';
+                label.textContent = days[idx].slice(8) + '.' + days[idx].slice(5, 7);
+                wrap.appendChild(count); wrap.appendChild(bar); wrap.appendChild(label);
+                bars.appendChild(wrap);
+            });
+        });
+})();
+</script>
+</body>
+</html>

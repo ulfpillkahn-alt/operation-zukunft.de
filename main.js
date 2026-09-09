@@ -233,6 +233,23 @@
             .catch(function () { /* Download läuft trotzdem weiter */ });
     };
 
+    /* ---------- 7. Besucherzähler (Beacon) ----------
+       Gleiches Muster wie auf den anderen Seiten (technology-review,
+       pillkahn.de …), hier aber über Abacus statt PHP, weil GitHub
+       Pages kein PHP ausführt. Zählt einmal pro Browser-Sitzung
+       (sessionStorage-Schlüssel je Domain eigen: oz-visit-counted),
+       je einen Gesamt- und einen Tagesschlüssel. Keine IPs, keine
+       Cookies. Anzeige: /stats.html (unverlinkt, noindex). */
+    function countVisit() {
+        try {
+            if (sessionStorage.getItem('oz-visit-counted')) return;
+            sessionStorage.setItem('oz-visit-counted', '1');
+        } catch (e) { /* sessionStorage blockiert → trotzdem zählen */ }
+        var day = new Date().toISOString().slice(0, 10); // JJJJ-MM-TT
+        fetch('https://abacus.jasoncameron.dev/hit/' + COUNTER_NS + '/visits').catch(function () {});
+        fetch('https://abacus.jasoncameron.dev/hit/' + COUNTER_NS + '/visits-' + day).catch(function () {});
+    }
+
     /* ---------- Start ---------- */
     document.addEventListener('DOMContentLoaded', function () {
         renderBlog();
@@ -243,5 +260,6 @@
         Object.keys(COUNTERS).forEach(function (key) {
             loadCount(key, COUNTERS[key]);
         });
+        countVisit();
     });
 })();
