@@ -2,24 +2,26 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
+    <!-- Alte Deep-Links auf das Cluster (#cluster) führen auf die Unterseite -->
+    <script>if (location.hash === '#cluster') location.replace('cluster.html');</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Operation Zukunft | Flipped Foresight – Wie Maschinen Zukünfte entwerfen und Menschen entscheiden</title>
-    <meta name="description" content="Flipped Foresight: Wie Maschinen Zukünfte entwerfen und Menschen entscheiden. Buch und Workbook zur KI-gestützten Szenarioarbeit — erscheint 2026.">
+    <title>Operation Zukunft | Zukunft entdecken mit KI – Foresight-Beratung &amp; Foresight-Agenten</title>
+    <meta name="description" content="Foresight und Strategieentwicklung mit KI: Orientierungsworkshop und Beratung zum KI-Einsatz ab 1.500 €, Aufbau und Betrieb von Foresight-Agenten ab 10.000 €. Prof. Dr. Ulf Pillkahn, München.">
     <meta name="keywords" content="Flipped Foresight, Szenarien, KI Agenten, Agenten-Cluster, Foresight, Strategieentwicklung, Innovationsmanagement, OpenClaw, Zukunftsforschung, Prof. Pillkahn, Automated Future, autonome Agenten">
     <meta name="author" content="Prof. Dr. Ulf Pillkahn">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://operation-zukunft.de">
 
-    <meta property="og:title" content="Flipped Foresight – Wie Maschinen Zukünfte entwerfen und Menschen entscheiden">
-    <meta property="og:description" content="Flipped Foresight: Wie Maschinen Zukünfte entwerfen und Menschen entscheiden. Buch und Workbook zur KI-gestützten Szenarioarbeit — erscheint 2026.">
+    <meta property="og:title" content="Zukunft entdecken mit KI – Foresight-Beratung &amp; Foresight-Agenten">
+    <meta property="og:description" content="Orientierungsworkshop und Beratung zum KI-Einsatz ab 1.500 €, Aufbau und Betrieb von Foresight-Agenten ab 10.000 €. Prof. Dr. Ulf Pillkahn, München.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://operation-zukunft.de">
     <meta property="og:locale" content="de_DE">
-    <meta property="og:image" content="https://operation-zukunft.de/cover-flipped-foresight.jpg">
+    <meta property="og:image" content="https://operation-zukunft.de/videos/hero-poster.jpg">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Flipped Foresight – Wie Maschinen Zukünfte entwerfen und Menschen entscheiden">
-    <meta name="twitter:description" content="Buch und Workbook zur KI-gestützten Szenarioarbeit — erscheint 2026.">
-    <meta name="twitter:image" content="https://operation-zukunft.de/cover-flipped-foresight.jpg">
+    <meta name="twitter:title" content="Zukunft entdecken mit KI – Foresight-Beratung &amp; Foresight-Agenten">
+    <meta name="twitter:description" content="Orientierungsworkshop und Beratung zum KI-Einsatz ab 1.500 €, Aufbau und Betrieb von Foresight-Agenten ab 10.000 €.">
+    <meta name="twitter:image" content="https://operation-zukunft.de/videos/hero-poster.jpg">
 
     <script type="application/ld+json">
     {
@@ -64,6 +66,51 @@
         "inLanguage": "de"
     }
     </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Service",
+                "name": "Orientierungsworkshop & Beratung zum KI-Einsatz",
+                "serviceType": "Beratung",
+                "description": "Standortbestimmung zum KI-Einsatz: halb- oder ganztägiger Workshop mit dem Führungsteam, vor Ort oder remote. Ergebnis: priorisierte Einsatzfelder und ein konkreter nächster Schritt.",
+                "url": "https://operation-zukunft.de/#angebote",
+                "areaServed": "DE",
+                "provider": { "@type": "Person", "name": "Prof. Dr. Ulf Pillkahn" },
+                "offers": {
+                    "@type": "Offer",
+                    "priceCurrency": "EUR",
+                    "priceSpecification": {
+                        "@type": "PriceSpecification",
+                        "minPrice": 1500,
+                        "priceCurrency": "EUR",
+                        "valueAddedTaxIncluded": false
+                    }
+                }
+            },
+            {
+                "@type": "Service",
+                "name": "Foresight-Agenten für Ihr Unternehmen",
+                "serviceType": "Aufbau und Betrieb von KI-Agenten",
+                "description": "Konzeption, Aufbau, Inbetriebnahme und laufender Betrieb eines Agenten-Systems für Recherche, Trendbeobachtung und Szenarien.",
+                "url": "https://operation-zukunft.de/#angebote",
+                "areaServed": "DE",
+                "provider": { "@type": "Person", "name": "Prof. Dr. Ulf Pillkahn" },
+                "offers": {
+                    "@type": "Offer",
+                    "priceCurrency": "EUR",
+                    "priceSpecification": {
+                        "@type": "PriceSpecification",
+                        "minPrice": 10000,
+                        "priceCurrency": "EUR",
+                        "valueAddedTaxIncluded": false
+                    }
+                }
+            }
+        ]
+    }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -79,13 +126,14 @@
 
 <!-- ===================== NAVIGATION ===================== -->
 <nav aria-label="Hauptnavigation">
-    <a href="#" class="nav-logo">OPERATION<span>::ZUKUNFT</span></a>
+    <a href="index.html" class="nav-logo">OPERATION<span>::ZUKUNFT</span></a>
     <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
     <ul class="nav-links">
-        <li><a href="#cluster">Das Cluster</a></li>
-        <li><a href="#leistungen">Leistungen</a></li>
+        <li><a href="#angebote">Angebote</a></li>
+        <li><a href="#leistungen">Beratung</a></li>
         <li><a href="#publikationen">Buch &amp; Workbooks</a></li>
         <li><a href="#ueber">Über mich</a></li>
+        <li><a href="cluster.html">Das Cluster</a></li>
         <li><a href="#kontakt">Kontakt</a></li>
     </ul>
 </nav>
@@ -100,7 +148,7 @@
       no text, no people, very slow camera drift, seamless calm motion, elegant and
       restrained, high-end cinematic look"
 -->
-<section class="hero" id="top">
+<section class="hero hero--offers" id="top">
     <div class="hero-media parallax-layer" aria-hidden="true">
         <video data-cinema autoplay muted loop playsinline preload="metadata"
                poster="videos/hero-poster.jpg">
@@ -109,12 +157,50 @@
     </div>
     <div class="hero-scrim" aria-hidden="true"></div>
     <div class="hero-inner">
-        <span class="hero-badge">Agenten-Cluster · In Betrieb</span>
-        <h1 class="parallax-layer">Foresight wird hier nicht beschrieben.<br><span class="highlight">Sondern ausgeführt.</span></h1>
-        <p class="hero-subtitle parallax-layer">Ein Team autonomer KI-Agenten betreibt strategische Vorausschau — Recherche, Szenarien, Veröffentlichung. <strong>Beratung, Vorträge und Forschung</strong> auf der Grundlage eines Systems, das läuft.</p>
-        <div class="hero-cta">
-            <a href="#leistungen" class="btn btn-primary">Foresight-Leistungen →</a>
-            <a href="#cluster" class="btn btn-outline">Das Cluster</a>
+        <span class="hero-badge">Foresight · Beratung · Agenten</span>
+        <h1 class="parallax-layer">Zukunft entdecken <span class="highlight">mit KI</span></h1>
+        <p class="hero-subtitle parallax-layer">Strategische Vorausschau <span class="hero-sep" aria-hidden="true">|</span> KI-Know-how <span class="hero-sep" aria-hidden="true">|</span> Foresight-Erfahrung</p>
+
+        <!-- ===================== ANGEBOTE =====================
+             Zwei buchbare Einstiege mit Preis, above the fold.
+             Bilder: img/angebot-*.jpg (aus den PNG-Originalen per sips erzeugt,
+             Originale per .gitignore ausgeschlossen). Fällt ein Bild aus,
+             trägt .offer-media einen Verlauf als Ersatz (main.js blendet das
+             kaputte <img> aus). -->
+        <div class="offer-grid" id="angebote">
+            <article class="offer-card reveal">
+                <div class="offer-media">
+                    <img src="img/angebot-workshop.jpg" alt="Führungsteam im Workshop vor einer Glaswand mit Diagrammen" width="1600" height="1062" loading="eager">
+                </div>
+                <div class="offer-body">
+                    <p class="offer-label">Einstieg</p>
+                    <h2 class="offer-title">Orientierungsworkshop &amp; Beratung zum KI-Einsatz</h2>
+                    <p class="offer-price">ab 1.500 €<span class="offer-price-note">zzgl. USt.</span></p>
+                    <ul class="offer-list">
+                        <li>Standortbestimmung: Wo bringt KI in Ihrer Organisation tatsächlich Wirkung?</li>
+                        <li>Halb- oder ganztägiger Workshop mit Ihrem Führungsteam, vor Ort oder remote</li>
+                        <li>Ergebnis: priorisierte Einsatzfelder und ein konkreter nächster Schritt</li>
+                    </ul>
+                    <a href="mailto:info@operation-zukunft.de?subject=Anfrage%20Orientierungsworkshop%20KI-Einsatz" class="btn btn-primary offer-cta">Workshop anfragen →</a>
+                </div>
+            </article>
+            <article class="offer-card reveal" data-delay="1">
+                <div class="offer-media">
+                    <img src="img/angebot-agenten.jpg" alt="Vernetzte Rechnerknoten, aus deren Datenströmen Szenarien entstehen" width="1600" height="1062" loading="eager">
+                </div>
+                <div class="offer-body">
+                    <p class="offer-label">Aufbau &amp; Betrieb</p>
+                    <h2 class="offer-title">Foresight-Agenten für Ihr Unternehmen</h2>
+                    <p class="offer-price">ab 10.000 €<span class="offer-price-note">zzgl. monatlicher Betriebskosten und USt.</span></p>
+                    <ul class="offer-list">
+                        <li>Konzeption und Aufbau eines Agenten-Systems für Recherche, Trendbeobachtung und Szenarien</li>
+                        <li>Inbetriebnahme auf Ihrer oder gehosteter Infrastruktur</li>
+                        <li>Laufender Betrieb, Pflege und Weiterentwicklung als monatlicher Service</li>
+                    </ul>
+                    <a href="mailto:info@operation-zukunft.de?subject=Anfrage%20Foresight-Agenten" class="btn btn-primary offer-cta">Agenten-Projekt anfragen →</a>
+                    <a href="cluster.html" class="offer-more">So läuft es bei mir: Das Cluster →</a>
+                </div>
+            </article>
         </div>
     </div>
     <span class="hero-scroll-hint" aria-hidden="true">Scroll</span>
@@ -124,95 +210,6 @@
 <div class="page-layout">
 <div class="main-content">
 
-<!-- ===================== DAS AGENTEN-CLUSTER ===================== -->
-<section id="cluster">
-    <div class="section-full">
-        <p class="section-label reveal">Proof of Concept · In Betrieb</p>
-        <h2 class="section-title reveal">Das Agenten-Cluster</h2>
-        <p class="section-intro reveal">Fünf Mac&nbsp;Minis — <strong>Ringo, Paul, George, John und Yoko</strong> — bilden ein arbeitsteiliges Kollektiv autonomer KI-Agenten. Kein Konzeptpapier, keine Simulation: Das Cluster läuft und führt die Foresight-Methodik aus, die in „The Automated Future" beschrieben ist.</p>
-
-        <!-- Cluster-Sequenz: 8s-Loop (Seedance 2.0 via Higgsfield MCP)
-             Generierungs-Prompt (Modell seedance_2_0, mode=std, 1080p, 16:9, 8s, ohne Audio):
-             "Cinematic macro shot of five small minimalist metal computer nodes
-              (Mac-mini-like small aluminum boxes) arranged in a dark studio on a matte
-              black surface, connected by thin glowing light lines that pulse softly with
-              data, deep anthracite blue-black mood, one small LED on each node breathing
-              calmly, subtle reflections, volumetric light haze, film grain, soft vignette,
-              no text, no people, very slow dolly movement, quiet concentrated machine
-              collective, sovereign and restrained, high-end cinematic look"
-        -->
-        <div class="cluster-film reveal">
-            <video data-cinema autoplay muted loop playsinline preload="metadata"
-                   poster="videos/cluster-poster.jpg"
-                   aria-label="Filmische Ansicht des Agenten-Clusters: fünf vernetzte Rechenknoten im Dunkeln">
-                <source src="videos/cluster-loop.mp4" type="video/mp4">
-            </video>
-            <span class="cluster-film-caption">Cluster · München · 5 Knoten</span>
-        </div>
-
-        <!-- Die Foresight-Pipeline: Recherche → Szenario → Veröffentlichung -->
-        <div class="pipeline" role="list" aria-label="Foresight-Pipeline der Agenten">
-            <div class="pipeline-node reveal" role="listitem" data-node="yoko">
-                <div class="mini" aria-hidden="true"></div>
-                <p class="pipeline-step">01 · Recherche</p>
-                <p class="pipeline-name">Yoko</p>
-                <p class="pipeline-role">Recherche &amp; Bibliothek</p>
-                <p class="pipeline-desc">Durchsucht globale Quellen und Signale und hält die Wissensbasis vor, aus der die Szenarien schöpfen — kontinuierlich, systematisch, ohne Ermüdung.</p>
-            </div>
-            <div class="pipeline-link" aria-hidden="true"></div>
-            <div class="pipeline-node reveal" role="listitem" data-node="john" data-delay="1">
-                <div class="mini" aria-hidden="true"></div>
-                <p class="pipeline-step">02 · Szenarien</p>
-                <p class="pipeline-name">John</p>
-                <p class="pipeline-role">Szenarien · lokales Modell</p>
-                <p class="pipeline-desc">Formt aus Yokos Bibliothek mithilfe eines lokal laufenden Modells konsistente Zukunftsszenarien — inklusive der unbequemen.</p>
-            </div>
-            <div class="pipeline-link" data-delay="2" aria-hidden="true"></div>
-            <div class="pipeline-node reveal" role="listitem" data-node="george" data-delay="2">
-                <div class="mini" aria-hidden="true"></div>
-                <p class="pipeline-step">03 · Veröffentlichung</p>
-                <p class="pipeline-name">George</p>
-                <p class="pipeline-role">Publikations-Agent</p>
-                <p class="pipeline-desc">Bereitet die Ergebnisse auf und publiziert sie — die Beiträge in der Blog-Leiste dieser Seite stammen aus seiner Feder.</p>
-            </div>
-        </div>
-
-        <!-- Ausgelagerte, interaktive Szenariogeneration → picturesoftomorrow.com
-             (nicht zu verwechseln mit dem OpenClaw-Prototyp-Banner in #leistungen,
-             der auf picturesofthefuture.de verweist) -->
-        <div class="scenario-link reveal">
-            <div class="scenario-link-body">
-                <p class="scenario-link-kicker">Szenariogeneration erleben</p>
-                <h3 class="scenario-link-title">picturesoftomorrow.com</h3>
-                <p class="scenario-link-desc">Was Foresight konkret hervorbringt, kannst du selbst ausprobieren: Nenne den Ausschnitt der Zukunft, der dich interessiert — das System scannt den Horizont, fokussiert ihn auf deine Frage und entfaltet daraus vier stimmige Szenarien, jedes als Bild, angeordnet im Szenariokreuz. Die Szenarienentwicklung, im Cluster die Domäne von Yoko (Bibliothek) und John (lokales Modell), als interaktives Werkzeug.</p>
-                <a href="https://picturesoftomorrow.com" class="scenario-link-cta" target="_blank" rel="noopener">Eigenes Szenario generieren →</a>
-            </div>
-        </div>
-
-        <!-- Weitere Knoten im Cluster -->
-        <div class="cluster-extra">
-            <div class="extra-node reveal">
-                <div class="mini" aria-hidden="true"></div>
-                <div>
-                    <p class="extra-node-name">Paul</p>
-                    <p class="extra-node-role">Investment- &amp; Analyse-Agent — beobachtet Märkte und trifft eigene Anlageentscheidungen.</p>
-                </div>
-            </div>
-            <div class="extra-node reveal" data-delay="1">
-                <div class="mini" aria-hidden="true"></div>
-                <div>
-                    <p class="extra-node-name">Ringo</p>
-                    <p class="extra-node-role">Cluster-Knoten — Teil des Kollektivs, im Ausbau für kommende Aufgaben.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="cluster-claim reveal">
-            <p><strong>Das Cluster ist das Argument.</strong> Wer über KI-gestützte Foresight berät, forscht oder spricht, sollte sie selbst betreiben. Genau das passiert hier — rund um die Uhr, in München, auf fünf Rechenknoten.</p>
-        </div>
-    </div>
-</section>
-
 <!-- ===================== FORESIGHT-LEISTUNGEN ===================== -->
 <section id="leistungen">
     <div class="section-full">
@@ -220,27 +217,38 @@
         <h2 class="section-title reveal">Beratung. Vorträge. Forschung.</h2>
         <p class="section-intro reveal">Drei buchbare Felder, ein gemeinsamer Kern: strategische Vorausschau, ausgeführt und beschleunigt durch autonome KI-Agenten — erprobt am eigenen Cluster.</p>
 
-        <div class="services-grid">
-            <div class="service-card reveal">
+        <div class="services-grid services-grid--featured">
+            <!-- Beratung: volle Breite, Agentenbau an erster Stelle -->
+            <div class="service-card service-card--featured reveal">
                 <div class="service-icon" aria-hidden="true">◈</div>
                 <h3>Beratung</h3>
-                <p class="service-promise">Ihr KI-Foresight-System — von der Konzeption bis zur Inbetriebnahme.</p>
-                <p class="service-body">Beratung zu KI, Innovation, Technologiemanagement und Zukunftsbetrachtungen — aktuell mit Schwerpunkt auf der Inbetriebnahme von KI-Agenten für Foresight und Strategieentwicklung. Fundament: langjährige Strategieberatung bei Siemens Corporate Technology und der laufende Betrieb des eigenen Agenten-Clusters.</p>
-                <a href="#kontakt" class="service-cta">Projekt anfragen →</a>
+                <p class="service-promise">Ich baue Ihnen Foresight-Agenten — und betreibe sie auf Wunsch.</p>
+                <p class="service-body">Schwerpunkt meiner Beratung ist der Aufbau von KI-Agenten für Foresight und Strategieentwicklung: Systeme, die kontinuierlich recherchieren, Signale verdichten und Szenarien entwerfen. Kein Konzeptpapier — das gleiche Prinzip läuft seit Monaten in meinem <a href="cluster.html" class="service-inline-link">eigenen Cluster</a>. Fundament: langjährige Strategieberatung bei Siemens Corporate Technology.</p>
+                <ol class="service-steps" aria-label="Ablauf eines Agenten-Projekts">
+                    <li><span class="service-step-num">1</span><span class="service-step-name">Konzeption</span><span class="service-step-desc">Fragestellung, Quellen und Agentenrollen festlegen</span></li>
+                    <li><span class="service-step-num">2</span><span class="service-step-name">Aufbau</span><span class="service-step-desc">Agenten, Prompt-Ketten und Datenanbindung einrichten</span></li>
+                    <li><span class="service-step-num">3</span><span class="service-step-name">Inbetriebnahme</span><span class="service-step-desc">auf Ihrer oder gehosteter Infrastruktur starten</span></li>
+                    <li><span class="service-step-num">4</span><span class="service-step-name">Betrieb</span><span class="service-step-desc">laufend pflegen, überwachen und weiterentwickeln</span></li>
+                </ol>
+                <p class="service-body service-body--small">Für den Einstieg: Orientierungsworkshop und Beratung zum KI-Einsatz, Innovation und Technologiemanagement.</p>
+                <div class="service-actions">
+                    <a href="mailto:info@operation-zukunft.de?subject=Anfrage%20Foresight-Agenten" class="btn btn-primary">Agenten-Projekt anfragen →</a>
+                    <a href="mailto:info@operation-zukunft.de?subject=Anfrage%20Orientierungsworkshop%20KI-Einsatz" class="btn btn-outline">Workshop anfragen →</a>
+                </div>
             </div>
             <div class="service-card reveal" data-delay="1">
                 <div class="service-icon" aria-hidden="true">◉</div>
                 <h3>Vorträge</h3>
                 <p class="service-promise">Keynotes mit Live-Substanz statt Folien-Futurismus.</p>
-                <p class="service-body">Keynotes und Fachvorträge zu KI-Agenten in der Strategieentwicklung, Innovationsmanagement, Zukunftsforschung und der OpenClaw-Methodik — für Konferenzen, Unternehmen und akademische Veranstaltungen. Mit Ergebnissen und Beispielen direkt aus dem laufenden Cluster.</p>
-                <a href="#kontakt" class="service-cta">Vortrag anfragen →</a>
+                <p class="service-body">Keynotes und Fachvorträge zu KI-Agenten in der Strategieentwicklung, Innovationsmanagement, Zukunftsforschung und der OpenClaw-Methodik — für Konferenzen, Unternehmen und akademische Veranstaltungen. Mit Ergebnissen und Beispielen direkt aus dem <a href="cluster.html" class="service-inline-link">laufenden Cluster</a>.</p>
+                <a href="mailto:info@operation-zukunft.de?subject=Anfrage%20Vortrag" class="service-cta">Vortrag anfragen →</a>
             </div>
             <div class="service-card reveal" data-delay="2">
                 <div class="service-icon" aria-hidden="true">⟁</div>
                 <h3>Forschung</h3>
-                <p class="service-promise">Theoriearbeit mit empirischem Unterbau — dem Cluster.</p>
+                <p class="service-promise">Theoriearbeit mit empirischem Unterbau — <a href="cluster.html" class="service-inline-link">dem Cluster</a>.</p>
                 <p class="service-body">Aktuelle Forschungsprojekte: „KI revolutioniert Foresight und Innovation" sowie „Theorie der Zukunft". Die Zukunftsforschung leidet darunter, theoriefrei zu agieren — hier setze ich an, von Humes Induktionsskeptizismus bis zur KI-gestützten Szenarioentwicklung. Offen für Forschungskooperationen.</p>
-                <a href="#kontakt" class="service-cta">Kooperation anfragen →</a>
+                <a href="mailto:info@operation-zukunft.de?subject=Anfrage%20Forschungskooperation" class="service-cta">Kooperation anfragen →</a>
             </div>
         </div>
 
@@ -356,7 +364,13 @@
         <div class="contact-inner">
             <p class="section-label reveal">Kontakt</p>
             <h2 class="section-title reveal">Zusammenarbeit</h2>
-            <p class="reveal">Bei Interesse an Beratung, Vorträgen oder Forschungskooperation — oder wenn Sie sich für ein Workbook vormerken lassen möchten:</p>
+            <p class="reveal">Workshop, Agenten-Projekt, Vortrag oder Forschungskooperation — eine kurze Mail genügt:</p>
+            <div class="contact-actions reveal">
+                <a href="mailto:info@operation-zukunft.de?subject=Anfrage%20Orientierungsworkshop%20KI-Einsatz" class="btn btn-outline">Workshop anfragen</a>
+                <a href="mailto:info@operation-zukunft.de?subject=Anfrage%20Foresight-Agenten" class="btn btn-primary">Agenten-Projekt anfragen</a>
+                <a href="mailto:info@operation-zukunft.de?subject=Anfrage%20Vortrag" class="btn btn-outline">Vortrag anfragen</a>
+                <a href="mailto:info@operation-zukunft.de?subject=Anfrage%20Forschungskooperation" class="btn btn-outline">Forschungskooperation anfragen</a>
+            </div>
             <a href="mailto:info@operation-zukunft.de" class="contact-email reveal">info@operation-zukunft.de</a>
         </div>
     </div>

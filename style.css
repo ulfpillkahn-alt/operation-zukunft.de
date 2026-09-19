@@ -768,3 +768,174 @@ footer {
     border-color: var(--accent);
     box-shadow: 0 0 26px var(--glow);
 }
+
+/* ---------- 14. Angebote (Startseite, im Hero) ----------
+   Zwei buchbare Einstiege mit Preis. Liegen innerhalb des Hero,
+   damit sie auf 1440×900 ohne Scrollen sichtbar sind; Hover und
+   Reveal wie .service-card. */
+.hero--offers { padding: 0; }  /* die allgemeine section-Polsterung schöbe die Karten unter die Falz */
+.hero--offers .hero-inner { padding: 6rem 2rem 5rem; }
+.hero--offers .hero-badge { margin-bottom: 1.1rem; }
+.hero--offers h1 {
+    font-size: clamp(2.4rem, 4.4vw, 3.3rem);
+    max-width: none;
+    margin-bottom: 0.9rem;
+}
+.hero--offers .hero-subtitle { max-width: 760px; margin-bottom: 1.6rem; }
+.hero-sep { color: var(--accent-dim); margin: 0 0.35em; }
+
+.offer-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 1000px;
+    scroll-margin-top: 5.5rem;
+}
+.offer-card {
+    display: flex; flex-direction: column;
+    background: rgba(19, 27, 44, 0.86);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: border-color 0.5s var(--ease-soft), transform 0.5s var(--ease-out),
+                box-shadow 0.5s var(--ease-soft);
+}
+.offer-card:hover {
+    border-color: var(--accent-dim);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 40px var(--glow);
+}
+/* Bildcontainer mit Verlauf als Ersatz, falls das Bild fehlt */
+.offer-media {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 28% 38%, rgba(79, 216, 255, 0.28), transparent 60%),
+        radial-gradient(ellipse at 82% 72%, rgba(255, 180, 84, 0.16), transparent 55%),
+        linear-gradient(135deg, var(--bg-2), var(--bg-0));
+}
+.offer-media img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.8s var(--ease-out);
+}
+.offer-card:hover .offer-media img { transform: scale(1.03); }
+.offer-body {
+    display: flex; flex-direction: column; flex-grow: 1;
+    padding: 1.4rem 1.6rem 1.6rem;
+}
+.offer-label {
+    font-family: var(--font-mono); font-size: 0.66rem;
+    color: var(--accent); letter-spacing: 0.18em;
+    text-transform: uppercase; margin-bottom: 0.4rem;
+}
+.offer-title {
+    font-family: var(--font-display);
+    font-size: 1.3rem; font-weight: 700; line-height: 1.25;
+    letter-spacing: -0.01em; margin-bottom: 0.6rem;
+}
+.offer-price {
+    font-family: var(--font-display);
+    font-size: 1.9rem; font-weight: 700; line-height: 1.1;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+.offer-price-note {
+    display: block; margin-top: 0.3rem;
+    font-family: var(--font-mono); font-size: 0.68rem; font-weight: 400;
+    color: var(--text-dim); letter-spacing: 0.04em;
+}
+.offer-list { list-style: none; margin-bottom: 1.4rem; flex-grow: 1; }
+.offer-list li {
+    position: relative; padding-left: 1.2rem;
+    color: var(--text-secondary); font-size: 0.92rem; line-height: 1.55;
+    margin-bottom: 0.45rem;
+}
+.offer-list li::before {
+    content: ''; position: absolute; left: 0; top: 0.6em;
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent); box-shadow: 0 0 6px var(--glow-strong);
+}
+.offer-cta { align-self: flex-start; }
+.offer-more {
+    margin-top: 0.9rem;
+    font-size: 0.85rem; font-weight: 600;
+    color: var(--accent); text-decoration: none;
+    transition: color 0.3s var(--ease-soft);
+}
+.offer-more:hover { color: #9be8ff; }
+
+@media (max-width: 800px) {
+    .offer-grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- 15. Beratung als Hauptkarte ----------
+   Beratung läuft über die volle Breite, Vorträge und Forschung
+   stehen als zwei kleinere Karten darunter. */
+.services-grid--featured { grid-template-columns: repeat(2, 1fr); }
+.service-card--featured {
+    grid-column: 1 / -1;
+    border-color: var(--border-bright);
+    background: linear-gradient(135deg, var(--bg-card), var(--bg-card-hover));
+}
+.service-card--featured h3 { font-size: 1.5rem; }
+.service-card--featured .service-promise { font-size: 1rem; }
+.service-card--featured p.service-body { flex-grow: 0; max-width: 78ch; }
+.service-card p.service-body--small { font-size: 0.86rem; color: var(--text-dim); margin-top: 1.4rem; }
+.service-inline-link {
+    color: var(--accent); text-decoration: none;
+    border-bottom: 1px solid var(--accent-dim);
+    transition: color 0.3s var(--ease-soft), border-color 0.3s var(--ease-soft);
+}
+.service-inline-link:hover { color: #9be8ff; border-color: #9be8ff; }
+
+/* Ablaufzeile: 1 Konzeption → 2 Aufbau → 3 Inbetriebnahme → 4 Betrieb */
+.service-steps {
+    list-style: none;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0.8rem; margin-top: 1.6rem;
+}
+.service-steps li {
+    position: relative;
+    display: flex; flex-direction: column; gap: 0.2rem;
+    padding: 1rem 1.1rem;
+    background: rgba(11, 14, 21, 0.45);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+.service-steps li:not(:last-child)::after {
+    /* Pfeil zum nächsten Schritt */
+    content: '→'; position: absolute; right: -0.72rem; top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent-dim); font-size: 0.9rem; z-index: 1;
+}
+.service-step-num {
+    font-family: var(--font-mono); font-size: 0.66rem;
+    color: var(--accent); letter-spacing: 0.14em;
+}
+.service-step-name { font-family: var(--font-display); font-weight: 700; font-size: 1rem; }
+.service-step-desc { color: var(--text-secondary); font-size: 0.82rem; line-height: 1.5; }
+.service-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.6rem; }
+
+@media (max-width: 900px) {
+    .services-grid--featured { grid-template-columns: 1fr; }
+    .service-steps { grid-template-columns: 1fr; }
+    .service-steps li:not(:last-child)::after {
+        content: '↓'; right: auto; left: 1.1rem; top: auto; bottom: -0.95rem;
+        transform: none;
+    }
+}
+
+/* ---------- 16. Kontakt: vorbefüllte Anfragen ---------- */
+.contact-actions {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 0.8rem; margin-bottom: 2rem;
+}
+
+/* ---------- 17. Unterseiten (Cluster, Datenschutz) ---------- */
+.subpage-head { padding-top: 8.5rem; }
+.subpage-lead {
+    color: var(--text-primary); font-size: 1.15rem;
+    max-width: 720px; margin-bottom: 1rem;
+}
+.cluster-back { margin-top: 3rem; }

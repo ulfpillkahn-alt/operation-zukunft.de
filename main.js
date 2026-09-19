@@ -250,8 +250,20 @@
         fetch('https://abacus.jasoncameron.dev/hit/' + COUNTER_NS + '/visits-' + day).catch(function () {});
     }
 
+    /* ---------- 8. Angebotsbilder ----------
+       Lädt ein Angebotsbild nicht, wird das <img> ausgeblendet; dann
+       trägt .offer-media mit seinem CSS-Verlauf die Karte allein. */
+    function initOfferImages() {
+        document.querySelectorAll('.offer-media img').forEach(function (img) {
+            var hide = function () { img.style.display = 'none'; };
+            if (img.complete && img.naturalWidth === 0) hide();
+            img.addEventListener('error', hide);
+        });
+    }
+
     /* ---------- Start ---------- */
     document.addEventListener('DOMContentLoaded', function () {
+        initOfferImages();
         renderBlog();
         initReveal();
         initParallax();
