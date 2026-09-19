@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!-- ENTWURF – vor Veröffentlichung rechtlich prüfen -->
+<!-- Offene Prüfpunkte für die rechtliche Durchsicht:
+     1. Besucherzähler: Der sessionStorage-Merker (oz-visit-counted) ist eine
+        Speicherung im Endgerät — Einordnung nach § 25 TDDDG (Einwilligung
+        erforderlich oder nicht?) prüfen.
+     2. abacus.jasoncameron.dev: Betreiber, Serverstandort und ggf.
+        Drittlandübermittlung sind nicht belegt.
+     3. GitHub: Zertifizierung unter dem EU-US Data Privacy Framework prüfen.
+     4. Abschnitt „Schriftarten" setzt voraus, dass die Fonts lokal eingebunden
+        sind. Solange Google Fonts geladen werden, fehlt hier ein Abschnitt dazu. -->
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datenschutz | Operation Zukunft</title>
+    <meta name="robots" content="noindex, follow">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Kino-Ebenen: feines Raster, Film-Grain, Vignette -->
+<div class="grid-bg" aria-hidden="true"></div>
+<div class="film-grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+
+<!-- ===================== NAVIGATION ===================== -->
+<nav aria-label="Hauptnavigation">
+    <a href="index.html" class="nav-logo">OPERATION<span>::ZUKUNFT</span></a>
+    <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
+    <ul class="nav-links">
+        <li><a href="index.html#angebote">Angebote</a></li>
+        <li><a href="index.html#leistungen">Beratung</a></li>
+        <li><a href="index.html#publikationen">Buch &amp; Workbooks</a></li>
+        <li><a href="index.html#ueber">Über mich</a></li>
+        <li><a href="cluster.html">Das Cluster</a></li>
+        <li><a href="index.html#kontakt">Kontakt</a></li>
+    </ul>
+</nav>
+
+<!-- ===================== DATENSCHUTZERKLÄRUNG ===================== -->
+<section class="subpage-head">
+    <div class="section-full legal">
+        <p class="section-label">Rechtliches</p>
+        <h1 class="section-title">Datenschutzerklärung</h1>
+
+        <h2>1. Verantwortlicher</h2>
+        <p>Prof. Dr. Ulf Pillkahn<br>Maxhofstraße 28<br>81475 München<br>E-Mail: <a href="mailto:info@operation-zukunft.de">info@operation-zukunft.de</a></p>
+
+        <h2>2. Überblick</h2>
+        <p>Diese Website setzt keine Cookies und keine Analyse- oder Werbedienste ein, die Nutzungsprofile bilden. Personenbezogene Daten werden nur verarbeitet, soweit dies für die Auslieferung der Seite, die unten beschriebene anonyme Zählung von Besuchen und Downloads sowie die Bearbeitung Ihrer Anfragen erforderlich ist.</p>
+
+        <h2>3. Hosting über GitHub Pages</h2>
+        <p>Die Website wird über GitHub Pages bereitgestellt, einen Dienst der GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. Beim Aufruf der Seite verarbeitet GitHub technisch notwendige Daten in Server-Logfiles, insbesondere Ihre IP-Adresse, Datum und Uhrzeit des Abrufs, die abgerufene Datei, die zuvor besuchte Seite (Referrer) sowie Angaben zu Browser und Betriebssystem.</p>
+        <p>Zweck ist die sichere und stabile Auslieferung der Website. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; unser berechtigtes Interesse liegt in einem funktionsfähigen und sicheren Internetauftritt. Dabei werden Daten in die USA übermittelt. Grundlage dieser Übermittlung ist das EU-US Data Privacy Framework, unter dem sich GitHub zertifiziert hat, bzw. die von GitHub verwendeten Standardvertragsklauseln der EU-Kommission. Weitere Informationen: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub General Privacy Statement</a>.</p>
+
+        <h2>4. Kontaktaufnahme per E-Mail</h2>
+        <p>Wenn Sie uns per E-Mail kontaktieren – etwa über die Anfrage-Schaltflächen, die Ihr E-Mail-Programm mit einem vorbefüllten Betreff öffnen –, verarbeiten wir Ihre E-Mail-Adresse, Ihren Namen und den Inhalt Ihrer Nachricht, um Ihre Anfrage zu beantworten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, soweit Ihre Anfrage auf einen Vertrag zielt, im Übrigen Art. 6 Abs. 1 lit. f DSGVO. Die Daten werden gelöscht, sobald sie für die Bearbeitung nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
+
+        <h2>5. Zählung von Besuchen und Downloads</h2>
+        <p>Um die Reichweite der Seite einschätzen zu können, zählen wir Besuche und die Downloads kostenloser Workbooks über den Zählerdienst abacus.jasoncameron.dev. Beim Seitenaufruf bzw. beim Klick auf einen Download sendet Ihr Browser eine Anfrage an diesen Dienst, die lediglich den Namen des betreffenden Zählers enthält (z.&nbsp;B. einen Tageszähler). Technisch bedingt wird dabei Ihre IP-Adresse an den Dienst übermittelt. Es werden keine Cookies gesetzt und keine Nutzerprofile gebildet; gespeichert werden ausschließlich Zählerstände.</p>
+        <p>Damit ein Besuch nur einmal gezählt wird, legt die Seite im Sitzungsspeicher Ihres Browsers (sessionStorage) einen Merker ab, der beim Schließen des Tabs automatisch gelöscht wird. Rechtsgrundlage für die Zählung ist Art. 6 Abs. 1 lit. f DSGVO; unser berechtigtes Interesse liegt in der anonymen Auswertung der Nutzung unseres Angebots.</p>
+
+        <h2>6. Schriftarten, Bilder und Videos</h2>
+        <p>Schriftarten, Bilder und Videos dieser Website werden vom selben Server ausgeliefert wie die Seite selbst. Dabei werden keine Daten an Dritte übermittelt.</p>
+
+        <h2>7. Externe Links</h2>
+        <p>Die Website enthält Links zu externen Angeboten, etwa zu Amazon, Payhip, SSRN, LinkedIn und weiteren Websites. Erst wenn Sie einen solchen Link anklicken, werden Daten an den jeweiligen Anbieter übertragen; für die dortige Verarbeitung ist allein dieser Anbieter verantwortlich.</p>
+
+        <h2>8. Ihre Rechte</h2>
+        <p>Sie haben das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16 DSGVO), Löschung (Art. 17 DSGVO), Einschränkung der Verarbeitung (Art. 18 DSGVO) und Datenübertragbarkeit (Art. 20 DSGVO). Soweit die Verarbeitung auf Art. 6 Abs. 1 lit. f DSGVO beruht, können Sie ihr aus Gründen, die sich aus Ihrer besonderen Situation ergeben, widersprechen (Art. 21 DSGVO). Eine formlose Nachricht an <a href="mailto:info@operation-zukunft.de">info@operation-zukunft.de</a> genügt.</p>
+
+        <h2>9. Beschwerderecht</h2>
+        <p>Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren (Art. 77 DSGVO). Zuständig ist das Bayerische Landesamt für Datenschutzaufsicht (BayLDA), <a href="https://www.lda.bayern.de" target="_blank" rel="noopener">www.lda.bayern.de</a>.</p>
+
+        <p class="legal-date">Stand: September 2026</p>
+    </div>
+</section>
+
+<!-- ===================== FOOTER & IMPRESSUM ===================== -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-top">
+            <div class="footer-links">
+                <a href="https://www.pillkahn.com" target="_blank" rel="noopener">pillkahn.com</a>
+                <a href="https://www.picturesofthefuture.de" target="_blank" rel="noopener">picturesofthefuture.de</a>
+                <a href="https://www.innovation-review.de" target="_blank" rel="noopener">innovation-review.de</a>
+                <a href="datenschutz.html">Datenschutz</a>
+            </div>
+            <button class="impressum-toggle" aria-expanded="false" aria-controls="impressum">Impressum ▼</button>
+        </div>
+
+        <div id="impressum" class="impressum-content">
+            <h3>Impressum</h3>
+            <p><strong>Angaben gemäß § 5 DDG</strong></p>
+            <p>Prof. Dr. Ulf Pillkahn<br>Maxhofstraße 28<br>81475 München</p>
+            <p><strong>Kontakt:</strong> <a href="mailto:info@operation-zukunft.de">info@operation-zukunft.de</a></p>
+            <p><strong>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV:</strong><br>Prof. Dr. Ulf Pillkahn</p>
+            <p><strong>Haftungsausschluss:</strong> Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+        </div>
+
+        <p class="footer-copy">© 2026 Prof. Dr. Ulf Pillkahn · Operation Zukunft</p>
+    </div>
+</footer>
+
+<!-- Seitenverhalten (Navigation, Impressum-Toggle) -->
+<script src="main.js"></script>
+
+</body>
+</html>

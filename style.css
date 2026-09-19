@@ -17,6 +17,22 @@
     12. Responsive
    ============================================================ */
 
+/* ---------- 0. Schriften (lokal, keine Anfrage an Google) ----------
+   Variable Fonts, Latin-Zeichensatz (deckt Umlaute, ß, €, „…" und
+   Gedankenstriche ab); Quelle: Google Fonts, Stand 19.09.2026. */
+@font-face {
+    font-family: 'Inter'; font-style: normal; font-weight: 300 700;
+    font-display: swap; src: url('fonts/inter-latin.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Space Grotesk'; font-style: normal; font-weight: 400 700;
+    font-display: swap; src: url('fonts/space-grotesk-latin.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'JetBrains Mono'; font-style: normal; font-weight: 400 500;
+    font-display: swap; src: url('fonts/jetbrains-mono-latin.woff2') format('woff2');
+}
+
 /* ---------- 1. Design-Tokens & Reset ---------- */
 :root {
     /* Flächen: tiefes Anthrazit/Blauschwarz — bewusst kein reines Schwarz */
@@ -947,3 +963,15 @@ picture { display: contents; }
 /* width/height-Attribute liefern nur das Seitenverhältnis; die Höhe
    ergibt sich aus der CSS-Breite (Workbook-Karten setzen 100 % selbst) */
 picture img { height: auto; }
+
+/* ---------- 19. Rechtstexte (datenschutz.html) ---------- */
+.legal { max-width: 820px; }
+.legal h2 {
+    font-family: var(--font-display);
+    font-size: 1.15rem; font-weight: 700;
+    margin: 2.4rem 0 0.7rem;
+}
+.legal p { color: var(--text-secondary); font-size: 0.97rem; margin-bottom: 0.9rem; }
+.legal a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-dim); }
+.legal a:hover { color: #9be8ff; border-color: #9be8ff; }
+.legal-date { margin-top: 2.4rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim); }
