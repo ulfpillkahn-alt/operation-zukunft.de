@@ -793,7 +793,9 @@ footer {
 .hero--offers .hero-inner { padding: 6rem 2rem 5rem; }
 .hero--offers .hero-badge { margin-bottom: 1.1rem; }
 .hero--offers h1 {
-    font-size: clamp(2.4rem, 4.4vw, 3.3rem);
+    /* immer eine Zeile: die Schrift schrumpft mit der Breite (Text ≈ 11,3 em) */
+    font-size: clamp(1.4rem, 7vw, 3.3rem);
+    white-space: nowrap;
     max-width: none;
     margin-bottom: 0.9rem;
 }
@@ -881,7 +883,7 @@ footer {
 }
 .offer-more:hover { color: #9be8ff; }
 
-@media (max-width: 800px) {
+@media (max-width: 640px) {
     .offer-grid { grid-template-columns: 1fr; }
 }
 
