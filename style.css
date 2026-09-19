@@ -939,3 +939,11 @@ footer {
     max-width: 720px; margin-bottom: 1rem;
 }
 .cluster-back { margin-top: 3rem; }
+
+/* ---------- 18. WebP-Cover ----------
+   <picture> soll das Layout nicht verändern: das <img> verhält sich,
+   als stünde es direkt im Eltern-Container (Cover-Rahmen, Sidebar). */
+picture { display: contents; }
+/* width/height-Attribute liefern nur das Seitenverhältnis; die Höhe
+   ergibt sich aus der CSS-Breite (Workbook-Karten setzen 100 % selbst) */
+picture img { height: auto; }
