@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Das Agenten-Cluster | Operation Zukunft</title>
-    <meta name="description" content="Fünf Mac Minis, fünf KI-Agenten: Recherche, Szenarien und Veröffentlichung im Dauerbetrieb. Das Agenten-Cluster von Prof. Dr. Ulf Pillkahn als laufender Proof of Concept für Foresight-Agenten.">
+    <meta name="description" content="Fünf Mac Minis, fünf KI-Agenten: Recherche, Szenarien und Veröffentlichung im Dauerbetrieb. Das Agenten-Cluster von Prof. Dr. Ulf Pillkahn als laufender Proof of Concept für Foresight-Agenten — mit Logbuch der Aufbauschritte seit Mai 2026.">
     <meta name="author" content="Prof. Dr. Ulf Pillkahn">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://operation-zukunft.de/cluster.html">
@@ -20,7 +20,7 @@
     <meta name="twitter:description" content="Recherche, Szenarien und Veröffentlichung, ausgeführt von fünf KI-Agenten im Dauerbetrieb.">
     <meta name="twitter:image" content="https://operation-zukunft.de/videos/cluster-poster.jpg">
 
-    <link rel="stylesheet" href="style.css?v=2026-09-19b">
+    <link rel="stylesheet" href="style.css?v=2026-11-04">
 </head>
 <body>
 
@@ -47,12 +47,82 @@
 <div class="page-layout">
 <div class="main-content">
 
-<!-- ===================== DAS AGENTEN-CLUSTER ===================== -->
-<section id="cluster" class="subpage-head">
+<!-- ===================== SEITENKOPF ===================== -->
+<section class="subpage-head">
     <div class="section-full">
         <p class="section-label reveal">Proof of Concept · In Betrieb</p>
         <h1 class="section-title reveal">Das Agenten-Cluster</h1>
         <p class="subpage-lead reveal">Was ich für Kunden aufbaue, läuft hier im Dauerbetrieb.</p>
+    </div>
+</section>
+
+<!-- ===================== LOGBUCH =====================
+     Monatliche Meldungen zum Aufbau des Clusters, neueste zuerst.
+     Kein Blog-Beitrag: Das Logbuch steht direkt hier im Markup und läuft
+     NICHT über posts.js — die Blog-Leiste bleibt Georges alleinige Datenquelle.
+     Neuen Monat eintragen: die auskommentierte Vorlage unten kopieren, ganz
+     oben in die Liste setzen, beim vorigen Eintrag „logbuch-entry--current"
+     und das „Aktuell"-Kennzeichen entfernen. -->
+<section id="logbuch" class="section-full logbuch" aria-labelledby="logbuch-title">
+    <p class="section-label reveal">Logbuch</p>
+    <h2 id="logbuch-title" class="section-title reveal">Wie das Cluster entstanden ist</h2>
+    <p class="section-intro reveal">Jeden Monat ein Schritt: was in Betrieb gegangen ist und warum es für Foresight zählt.</p>
+    <ol class="logbuch-list" reversed>
+        <!-- Neueste Meldung oben. Vorlage für neue Monate:
+        <li><article class="logbuch-entry reveal" id="2026-12">
+          <time datetime="2026-12">Dezember 2026</time>
+          <h3>Titel</h3>
+          <p>Text</p>
+          <p class="logbuch-links"><a href="https://…" target="_blank" rel="noopener">… →</a></p>
+        </article></li>
+        -->
+        <li><article class="logbuch-entry logbuch-entry--current reveal" id="2026-11">
+            <p class="logbuch-date"><time datetime="2026-11">November 2026</time><span class="logbuch-current">Aktuell</span></p>
+            <h3>Rover — der erste physische Agent entsteht</h3>
+            <p>Seit November baue ich Rover, den ersten Agenten des Clusters, der sich im Raum bewegt, statt nur über Schnittstellen zu arbeiten. Bisher bestand jeder Agent aus Software: Er las, schrieb, verdichtete und visualisierte. Rover muss wahrnehmen, wo er ist, und Entscheidungen treffen, deren Folgen sich nicht per Neustart zurücknehmen lassen.</p>
+            <p>Das ist kein Spielzeug am Rand des Foresight-Themas. Viele der Szenarien, die die Agenten seit dem Sommer entwerfen, handeln davon, dass KI die physische Welt erreicht. Rover ist der Versuch, diese Entwicklung nicht nur zu beschreiben, sondern im Kleinen selbst zu durchlaufen. Bericht folgt, sobald er fährt.</p>
+        </article></li>
+        <li><article class="logbuch-entry reveal" id="2026-10">
+            <p class="logbuch-date"><time datetime="2026-10">Oktober 2026</time></p>
+            <h3>Ein neues Lab mit Robotern</h3>
+            <p>Im Oktober hat das Cluster einen zweiten Arbeitsbereich bekommen: ein Lab, in dem Software-Agenten auf Hardware treffen. Die Leitfrage dort ist eine andere als bei den Rechnern. Nicht mehr „Was weiß der Agent?", sondern „Was kann er tun, wenn er Sensoren und Motoren hat?"</p>
+            <p>Für die Foresight-Arbeit ist das ein Perspektivwechsel. Wer Robotik nur aus Studien kennt, unterschätzt meist die Lücke zwischen Demo und Alltag, oder überschätzt sie. Im Lab wird diese Lücke messbar. Dokumentiert wird die Arbeit unter pillka.hn.</p>
+            <p class="logbuch-links"><a href="https://pillka.hn" target="_blank" rel="noopener">pillka.hn →</a></p>
+        </article></li>
+        <li><article class="logbuch-entry reveal" id="2026-09">
+            <p class="logbuch-date"><time datetime="2026-09">September 2026</time></p>
+            <h3>squawk.de — ein eigener RAG-Dienst im Dauerbetrieb</h3>
+            <p>Im September ist aus den Experimenten der Vormonate ein Dienst geworden. squawk.de ist ein RAG-Service, den ein Agent betreibt: Er wertet laufend neue Dokumente aus, ordnet sie in eine Wissensbasis ein und macht daraus abrufbare Signale.</p>
+            <p>Der Schritt vom Prototyp zum Dienst ist größer, als er klingt. Ein Prototyp muss einmal funktionieren, ein Dienst jeden Tag: mit Fehlern in den Quellen, Ausfällen, wachsender Datenmenge. Genau diese Erfahrung steckt in meinem Angebot, Foresight-Agenten nicht nur aufzubauen, sondern auch zu betreiben.</p>
+            <p class="logbuch-links"><a href="https://squawk.de" target="_blank" rel="noopener">squawk.de →</a></p>
+        </article></li>
+        <li><article class="logbuch-entry reveal" id="2026-08">
+            <p class="logbuch-date"><time datetime="2026-08">August 2026</time></p>
+            <h3>Ein Agent entwickelt Szenarien vollständig selbst</h3>
+            <p>Im August hat zum ersten Mal ein RAG-Agent den gesamten Szenarioprozess ohne mein Zutun durchlaufen. Auf picturesoftomorrow.com stellt man eine Frage an die Zukunft. Der Agent spannt daraus ein Szenariokreuz auf und erzeugt für jeden der vier Quadranten ein Zukunftsbild.</p>
+            <p>Das ersetzt keine Szenarioarbeit mit Menschen, aber es verschiebt ihren Ausgangspunkt. Ein Führungsteam diskutiert dann nicht mehr vor einem leeren Flipchart, sondern über vier konkrete Bilder, an denen man sich reiben kann. Was in Workshops oft den ersten Tag kostet, liegt nach wenigen Minuten auf dem Tisch.</p>
+            <p class="logbuch-links"><a href="https://picturesoftomorrow.com" target="_blank" rel="noopener">picturesoftomorrow.com →</a></p>
+        </article></li>
+        <li><article class="logbuch-entry reveal" id="2026-07">
+            <p class="logbuch-date"><time datetime="2026-07">Juli 2026</time></p>
+            <h3>RAG-Agenten bauen Szenarien und beantworten Fragen</h3>
+            <p>Im Juli kam die zweite Stufe: Agenten, die nicht nur auf ihr Sprachmodell zurückgreifen, sondern auf eine kuratierte Wissensbasis. Retrieval-Augmented Generation (RAG) heißt: Bevor der Agent antwortet, sucht er in ausgewählten Quellen und stützt seine Antwort darauf. Auf questionsoftomorrow.com ist das öffentlich zugänglich. Man stellt eine Frage zur Zukunft, die Agenten antworten und entwerfen Szenarien.</p>
+            <p>Der Unterschied zum gewöhnlichen Chatbot ist methodisch. Die Antwort ist an einen überprüfbaren Wissensbestand gebunden, nicht an das, was ein Modell irgendwann im Training gesehen hat. Für Foresight, die von der Qualität ihrer Quellen lebt, ist das die Voraussetzung, KI ernsthaft einzusetzen.</p>
+            <p class="logbuch-links"><a href="https://questionsoftomorrow.com" target="_blank" rel="noopener">questionsoftomorrow.com →</a></p>
+        </article></li>
+        <li><article class="logbuch-entry reveal" id="2026-05">
+            <p class="logbuch-date"><time datetime="2026-05">Mai 2026</time></p>
+            <h3>Die ersten Hermes-Agenten gehen in Betrieb</h3>
+            <p>Im Mai habe ich auf den Rechnern des Clusters die ersten Agenten auf Basis von Hermes in Betrieb genommen. Hermes Agent ist ein Open-Source-Agent von Nous Research, im Februar 2026 unter MIT-Lizenz veröffentlicht. Den Ausschlag gaben zwei Eigenschaften: Er läuft vollständig auf eigener Hardware, und er behält, was er lernt. Über Sitzungen hinweg baut er sich aus Erfahrung eigene Fähigkeiten auf.</p>
+            <p>Für Foresight ist genau das entscheidend. Trendbeobachtung ist keine Einzelabfrage, sondern ein Gedächtnis, das sich über Monate anreichert. Ein Agent, der jeden Morgen bei null beginnt, erkennt keine schwachen Signale, weil er nie weiß, was gestern anders war.</p>
+            <p class="logbuch-links"><a href="https://nousresearch.com" target="_blank" rel="noopener">Nous Research →</a> <a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">Hermes Agent auf GitHub →</a></p>
+        </article></li>
+    </ol>
+</section>
+
+<!-- ===================== DAS AGENTEN-CLUSTER ===================== -->
+<section id="cluster">
+    <div class="section-full">
         <p class="section-intro reveal">Fünf Mac&nbsp;Minis — <strong>Ringo, Paul, George, John und Yoko</strong> — bilden ein arbeitsteiliges Kollektiv autonomer KI-Agenten. Kein Konzeptpapier, keine Simulation: Das Cluster läuft und führt die Foresight-Methodik aus, die in „The Automated Future" beschrieben ist.</p>
 
         <!-- Cluster-Sequenz: 8s-Loop (Seedance 2.0 via Higgsfield MCP)
@@ -195,7 +265,7 @@
 <!-- Daten der Blog-Leiste (wird von George gepflegt) -->
 <script src="posts.js"></script>
 <!-- Seitenverhalten -->
-<script src="main.js?v=2026-09-19b"></script>
+<script src="main.js?v=2026-11-04"></script>
 
 </body>
 </html>
