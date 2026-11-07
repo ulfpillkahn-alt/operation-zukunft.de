@@ -42,7 +42,8 @@
         @media (max-width: 520px) { .kpis { grid-template-columns: 1fr; } .bar-label { display: none; } }
 
         /* ---------- Tagesaufschlüsselung am Balken ---------- */
-        .chart { position: relative; }
+        /* z-index, damit der Tooltip über dem Text darunter liegt */
+        .chart { position: relative; z-index: 5; }
         .chart-hint { text-transform: none; letter-spacing: 0.02em; color: var(--text-dim); font-size: 0.6rem; }
         .bar-wrap { cursor: help; border-radius: 3px; }
         .bar-wrap:hover .bar, .bar-wrap:focus-visible .bar { filter: brightness(1.25); }
