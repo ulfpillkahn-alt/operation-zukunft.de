@@ -1089,3 +1089,72 @@ picture img { height: auto; }
     .about-portrait { max-width: 220px; width: 100%; }
     .about-content { width: 100%; }
 }
+
+/* ---------- 22. Problemblock (07.11.2026) ----------
+   Zwischen Slogan und Angeboten: die Frage des Besuchers. Gleiche
+   Container-Breite und linke Kante wie das Angebots-Raster. */
+#ausgangslage.problem {
+    max-width: 1000px;            /* wie .offer-grid */
+    padding: 0;                   /* die allgemeine section-Polsterung gilt hier nicht */
+    margin: 0 0 2.4rem;
+}
+.problem-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 2.6vw, 2.25rem);
+    font-weight: 700; line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.9rem;
+}
+.problem-lead {
+    font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+    color: var(--text-secondary);
+    line-height: 1.5;
+    max-width: none;          /* volle Breite wie das Angebots-Raster */
+    margin-bottom: 1.4rem;
+}
+.problem-questions { list-style: none; display: grid; gap: 0.7rem; }
+.problem-questions li {
+    position: relative;
+    padding-left: 1.5rem;
+    font-size: 1.05rem; line-height: 1.5;
+    color: var(--text-primary);
+}
+.problem-questions li::before {
+    content: '?';
+    position: absolute; left: 0; top: 0;
+    font-family: var(--font-mono); font-weight: 500;
+    color: var(--accent);
+}
+@media (min-width: 1100px) {
+    .problem-questions { grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+    .problem-questions li { font-size: 1.05rem; }
+}
+
+/* Brücke über den Karten: „Dafür gibt es keinen Standardweg." */
+.offer-intro-lead {
+    font-family: var(--font-display);
+    font-size: clamp(1.15rem, 1.7vw, 1.4rem);
+    font-weight: 700; color: var(--text-primary);
+    letter-spacing: -0.01em;
+    margin-bottom: 0.5rem;
+}
+.offer-intro p:not(.offer-intro-lead) {
+    font-size: 1rem; line-height: 1.55;
+    color: var(--text-secondary);
+    max-width: none;          /* volle Breite wie das Angebots-Raster */
+}
+
+/* Formatzeile unter den Leistungspunkten der Workshop-Karte */
+.offer-meta {
+    font-family: var(--font-mono); font-size: 0.68rem;
+    color: var(--text-dim); line-height: 1.5;
+    margin: -0.9rem 0 1.4rem;
+}
+/* „Preis auf Anfrage" steht in derselben Zeile wie die Zahl gegenüber,
+   wirkt aber eine Stufe kleiner, damit es nicht wie ein Preis aussieht. */
+.offer-price--anfrage { font-size: 1.35rem; }
+/* Zwei Zeilen Mindesthöhe für den Kartentitel, damit die Preiszeilen
+   beider Karten auf gleicher Höhe stehen (nur im zweispaltigen Layout). */
+@media (min-width: 641px) {
+    .offer-title { min-height: 2.5em; }
+}

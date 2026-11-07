@@ -32,7 +32,12 @@
         clicks: ['angebot-workshop','angebot-agenten','angebot-cluster',
                  'beratung-agenten','beratung-workshop','vortrag','forschung',
                  'kontakt-workshop','kontakt-agenten','kontakt-vortrag','kontakt-forschung',
-                 'nav-cluster','cluster-zurueck-angebote','blog-beitrag','logbuch-extern','datenschutz']
+                 'nav-cluster','cluster-zurueck-angebote','blog-beitrag','logbuch-extern','datenschutz'],
+        /* Sichtkontakt: Seit dem Problemblock (07.11.2026) stehen die
+           Angebotskarten unter der Falz. Ohne diesen Zähler liesse sich
+           nicht unterscheiden, ob Besucher die Angebote gar nicht sehen
+           oder sie sehen und sich dagegen entscheiden. */
+        views: ['angebote']
     };
 
     /* Lokale Tests verfälschen die echten Zahlen nicht */
@@ -151,9 +156,32 @@
         }, true);
     }
 
+    /* Sichtkontakt: zählt einmal je Sitzung, sobald die Angebotskarten
+       zu einem Drittel im Bild stehen. Kein Scroll-Listener, der
+       IntersectionObserver kostet nichts. */
+    function initViews() {
+        if (!('IntersectionObserver' in window)) return;
+        var ziel = document.getElementById('angebote');
+        if (!ziel) return;
+        try { if (sessionStorage.getItem('oz-view-angebote')) return; } catch (e) { return; }
+
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (!e.isIntersecting) return;
+                io.disconnect();
+                try { sessionStorage.setItem('oz-view-angebote', '1'); } catch (err) { return; }
+                hit('view-' + window.OZ_TRACK.month() + '-angebote');
+            });
+            /* Niedrige Schwelle mit Absicht: einspaltig (Mobil) ist der
+               Block höher als der Bildschirm, ein Drittel wäre dort kaum
+               erreichbar. 15 % heißt verlässlich „ins Bild gekommen". */
+        }, { threshold: 0.15 });
+        io.observe(ziel);
+    }
+
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', function () { countRef(); initClicks(); });
+        document.addEventListener('DOMContentLoaded', function () { countRef(); initClicks(); initViews(); });
     } else {
-        countRef(); initClicks();
+        countRef(); initClicks(); initViews();
     }
 })();

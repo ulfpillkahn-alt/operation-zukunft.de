@@ -116,7 +116,7 @@
 <!-- Liefert die Listen (OZ_TRACK). Zählt auf dieser Seite nichts: track.js
      erkennt den Pfad /stats bzw. /stats.html und hält sich dort heraus. So
      gibt es die Whitelists nur einmal, statt sie hier zu kopieren. -->
-<script src="track.js?v=2026-11-07"></script>
+<script src="track.js?v=2026-11-07c"></script>
 <script>
 (function () {
     var NS = 'operation-zukunft.de';
@@ -200,7 +200,9 @@
         'kontakt-vortrag': 'Kontakt: Vortrag', 'kontakt-forschung': 'Kontakt: Forschung',
         'nav-cluster': 'Navigation: Das Cluster', 'cluster-zurueck-angebote': 'Cluster → Angebote',
         'blog-beitrag': 'Blog-Beitrag (Leiste)', 'logbuch-extern': 'Logbuch: externer Link',
-        datenschutz: 'Datenschutz (Fußzeile)'
+        datenschutz: 'Datenschutz (Fußzeile)',
+
+        angebote: 'Angebotskarten gesehen'
     };
     var MONATE = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
     function monatName(m) { var p = m.split('-'); return MONATE[parseInt(p[1], 10) - 1] + ' ' + p[0]; }
@@ -304,12 +306,16 @@
     var geladen = false;
 
     function keysFor(monat) {
-        return T.refs.map(function (k) { return 'ref-' + monat + '-' + k; })
+        return (T.views || []).map(function (k) { return 'view-' + monat + '-' + k; })
+            .concat(T.refs.map(function (k) { return 'ref-' + monat + '-' + k; }))
             .concat(T.clicks.map(function (k) { return 'click-' + monat + '-' + k; }));
     }
 
     function render(werte) {
         body.innerHTML = '';
+        if (T.views && T.views.length) {
+            body.appendChild(abschnitt('Sichtkontakt', werte, 'view-', T.views, jetztM, vorM));
+        }
         body.appendChild(abschnitt('Herkunft', werte, 'ref-', T.refs, jetztM, vorM));
         body.appendChild(abschnitt('Klicks', werte, 'click-', T.clicks, jetztM, vorM));
     }
