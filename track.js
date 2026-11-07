@@ -47,11 +47,14 @@
     /* Erfassungsbeginn — die Statistikseite zeigt ihn an */
     window.OZ_TRACK.start = '2026-11';
 
-    /* Aktueller Monat als JJJJ-MM (lokale Zeit, nicht UTC: der Monatswechsel
-       soll sich nach der Zeitzone des Besuchers richten) */
+    /* Tag als JJJJ-MM-TT und Monat als JJJJ-MM — beides in UTC, weil
+       main.js die Tagesbalken (visits-JJJJ-MM-TT) ebenso bildet. Nur so
+       meinen Balken und Detailzahlen denselben Tag. */
+    window.OZ_TRACK.day = function (d) {
+        return (d || new Date()).toISOString().slice(0, 10);
+    };
     window.OZ_TRACK.month = function (d) {
-        d = d || new Date();
-        return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2);
+        return window.OZ_TRACK.day(d).slice(0, 7);
     };
 
     /* ---------- Herkunft: Hostname → Kategorie ----------
@@ -111,13 +114,21 @@
     var p = location.pathname;
     if (/\/stats(\.html)?$/.test(p)) return;
 
-    /* ---------- Zählen ---------- */
-    function hit(key) {
+    /* ---------- Zählen ----------
+       Jedes Ereignis wird zweimal gezählt: einmal auf den Monat, einmal
+       auf den Tag. Der Monatszähler dient der Statistikseite als Index
+       (welche Kategorien kommen überhaupt vor), der Tageszähler liefert
+       die Aufschlüsselung hinter dem jeweiligen Balken. */
+    function hitRaw(key) {
         try {
             fetch('https://abacus.jasoncameron.dev/hit/' + window.OZ_TRACK.ns + '/' + key,
                   { keepalive: true, mode: 'cors' })
                 .catch(function () { /* still */ });
         } catch (e) { /* still */ }
+    }
+    function hit(praefix, wert) {
+        hitRaw(praefix + window.OZ_TRACK.month() + '-' + wert);
+        hitRaw(praefix + window.OZ_TRACK.day() + '-' + wert);
     }
 
     /* Herkunft: einmal je Browser-Sitzung.
@@ -132,7 +143,7 @@
         var cat = window.OZ_TRACK.refFrom(document.referrer);
         if (!cat) return;                       // eigene Domain
         try { sessionStorage.setItem('oz-ref', cat); } catch (e) { return; }
-        hit('ref-' + window.OZ_TRACK.month() + '-' + cat);
+        hit('ref-', cat);
     }
 
     /* Klicks: ein delegierter Listener, kein Eingriff in die Navigation.
@@ -152,7 +163,7 @@
                 if (post) value = 'blog-beitrag';
             }
 
-            if (value) hit('click-' + window.OZ_TRACK.month() + '-' + value);
+            if (value) hit('click-', value);
         }, true);
     }
 
@@ -170,7 +181,7 @@
                 if (!e.isIntersecting) return;
                 io.disconnect();
                 try { sessionStorage.setItem('oz-view-angebote', '1'); } catch (err) { return; }
-                hit('view-' + window.OZ_TRACK.month() + '-angebote');
+                hit('view-', 'angebote');
             });
             /* Niedrige Schwelle mit Absicht: einspaltig (Mobil) ist der
                Block höher als der Bildschirm, ein Drittel wäre dort kaum

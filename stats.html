@@ -41,52 +41,51 @@
         .note { font-size: 0.75rem; color: var(--text-dim); margin-top: 1.5rem; line-height: 1.6; }
         @media (max-width: 520px) { .kpis { grid-template-columns: 1fr; } .bar-label { display: none; } }
 
-        /* ---------- Aufschlüsselung: Herkunft und Klicks (Hover/Fokus/Tipp) ---------- */
-        .stats-host { position: relative; cursor: help; }
-        .stats-host:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
-        .stats-hint {
-            font-family: 'JetBrains Mono', monospace; font-size: 0.55rem;
-            color: var(--text-dim); letter-spacing: 0.1em; text-transform: uppercase;
-            margin-top: 0.3rem;
-        }
+        /* ---------- Tagesaufschlüsselung am Balken ---------- */
+        .chart { position: relative; }
+        .chart-hint { text-transform: none; letter-spacing: 0.02em; color: var(--text-dim); font-size: 0.6rem; }
+        .bar-wrap { cursor: help; border-radius: 3px; }
+        .bar-wrap:hover .bar, .bar-wrap:focus-visible .bar { filter: brightness(1.25); }
+        .bar-wrap:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
         .stats-tip {
-            position: absolute; z-index: 20; top: calc(100% + 0.6rem); left: 0;
-            width: max-content; max-width: min(27rem, calc(100vw - 2.5rem));
+            position: absolute; z-index: 20; left: 12px; top: calc(100% - 0.4rem);
+            width: max-content; max-width: min(24rem, calc(100% - 1.5rem));
             background: #0e1522; border: 1px solid var(--accent-dim); border-radius: 8px;
-            padding: 0.9rem 1rem;
+            padding: 0.85rem 1rem;
             box-shadow: 0 18px 44px rgba(0,0,0,0.6), 0 0 36px var(--glow);
             opacity: 0; visibility: hidden; transform: translateY(-4px);
-            transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
-            text-align: left;
+            transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+            text-align: left; pointer-events: none;
         }
-        .stats-host:hover .stats-tip,
-        .stats-host:focus-within .stats-tip,
-        .stats-host.open .stats-tip { opacity: 1; visibility: visible; transform: translateY(0); }
-        .stats-tip-meta {
-            font-family: 'JetBrains Mono', monospace; font-size: 0.56rem;
+        .stats-tip.open { opacity: 1; visibility: visible; transform: translateY(0); }
+        .stats-tip-datum {
+            font-family: 'JetBrains Mono', monospace; font-size: 0.6rem;
             color: var(--text-dim); letter-spacing: 0.1em; text-transform: uppercase;
-            padding-bottom: 0.5rem; margin-bottom: 0.6rem; border-bottom: 1px solid var(--border);
         }
+        .stats-tip-besuche { font-size: 0.95rem; color: var(--text-secondary); margin-top: 0.15rem; }
+        .stats-tip-besuche strong {
+            font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem;
+            color: var(--accent); margin-right: 0.15rem;
+        }
+        #stats-tip-meta { padding-bottom: 0.6rem; margin-bottom: 0.2rem; border-bottom: 1px solid var(--border); }
         .stats-tip h3 {
-            font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; font-weight: 500;
+            font-family: 'JetBrains Mono', monospace; font-size: 0.57rem; font-weight: 500;
             color: var(--accent); letter-spacing: 0.14em; text-transform: uppercase;
-            margin: 0.8rem 0 0.35rem;
+            margin: 0.75rem 0 0.3rem;
         }
-        .stats-tip h3:first-of-type { margin-top: 0; }
         .stats-row {
-            display: flex; align-items: baseline; gap: 0.6rem;
-            font-size: 0.78rem; color: var(--text-secondary);
-            padding: 0.12rem 0;
+            display: flex; align-items: baseline; gap: 1.2rem;
+            font-size: 0.78rem; color: var(--text-secondary); padding: 0.1rem 0;
         }
         .stats-row-name { flex: 1 1 auto; min-width: 0; }
         .stats-row-now {
             font-family: 'JetBrains Mono', monospace; font-size: 0.8rem;
             color: var(--text-primary); font-weight: 500;
         }
-        .stats-row-prev { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; color: var(--text-dim); min-width: 2.2rem; text-align: right; }
         .stats-empty { font-size: 0.74rem; color: var(--text-dim); }
-        @media (max-width: 520px) { .stats-tip { left: 50%; transform: translate(-50%, -4px); }
-            .stats-host:hover .stats-tip, .stats-host:focus-within .stats-tip, .stats-host.open .stats-tip { transform: translate(-50%, 0); } }
+        @media (max-width: 520px) {
+            .stats-tip { left: 12px !important; max-width: calc(100% - 1.5rem); }
+        }
     </style>
 </head>
 <body>
@@ -96,36 +95,44 @@
     <div class="kpis">
         <div class="kpi"><div class="kpi-label">Heute</div><div class="kpi-value" id="k-heute">–</div></div>
         <div class="kpi"><div class="kpi-label">14 Tage</div><div class="kpi-value" id="k-14">–</div></div>
-        <div class="kpi stats-host" id="stats-host" tabindex="0" aria-describedby="stats-tip">
-            <div class="kpi-label">Gesamt seit 09/2026</div>
-            <div class="kpi-value" id="k-total">–</div>
-            <div class="stats-hint">Herkunft &amp; Klicks ▾</div>
-            <div class="stats-tip" id="stats-tip" role="tooltip">
-                <div class="stats-tip-meta" id="stats-tip-meta">wird geladen …</div>
-                <div id="stats-tip-body"><p class="stats-empty">wird geladen …</p></div>
-            </div>
+        <div class="kpi"><div class="kpi-label">Gesamt seit 09/2026</div><div class="kpi-value" id="k-total">–</div></div>
+    </div>
+    <div class="chart" id="chart">
+        <div class="chart-title">Letzte 14 Tage <span class="chart-hint">— Balken überfahren zeigt Herkunft und Klicks des Tages. Esc schließt.</span></div>
+        <div class="bars" id="bars"></div>
+        <div class="stats-tip" id="stats-tip" role="tooltip" aria-hidden="true">
+            <div class="stats-tip-meta" id="stats-tip-meta"></div>
+            <div id="stats-tip-body"></div>
         </div>
     </div>
-    <div class="chart">
-        <div class="chart-title">Letzte 14 Tage</div>
-        <div class="bars" id="bars"></div>
-    </div>
-    <p class="note">Zählung: einmal pro Browser-Sitzung, über Abacus (abacus.jasoncameron.dev) — GitHub Pages führt kein PHP aus, daher weicht die Technik vom /stats-Muster der all-inkl-Seiten ab. Keine IPs, keine Cookies. Herkunft und Klicks werden als Monatssummen erfasst (siehe track.js); die Aufschlüsselung erscheint beim Überfahren der Gesamtzahl.</p>
+    <p class="note">Zählung: einmal pro Browser-Sitzung, über Abacus (abacus.jasoncameron.dev) — GitHub Pages führt kein PHP aus, daher weicht die Technik vom /stats-Muster der all-inkl-Seiten ab. Keine IPs, keine Cookies. Herkunft und Klicks werden als Monatssummen erfasst (siehe track.js); die Aufschlüsselung je Tag erscheint beim Überfahren eines Balkens.</p>
 </div>
 
 <!-- Liefert die Listen (OZ_TRACK). Zählt auf dieser Seite nichts: track.js
      erkennt den Pfad /stats bzw. /stats.html und hält sich dort heraus. So
      gibt es die Whitelists nur einmal, statt sie hier zu kopieren. -->
-<script src="track.js?v=2026-11-07c"></script>
+<script src="track.js?v=2026-11-07d"></script>
 <script>
 (function () {
     var NS = 'operation-zukunft.de';
     var BASE = 'https://abacus.jasoncameron.dev/get/' + NS + '/';
 
-    function get(key) {
+    /* 404 heißt „noch nie gezählt" = 0. Bei 429 (Rate-Limit) kurz warten
+       und erneut fragen — sonst stünde hier fälschlich eine 0. */
+    function get(key, versuch) {
+        versuch = versuch || 0;
         return fetch(BASE + key)
-            .then(function (r) { return r.ok ? r.json() : null; })
-            .then(function (d) { return (d && typeof d.value === 'number') ? d.value : 0; })
+            .then(function (r) {
+                if (r.status === 404) return 0;
+                if (r.status === 429 && versuch < 3) {
+                    var sek = parseInt(r.headers.get('RateLimit-Reset') || '', 10);
+                    if (!isFinite(sek) || sek < 1 || sek > 60) sek = 4;
+                    return new Promise(function (res) { setTimeout(res, (sek + 1) * 1000); })
+                        .then(function () { return get(key, versuch + 1); });
+                }
+                if (!r.ok) return 0;
+                return r.json().then(function (d) { return typeof d.value === 'number' ? d.value : 0; });
+            })
             .catch(function () { return 0; });
     }
     function dayKey(offset) {
@@ -149,6 +156,10 @@
             var bars = document.getElementById('bars');
             daily.forEach(function (v, idx) {
                 var wrap = document.createElement('div'); wrap.className = 'bar-wrap';
+                wrap.setAttribute('data-day', days[idx]);
+                wrap.setAttribute('data-visits', v);
+                wrap.tabIndex = 0;
+                wrap.setAttribute('aria-describedby', 'stats-tip');
                 var count = document.createElement('div'); count.className = 'bar-count'; count.textContent = v || '';
                 var bar = document.createElement('div'); bar.className = 'bar';
                 bar.style.height = Math.max(2, Math.round(v / max * 100)) + '%';
@@ -157,29 +168,28 @@
                 wrap.appendChild(count); wrap.appendChild(bar); wrap.appendChild(label);
                 bars.appendChild(wrap);
             });
+            // Signal für die Tagesaufschlüsselung (zweiter Script-Block)
+            document.dispatchEvent(new CustomEvent('oz-bars-ready'));
         });
 })();
 </script>
 
 <!-- ============================================================
-     Aufschlüsselung: Herkunft und Klicks
-     Abacus erlaubt 30 Anfragen je 10 Sekunden und keine Sammelabfrage.
-     43 Schlüssel × 2 Monate wären ~86 Anfragen — deshalb wird erst beim
-     Öffnen des Tooltips geladen, in Blöcken, aktueller Monat zuerst.
+     Tagesaufschlüsselung hinter den Balken
+     Abacus kennt keine Sammelabfrage und erlaubt 30 Anfragen je 10 s.
+     Darum zweistufig: Zuerst werden die Monatszähler gelesen — sie sind
+     der Index, welche Kategorien überhaupt vorkommen (meist eine Handvoll).
+     Danach werden nur diese wenigen Kategorien für die 14 Tage geholt,
+     heute zuerst. Alles getaktet und im Hintergrund.
      ============================================================ -->
 <script>
 (function () {
     var T = window.OZ_TRACK;
-    if (!T) return;                                   // track.js fehlt → Tooltip bleibt stumm
+    if (!T) return;
 
     var BASE = 'https://abacus.jasoncameron.dev/get/' + T.ns + '/';
-    /* Abacus erlaubt 30 Anfragen je 10 Sekunden und kennt keine
-       Sammelabfrage. Statt in Blöcken zu feuern (und dabei in 429er zu
-       laufen) geht alle 380 ms genau eine Anfrage raus — gut 26 je
-       10 Sekunden, mit Luft für die Abfragen der Tagesbalken. */
-    var TAKT = 380;
+    var TAKT = 380;                 // ~26 Anfragen je 10 s, Limit sind 30
 
-    /* Lesbare Bezeichnungen statt Schlüsselnamen */
     var LABEL = {
         direkt: 'Direkt eingegeben', google: 'Google', bing: 'Bing', duckduckgo: 'DuckDuckGo',
         ecosia: 'Ecosia', chatgpt: 'ChatGPT', perplexity: 'Perplexity', claude: 'Claude',
@@ -191,7 +201,6 @@
         'flipped-foresight': 'flipped-foresight.com', 'foresight-review': 'foresight-review.com',
         'innovation-review': 'innovation-review.com', 'technology-review': 'technology-review.com',
         andere: 'Andere Seiten',
-
         'angebot-workshop': 'Angebot Workshop (Karte)', 'angebot-agenten': 'Angebot Agenten (Karte)',
         'angebot-cluster': 'Cluster-Link (Karte)',
         'beratung-agenten': 'Beratung: Agenten-Projekt', 'beratung-workshop': 'Beratung: Workshop',
@@ -201,32 +210,25 @@
         'nav-cluster': 'Navigation: Das Cluster', 'cluster-zurueck-angebote': 'Cluster → Angebote',
         'blog-beitrag': 'Blog-Beitrag (Leiste)', 'logbuch-extern': 'Logbuch: externer Link',
         datenschutz: 'Datenschutz (Fußzeile)',
-
         angebote: 'Angebotskarten gesehen'
     };
+    var WOCHENTAG = ['So','Mo','Di','Mi','Do','Fr','Sa'];
     var MONATE = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
-    function monatName(m) { var p = m.split('-'); return MONATE[parseInt(p[1], 10) - 1] + ' ' + p[0]; }
-
-    function vormonat(m) {
-        var p = m.split('-'), y = +p[0], mm = +p[1] - 1;
-        if (mm === 0) { mm = 12; y -= 1; }
-        return y + '-' + ('0' + mm).slice(-2);
+    function datumLang(iso) {
+        var d = new Date(iso + 'T12:00:00Z');
+        return WOCHENTAG[d.getUTCDay()] + ', ' + d.getUTCDate() + '. ' + MONATE[d.getUTCMonth()] + ' ' + d.getUTCFullYear();
     }
 
-    /* Globale Bremse: Meldet der Dienst 429, pausiert die Warteschlange,
-       bis das Zeitfenster wieder offen ist. */
+    /* ---------- Abfragen, getaktet und mit Bremse bei 429 ---------- */
     var sperreBis = 0;
-
-    /* Ein Wert: 404 heißt „nie gezählt" = 0, 429 heißt „später nochmal"
-       (liefert 'retry'), echter Fehler = null (zeigt „–"). */
     function get(key) {
         return fetch(BASE + key)
             .then(function (r) {
                 if (r.status === 404) return 0;
                 if (r.status === 429) {
-                    var s = parseInt(r.headers.get('RateLimit-Reset') || '', 10);
-                    if (!isFinite(s) || s < 1 || s > 60) s = 4;
-                    sperreBis = Date.now() + (s + 1) * 1000;
+                    var sek = parseInt(r.headers.get('RateLimit-Reset') || '', 10);
+                    if (!isFinite(sek) || sek < 1 || sek > 60) sek = 4;
+                    sperreBis = Date.now() + (sek + 1) * 1000;
                     return 'retry';
                 }
                 if (!r.ok) return null;
@@ -235,115 +237,197 @@
             .catch(function () { return null; });
     }
 
-    /* Gleichmäßig getaktet abfragen und laufend zeichnen, damit der
-       Tooltip sofort zeigt, was schon da ist. Abgewiesene Schlüssel
-       wandern ans Ende der Schlange (höchstens dreimal). */
-    function getAll(keys, out, onUpdate) {
-        var warteschlange = keys.slice(), versuche = {}, offen = 0, fertig;
-        var p = new Promise(function (r) { fertig = r; });
-        var zuletzt = 0;
-        function zeichnen(sofort) {
-            var now = Date.now();
-            if (sofort || now - zuletzt > 600) { zuletzt = now; if (onUpdate) onUpdate(out); }
-        }
-        var timer = setInterval(function () {
-            if (Date.now() < sperreBis) return;                 // Limit: kurz stillhalten
-            if (!warteschlange.length) {
-                if (offen === 0) { clearInterval(timer); zeichnen(true); fertig(out); }
-                return;
-            }
-            var key = warteschlange.shift(); offen++;
-            get(key).then(function (v) {
-                offen--;
-                if (v === 'retry') {
-                    versuche[key] = (versuche[key] || 0) + 1;
-                    if (versuche[key] <= 3) { warteschlange.push(key); return; }
-                    v = null;
-                }
-                out[key] = v;
-                zeichnen(false);
-            });
-        }, TAKT);
-        return p;
+    /* Cache im Browser: Werte abgeschlossener Tage sind endgültig, der
+       heutige Tag wird nie gecacht. Das macht jeden weiteren Aufruf der
+       Seite schnell, statt alles erneut einzeln abzufragen. */
+    var HEUTE = T.day();
+    var CACHE_KEY = 'oz-stats-cache-v1';
+    var cache = { index: null, werte: {} };
+    try {
+        var roh = localStorage.getItem(CACHE_KEY);
+        if (roh) cache = JSON.parse(roh) || cache;
+    } catch (e) { /* kein Cache, dann eben frisch laden */ }
+    var sichern = null;
+    function cacheSchreiben() {
+        clearTimeout(sichern);
+        sichern = setTimeout(function () {
+            try { localStorage.setItem(CACHE_KEY, JSON.stringify(cache)); } catch (e) {}
+        }, 1500);
+    }
+    function istAbgeschlossen(key) {
+        var m = key.match(/-(\d{4}-\d{2}-\d{2})-/);
+        return m && m[1] < HEUTE;
     }
 
-    function zeile(name, jetzt, vorher) {
+    /* Eine gemeinsame Warteschlange für alle Abfragen dieser Seite */
+    var schlange = [], versuche = {}, offen = 0, werte = {};
+    setInterval(function () {
+        if (Date.now() < sperreBis || !schlange.length || offen > 2) return;
+        var auftrag = schlange.shift(); offen++;
+        get(auftrag.key).then(function (v) {
+            offen--;
+            if (v === 'retry') {
+                versuche[auftrag.key] = (versuche[auftrag.key] || 0) + 1;
+                if (versuche[auftrag.key] <= 3) { schlange.unshift(auftrag); return; }
+                v = null;
+            }
+            werte[auftrag.key] = v;
+            if (v !== null && istAbgeschlossen(auftrag.key)) {
+                cache.werte[auftrag.key] = v; cacheSchreiben();
+            }
+            if (auftrag.fertig) auftrag.fertig(v);
+        });
+    }, TAKT);
+    function anfordern(key, vorn, fertig) {
+        if (werte[key] === undefined && cache.werte[key] !== undefined) werte[key] = cache.werte[key];
+        if (werte[key] !== undefined) { if (fertig) fertig(werte[key]); return; }
+        var auftrag = { key: key, fertig: fertig };
+        if (vorn) schlange.unshift(auftrag); else schlange.push(auftrag);
+    }
+
+    /* ---------- Anzeige ---------- */
+    var tip = document.getElementById('stats-tip');
+    var meta = document.getElementById('stats-tip-meta');
+    var body = document.getElementById('stats-tip-body');
+    var chart = document.getElementById('chart');
+    var aktiverTag = null;
+
+    function zeile(name, zahl) {
         var row = document.createElement('div'); row.className = 'stats-row';
         var n = document.createElement('span'); n.className = 'stats-row-name'; n.textContent = name;
-        var a = document.createElement('span'); a.className = 'stats-row-now';
-        a.textContent = (jetzt === null) ? '–' : jetzt.toLocaleString('de-DE');
-        var b = document.createElement('span'); b.className = 'stats-row-prev';
-        b.textContent = (vorher === null) ? '–' : (vorher ? vorher.toLocaleString('de-DE') : '');
-        row.appendChild(n); row.appendChild(a); row.appendChild(b);
+        var z = document.createElement('span'); z.className = 'stats-row-now'; z.textContent = zahl;
+        row.appendChild(n); row.appendChild(z);
         return row;
     }
-
-    function abschnitt(titel, werte, praefix, liste, jetztM, vorM) {
+    function abschnitt(titel, praefix, liste, tag) {
         var frag = document.createDocumentFragment();
         var h = document.createElement('h3'); h.textContent = titel; frag.appendChild(h);
-        var zeilen = liste.map(function (k) {
-            return { k: k, jetzt: werte[praefix + jetztM + '-' + k], vorher: werte[praefix + vorM + '-' + k] };
-        }).filter(function (e) {
-            return e.jetzt === null || e.vorher === null || e.jetzt > 0 || e.vorher > 0;
-        }).sort(function (a, b) { return (b.jetzt || 0) - (a.jetzt || 0); });
+        var offenNoch = !indexFertig;
+        var eintraege = liste.map(function (k) {
+            var v = werte[praefix + tag + '-' + k];
+            if (v === undefined) offenNoch = true;
+            return { k: k, v: v };
+        }).filter(function (e) { return e.v > 0; })
+          .sort(function (a, b) { return b.v - a.v; });
 
-        if (!zeilen.length) {
-            var p = document.createElement('p'); p.className = 'stats-empty';
-            p.textContent = 'noch nichts gezählt';
-            frag.appendChild(p);
+        if (eintraege.length) {
+            eintraege.forEach(function (e) { frag.appendChild(zeile(LABEL[e.k] || e.k, e.v)); });
         } else {
-            zeilen.forEach(function (e) { frag.appendChild(zeile(LABEL[e.k] || e.k, e.jetzt, e.vorher)); });
+            var p = document.createElement('p'); p.className = 'stats-empty';
+            p.textContent = offenNoch ? 'wird geladen …' : 'keine';
+            frag.appendChild(p);
         }
         return frag;
     }
+    function zeichnen() {
+        if (!aktiverTag) return;
+        var besuche = aktiverTag.getAttribute('data-visits') | 0;
+        var tag = aktiverTag.getAttribute('data-day');
+        meta.innerHTML = '';
+        var d = document.createElement('div'); d.className = 'stats-tip-datum'; d.textContent = datumLang(tag);
+        var b = document.createElement('div'); b.className = 'stats-tip-besuche';
+        b.innerHTML = '<strong>' + besuche + '</strong> ' + (besuche === 1 ? 'Besuch' : 'Besuche');
+        meta.appendChild(d); meta.appendChild(b);
 
-    var host = document.getElementById('stats-host');
-    var body = document.getElementById('stats-tip-body');
-    var meta = document.getElementById('stats-tip-meta');
-    if (!host || !body) return;
-
-    var jetztM = T.month(), vorM = vormonat(jetztM);
-    var geladen = false;
-
-    function keysFor(monat) {
-        return (T.views || []).map(function (k) { return 'view-' + monat + '-' + k; })
-            .concat(T.refs.map(function (k) { return 'ref-' + monat + '-' + k; }))
-            .concat(T.clicks.map(function (k) { return 'click-' + monat + '-' + k; }));
-    }
-
-    function render(werte) {
         body.innerHTML = '';
-        if (T.views && T.views.length) {
-            body.appendChild(abschnitt('Sichtkontakt', werte, 'view-', T.views, jetztM, vorM));
-        }
-        body.appendChild(abschnitt('Herkunft', werte, 'ref-', T.refs, jetztM, vorM));
-        body.appendChild(abschnitt('Klicks', werte, 'click-', T.clicks, jetztM, vorM));
+        if (T.views && T.views.length) body.appendChild(abschnitt('Sichtkontakt', 'view-', T.views, tag));
+        body.appendChild(abschnitt('Herkunft', 'ref-', aktiveRefs, tag));
+        body.appendChild(abschnitt('Klicks', 'click-', aktiveClicks, tag));
     }
 
-    function laden() {
-        if (geladen) return;
-        geladen = true;
-        meta.textContent = 'Seit ' + monatName(T.start) + ' erfasst · ' + monatName(jetztM) +
-                           ' (klein: ' + monatName(vorM) + ')';
-        var werte = {};
-        // aktueller Monat zuerst (laufend gezeichnet), Vormonat danach
-        getAll(keysFor(jetztM), werte, render).then(function () {
-            return getAll(keysFor(vorM), werte, render);
-        }).catch(function () {
-            body.innerHTML = '<p class="stats-empty">Zahlen konnten nicht geladen werden.</p>';
+    function oeffnen(wrap) {
+        aktiverTag = wrap;
+        tagLaden(wrap.getAttribute('data-day'), true);
+        zeichnen();
+        tip.classList.add('open');
+        tip.setAttribute('aria-hidden', 'false');
+        // waagerecht am Balken ausrichten, aber im Diagramm halten
+        var cr = chart.getBoundingClientRect(), wr = wrap.getBoundingClientRect();
+        tip.style.left = '0px';
+        var breite = tip.offsetWidth;
+        var mitte = wr.left - cr.left + wr.width / 2 - breite / 2;
+        var max = chart.clientWidth - breite - 12;
+        tip.style.left = Math.max(12, Math.min(mitte, max)) + 'px';
+    }
+    function schliessen() {
+        aktiverTag = null;
+        tip.classList.remove('open');
+        tip.setAttribute('aria-hidden', 'true');
+    }
+
+    /* ---------- Laden ---------- */
+    var aktiveRefs = [], aktiveClicks = [], indexFertig = false;
+    var tage = [], geladeneTage = {};
+
+    function tagLaden(tag, vorn) {
+        if (geladeneTage[tag]) return;
+        geladeneTage[tag] = true;
+        (T.views || []).forEach(function (k) { anfordern('view-' + tag + '-' + k, vorn, zeichnen); });
+        aktiveRefs.forEach(function (k) { anfordern('ref-' + tag + '-' + k, vorn, zeichnen); });
+        aktiveClicks.forEach(function (k) { anfordern('click-' + tag + '-' + k, vorn, zeichnen); });
+    }
+
+    function indexLaden(fertig) {
+        // Index aus dem Cache, solange er frisch ist (eine Stunde)
+        if (cache.index && Date.now() - cache.index.stand < 3600000) {
+            aktiveRefs = cache.index.refs.slice();
+            aktiveClicks = cache.index.clicks.slice();
+            indexFertig = true;
+            fertig();
+            return;
+        }
+        // Monate, die in den 14 Tagen vorkommen
+        var monate = {};
+        tage.forEach(function (t) { monate[t.slice(0, 7)] = true; });
+        var keys = [];
+        Object.keys(monate).forEach(function (m) {
+            T.refs.forEach(function (k) { keys.push(['ref', k, 'ref-' + m + '-' + k]); });
+            T.clicks.forEach(function (k) { keys.push(['click', k, 'click-' + m + '-' + k]); });
+        });
+        var rest = keys.length;
+        keys.forEach(function (eintrag) {
+            anfordern(eintrag[2], false, function (v) {
+                if (v > 0) {
+                    var liste = eintrag[0] === 'ref' ? aktiveRefs : aktiveClicks;
+                    if (liste.indexOf(eintrag[1]) === -1) liste.push(eintrag[1]);
+                }
+                if (--rest === 0) {
+                    indexFertig = true;
+                    cache.index = { refs: aktiveRefs.slice(), clicks: aktiveClicks.slice(), stand: Date.now() };
+                    cacheSchreiben();
+                    fertig();
+                }
+            });
         });
     }
 
-    host.addEventListener('mouseenter', laden);
-    host.addEventListener('focusin', laden);
-    host.addEventListener('click', function () {        // Touch: antippen schaltet um
-        laden();
-        host.classList.toggle('open');
-    });
-    document.addEventListener('click', function (e) {
-        if (!host.contains(e.target)) host.classList.remove('open');
+    document.addEventListener('oz-bars-ready', function () {
+        var wraps = [].slice.call(document.querySelectorAll('.bar-wrap'));
+        if (!wraps.length) return;
+        tage = wraps.map(function (w) { return w.getAttribute('data-day'); });
+
+        wraps.forEach(function (w) {
+            w.addEventListener('mouseenter', function () { oeffnen(w); });
+            w.addEventListener('focus', function () { oeffnen(w); });
+            w.addEventListener('click', function (e) {
+                e.stopPropagation();
+                if (aktiverTag === w) schliessen(); else oeffnen(w);   // Touch: antippen schaltet um
+            });
+        });
+        document.getElementById('bars').addEventListener('mouseleave', schliessen);
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') schliessen(); });
+        document.addEventListener('click', function (e) {
+            if (!chart.contains(e.target)) schliessen();
+        });
+
+        // Index lesen, dann die Tage vorladen — der neueste zuerst
+        indexLaden(function () {
+            tage.slice().reverse().forEach(function (t) { tagLaden(t, false); });
+            zeichnen();
+        });
     });
 })();
 </script>
+
 </body>
 </html>
