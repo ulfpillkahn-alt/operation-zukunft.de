@@ -60,6 +60,7 @@
 
         <h2>5. Zählung von Besuchen und Downloads</h2>
         <p>Um die Reichweite der Seite einschätzen zu können, zählen wir Besuche und die Downloads kostenloser Workbooks über den Zählerdienst abacus.jasoncameron.dev. Beim Seitenaufruf bzw. beim Klick auf einen Download sendet Ihr Browser eine Anfrage an diesen Dienst, die lediglich den Namen des betreffenden Zählers enthält (z.&nbsp;B. einen Tageszähler). Technisch bedingt wird dabei Ihre IP-Adresse an den Dienst übermittelt. Es werden keine Cookies gesetzt und keine Nutzerprofile gebildet; gespeichert werden ausschließlich Zählerstände.</p>
+        <p>Zusätzlich wird je Browser-Sitzung einmal die Herkunftskategorie des Besuchs gezählt (zum Beispiel Suchmaschine, soziales Netzwerk oder direkter Aufruf; ermittelt aus dem vom Browser übermittelten Referrer, gespeichert wird nur die Kategorie, nicht die Adresse) sowie Klicks auf ausgewählte Schaltflächen dieser Website. Gespeichert werden ausschließlich monatliche Summen ohne Bezug zu einzelnen Besuchern; Cookies werden nicht gesetzt. Für die Dauer der Sitzung wird im Sitzungsspeicher des Browsers ein Merker abgelegt, damit die Herkunft nicht doppelt gezählt wird.</p>
         <p>Damit ein Besuch nur einmal gezählt wird, legt die Seite im Sitzungsspeicher Ihres Browsers (sessionStorage) einen Merker ab, der beim Schließen des Tabs automatisch gelöscht wird. Rechtsgrundlage für die Zählung ist Art. 6 Abs. 1 lit. f DSGVO; unser berechtigtes Interesse liegt in der anonymen Auswertung der Nutzung unseres Angebots.</p>
 
         <h2>6. Schriftarten, Bilder und Videos</h2>
@@ -86,7 +87,7 @@
                 <a href="https://www.pillkahn.com" target="_blank" rel="noopener">pillkahn.com</a>
                 <a href="https://www.picturesofthefuture.de" target="_blank" rel="noopener">picturesofthefuture.de</a>
                 <a href="https://www.innovation-review.de" target="_blank" rel="noopener">innovation-review.de</a>
-                <a href="datenschutz.html">Datenschutz</a>
+                <a href="datenschutz.html" data-track="datenschutz">Datenschutz</a>
             </div>
             <button class="impressum-toggle" aria-expanded="false" aria-controls="impressum">Impressum ▼</button>
         </div>
@@ -106,6 +107,8 @@
 
 <!-- Seitenverhalten (Navigation, Impressum-Toggle) -->
 <script src="main.js?v=2026-11-04"></script>
+<!-- Herkunft und Klicks (Summenzähler, siehe track.js) -->
+<script src="track.js?v=2026-11-07" defer></script>
 
 </body>
 </html>

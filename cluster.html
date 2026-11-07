@@ -38,7 +38,7 @@
         <li><a href="index.html#leistungen">Beratung</a></li>
         <li><a href="index.html#publikationen">Buch &amp; Workbooks</a></li>
         <li><a href="index.html#ueber">Über mich</a></li>
-        <li><a href="cluster.html" aria-current="page">Das Cluster</a></li>
+        <li><a href="cluster.html" aria-current="page" data-track="nav-cluster">Das Cluster</a></li>
         <li><a href="index.html#kontakt">Kontakt</a></li>
     </ul>
 </nav>
@@ -73,7 +73,7 @@
           <time datetime="2026-12">Dezember 2026</time>
           <h3>Titel</h3>
           <p>Text</p>
-          <p class="logbuch-links"><a href="https://…" target="_blank" rel="noopener">… →</a></p>
+          <p class="logbuch-links"><a data-track="logbuch-extern" href="https://…" target="_blank" rel="noopener">… →</a></p>
         </article></li>
         -->
         <li><article class="logbuch-entry logbuch-entry--current reveal" id="2026-11">
@@ -87,35 +87,35 @@
             <h3>Ein neues Lab mit Robotern</h3>
             <p>Im Oktober hat das Cluster einen zweiten Arbeitsbereich bekommen: ein Lab, in dem Software-Agenten auf Hardware treffen. Die Leitfrage dort ist eine andere als bei den Rechnern. Nicht mehr „Was weiß der Agent?", sondern „Was kann er tun, wenn er Sensoren und Motoren hat?"</p>
             <p>Für die Foresight-Arbeit ist das ein Perspektivwechsel. Wer Robotik nur aus Studien kennt, unterschätzt meist die Lücke zwischen Demo und Alltag, oder überschätzt sie. Im Lab wird diese Lücke messbar. Dokumentiert wird die Arbeit unter pillka.hn.</p>
-            <p class="logbuch-links"><a href="https://pillka.hn" target="_blank" rel="noopener">pillka.hn →</a></p>
+            <p class="logbuch-links"><a data-track="logbuch-extern" href="https://pillka.hn" target="_blank" rel="noopener">pillka.hn →</a></p>
         </article></li>
         <li><article class="logbuch-entry reveal" id="2026-09">
             <p class="logbuch-date"><time datetime="2026-09">September 2026</time></p>
             <h3>squawk.de — ein eigener RAG-Dienst im Dauerbetrieb</h3>
             <p>Im September ist aus den Experimenten der Vormonate ein Dienst geworden. squawk.de ist ein RAG-Service, den ein Agent betreibt: Er wertet laufend neue Dokumente aus, ordnet sie in eine Wissensbasis ein und macht daraus abrufbare Signale.</p>
             <p>Der Schritt vom Prototyp zum Dienst ist größer, als er klingt. Ein Prototyp muss einmal funktionieren, ein Dienst jeden Tag: mit Fehlern in den Quellen, Ausfällen, wachsender Datenmenge. Genau diese Erfahrung steckt in meinem Angebot, Foresight-Agenten nicht nur aufzubauen, sondern auch zu betreiben.</p>
-            <p class="logbuch-links"><a href="https://squawk.de" target="_blank" rel="noopener">squawk.de →</a></p>
+            <p class="logbuch-links"><a data-track="logbuch-extern" href="https://squawk.de" target="_blank" rel="noopener">squawk.de →</a></p>
         </article></li>
         <li><article class="logbuch-entry reveal" id="2026-08">
             <p class="logbuch-date"><time datetime="2026-08">August 2026</time></p>
             <h3>Ein Agent entwickelt Szenarien vollständig selbst</h3>
             <p>Im August hat zum ersten Mal ein RAG-Agent den gesamten Szenarioprozess ohne mein Zutun durchlaufen. Auf picturesoftomorrow.com stellt man eine Frage an die Zukunft. Der Agent spannt daraus ein Szenariokreuz auf und erzeugt für jeden der vier Quadranten ein Zukunftsbild.</p>
             <p>Das ersetzt keine Szenarioarbeit mit Menschen, aber es verschiebt ihren Ausgangspunkt. Ein Führungsteam diskutiert dann nicht mehr vor einem leeren Flipchart, sondern über vier konkrete Bilder, an denen man sich reiben kann. Was in Workshops oft den ersten Tag kostet, liegt nach wenigen Minuten auf dem Tisch.</p>
-            <p class="logbuch-links"><a href="https://picturesoftomorrow.com" target="_blank" rel="noopener">picturesoftomorrow.com →</a></p>
+            <p class="logbuch-links"><a data-track="logbuch-extern" href="https://picturesoftomorrow.com" target="_blank" rel="noopener">picturesoftomorrow.com →</a></p>
         </article></li>
         <li><article class="logbuch-entry reveal" id="2026-07">
             <p class="logbuch-date"><time datetime="2026-07">Juli 2026</time></p>
             <h3>RAG-Agenten bauen Szenarien und beantworten Fragen</h3>
             <p>Im Juli kam die zweite Stufe: Agenten, die nicht nur auf ihr Sprachmodell zurückgreifen, sondern auf eine kuratierte Wissensbasis. Retrieval-Augmented Generation (RAG) heißt: Bevor der Agent antwortet, sucht er in ausgewählten Quellen und stützt seine Antwort darauf. Auf questionsoftomorrow.com ist das öffentlich zugänglich. Man stellt eine Frage zur Zukunft, die Agenten antworten und entwerfen Szenarien.</p>
             <p>Der Unterschied zum gewöhnlichen Chatbot ist methodisch. Die Antwort ist an einen überprüfbaren Wissensbestand gebunden, nicht an das, was ein Modell irgendwann im Training gesehen hat. Für Foresight, die von der Qualität ihrer Quellen lebt, ist das die Voraussetzung, KI ernsthaft einzusetzen.</p>
-            <p class="logbuch-links"><a href="https://questionsoftomorrow.com" target="_blank" rel="noopener">questionsoftomorrow.com →</a></p>
+            <p class="logbuch-links"><a data-track="logbuch-extern" href="https://questionsoftomorrow.com" target="_blank" rel="noopener">questionsoftomorrow.com →</a></p>
         </article></li>
         <li><article class="logbuch-entry reveal" id="2026-05">
             <p class="logbuch-date"><time datetime="2026-05">Mai 2026</time></p>
             <h3>Die ersten Hermes-Agenten gehen in Betrieb</h3>
             <p>Im Mai habe ich auf den Rechnern des Clusters die ersten Agenten auf Basis von Hermes in Betrieb genommen. Hermes Agent ist ein Open-Source-Agent von Nous Research, im Februar 2026 unter MIT-Lizenz veröffentlicht. Den Ausschlag gaben zwei Eigenschaften: Er läuft vollständig auf eigener Hardware, und er behält, was er lernt. Über Sitzungen hinweg baut er sich aus Erfahrung eigene Fähigkeiten auf.</p>
             <p>Für Foresight ist genau das entscheidend. Trendbeobachtung ist keine Einzelabfrage, sondern ein Gedächtnis, das sich über Monate anreichert. Ein Agent, der jeden Morgen bei null beginnt, erkennt keine schwachen Signale, weil er nie weiß, was gestern anders war.</p>
-            <p class="logbuch-links"><a href="https://nousresearch.com" target="_blank" rel="noopener">Nous Research →</a> <a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">Hermes Agent auf GitHub →</a></p>
+            <p class="logbuch-links"><a data-track="logbuch-extern" href="https://nousresearch.com" target="_blank" rel="noopener">Nous Research →</a> <a data-track="logbuch-extern" href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">Hermes Agent auf GitHub →</a></p>
         </article></li>
     </ol>
 </section>
@@ -207,7 +207,7 @@
 
         <!-- Rückweg zum Angebot -->
         <div class="cluster-back reveal">
-            <a href="index.html#angebote" class="btn btn-primary">Foresight-Agenten für Ihr Unternehmen →</a>
+            <a href="index.html#angebote" class="btn btn-primary" data-track="cluster-zurueck-angebote">Foresight-Agenten für Ihr Unternehmen →</a>
         </div>
     </div>
 </section>
@@ -244,7 +244,7 @@
                 <a href="https://www.pillkahn.com" target="_blank" rel="noopener">pillkahn.com</a>
                 <a href="https://www.picturesofthefuture.de" target="_blank" rel="noopener">picturesofthefuture.de</a>
                 <a href="https://www.innovation-review.de" target="_blank" rel="noopener">innovation-review.de</a>
-                <a href="datenschutz.html">Datenschutz</a>
+                <a href="datenschutz.html" data-track="datenschutz">Datenschutz</a>
             </div>
             <button class="impressum-toggle" aria-expanded="false" aria-controls="impressum">Impressum ▼</button>
         </div>
@@ -266,6 +266,8 @@
 <script src="posts.js"></script>
 <!-- Seitenverhalten -->
 <script src="main.js?v=2026-11-04"></script>
+<!-- Herkunft und Klicks (Summenzähler, siehe track.js) -->
+<script src="track.js?v=2026-11-07" defer></script>
 
 </body>
 </html>

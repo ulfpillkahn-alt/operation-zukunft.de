@@ -40,6 +40,53 @@
         .bar-count { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: var(--text-secondary); }
         .note { font-size: 0.75rem; color: var(--text-dim); margin-top: 1.5rem; line-height: 1.6; }
         @media (max-width: 520px) { .kpis { grid-template-columns: 1fr; } .bar-label { display: none; } }
+
+        /* ---------- Aufschlüsselung: Herkunft und Klicks (Hover/Fokus/Tipp) ---------- */
+        .stats-host { position: relative; cursor: help; }
+        .stats-host:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+        .stats-hint {
+            font-family: 'JetBrains Mono', monospace; font-size: 0.55rem;
+            color: var(--text-dim); letter-spacing: 0.1em; text-transform: uppercase;
+            margin-top: 0.3rem;
+        }
+        .stats-tip {
+            position: absolute; z-index: 20; top: calc(100% + 0.6rem); left: 0;
+            width: max-content; max-width: min(27rem, calc(100vw - 2.5rem));
+            background: #0e1522; border: 1px solid var(--accent-dim); border-radius: 8px;
+            padding: 0.9rem 1rem;
+            box-shadow: 0 18px 44px rgba(0,0,0,0.6), 0 0 36px var(--glow);
+            opacity: 0; visibility: hidden; transform: translateY(-4px);
+            transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+            text-align: left;
+        }
+        .stats-host:hover .stats-tip,
+        .stats-host:focus-within .stats-tip,
+        .stats-host.open .stats-tip { opacity: 1; visibility: visible; transform: translateY(0); }
+        .stats-tip-meta {
+            font-family: 'JetBrains Mono', monospace; font-size: 0.56rem;
+            color: var(--text-dim); letter-spacing: 0.1em; text-transform: uppercase;
+            padding-bottom: 0.5rem; margin-bottom: 0.6rem; border-bottom: 1px solid var(--border);
+        }
+        .stats-tip h3 {
+            font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; font-weight: 500;
+            color: var(--accent); letter-spacing: 0.14em; text-transform: uppercase;
+            margin: 0.8rem 0 0.35rem;
+        }
+        .stats-tip h3:first-of-type { margin-top: 0; }
+        .stats-row {
+            display: flex; align-items: baseline; gap: 0.6rem;
+            font-size: 0.78rem; color: var(--text-secondary);
+            padding: 0.12rem 0;
+        }
+        .stats-row-name { flex: 1 1 auto; min-width: 0; }
+        .stats-row-now {
+            font-family: 'JetBrains Mono', monospace; font-size: 0.8rem;
+            color: var(--text-primary); font-weight: 500;
+        }
+        .stats-row-prev { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; color: var(--text-dim); min-width: 2.2rem; text-align: right; }
+        .stats-empty { font-size: 0.74rem; color: var(--text-dim); }
+        @media (max-width: 520px) { .stats-tip { left: 50%; transform: translate(-50%, -4px); }
+            .stats-host:hover .stats-tip, .stats-host:focus-within .stats-tip, .stats-host.open .stats-tip { transform: translate(-50%, 0); } }
     </style>
 </head>
 <body>
@@ -49,14 +96,27 @@
     <div class="kpis">
         <div class="kpi"><div class="kpi-label">Heute</div><div class="kpi-value" id="k-heute">–</div></div>
         <div class="kpi"><div class="kpi-label">14 Tage</div><div class="kpi-value" id="k-14">–</div></div>
-        <div class="kpi"><div class="kpi-label">Gesamt seit 09/2026</div><div class="kpi-value" id="k-total">–</div></div>
+        <div class="kpi stats-host" id="stats-host" tabindex="0" aria-describedby="stats-tip">
+            <div class="kpi-label">Gesamt seit 09/2026</div>
+            <div class="kpi-value" id="k-total">–</div>
+            <div class="stats-hint">Herkunft &amp; Klicks ▾</div>
+            <div class="stats-tip" id="stats-tip" role="tooltip">
+                <div class="stats-tip-meta" id="stats-tip-meta">wird geladen …</div>
+                <div id="stats-tip-body"><p class="stats-empty">wird geladen …</p></div>
+            </div>
+        </div>
     </div>
     <div class="chart">
         <div class="chart-title">Letzte 14 Tage</div>
         <div class="bars" id="bars"></div>
     </div>
-    <p class="note">Zählung: einmal pro Browser-Sitzung, über Abacus (abacus.jasoncameron.dev) — GitHub Pages führt kein PHP aus, daher weicht die Technik vom /stats-Muster der all-inkl-Seiten ab. Keine IPs, keine Cookies.</p>
+    <p class="note">Zählung: einmal pro Browser-Sitzung, über Abacus (abacus.jasoncameron.dev) — GitHub Pages führt kein PHP aus, daher weicht die Technik vom /stats-Muster der all-inkl-Seiten ab. Keine IPs, keine Cookies. Herkunft und Klicks werden als Monatssummen erfasst (siehe track.js); die Aufschlüsselung erscheint beim Überfahren der Gesamtzahl.</p>
 </div>
+
+<!-- Liefert die Listen (OZ_TRACK). Zählt auf dieser Seite nichts: track.js
+     erkennt den Pfad /stats bzw. /stats.html und hält sich dort heraus. So
+     gibt es die Whitelists nur einmal, statt sie hier zu kopieren. -->
+<script src="track.js?v=2026-11-07"></script>
 <script>
 (function () {
     var NS = 'operation-zukunft.de';
@@ -98,6 +158,185 @@
                 bars.appendChild(wrap);
             });
         });
+})();
+</script>
+
+<!-- ============================================================
+     Aufschlüsselung: Herkunft und Klicks
+     Abacus erlaubt 30 Anfragen je 10 Sekunden und keine Sammelabfrage.
+     43 Schlüssel × 2 Monate wären ~86 Anfragen — deshalb wird erst beim
+     Öffnen des Tooltips geladen, in Blöcken, aktueller Monat zuerst.
+     ============================================================ -->
+<script>
+(function () {
+    var T = window.OZ_TRACK;
+    if (!T) return;                                   // track.js fehlt → Tooltip bleibt stumm
+
+    var BASE = 'https://abacus.jasoncameron.dev/get/' + T.ns + '/';
+    /* Abacus erlaubt 30 Anfragen je 10 Sekunden und kennt keine
+       Sammelabfrage. Statt in Blöcken zu feuern (und dabei in 429er zu
+       laufen) geht alle 380 ms genau eine Anfrage raus — gut 26 je
+       10 Sekunden, mit Luft für die Abfragen der Tagesbalken. */
+    var TAKT = 380;
+
+    /* Lesbare Bezeichnungen statt Schlüsselnamen */
+    var LABEL = {
+        direkt: 'Direkt eingegeben', google: 'Google', bing: 'Bing', duckduckgo: 'DuckDuckGo',
+        ecosia: 'Ecosia', chatgpt: 'ChatGPT', perplexity: 'Perplexity', claude: 'Claude',
+        gemini: 'Gemini', linkedin: 'LinkedIn', x: 'X / Twitter', meta: 'Facebook / Instagram',
+        xing: 'Xing', youtube: 'YouTube',
+        'pillka-hn': 'pillka.hn', 'pillkahn-de': 'pillkahn.de', 'pillkahn-com': 'pillkahn.com',
+        picturesoftomorrow: 'picturesoftomorrow.com', questionsoftomorrow: 'questionsoftomorrow.com',
+        squawk: 'squawk.de', 'beatles-cluster': 'beatles-cluster.de', nowplus10: 'nowplus10.com',
+        'flipped-foresight': 'flipped-foresight.com', 'foresight-review': 'foresight-review.com',
+        'innovation-review': 'innovation-review.com', 'technology-review': 'technology-review.com',
+        andere: 'Andere Seiten',
+
+        'angebot-workshop': 'Angebot Workshop (Karte)', 'angebot-agenten': 'Angebot Agenten (Karte)',
+        'angebot-cluster': 'Cluster-Link (Karte)',
+        'beratung-agenten': 'Beratung: Agenten-Projekt', 'beratung-workshop': 'Beratung: Workshop',
+        vortrag: 'Vortrag anfragen', forschung: 'Forschung anfragen',
+        'kontakt-workshop': 'Kontakt: Workshop', 'kontakt-agenten': 'Kontakt: Agenten-Projekt',
+        'kontakt-vortrag': 'Kontakt: Vortrag', 'kontakt-forschung': 'Kontakt: Forschung',
+        'nav-cluster': 'Navigation: Das Cluster', 'cluster-zurueck-angebote': 'Cluster → Angebote',
+        'blog-beitrag': 'Blog-Beitrag (Leiste)', 'logbuch-extern': 'Logbuch: externer Link',
+        datenschutz: 'Datenschutz (Fußzeile)'
+    };
+    var MONATE = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+    function monatName(m) { var p = m.split('-'); return MONATE[parseInt(p[1], 10) - 1] + ' ' + p[0]; }
+
+    function vormonat(m) {
+        var p = m.split('-'), y = +p[0], mm = +p[1] - 1;
+        if (mm === 0) { mm = 12; y -= 1; }
+        return y + '-' + ('0' + mm).slice(-2);
+    }
+
+    /* Globale Bremse: Meldet der Dienst 429, pausiert die Warteschlange,
+       bis das Zeitfenster wieder offen ist. */
+    var sperreBis = 0;
+
+    /* Ein Wert: 404 heißt „nie gezählt" = 0, 429 heißt „später nochmal"
+       (liefert 'retry'), echter Fehler = null (zeigt „–"). */
+    function get(key) {
+        return fetch(BASE + key)
+            .then(function (r) {
+                if (r.status === 404) return 0;
+                if (r.status === 429) {
+                    var s = parseInt(r.headers.get('RateLimit-Reset') || '', 10);
+                    if (!isFinite(s) || s < 1 || s > 60) s = 4;
+                    sperreBis = Date.now() + (s + 1) * 1000;
+                    return 'retry';
+                }
+                if (!r.ok) return null;
+                return r.json().then(function (d) { return typeof d.value === 'number' ? d.value : 0; });
+            })
+            .catch(function () { return null; });
+    }
+
+    /* Gleichmäßig getaktet abfragen und laufend zeichnen, damit der
+       Tooltip sofort zeigt, was schon da ist. Abgewiesene Schlüssel
+       wandern ans Ende der Schlange (höchstens dreimal). */
+    function getAll(keys, out, onUpdate) {
+        var warteschlange = keys.slice(), versuche = {}, offen = 0, fertig;
+        var p = new Promise(function (r) { fertig = r; });
+        var zuletzt = 0;
+        function zeichnen(sofort) {
+            var now = Date.now();
+            if (sofort || now - zuletzt > 600) { zuletzt = now; if (onUpdate) onUpdate(out); }
+        }
+        var timer = setInterval(function () {
+            if (Date.now() < sperreBis) return;                 // Limit: kurz stillhalten
+            if (!warteschlange.length) {
+                if (offen === 0) { clearInterval(timer); zeichnen(true); fertig(out); }
+                return;
+            }
+            var key = warteschlange.shift(); offen++;
+            get(key).then(function (v) {
+                offen--;
+                if (v === 'retry') {
+                    versuche[key] = (versuche[key] || 0) + 1;
+                    if (versuche[key] <= 3) { warteschlange.push(key); return; }
+                    v = null;
+                }
+                out[key] = v;
+                zeichnen(false);
+            });
+        }, TAKT);
+        return p;
+    }
+
+    function zeile(name, jetzt, vorher) {
+        var row = document.createElement('div'); row.className = 'stats-row';
+        var n = document.createElement('span'); n.className = 'stats-row-name'; n.textContent = name;
+        var a = document.createElement('span'); a.className = 'stats-row-now';
+        a.textContent = (jetzt === null) ? '–' : jetzt.toLocaleString('de-DE');
+        var b = document.createElement('span'); b.className = 'stats-row-prev';
+        b.textContent = (vorher === null) ? '–' : (vorher ? vorher.toLocaleString('de-DE') : '');
+        row.appendChild(n); row.appendChild(a); row.appendChild(b);
+        return row;
+    }
+
+    function abschnitt(titel, werte, praefix, liste, jetztM, vorM) {
+        var frag = document.createDocumentFragment();
+        var h = document.createElement('h3'); h.textContent = titel; frag.appendChild(h);
+        var zeilen = liste.map(function (k) {
+            return { k: k, jetzt: werte[praefix + jetztM + '-' + k], vorher: werte[praefix + vorM + '-' + k] };
+        }).filter(function (e) {
+            return e.jetzt === null || e.vorher === null || e.jetzt > 0 || e.vorher > 0;
+        }).sort(function (a, b) { return (b.jetzt || 0) - (a.jetzt || 0); });
+
+        if (!zeilen.length) {
+            var p = document.createElement('p'); p.className = 'stats-empty';
+            p.textContent = 'noch nichts gezählt';
+            frag.appendChild(p);
+        } else {
+            zeilen.forEach(function (e) { frag.appendChild(zeile(LABEL[e.k] || e.k, e.jetzt, e.vorher)); });
+        }
+        return frag;
+    }
+
+    var host = document.getElementById('stats-host');
+    var body = document.getElementById('stats-tip-body');
+    var meta = document.getElementById('stats-tip-meta');
+    if (!host || !body) return;
+
+    var jetztM = T.month(), vorM = vormonat(jetztM);
+    var geladen = false;
+
+    function keysFor(monat) {
+        return T.refs.map(function (k) { return 'ref-' + monat + '-' + k; })
+            .concat(T.clicks.map(function (k) { return 'click-' + monat + '-' + k; }));
+    }
+
+    function render(werte) {
+        body.innerHTML = '';
+        body.appendChild(abschnitt('Herkunft', werte, 'ref-', T.refs, jetztM, vorM));
+        body.appendChild(abschnitt('Klicks', werte, 'click-', T.clicks, jetztM, vorM));
+    }
+
+    function laden() {
+        if (geladen) return;
+        geladen = true;
+        meta.textContent = 'Seit ' + monatName(T.start) + ' erfasst · ' + monatName(jetztM) +
+                           ' (klein: ' + monatName(vorM) + ')';
+        var werte = {};
+        // aktueller Monat zuerst (laufend gezeichnet), Vormonat danach
+        getAll(keysFor(jetztM), werte, render).then(function () {
+            return getAll(keysFor(vorM), werte, render);
+        }).catch(function () {
+            body.innerHTML = '<p class="stats-empty">Zahlen konnten nicht geladen werden.</p>';
+        });
+    }
+
+    host.addEventListener('mouseenter', laden);
+    host.addEventListener('focusin', laden);
+    host.addEventListener('click', function () {        // Touch: antippen schaltet um
+        laden();
+        host.classList.toggle('open');
+    });
+    document.addEventListener('click', function (e) {
+        if (!host.contains(e.target)) host.classList.remove('open');
+    });
 })();
 </script>
 </body>
