@@ -111,7 +111,7 @@
 <!-- Liefert die Listen (OZ_TRACK). Zählt auf dieser Seite nichts: track.js
      erkennt den Pfad /stats bzw. /stats.html und hält sich dort heraus. So
      gibt es die Whitelists nur einmal, statt sie hier zu kopieren. -->
-<script src="track.js?v=2026-11-07d"></script>
+<script src="track.js?v=2026-11-07e"></script>
 <script>
 (function () {
     var NS = 'operation-zukunft.de';
@@ -188,7 +188,8 @@
     if (!T) return;
 
     var BASE = 'https://abacus.jasoncameron.dev/get/' + T.ns + '/';
-    var TAKT = 380;                 // ~26 Anfragen je 10 s, Limit sind 30
+    var TAKT = 520;                 // ~19 Anfragen je 10 s; Limit sind 30,
+                                    // der Rest bleibt für die Balken frei
 
     var LABEL = {
         direkt: 'Direkt eingegeben', google: 'Google', bing: 'Bing', duckduckgo: 'DuckDuckGo',
@@ -226,10 +227,15 @@
             .then(function (r) {
                 if (r.status === 404) return 0;
                 if (r.status === 429) {
-                    var sek = parseInt(r.headers.get('RateLimit-Reset') || '', 10);
-                    if (!isFinite(sek) || sek < 1 || sek > 60) sek = 4;
-                    sperreBis = Date.now() + (sek + 1) * 1000;
-                    return 'retry';
+                    // Die RateLimit-Header sind per CORS nicht lesbar; die
+                    // Wartezeit steht aber im Text: „Try again in 4.9s"
+                    return r.text().then(function (txt) {
+                        var m = /([\d.]+)s/.exec(txt || '');
+                        var sek = m ? parseFloat(m[1]) : 5;
+                        if (!isFinite(sek) || sek < 1 || sek > 60) sek = 5;
+                        sperreBis = Date.now() + (sek + 1) * 1000;
+                        return 'retry';
+                    }).catch(function () { sperreBis = Date.now() + 6000; return 'retry'; });
                 }
                 if (!r.ok) return null;
                 return r.json().then(function (d) { return typeof d.value === 'number' ? d.value : 0; });
@@ -356,6 +362,15 @@
     }
 
     /* ---------- Laden ---------- */
+    var hinweis = document.querySelector('.chart-hint');
+    var hinweisText = hinweis ? hinweis.textContent : '';
+    function fortschritt(fertig, gesamt) {
+        if (!hinweis) return;
+        hinweis.textContent = (fertig >= gesamt)
+            ? hinweisText
+            : '— Aufschlüsselung wird vorbereitet … (' + fertig + '/' + gesamt + ')';
+    }
+
     var aktiveRefs = [], aktiveClicks = [], indexFertig = false;
     var tage = [], geladeneTage = {};
 
@@ -369,24 +384,25 @@
 
     function indexLaden(fertig) {
         // Index aus dem Cache, solange er frisch ist (eine Stunde)
-        if (cache.index && Date.now() - cache.index.stand < 3600000) {
+        if (cache.index && Date.now() - cache.index.stand < 86400000) {
             aktiveRefs = cache.index.refs.slice();
             aktiveClicks = cache.index.clicks.slice();
             indexFertig = true;
+            fortschritt(1, 1);
             fertig();
             return;
         }
-        // Monate, die in den 14 Tagen vorkommen
-        var monate = {};
-        tage.forEach(function (t) { monate[t.slice(0, 7)] = true; });
+        // Nur der laufende Monat: Er enthält alles, was aktuell vorkommt,
+        // und kostet 43 statt 86 Abfragen.
+        var m = T.month();
         var keys = [];
-        Object.keys(monate).forEach(function (m) {
-            T.refs.forEach(function (k) { keys.push(['ref', k, 'ref-' + m + '-' + k]); });
-            T.clicks.forEach(function (k) { keys.push(['click', k, 'click-' + m + '-' + k]); });
-        });
-        var rest = keys.length;
+        T.refs.forEach(function (k) { keys.push(['ref', k, 'ref-' + m + '-' + k]); });
+        T.clicks.forEach(function (k) { keys.push(['click', k, 'click-' + m + '-' + k]); });
+        var rest = keys.length, gesamt = keys.length;
+        fortschritt(0, gesamt);
         keys.forEach(function (eintrag) {
             anfordern(eintrag[2], false, function (v) {
+                fortschritt(gesamt - rest + 1, gesamt);
                 if (v > 0) {
                     var liste = eintrag[0] === 'ref' ? aktiveRefs : aktiveClicks;
                     if (liste.indexOf(eintrag[1]) === -1) liste.push(eintrag[1]);
@@ -420,9 +436,12 @@
             if (!chart.contains(e.target)) schliessen();
         });
 
-        // Index lesen, dann die Tage vorladen — der neueste zuerst
+        // Erst den Index lesen; die Tageswerte kommen dann beim Ansehen
+        // eines Balkens dazu (wenige Abfragen, weil nur die Kategorien
+        // geholt werden, die im Monat überhaupt vorkommen).
         indexLaden(function () {
-            tage.slice().reverse().forEach(function (t) { tagLaden(t, false); });
+            if (aktiverTag) tagLaden(aktiverTag.getAttribute('data-day'), true);
+            tagLaden(tage[tage.length - 1], false);   // heute im Hintergrund
             zeichnen();
         });
     });
