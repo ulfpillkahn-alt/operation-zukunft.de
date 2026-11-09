@@ -5,7 +5,13 @@
        gehoeren NICHT in die Sitemap: Google ignoriert Fragmente. -->
   <url>
     <loc>https://operation-zukunft.de/</loc>
-    <lastmod>2026-11-07</lastmod>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+
+  <!-- Unterseite: Szenarien als Film -->
+  <url>
+    <loc>https://operation-zukunft.de/szenariofilme.html</loc>
+    <lastmod>2026-11-09</lastmod>
   </url>
 
   <!-- Unterseite: das Agenten-Cluster -->

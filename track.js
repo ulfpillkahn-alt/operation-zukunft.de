@@ -32,7 +32,8 @@
         clicks: ['angebot-workshop','angebot-agenten','angebot-cluster',
                  'beratung-agenten','beratung-workshop','vortrag','forschung',
                  'kontakt-workshop','kontakt-agenten','kontakt-vortrag','kontakt-forschung',
-                 'nav-cluster','cluster-zurueck-angebote','blog-beitrag','logbuch-extern','datenschutz'],
+                 'nav-cluster','cluster-zurueck-angebote','blog-beitrag','logbuch-extern','datenschutz',
+                 'band-szenariofilm','szenariofilm-anfrage','szenariofilm-play'],
         /* Sichtkontakt: Seit dem Problemblock (07.11.2026) stehen die
            Angebotskarten unter der Falz. Ohne diesen Zähler liesse sich
            nicht unterscheiden, ob Besucher die Angebote gar nicht sehen
@@ -190,9 +191,23 @@
         io.observe(ziel);
     }
 
+    /* Start des Erklärfilms auf szenariofilme.html: einmal je Seitenaufruf.
+       Nur dieses eine Video — die vier stummen Kachel-Videos starten von
+       selbst und würden den Zähler sonst mit jedem Scrollen hochtreiben. */
+    function initFilm() {
+        var film = document.getElementById('film-erklaer');
+        if (!film) return;
+        var gezaehlt = false;
+        film.addEventListener('play', function () {
+            if (gezaehlt) return;
+            gezaehlt = true;
+            hit('click-', 'szenariofilm-play');
+        });
+    }
+
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', function () { countRef(); initClicks(); initViews(); });
+        document.addEventListener('DOMContentLoaded', function () { countRef(); initClicks(); initViews(); initFilm(); });
     } else {
-        countRef(); initClicks(); initViews();
+        countRef(); initClicks(); initViews(); initFilm();
     }
 })();
