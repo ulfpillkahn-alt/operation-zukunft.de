@@ -35,23 +35,93 @@
 
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "Operation Zukunft",
-        "description": "Foresight-Leistungen mit KI-Schwerpunkt: Beratung, Vorträge, Forschung. Betrieben mit einem Cluster autonomer KI-Agenten für Recherche, Szenarienentwicklung und Veröffentlichung.",
-        "url": "https://operation-zukunft.de",
-        "founder": {
-            "@type": "Person",
-            "name": "Prof. Dr. Ulf Pillkahn",
-            "image": "https://operation-zukunft.de/img/portrait-pillkahn.jpg",
-            "jobTitle": "Professor für Innovationsmanagement",
-            "affiliation": { "@type": "Organization", "name": "FOM Hochschule" }
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://operation-zukunft.de/#org",
+          "name": "Operation Zukunft",
+          "url": "https://operation-zukunft.de/",
+          "logo": "https://operation-zukunft.de/videos/hero-poster.jpg",
+          "image": "https://operation-zukunft.de/videos/hero-poster.jpg",
+          "description": "Beratung für Corporate Foresight, strategische Frühaufklärung und KI-gestützte Strategieentwicklung; Aufbau und Betrieb von KI-Agenten für Agentic und Continuous Foresight.",
+          "founder": { "@id": "https://operation-zukunft.de/#person" },
+          "email": "info@operation-zukunft.de",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Maxhofstraße 28",
+            "postalCode": "81475",
+            "addressLocality": "München",
+            "addressCountry": "DE"
+          },
+          "areaServed": ["DE", "AT", "CH"],
+          "knowsAbout": [
+            "Corporate Foresight",
+            "Strategische Vorausschau",
+            "Strategische Frühaufklärung",
+            "KI-Frühwarnsysteme",
+            "Agentic Foresight",
+            "Continuous Foresight",
+            "Szenarioentwicklung",
+            "KI-gestützte Strategieentwicklung",
+            "KI-Agenten",
+            "Innovationsmanagement"
+          ],
+          "sameAs": ["https://www.picturesoftomorrow.com"]
         },
-        "sameAs": [
+        {
+          "@type": "Person",
+          "@id": "https://operation-zukunft.de/#person",
+          "name": "Prof. Dr. Ulf Pillkahn",
+          "jobTitle": "Professor für Innovations- und Technologiemanagement",
+          "image": "https://operation-zukunft.de/img/portrait-pillkahn.jpg",
+          "worksFor": { "@id": "https://operation-zukunft.de/#org" },
+          "affiliation": [{ "@type": "CollegeOrUniversity", "name": "FOM Hochschule" }],
+          "alumniOf": { "@type": "CollegeOrUniversity", "name": "Ludwig-Maximilians-Universität München" },
+          "sameAs": [
             "https://www.linkedin.com/in/prof-dr-ulf-pillkahn-1b7a6131/",
-            "https://www.pillkahn.com",
-            "https://www.picturesofthefuture.de"
-        ]
+            "https://www.pillkahn.com"
+          ]
+        },
+        {
+          "@type": "Service",
+          "@id": "https://operation-zukunft.de/#workshop",
+          "name": "Orientierungsworkshop: KI für Innovation und Foresight",
+          "serviceType": "Beratung",
+          "description": "Standortbestimmung zum KI-Einsatz in Innovation und Foresight: halb- oder ganztägiger Workshop mit dem Führungs- oder Innovationsteam, vor Ort oder remote. Ergebnis: priorisierte Einsatzfelder, ein Fahrplan zur Befähigung der Teams und ein konkreter nächster Schritt.",
+          "url": "https://operation-zukunft.de/#angebote",
+          "areaServed": ["DE", "AT", "CH"],
+          "provider": { "@id": "https://operation-zukunft.de/#org" },
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "EUR",
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "minPrice": 1500,
+              "priceCurrency": "EUR",
+              "valueAddedTaxIncluded": false
+            }
+          }
+        },
+        {
+          "@type": "Service",
+          "@id": "https://operation-zukunft.de/#agenten",
+          "name": "KI-Agenten für Innovation und Foresight",
+          "serviceType": "Aufbau und Betrieb von KI-Agenten",
+          "description": "Konzeption, Aufbau, Inbetriebnahme und laufender Betrieb eines Agenten-Systems für Recherche, Trendbeobachtung, Frühaufklärung und Szenarien – Continuous Foresight statt einmaliger Studie.",
+          "url": "https://operation-zukunft.de/#angebote",
+          "areaServed": ["DE", "AT", "CH"],
+          "provider": { "@id": "https://operation-zukunft.de/#org" }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://operation-zukunft.de/#website",
+          "url": "https://operation-zukunft.de/",
+          "name": "Operation Zukunft",
+          "inLanguage": "de",
+          "publisher": { "@id": "https://operation-zukunft.de/#org" }
+        }
+      ]
     }
     </script>
     <script type="application/ld+json">
@@ -59,7 +129,7 @@
         "@context": "https://schema.org",
         "@type": "Book",
         "name": "The Automated Future",
-        "author": { "@type": "Person", "name": "Prof. Dr. Ulf Pillkahn" },
+        "author": { "@id": "https://operation-zukunft.de/#person" },
         "isbn": "9798254694953",
         "description": "Wie KI Foresight, Strategieplanung und Innovationsmanagement revolutioniert. Mit Kapitel zu OpenClaw.",
         "inLanguage": "de",
@@ -72,44 +142,9 @@
         "@type": "Book",
         "name": "Flipped Foresight",
         "alternateName": "Flipped Foresight – Wie Maschinen Zukünfte entwerfen und Menschen entscheiden",
-        "author": { "@type": "Person", "name": "Ulf Pillkahn" },
+        "author": { "@id": "https://operation-zukunft.de/#person" },
         "description": "Wie Maschinen Zukünfte entwerfen und Menschen entscheiden. KI-gestützte Szenarioarbeit: Referenzmodell mit 4 Phasen und 5 Prinzipien, Szenario-Engine zum Nachbauen.",
         "inLanguage": "de"
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@graph": [
-            {
-                "@type": "Service",
-                "name": "Orientierungsworkshop: KI für Innovation und Foresight",
-                "serviceType": "Beratung",
-                "description": "Standortbestimmung zum KI-Einsatz: halb- oder ganztägiger Workshop mit dem Führungsteam, vor Ort oder remote. Ergebnis: priorisierte Einsatzfelder und ein konkreter nächster Schritt.",
-                "url": "https://operation-zukunft.de/#angebote",
-                "areaServed": "DE",
-                "provider": { "@type": "Person", "name": "Prof. Dr. Ulf Pillkahn" },
-                "offers": {
-                    "@type": "Offer",
-                    "priceCurrency": "EUR",
-                    "priceSpecification": {
-                        "@type": "PriceSpecification",
-                        "minPrice": 1500,
-                        "priceCurrency": "EUR",
-                        "valueAddedTaxIncluded": false
-                    }
-                }
-            },
-            {
-                "@type": "Service",
-                "name": "KI-Agenten für Innovation und Foresight",
-                "serviceType": "Aufbau und Betrieb von KI-Agenten",
-                "description": "Konzeption, Aufbau, Inbetriebnahme und laufender Betrieb eines Agenten-Systems für Recherche, Trendbeobachtung und Szenarien.",
-                "url": "https://operation-zukunft.de/#angebote",
-                "areaServed": "DE",
-                "provider": { "@type": "Person", "name": "Prof. Dr. Ulf Pillkahn" }
-            }
-        ]
     }
     </script>
 
