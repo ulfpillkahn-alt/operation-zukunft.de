@@ -2,6 +2,17 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
+    <!-- Alte WordPress-URLs (?page_id=, ?p=, ?cat=, ?tag=, ?s=) auf neue Ziele umleiten -->
+    <script>
+    (function () {
+      var q = location.search;
+      if (!/[?&](page_id|p|cat|tag|s|feed)=/.test(q)) return;
+      var ziel = '/';
+      if (/[?&]p=103(&|$)/.test(q)) ziel = '/blog/lebenszyklus-innovationen.html';
+      else if (/[?&]page_id=40(&|$)/.test(q)) ziel = '/#leistungen';
+      location.replace(ziel);
+    })();
+    </script>
     <!-- Alte Deep-Links auf das Cluster (#cluster) führen auf die Unterseite -->
     <script>if (location.hash === '#cluster') location.replace('cluster.html');</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
