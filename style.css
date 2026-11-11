@@ -1348,3 +1348,22 @@ picture img { height: auto; }
   white-space: normal;
   line-height: 1.35;
 }
+
+/* ============================================================
+   CLUSTER-STANDARD (11.11.2026)
+   Kernsatz in "Über mich", Stand-Zeile auf Unterseiten.
+   ============================================================ */
+.about-kernsatz a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-soft);
+}
+.about-kernsatz a:hover { border-bottom-color: var(--accent); }
+
+.seitenstand {
+    margin: 2.5rem 0 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    color: var(--text-dim);
+}
