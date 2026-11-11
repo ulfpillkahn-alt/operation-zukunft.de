@@ -2,108 +2,199 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
+    <!-- Alte WordPress-URLs (?page_id=, ?p=, ?cat=, ?tag=, ?s=) auf neue Ziele umleiten -->
+    <script>
+    (function () {
+      var q = location.search;
+      if (!/[?&](page_id|p|cat|tag|s|feed)=/.test(q)) return;
+      var ziel = '/';
+      if (/[?&]p=103(&|$)/.test(q)) ziel = '/blog/lebenszyklus-innovationen.html';
+      else if (/[?&]page_id=40(&|$)/.test(q)) ziel = '/#leistungen';
+      location.replace(ziel);
+    })();
+    </script>
     <!-- Alte Deep-Links auf das Cluster (#cluster) führen auf die Unterseite -->
     <script>if (location.hash === '#cluster') location.replace('cluster.html');</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Operation Zukunft | Zukunft entdecken mit KI – Innovation &amp; Foresight mit KI-Agenten</title>
-    <meta name="description" content="KI für Innovation und Foresight: Orientierungsworkshop ab 1.500 €, der Teams und Prozesse KI-fit macht, sowie Aufbau und Betrieb von KI-Agenten für Innovation und Foresight. Prof. Dr. Ulf Pillkahn, München.">
-    <meta name="keywords" content="Flipped Foresight, Szenarien, KI Agenten, Agenten-Cluster, Foresight, Strategieentwicklung, Innovationsmanagement, OpenClaw, Zukunftsforschung, Prof. Pillkahn, Automated Future, autonome Agenten">
-    <meta name="author" content="Prof. Dr. Ulf Pillkahn">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://operation-zukunft.de">
-
-    <meta property="og:title" content="Zukunft entdecken mit KI – Innovation &amp; Foresight mit KI-Agenten">
-    <meta property="og:description" content="KI für Innovation und Foresight: Orientierungsworkshop ab 1.500 €, der Teams und Prozesse KI-fit macht, sowie Aufbau und Betrieb von KI-Agenten für Innovation und Foresight. Prof. Dr. Ulf Pillkahn, München.">
+    <title>KI für Foresight &amp; Innovation | Operation Zukunft</title>
+    <meta name="description" content="Corporate Foresight mit KI: Orientierungsworkshop ab 1.500 € und KI-Agenten für Frühaufklärung, Szenarien und Strategie. Prof. Dr. Ulf Pillkahn, München.">
+    <link rel="canonical" href="https://operation-zukunft.de/">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://operation-zukunft.de">
+    <meta property="og:site_name" content="Operation Zukunft">
     <meta property="og:locale" content="de_DE">
+    <meta property="og:url" content="https://operation-zukunft.de/">
+    <meta property="og:title" content="KI für Foresight &amp; Innovation | Operation Zukunft">
+    <meta property="og:description" content="Corporate Foresight mit KI: Orientierungsworkshop ab 1.500 € und KI-Agenten für Frühaufklärung, Szenarien und Strategie. Prof. Dr. Ulf Pillkahn, München.">
     <meta property="og:image" content="https://operation-zukunft.de/videos/hero-poster.jpg">
+    <meta property="og:image:width" content="1920">
+    <meta property="og:image:height" content="1080">
+    <meta property="og:image:alt" content="Operation Zukunft – Foresight und KI-Agenten">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Zukunft entdecken mit KI – Innovation &amp; Foresight mit KI-Agenten">
-    <meta name="twitter:description" content="KI für Innovation und Foresight: Orientierungsworkshop ab 1.500 €, sowie Aufbau und Betrieb von KI-Agenten für Innovation und Foresight.">
+    <meta name="twitter:creator" content="@Ulf_Pillkahn">
+    <meta name="twitter:title" content="KI für Foresight &amp; Innovation | Operation Zukunft">
+    <meta name="twitter:description" content="Corporate Foresight mit KI: Orientierungsworkshop ab 1.500 € und KI-Agenten für Frühaufklärung, Szenarien und Strategie. Prof. Dr. Ulf Pillkahn, München.">
     <meta name="twitter:image" content="https://operation-zukunft.de/videos/hero-poster.jpg">
+    <meta name="twitter:image:alt" content="Operation Zukunft – Foresight und KI-Agenten">
+    <meta name="robots" content="index, follow">
 
+
+
+    <link rel="stylesheet" href="style.css?v=2026-11-11b">
+    <!-- Strukturdaten: generiert von pflege/seo.py nach dem Cluster-Standard -->
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "Operation Zukunft",
-        "description": "Foresight-Leistungen mit KI-Schwerpunkt: Beratung, Vorträge, Forschung. Betrieben mit einem Cluster autonomer KI-Agenten für Recherche, Szenarienentwicklung und Veröffentlichung.",
-        "url": "https://operation-zukunft.de",
-        "founder": {
-            "@type": "Person",
-            "name": "Prof. Dr. Ulf Pillkahn",
-            "image": "https://operation-zukunft.de/img/portrait-pillkahn.jpg",
-            "jobTitle": "Professor für Innovationsmanagement",
-            "affiliation": { "@type": "Organization", "name": "FOM Hochschule" }
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://pillkahn.de/#person",
+          "name": "Ulf Pillkahn",
+          "honorificPrefix": "Prof. Dr.",
+          "url": "https://pillkahn.de/",
+          "worksFor": {
+            "@id": "https://operation-zukunft.de/#organization"
+          }
         },
-        "sameAs": [
-            "https://www.linkedin.com/in/prof-dr-ulf-pillkahn-1b7a6131/",
-            "https://www.pillkahn.com",
-            "https://www.picturesofthefuture.de"
-        ]
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Book",
-        "name": "The Automated Future",
-        "author": { "@type": "Person", "name": "Prof. Dr. Ulf Pillkahn" },
-        "isbn": "9798254694953",
-        "description": "Wie KI Foresight, Strategieplanung und Innovationsmanagement revolutioniert. Mit Kapitel zu OpenClaw.",
-        "inLanguage": "de",
-        "bookFormat": "https://schema.org/Paperback"
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Book",
-        "name": "Flipped Foresight",
-        "alternateName": "Flipped Foresight – Wie Maschinen Zukünfte entwerfen und Menschen entscheiden",
-        "author": { "@type": "Person", "name": "Ulf Pillkahn" },
-        "description": "Wie Maschinen Zukünfte entwerfen und Menschen entscheiden. KI-gestützte Szenarioarbeit: Referenzmodell mit 4 Phasen und 5 Prinzipien, Szenario-Engine zum Nachbauen.",
-        "inLanguage": "de"
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@graph": [
-            {
-                "@type": "Service",
-                "name": "Orientierungsworkshop: KI für Innovation und Foresight",
-                "serviceType": "Beratung",
-                "description": "Standortbestimmung zum KI-Einsatz: halb- oder ganztägiger Workshop mit dem Führungsteam, vor Ort oder remote. Ergebnis: priorisierte Einsatzfelder und ein konkreter nächster Schritt.",
-                "url": "https://operation-zukunft.de/#angebote",
-                "areaServed": "DE",
-                "provider": { "@type": "Person", "name": "Prof. Dr. Ulf Pillkahn" },
-                "offers": {
-                    "@type": "Offer",
-                    "priceCurrency": "EUR",
-                    "priceSpecification": {
-                        "@type": "PriceSpecification",
-                        "minPrice": 1500,
-                        "priceCurrency": "EUR",
-                        "valueAddedTaxIncluded": false
-                    }
-                }
-            },
-            {
-                "@type": "Service",
-                "name": "KI-Agenten für Innovation und Foresight",
-                "serviceType": "Aufbau und Betrieb von KI-Agenten",
-                "description": "Konzeption, Aufbau, Inbetriebnahme und laufender Betrieb eines Agenten-Systems für Recherche, Trendbeobachtung und Szenarien.",
-                "url": "https://operation-zukunft.de/#angebote",
-                "areaServed": "DE",
-                "provider": { "@type": "Person", "name": "Prof. Dr. Ulf Pillkahn" }
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://operation-zukunft.de/#organization",
+          "name": "Operation Zukunft",
+          "url": "https://operation-zukunft.de/",
+          "logo": "https://operation-zukunft.de/videos/hero-poster.jpg",
+          "image": "https://operation-zukunft.de/videos/hero-poster.jpg",
+          "description": "Beratung für Corporate Foresight, strategische Frühaufklärung und KI-gestützte Strategieentwicklung; Aufbau und Betrieb von KI-Agenten für Agentic und Continuous Foresight.",
+          "founder": {
+            "@id": "https://pillkahn.de/#person"
+          },
+          "email": "info@operation-zukunft.de",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Maxhofstraße 28",
+            "postalCode": "81475",
+            "addressLocality": "München",
+            "addressCountry": "DE"
+          },
+          "areaServed": [
+            "DE",
+            "AT",
+            "CH"
+          ],
+          "knowsAbout": [
+            "Corporate Foresight",
+            "Strategische Vorausschau",
+            "Strategische Frühaufklärung",
+            "KI-Frühwarnsysteme",
+            "Agentic Foresight",
+            "Continuous Foresight",
+            "Szenarioentwicklung",
+            "KI-gestützte Strategieentwicklung",
+            "KI-Agenten",
+            "Innovationsmanagement"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://operation-zukunft.de/#website",
+          "url": "https://operation-zukunft.de/",
+          "name": "Operation Zukunft",
+          "inLanguage": "de-DE",
+          "about": {
+            "@id": "https://operation-zukunft.de/#organization"
+          },
+          "publisher": {
+            "@id": "https://operation-zukunft.de/#organization"
+          },
+          "author": {
+            "@id": "https://pillkahn.de/#person"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://operation-zukunft.de/#webpage",
+          "url": "https://operation-zukunft.de/",
+          "name": "KI für Foresight & Innovation | Operation Zukunft",
+          "description": "Corporate Foresight mit KI: Orientierungsworkshop ab 1.500 € und KI-Agenten für Frühaufklärung, Szenarien und Strategie. Prof. Dr. Ulf Pillkahn, München.",
+          "inLanguage": "de-DE",
+          "isPartOf": {
+            "@id": "https://operation-zukunft.de/#website"
+          },
+          "about": {
+            "@id": "https://operation-zukunft.de/#organization"
+          },
+          "dateModified": "2026-11-11",
+          "mainEntity": {
+            "@id": "https://operation-zukunft.de/#organization"
+          }
+        },
+        {
+          "@type": "Service",
+          "@id": "https://operation-zukunft.de/#workshop",
+          "name": "Orientierungsworkshop: KI für Innovation und Foresight",
+          "serviceType": "Beratung",
+          "description": "Standortbestimmung zum KI-Einsatz in Innovation und Foresight: halb- oder ganztägiger Workshop mit dem Führungs- oder Innovationsteam, vor Ort oder remote. Ergebnis: priorisierte Einsatzfelder, ein Fahrplan zur Befähigung der Teams und ein konkreter nächster Schritt.",
+          "url": "https://operation-zukunft.de/#angebote",
+          "areaServed": [
+            "DE",
+            "AT",
+            "CH"
+          ],
+          "provider": {
+            "@id": "https://operation-zukunft.de/#organization"
+          },
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "EUR",
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "minPrice": 1500,
+              "priceCurrency": "EUR",
+              "valueAddedTaxIncluded": false
             }
-        ]
+          }
+        },
+        {
+          "@type": "Service",
+          "@id": "https://operation-zukunft.de/#agenten",
+          "name": "KI-Agenten für Innovation und Foresight",
+          "serviceType": "Aufbau und Betrieb von KI-Agenten",
+          "description": "Konzeption, Aufbau, Inbetriebnahme und laufender Betrieb eines Agenten-Systems für Recherche, Trendbeobachtung, Frühaufklärung und Szenarien – Continuous Foresight statt einmaliger Studie.",
+          "url": "https://operation-zukunft.de/#angebote",
+          "areaServed": [
+            "DE",
+            "AT",
+            "CH"
+          ],
+          "provider": {
+            "@id": "https://operation-zukunft.de/#organization"
+          }
+        },
+        {
+          "@type": "Book",
+          "@id": "https://pillkahn.de/publikationen/#automated-future",
+          "name": "The Automated Future",
+          "author": {
+            "@id": "https://pillkahn.de/#person"
+          },
+          "isbn": "9798254694953",
+          "description": "Wie KI Foresight, Strategieplanung und Innovationsmanagement revolutioniert. Mit Kapitel zu OpenClaw.",
+          "inLanguage": "de",
+          "bookFormat": "https://schema.org/Paperback"
+        },
+        {
+          "@type": "Book",
+          "@id": "https://pillkahn.de/publikationen/#flipped-foresight-buch",
+          "name": "Flipped Foresight",
+          "alternateName": "Flipped Foresight – Wie Maschinen Zukünfte entwerfen und Menschen entscheiden",
+          "author": {
+            "@id": "https://pillkahn.de/#person"
+          },
+          "description": "Wie Maschinen Zukünfte entwerfen und Menschen entscheiden. KI-gestützte Szenarioarbeit: Referenzmodell mit 4 Phasen und 5 Prinzipien, Szenario-Engine zum Nachbauen.",
+          "creativeWorkStatus": "Erscheint 2026",
+          "inLanguage": "de"
+        }
+      ]
     }
     </script>
-
-    <link rel="stylesheet" href="style.css?v=2026-11-09">
 </head>
 <body>
 
@@ -146,7 +237,7 @@
     <div class="hero-scrim" aria-hidden="true"></div>
     <div class="hero-inner">
         <span class="hero-badge">Foresight · Beratung · Agenten</span>
-        <h1 class="parallax-layer">Zukunft entdecken <span class="highlight">mit KI</span></h1>
+        <h1 class="parallax-layer">Zukunft entdecken <span class="highlight">mit KI</span><span class="hero-h1-sub">Corporate Foresight und KI-Agenten für Innovation und Strategie</span></h1>
 
         <!-- ===================== AUSGANGSLAGE =====================
              Zwischen Slogan und Angeboten: die Frage des Besuchers, damit
@@ -268,7 +359,7 @@
 
         <div class="prototype-banner reveal">
             <div class="proto-icon" aria-hidden="true">🦀</div>
-            <p><strong>Prototyp: KI-Agenten in Foresight und Strategieentwicklung.</strong><br>Die OpenClaw-Methodik live erleben unter <a href="https://www.picturesofthefuture.de" target="_blank" rel="noopener">picturesofthefuture.de</a></p>
+            <p><strong>Prototyp: KI-Agenten in Foresight und Strategieentwicklung.</strong><br>Die OpenClaw-Methodik live erleben unter <a href="https://www.picturesoftomorrow.com" target="_blank" rel="noopener">picturesoftomorrow.com</a></p>
         </div>
     </div>
 </section>
@@ -378,13 +469,16 @@
         <div class="about-content">
             <p class="section-label reveal">Über mich</p>
             <h2 class="section-title reveal">Prof. Dr. Ulf Pillkahn</h2>
+            <!-- Kernsatz des Clusters, siehe CLUSTER-STANDARD.md im Repo von pillkahn.de -->
+            <p class="reveal about-kernsatz">Prof. Dr. Ulf Pillkahn (FOM Hochschule, TU München) entwickelt mit Operation Zukunft KI-gestützte Verfahren für Corporate Foresight und Szenarioentwicklung (<a href="https://flipped-foresight.com/">Flipped Foresight</a>) und baut KI-Agenten für Trend- und Technologiemonitoring.</p>
             <p class="reveal">Professor an der FOM Hochschule mit den Lehrgebieten Innovationsmanagement, Technologiemanagement, Business Model Innovation und Plattformökonomie. Promotion an der Ludwig-Maximilians-Universität München zum Thema „Innovation zwischen Planung und Zufall — Bausteine einer Theorie der bewussten Irritation" (magna cum laude).</p>
             <p class="reveal">Langjährige Tätigkeit als Strategy Consultant bei Siemens Corporate Technology, wo unter anderem die „Pictures of the Future"-Methodik mitentwickelt wurde. Inhaber zahlreicher Patente und Erfindungsmeldungen. Lehraufträge an der Zeppelin Universität Friedrichshafen und der TU München.</p>
+            <!-- Die Person ist pillkahn.de, nicht pillkahn.com (das ist Pauls Dashboard).
+                 Die vollständige Liste aller Domains steht nur auf pillkahn.de/oekosystem/. -->
             <div class="about-links reveal">
-                <a href="https://www.pillkahn.com" target="_blank" rel="noopener" class="about-link">pillkahn.com</a>
-                <a href="https://www.pillkahn.cloud" target="_blank" rel="noopener" class="about-link">pillkahn.cloud</a>
-                <a href="https://www.picturesofthefuture.de" target="_blank" rel="noopener" class="about-link">picturesofthefuture.de</a>
-                <a href="https://www.innovation-review.de" target="_blank" rel="noopener" class="about-link">innovation-review.de</a>
+                <a href="https://pillkahn.de/about/" class="about-link">Mehr über Prof. Dr. Ulf Pillkahn</a>
+                <a href="https://pillkahn.de/publikationen/" class="about-link">Publikationen</a>
+                <a href="https://pillkahn.de/oekosystem/" class="about-link">Alle Projekte im Überblick</a>
             </div>
         </div>
     </div>
@@ -419,6 +513,22 @@
     <p class="sidebar-note">Beiträge, recherchiert und publiziert vom Agenten George.</p>
     <div id="sidebar-posts">
         <p class="sidebar-placeholder">Beiträge werden geladen…</p>
+        <!-- Statische Links für Crawler und Browser ohne JavaScript.
+             Die Leiste darüber rendert main.js aus posts.js; ohne Skript
+             wären die Beiträge sonst nicht verlinkt. Bei neuen Beiträgen
+             hier einen Eintrag ergänzen. -->
+        <noscript>
+          <ul class="sidebar-static">
+            <li><a href="blog/einstein-openclaw.html">Einstein würde OpenClaw nutzen</a></li>
+            <li><a href="blog/hype-openclaw.html">Der Hype um OpenClaw – gerechtfertigt?</a></li>
+            <li><a href="blog/strategieplanung-ki.html">Strategieplanung mit KI</a></li>
+            <li><a href="blog/dilemma-organisationen.html">Das Dilemma von Organisationen</a></li>
+            <li><a href="blog/lebenszyklus-innovationen.html">Der Lebenszyklus von Innovationen</a></li>
+            <li><a href="blog/red-queen-effekt.html">Der Red-Queen-Effekt</a></li>
+            <li><a href="blog/pictures-of-the-future.html">Pictures of the Future</a></li>
+            <li><a href="blog/warum-prognosen-scheitern.html">Warum Prognosen scheitern</a></li>
+          </ul>
+        </noscript>
     </div>
     <div class="sidebar-book">
         <picture>
@@ -437,9 +547,7 @@
     <div class="footer-inner">
         <div class="footer-top">
             <div class="footer-links">
-                <a href="https://www.pillkahn.com" target="_blank" rel="noopener">pillkahn.com</a>
-                <a href="https://www.picturesofthefuture.de" target="_blank" rel="noopener">picturesofthefuture.de</a>
-                <a href="https://www.innovation-review.de" target="_blank" rel="noopener">innovation-review.de</a>
+                <a href="https://pillkahn.de/">Ein Projekt von Prof. Dr. Ulf Pillkahn</a>
                 <a href="datenschutz.html" data-track="datenschutz">Datenschutz</a>
             </div>
             <button class="impressum-toggle" aria-expanded="false" aria-controls="impressum">Impressum ▼</button>
