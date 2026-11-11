@@ -1,0 +1,18 @@
+# Operation Zukunft
+
+> Beratung von Prof. Dr. Ulf Pillkahn (München) für Corporate Foresight, strategische Frühaufklärung und KI-gestützte Strategieentwicklung. Schwerpunkt: Aufbau und Betrieb von KI-Agenten für Agentic und Continuous Foresight, erprobt an einem eigenen Agenten-Cluster aus fünf autonomen KI-Agenten.
+
+Prof. Dr. Ulf Pillkahn ist Professor an der FOM Hochschule (Innovations- und Technologiemanagement), Lehrbeauftragter an der TU München und war langjährig Strategy Consultant bei Siemens Corporate Technology. Er begleitet seit 2014 Unternehmen beim Aufbau von Foresight- und Innovationsstrukturen.
+
+## Angebote
+- [Orientierungsworkshop: KI für Innovation und Foresight](https://operation-zukunft.de/#angebote): ab 1.500 € zzgl. USt., halb- oder ganztägig
+- [KI-Agenten für Innovation und Foresight](https://operation-zukunft.de/#angebote): Aufbau als Projekt, Betrieb als monatlicher Service
+- [Szenarien als Film](https://operation-zukunft.de/szenariofilme.html): vier Szenarien, vier Kurzfilme, ein direkter Vergleich
+
+## Belege und Methodik
+- [Das Agenten-Cluster](https://operation-zukunft.de/cluster.html): fünf autonome KI-Agenten im Echtbetrieb
+- [Flipped Foresight (Paper, SSRN)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7322758)
+- [Pictures of Tomorrow – Szenario-Tool](https://www.picturesoftomorrow.com)
+
+## Kontakt
+- E-Mail: info@operation-zukunft.de
