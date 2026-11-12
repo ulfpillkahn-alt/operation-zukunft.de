@@ -105,103 +105,26 @@
             <div id="stats-tip-body"></div>
         </div>
     </div>
-    <p class="note">Zählung: einmal pro Browser-Sitzung, über Abacus (abacus.jasoncameron.dev) — GitHub Pages führt kein PHP aus, daher weicht die Technik vom /stats-Muster der all-inkl-Seiten ab. Keine IPs, keine Cookies. Herkunft und Klicks werden als Monatssummen erfasst (siehe track.js); die Aufschlüsselung je Tag erscheint beim Überfahren eines Balkens.</p>
+    <p class="note">Zählung: einmal pro Browser-Sitzung, über den eigenen Zähler auf pillkahn.de (api/oz/visits.php) — GitHub Pages führt kein PHP aus. Keine IPs, keine Cookies, von der Herkunft nur der Hostname. Besuche je Tag bleiben 400 Tage, Herkunft und Klicks 40 Tage. Werte bis 12.11.2026 aus Abacus übernommen.</p>
 </div>
 
-<!-- Liefert die Listen (OZ_TRACK). Zählt auf dieser Seite nichts: track.js
-     erkennt den Pfad /stats bzw. /stats.html und hält sich dort heraus. So
-     gibt es die Whitelists nur einmal, statt sie hier zu kopieren. -->
-<script src="track.js?v=2026-11-09"></script>
+<!-- track.js liefert die Zähler-Adresse (window.OZ_ZAEHLER) und zählt
+     auf dieser Seite nichts. -->
+<script src="track.js?v=2026-11-12"></script>
 <script>
 (function () {
-    var NS = 'operation-zukunft.de';
-    var BASE = 'https://abacus.jasoncameron.dev/get/' + NS + '/';
-
-    /* 404 heißt „noch nie gezählt" = 0. Bei 429 (Rate-Limit) kurz warten
-       und erneut fragen — sonst stünde hier fälschlich eine 0. */
-    function get(key, versuch) {
-        versuch = versuch || 0;
-        return fetch(BASE + key)
-            .then(function (r) {
-                if (r.status === 404) return 0;
-                if (r.status === 429 && versuch < 3) {
-                    var sek = parseInt(r.headers.get('RateLimit-Reset') || '', 10);
-                    if (!isFinite(sek) || sek < 1 || sek > 60) sek = 4;
-                    return new Promise(function (res) { setTimeout(res, (sek + 1) * 1000); })
-                        .then(function () { return get(key, versuch + 1); });
-                }
-                if (!r.ok) return 0;
-                return r.json().then(function (d) { return typeof d.value === 'number' ? d.value : 0; });
-            })
-            .catch(function () { return 0; });
-    }
-    function dayKey(offset) {
-        var d = new Date(); d.setDate(d.getDate() - offset);
-        return d.toISOString().slice(0, 10);
-    }
-    function fmt(n) { return n.toLocaleString('de-DE'); }
-
-    var days = [];
-    for (var i = 13; i >= 0; i--) days.push(dayKey(i));
-
-    Promise.all([get('visits')].concat(days.map(function (d) { return get('visits-' + d); })))
-        .then(function (vals) {
-            var total = vals[0], daily = vals.slice(1);
-            var sum14 = daily.reduce(function (a, b) { return a + b; }, 0);
-            document.getElementById('k-heute').textContent = fmt(daily[daily.length - 1]);
-            document.getElementById('k-14').textContent = fmt(sum14);
-            document.getElementById('k-total').textContent = fmt(total);
-
-            var max = Math.max.apply(null, daily.concat([1]));
-            var bars = document.getElementById('bars');
-            daily.forEach(function (v, idx) {
-                var wrap = document.createElement('div'); wrap.className = 'bar-wrap';
-                wrap.setAttribute('data-day', days[idx]);
-                wrap.setAttribute('data-visits', v);
-                wrap.tabIndex = 0;
-                wrap.setAttribute('aria-describedby', 'stats-tip');
-                var count = document.createElement('div'); count.className = 'bar-count'; count.textContent = v || '';
-                var bar = document.createElement('div'); bar.className = 'bar';
-                bar.style.height = Math.max(2, Math.round(v / max * 100)) + '%';
-                var label = document.createElement('div'); label.className = 'bar-label';
-                label.textContent = days[idx].slice(8) + '.' + days[idx].slice(5, 7);
-                wrap.appendChild(count); wrap.appendChild(bar); wrap.appendChild(label);
-                bars.appendChild(wrap);
-            });
-            // Signal für die Tagesaufschlüsselung (zweiter Script-Block)
-            document.dispatchEvent(new CustomEvent('oz-bars-ready'));
-        });
-})();
-</script>
-
-<!-- ============================================================
-     Tagesaufschlüsselung hinter den Balken
-     Abacus kennt keine Sammelabfrage und erlaubt 30 Anfragen je 10 s.
-     Darum zweistufig: Zuerst werden die Monatszähler gelesen — sie sind
-     der Index, welche Kategorien überhaupt vorkommen (meist eine Handvoll).
-     Danach werden nur diese wenigen Kategorien für die 14 Tage geholt,
-     heute zuerst. Alles getaktet und im Hintergrund.
-     ============================================================ -->
-<script>
-(function () {
-    var T = window.OZ_TRACK;
-    if (!T) return;
-
-    var BASE = 'https://abacus.jasoncameron.dev/get/' + T.ns + '/';
-    var TAKT = 520;                 // ~19 Anfragen je 10 s; Limit sind 30,
-                                    // der Rest bleibt für die Balken frei
+    var URL_ = window.OZ_ZAEHLER || 'https://pillkahn.de/api/oz/visits.php';
 
     var LABEL = {
-        direkt: 'Direkt eingegeben', google: 'Google', bing: 'Bing', duckduckgo: 'DuckDuckGo',
-        ecosia: 'Ecosia', chatgpt: 'ChatGPT', perplexity: 'Perplexity', claude: 'Claude',
-        gemini: 'Gemini', linkedin: 'LinkedIn', x: 'X / Twitter', meta: 'Facebook / Instagram',
-        xing: 'Xing', youtube: 'YouTube',
+        direkt: 'Direkt eingegeben', intern: 'Eigene Seite', unbekannt: 'Unbekannt', weitere: 'Weitere',
+        google: 'Google', bing: 'Bing', duckduckgo: 'DuckDuckGo', ecosia: 'Ecosia', chatgpt: 'ChatGPT',
+        perplexity: 'Perplexity', claude: 'Claude', gemini: 'Gemini', linkedin: 'LinkedIn', x: 'X / Twitter',
+        meta: 'Facebook / Instagram', xing: 'Xing', youtube: 'YouTube', andere: 'Andere Seiten',
         'pillka-hn': 'pillka.hn', 'pillkahn-de': 'pillkahn.de', 'pillkahn-com': 'pillkahn.com',
         picturesoftomorrow: 'picturesoftomorrow.com', questionsoftomorrow: 'questionsoftomorrow.com',
         squawk: 'squawk.de', 'beatles-cluster': 'beatles-cluster.de', nowplus10: 'nowplus10.com',
         'flipped-foresight': 'flipped-foresight.com', 'foresight-review': 'foresight-review.com',
         'innovation-review': 'innovation-review.com', 'technology-review': 'technology-review.com',
-        andere: 'Andere Seiten',
         'angebot-workshop': 'Angebot Workshop (Karte)', 'angebot-agenten': 'Angebot Agenten (Karte)',
         'angebot-cluster': 'Cluster-Link (Karte)',
         'beratung-agenten': 'Beratung: Agenten-Projekt', 'beratung-workshop': 'Beratung: Workshop',
@@ -210,10 +133,10 @@
         'kontakt-vortrag': 'Kontakt: Vortrag', 'kontakt-forschung': 'Kontakt: Forschung',
         'nav-cluster': 'Navigation: Das Cluster', 'cluster-zurueck-angebote': 'Cluster → Angebote',
         'blog-beitrag': 'Blog-Beitrag (Leiste)', 'logbuch-extern': 'Logbuch: externer Link',
-        datenschutz: 'Datenschutz (Fußzeile)',
+        datenschutz: 'Datenschutz (Fußzeile)', 'e-mail': 'E-Mail-Link',
         'band-szenariofilm': 'Band „Szenarien als Film" (Startseite)',
-        'szenariofilm-anfrage': 'Anfrage Szenariofilme',
-        'szenariofilm-play': 'Erklärfilm gestartet',
+        'szenariofilm-anfrage': 'Anfrage Szenariofilme', 'szenariofilm-play': 'Erklärfilm gestartet',
+        'download-openclaw-basis': 'Download OpenClaw Basis (PDF)',
         angebote: 'Angebotskarten gesehen'
     };
     var WOCHENTAG = ['So','Mo','Di','Mi','Do','Fr','Sa'];
@@ -222,79 +145,12 @@
         var d = new Date(iso + 'T12:00:00Z');
         return WOCHENTAG[d.getUTCDay()] + ', ' + d.getUTCDate() + '. ' + MONATE[d.getUTCMonth()] + ' ' + d.getUTCFullYear();
     }
-
-    /* ---------- Abfragen, getaktet und mit Bremse bei 429 ---------- */
-    var sperreBis = 0;
-    function get(key) {
-        return fetch(BASE + key)
-            .then(function (r) {
-                if (r.status === 404) return 0;
-                if (r.status === 429) {
-                    // Die RateLimit-Header sind per CORS nicht lesbar; die
-                    // Wartezeit steht aber im Text: „Try again in 4.9s"
-                    return r.text().then(function (txt) {
-                        var m = /([\d.]+)s/.exec(txt || '');
-                        var sek = m ? parseFloat(m[1]) : 5;
-                        if (!isFinite(sek) || sek < 1 || sek > 60) sek = 5;
-                        sperreBis = Date.now() + (sek + 1) * 1000;
-                        return 'retry';
-                    }).catch(function () { sperreBis = Date.now() + 6000; return 'retry'; });
-                }
-                if (!r.ok) return null;
-                return r.json().then(function (d) { return typeof d.value === 'number' ? d.value : 0; });
-            })
-            .catch(function () { return null; });
+    function fmt(n) { return (n || 0).toLocaleString('de-DE'); }
+    function isoTag(d) {   // lokales Datum, wie der Server (Europe/Berlin)
+        return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2);
     }
 
-    /* Cache im Browser: Werte abgeschlossener Tage sind endgültig, der
-       heutige Tag wird nie gecacht. Das macht jeden weiteren Aufruf der
-       Seite schnell, statt alles erneut einzeln abzufragen. */
-    var HEUTE = T.day();
-    var CACHE_KEY = 'oz-stats-cache-v1';
-    var cache = { index: null, werte: {} };
-    try {
-        var roh = localStorage.getItem(CACHE_KEY);
-        if (roh) cache = JSON.parse(roh) || cache;
-    } catch (e) { /* kein Cache, dann eben frisch laden */ }
-    var sichern = null;
-    function cacheSchreiben() {
-        clearTimeout(sichern);
-        sichern = setTimeout(function () {
-            try { localStorage.setItem(CACHE_KEY, JSON.stringify(cache)); } catch (e) {}
-        }, 1500);
-    }
-    function istAbgeschlossen(key) {
-        var m = key.match(/-(\d{4}-\d{2}-\d{2})-/);
-        return m && m[1] < HEUTE;
-    }
-
-    /* Eine gemeinsame Warteschlange für alle Abfragen dieser Seite */
-    var schlange = [], versuche = {}, offen = 0, werte = {};
-    setInterval(function () {
-        if (Date.now() < sperreBis || !schlange.length || offen > 2) return;
-        var auftrag = schlange.shift(); offen++;
-        get(auftrag.key).then(function (v) {
-            offen--;
-            if (v === 'retry') {
-                versuche[auftrag.key] = (versuche[auftrag.key] || 0) + 1;
-                if (versuche[auftrag.key] <= 3) { schlange.unshift(auftrag); return; }
-                v = null;
-            }
-            werte[auftrag.key] = v;
-            if (v !== null && istAbgeschlossen(auftrag.key)) {
-                cache.werte[auftrag.key] = v; cacheSchreiben();
-            }
-            if (auftrag.fertig) auftrag.fertig(v);
-        });
-    }, TAKT);
-    function anfordern(key, vorn, fertig) {
-        if (werte[key] === undefined && cache.werte[key] !== undefined) werte[key] = cache.werte[key];
-        if (werte[key] !== undefined) { if (fertig) fertig(werte[key]); return; }
-        var auftrag = { key: key, fertig: fertig };
-        if (vorn) schlange.unshift(auftrag); else schlange.push(auftrag);
-    }
-
-    /* ---------- Anzeige ---------- */
+    var daten = null;
     var tip = document.getElementById('stats-tip');
     var meta = document.getElementById('stats-tip-meta');
     var body = document.getElementById('stats-tip-body');
@@ -308,55 +164,39 @@
         row.appendChild(n); row.appendChild(z);
         return row;
     }
-    function abschnitt(titel, praefix, liste, tag) {
+    function abschnitt(titel, werte) {
         var frag = document.createDocumentFragment();
         var h = document.createElement('h3'); h.textContent = titel; frag.appendChild(h);
-        var offenNoch = !indexFertig;
-        var eintraege = liste.map(function (k) {
-            var v = werte[praefix + tag + '-' + k];
-            if (v === undefined) offenNoch = true;
-            return { k: k, v: v };
-        }).filter(function (e) { return e.v > 0; })
-          .sort(function (a, b) { return b.v - a.v; });
-
-        if (eintraege.length) {
-            eintraege.forEach(function (e) { frag.appendChild(zeile(LABEL[e.k] || e.k, e.v)); });
+        var liste = Object.keys(werte || {}).map(function (k) { return [k, werte[k]]; })
+            .sort(function (a, b) { return b[1] - a[1]; });
+        if (liste.length) {
+            liste.forEach(function (e) { frag.appendChild(zeile(LABEL[e[0]] || e[0], e[1])); });
         } else {
-            var p = document.createElement('p'); p.className = 'stats-empty';
-            p.textContent = offenNoch ? 'wird geladen …' : 'keine';
+            var p = document.createElement('p'); p.className = 'stats-empty'; p.textContent = 'keine';
             frag.appendChild(p);
         }
         return frag;
     }
-    function zeichnen() {
-        if (!aktiverTag) return;
-        var besuche = aktiverTag.getAttribute('data-visits') | 0;
-        var tag = aktiverTag.getAttribute('data-day');
+    function oeffnen(wrap) {
+        aktiverTag = wrap;
+        var tag = wrap.getAttribute('data-day');
+        var besuche = parseInt(wrap.getAttribute('data-visits'), 10) || 0;
         meta.innerHTML = '';
         var d = document.createElement('div'); d.className = 'stats-tip-datum'; d.textContent = datumLang(tag);
         var b = document.createElement('div'); b.className = 'stats-tip-besuche';
         b.innerHTML = '<strong>' + besuche + '</strong> ' + (besuche === 1 ? 'Besuch' : 'Besuche');
         meta.appendChild(d); meta.appendChild(b);
-
         body.innerHTML = '';
-        if (T.views && T.views.length) body.appendChild(abschnitt('Sichtkontakt', 'view-', T.views, tag));
-        body.appendChild(abschnitt('Herkunft', 'ref-', aktiveRefs, tag));
-        body.appendChild(abschnitt('Klicks', 'click-', aktiveClicks, tag));
-    }
-
-    function oeffnen(wrap) {
-        aktiverTag = wrap;
-        tagLaden(wrap.getAttribute('data-day'), true);
-        zeichnen();
+        body.appendChild(abschnitt('Sichtkontakt', daten.sicht && daten.sicht[tag]));
+        body.appendChild(abschnitt('Herkunft', daten.quellen && daten.quellen[tag]));
+        body.appendChild(abschnitt('Klicks', daten.klicks && daten.klicks[tag]));
         tip.classList.add('open');
         tip.setAttribute('aria-hidden', 'false');
-        // waagerecht am Balken ausrichten, aber im Diagramm halten
         var cr = chart.getBoundingClientRect(), wr = wrap.getBoundingClientRect();
         tip.style.left = '0px';
         var breite = tip.offsetWidth;
         var mitte = wr.left - cr.left + wr.width / 2 - breite / 2;
-        var max = chart.clientWidth - breite - 12;
-        tip.style.left = Math.max(12, Math.min(mitte, max)) + 'px';
+        tip.style.left = Math.max(12, Math.min(mitte, chart.clientWidth - breite - 12)) + 'px';
     }
     function schliessen() {
         aktiverTag = null;
@@ -364,90 +204,49 @@
         tip.setAttribute('aria-hidden', 'true');
     }
 
-    /* ---------- Laden ---------- */
-    var hinweis = document.querySelector('.chart-hint');
-    var hinweisText = hinweis ? hinweis.textContent : '';
-    function fortschritt(fertig, gesamt) {
-        if (!hinweis) return;
-        hinweis.textContent = (fertig >= gesamt)
-            ? hinweisText
-            : '— Aufschlüsselung wird vorbereitet … (' + fertig + '/' + gesamt + ')';
-    }
-
-    var aktiveRefs = [], aktiveClicks = [], indexFertig = false;
-    var tage = [], geladeneTage = {};
-
-    function tagLaden(tag, vorn) {
-        if (geladeneTage[tag]) return;
-        geladeneTage[tag] = true;
-        (T.views || []).forEach(function (k) { anfordern('view-' + tag + '-' + k, vorn, zeichnen); });
-        aktiveRefs.forEach(function (k) { anfordern('ref-' + tag + '-' + k, vorn, zeichnen); });
-        aktiveClicks.forEach(function (k) { anfordern('click-' + tag + '-' + k, vorn, zeichnen); });
-    }
-
-    function indexLaden(fertig) {
-        // Index aus dem Cache, solange er frisch ist (eine Stunde)
-        if (cache.index && Date.now() - cache.index.stand < 86400000) {
-            aktiveRefs = cache.index.refs.slice();
-            aktiveClicks = cache.index.clicks.slice();
-            indexFertig = true;
-            fortschritt(1, 1);
-            fertig();
-            return;
-        }
-        // Nur der laufende Monat: Er enthält alles, was aktuell vorkommt,
-        // und kostet 43 statt 86 Abfragen.
-        var m = T.month();
-        var keys = [];
-        T.refs.forEach(function (k) { keys.push(['ref', k, 'ref-' + m + '-' + k]); });
-        T.clicks.forEach(function (k) { keys.push(['click', k, 'click-' + m + '-' + k]); });
-        var rest = keys.length, gesamt = keys.length;
-        fortschritt(0, gesamt);
-        keys.forEach(function (eintrag) {
-            anfordern(eintrag[2], false, function (v) {
-                fortschritt(gesamt - rest + 1, gesamt);
-                if (v > 0) {
-                    var liste = eintrag[0] === 'ref' ? aktiveRefs : aktiveClicks;
-                    if (liste.indexOf(eintrag[1]) === -1) liste.push(eintrag[1]);
-                }
-                if (--rest === 0) {
-                    indexFertig = true;
-                    cache.index = { refs: aktiveRefs.slice(), clicks: aktiveClicks.slice(), stand: Date.now() };
-                    cacheSchreiben();
-                    fertig();
-                }
+    fetch(URL_, { cache: 'no-store' })
+        .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+        .then(function (d) {
+            daten = d;
+            var tage = [];
+            for (var i = 13; i >= 0; i--) { var x = new Date(); x.setDate(x.getDate() - i); tage.push(isoTag(x)); }
+            var werte = tage.map(function (t) { return (d.tage && d.tage[t]) || 0; });
+            document.getElementById('k-heute').textContent = fmt(d.heute);
+            document.getElementById('k-14').textContent = fmt(werte.reduce(function (a, b) { return a + b; }, 0));
+            document.getElementById('k-total').textContent = fmt(d.total);
+            if (d.seit) {
+                document.querySelector('#k-total').previousElementSibling.textContent =
+                    'Gesamt seit ' + d.seit.slice(5, 7) + '/' + d.seit.slice(0, 4);
+            }
+            var max = Math.max.apply(null, werte.concat([1]));
+            var bars = document.getElementById('bars');
+            werte.forEach(function (v, idx) {
+                var wrap = document.createElement('div'); wrap.className = 'bar-wrap';
+                wrap.setAttribute('data-day', tage[idx]);
+                wrap.setAttribute('data-visits', v);
+                wrap.tabIndex = 0;
+                wrap.setAttribute('aria-describedby', 'stats-tip');
+                var count = document.createElement('div'); count.className = 'bar-count'; count.textContent = v || '';
+                var bar = document.createElement('div'); bar.className = 'bar';
+                bar.style.height = Math.max(2, Math.round(v / max * 100)) + '%';
+                var label = document.createElement('div'); label.className = 'bar-label';
+                label.textContent = tage[idx].slice(8) + '.' + tage[idx].slice(5, 7);
+                wrap.appendChild(count); wrap.appendChild(bar); wrap.appendChild(label);
+                wrap.addEventListener('mouseenter', function () { oeffnen(wrap); });
+                wrap.addEventListener('focus', function () { oeffnen(wrap); });
+                wrap.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    if (aktiverTag === wrap) schliessen(); else oeffnen(wrap);   // Touch: antippen schaltet um
+                });
+                bars.appendChild(wrap);
             });
+            bars.addEventListener('mouseleave', schliessen);
+            document.addEventListener('keydown', function (e) { if (e.key === 'Escape') schliessen(); });
+            document.addEventListener('click', function (e) { if (!chart.contains(e.target)) schliessen(); });
+        })
+        .catch(function () {
+            document.querySelector('.chart-hint').textContent = '— Zähler nicht erreichbar.';
         });
-    }
-
-    document.addEventListener('oz-bars-ready', function () {
-        var wraps = [].slice.call(document.querySelectorAll('.bar-wrap'));
-        if (!wraps.length) return;
-        tage = wraps.map(function (w) { return w.getAttribute('data-day'); });
-
-        wraps.forEach(function (w) {
-            w.addEventListener('mouseenter', function () { oeffnen(w); });
-            w.addEventListener('focus', function () { oeffnen(w); });
-            w.addEventListener('click', function (e) {
-                e.stopPropagation();
-                if (aktiverTag === w) schliessen(); else oeffnen(w);   // Touch: antippen schaltet um
-            });
-        });
-        document.getElementById('bars').addEventListener('mouseleave', schliessen);
-        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') schliessen(); });
-        document.addEventListener('click', function (e) {
-            if (!chart.contains(e.target)) schliessen();
-        });
-
-        // Erst den Index lesen; die Tageswerte kommen dann beim Ansehen
-        // eines Balkens dazu (wenige Abfragen, weil nur die Kategorien
-        // geholt werden, die im Monat überhaupt vorkommen).
-        indexLaden(function () {
-            if (aktiverTag) tagLaden(aktiverTag.getAttribute('data-day'), true);
-            tagLaden(tage[tage.length - 1], false);   // heute im Hintergrund
-            zeichnen();
-        });
-    });
 })();
 </script>
 
