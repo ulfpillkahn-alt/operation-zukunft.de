@@ -1,5 +1,61 @@
 [
     {
+        "title": "Szenarien als Film",
+        "url": "blog/szenarien-als-film.html",
+        "date": "2026-11-12",
+        "label": "November 2026",
+        "teaser": "Warum bewegte Bilder Zukunftsszenarien greifbar machen – und wie KI die Produktion verändert."
+    },
+    {
+        "title": "Technologiereife richtig einschätzen",
+        "url": "blog/technologiereife-einschaetzen.html",
+        "date": "2026-10-01",
+        "label": "Oktober 2026",
+        "teaser": "Wie Unternehmen die Reife neuer Technologien realistisch bewerten und Fehlinvestitionen vermeiden."
+    },
+    {
+        "title": "Abbruchkriterien für Innovationsprojekte",
+        "url": "blog/abbruchkriterien-innovationsprojekte.html",
+        "date": "2026-09-01",
+        "label": "September 2026",
+        "teaser": "Warum Unternehmen an gescheiterten Projekten festhalten – und wie Abbruchkriterien helfen."
+    },
+    {
+        "title": "Flipped Foresight erklärt",
+        "url": "blog/flipped-foresight-methode.html",
+        "date": "2026-08-01",
+        "label": "August 2026",
+        "teaser": "Warum sich die Arbeitsteilung zwischen Mensch und Maschine in der Szenarioarbeit umkehrt."
+    },
+    {
+        "title": "KI-Agenten einführen: fünf Fehler",
+        "url": "blog/ki-agenten-einfuehren-fehler.html",
+        "date": "2026-07-01",
+        "label": "Juli 2026",
+        "teaser": "Fünf Fehler, die Agenten-Pilotprojekte scheitern lassen – und wie Sie sie vermeiden."
+    },
+    {
+        "title": "Schwache Signale mit KI-Agenten",
+        "url": "blog/schwache-signale-ki-agenten.html",
+        "date": "2026-06-01",
+        "label": "Juni 2026",
+        "teaser": "Wie KI-Agenten Trend- und Technologiemonitoring rund um die Uhr übernehmen."
+    },
+    {
+        "title": "Szenarioentwicklung mit KI",
+        "url": "blog/szenarioentwicklung-ki.html",
+        "date": "2026-05-01",
+        "label": "Mai 2026",
+        "teaser": "Wie Maschinen Rohszenarien und Konsistenzprüfung übernehmen – und warum der Workshop trotzdem bleibt."
+    },
+    {
+        "title": "Corporate Foresight mit KI",
+        "url": "blog/corporate-foresight-ki.html",
+        "date": "2026-04-01",
+        "label": "April 2026",
+        "teaser": "Welche Foresight-Aufgaben Maschinen übernehmen – und wo der Mensch unersetzlich bleibt."
+    },
+    {
         "title": "Einstein würde OpenClaw nutzen",
         "url": "blog/einstein-openclaw.html",
         "date": "2026-03-01",

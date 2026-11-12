@@ -40,6 +40,54 @@
 
 const posts = [
     {
+        titel: "Szenarien als Film",
+        datum: "2026-11-12",
+        teaser: "Warum bewegte Bilder Zukunftsszenarien greifbar machen – und wie KI die Produktion verändert.",
+        url: "blog/szenarien-als-film.html"
+    },
+    {
+        titel: "Technologiereife richtig einschätzen",
+        datum: "2026-10-01",
+        teaser: "Wie Unternehmen die Reife neuer Technologien realistisch bewerten und Fehlinvestitionen vermeiden.",
+        url: "blog/technologiereife-einschaetzen.html"
+    },
+    {
+        titel: "Abbruchkriterien für Innovationsprojekte",
+        datum: "2026-09-01",
+        teaser: "Warum Unternehmen an gescheiterten Projekten festhalten – und wie Abbruchkriterien helfen.",
+        url: "blog/abbruchkriterien-innovationsprojekte.html"
+    },
+    {
+        titel: "Flipped Foresight erklärt",
+        datum: "2026-08-01",
+        teaser: "Warum sich die Arbeitsteilung zwischen Mensch und Maschine in der Szenarioarbeit umkehrt.",
+        url: "blog/flipped-foresight-methode.html"
+    },
+    {
+        titel: "KI-Agenten einführen: fünf Fehler",
+        datum: "2026-07-01",
+        teaser: "Fünf Fehler, die Agenten-Pilotprojekte scheitern lassen – und wie Sie sie vermeiden.",
+        url: "blog/ki-agenten-einfuehren-fehler.html"
+    },
+    {
+        titel: "Schwache Signale mit KI-Agenten",
+        datum: "2026-06-01",
+        teaser: "Wie KI-Agenten Trend- und Technologiemonitoring rund um die Uhr übernehmen.",
+        url: "blog/schwache-signale-ki-agenten.html"
+    },
+    {
+        titel: "Szenarioentwicklung mit KI",
+        datum: "2026-05-01",
+        teaser: "Wie Maschinen Rohszenarien und Konsistenzprüfung übernehmen – und warum der Workshop trotzdem bleibt.",
+        url: "blog/szenarioentwicklung-ki.html"
+    },
+    {
+        titel: "Corporate Foresight mit KI",
+        datum: "2026-04-01",
+        teaser: "Welche Foresight-Aufgaben Maschinen übernehmen – und wo der Mensch unersetzlich bleibt.",
+        url: "blog/corporate-foresight-ki.html"
+    },
+    {
         titel: "Einstein würde OpenClaw nutzen",
         datum: "2026-03-01",
         teaser: "Ein augenzwinkernder Gedankenversuch: Warum Albert Einstein der ultimative OpenClaw-Nutzer gewesen wäre.",

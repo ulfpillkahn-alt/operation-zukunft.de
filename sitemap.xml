@@ -20,7 +20,43 @@
     <lastmod>2026-11-11</lastmod>
   </url>
 
-  <!-- Blogbeitraege (lastmod = Publikationsdatum aus posts.json) -->
+  <!-- Blogbeitraege (lastmod = Publikationsdatum aus posts.js) -->
+  <url>
+    <loc>https://operation-zukunft.de/blog/</loc>
+    <lastmod>2026-11-12</lastmod>
+  </url>
+  <url>
+    <loc>https://operation-zukunft.de/blog/szenarien-als-film.html</loc>
+    <lastmod>2026-11-12</lastmod>
+  </url>
+  <url>
+    <loc>https://operation-zukunft.de/blog/technologiereife-einschaetzen.html</loc>
+    <lastmod>2026-10-01</lastmod>
+  </url>
+  <url>
+    <loc>https://operation-zukunft.de/blog/abbruchkriterien-innovationsprojekte.html</loc>
+    <lastmod>2026-09-01</lastmod>
+  </url>
+  <url>
+    <loc>https://operation-zukunft.de/blog/flipped-foresight-methode.html</loc>
+    <lastmod>2026-08-01</lastmod>
+  </url>
+  <url>
+    <loc>https://operation-zukunft.de/blog/ki-agenten-einfuehren-fehler.html</loc>
+    <lastmod>2026-07-01</lastmod>
+  </url>
+  <url>
+    <loc>https://operation-zukunft.de/blog/schwache-signale-ki-agenten.html</loc>
+    <lastmod>2026-06-01</lastmod>
+  </url>
+  <url>
+    <loc>https://operation-zukunft.de/blog/szenarioentwicklung-ki.html</loc>
+    <lastmod>2026-05-01</lastmod>
+  </url>
+  <url>
+    <loc>https://operation-zukunft.de/blog/corporate-foresight-ki.html</loc>
+    <lastmod>2026-04-01</lastmod>
+  </url>
   <url>
     <loc>https://operation-zukunft.de/blog/einstein-openclaw.html</loc>
     <lastmod>2026-03-01</lastmod>
