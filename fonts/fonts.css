@@ -1,0 +1,25 @@
+/* Lokale Schriften für Blogartikel und stats.html (statt Google Fonts).
+   Die Startseite bindet dieselben Dateien über style.css ein.
+   DM Sans, Space Grotesk, JetBrains Mono, Inter: SIL Open Font License.
+   Nur Latin-Teilmenge (enthält Umlaute, ß, €, Anführungszeichen „“). */
+
+@font-face {
+    font-family: 'DM Sans'; font-style: normal; font-weight: 300 700;
+    font-display: swap; src: url('dm-sans-latin.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'DM Sans'; font-style: italic; font-weight: 400;
+    font-display: swap; src: url('dm-sans-italic-latin.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Space Grotesk'; font-style: normal; font-weight: 400 700;
+    font-display: swap; src: url('space-grotesk-latin.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'JetBrains Mono'; font-style: normal; font-weight: 400 500;
+    font-display: swap; src: url('jetbrains-mono-latin.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Inter'; font-style: normal; font-weight: 300 700;
+    font-display: swap; src: url('inter-latin.woff2') format('woff2');
+}
