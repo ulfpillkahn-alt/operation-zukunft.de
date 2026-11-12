@@ -7,7 +7,7 @@
      3. Parallax     — sanfte Tiefe im Hero bei Mausbewegung
      4. Videos       — Lazy-Start, prefers-reduced-motion
      5. Navigation   — Scroll-Zustand & Mobilmenü
-     6. Download-Counter (Abacus) — unverändert übernommen
+     6. Download-Zähler (eigener Zähler auf pillkahn.de)
    ============================================================ */
 (function () {
     'use strict';
@@ -192,63 +192,46 @@
         }
     }
 
-    /* ---------- 6. Download-Counter (Abacus) ----------
-       Unverändert von der Vorgängerseite übernommen.
-       Zählt Downloads der Workbook-Basisversionen. */
-    var COUNTER_NS = 'operation-zukunft.de';
+    /* ---------- 6. Download-Zähler ----------
+       Zählt Downloads der Workbook-Basisversionen über den eigenen Zähler
+       auf pillkahn.de (siehe track.js, seit 12.11.2026 statt Abacus). */
     var COUNTERS = {
         'openclaw-basis': 'counter-openclaw-basis'
         // Workbook 2: 'strategie-basis': 'counter-strategie-basis',
         // Workbook 3: 'claude-basis':    'counter-claude-basis'
     };
+    function zaehlerUrl() {
+        return window.OZ_ZAEHLER || 'https://pillkahn.de/api/oz/visits.php';
+    }
 
-    function loadCount(key, elemId) {
-        fetch('https://abacus.jasoncameron.dev/get/' + COUNTER_NS + '/' + key)
+    function loadCounts() {
+        var ids = Object.keys(COUNTERS).filter(function (k) { return document.getElementById(COUNTERS[k]); });
+        if (!ids.length) return;
+        fetch(zaehlerUrl() + '?nur=zaehler')
             .then(function (r) { return r.ok ? r.json() : null; })
             .then(function (d) {
-                var el = document.getElementById(elemId);
-                if (el && d && typeof d.value === 'number') {
-                    el.textContent = d.value.toLocaleString('de-DE');
-                } else if (el) {
-                    el.textContent = '0';
-                }
+                ids.forEach(function (k) {
+                    var v = d && d.zaehler && typeof d.zaehler[k] === 'number' ? d.zaehler[k] : 0;
+                    document.getElementById(COUNTERS[k]).textContent = v.toLocaleString('de-DE');
+                });
             })
             .catch(function () {
-                var el = document.getElementById(elemId);
-                if (el) el.textContent = '–';
+                ids.forEach(function (k) { document.getElementById(COUNTERS[k]).textContent = '–'; });
             });
     }
 
     window.trackDownload = function (key) {
         var elemId = COUNTERS[key];
         if (!elemId) return;
-        fetch('https://abacus.jasoncameron.dev/hit/' + COUNTER_NS + '/' + key)
-            .then(function (r) { return r.ok ? r.json() : null; })
-            .then(function (d) {
-                var el = document.getElementById(elemId);
-                if (el && d && typeof d.value === 'number') {
-                    el.textContent = d.value.toLocaleString('de-DE');
-                }
-            })
-            .catch(function () { /* Download läuft trotzdem weiter */ });
+        if (window.ozZaehlen) window.ozZaehlen({ aktion: 'download', name: key });
+        // Anzeige sofort um eins erhöhen; der Download läuft ohnehin weiter
+        var el = document.getElementById(elemId);
+        var n = el ? parseInt((el.textContent || '').replace(/\D/g, ''), 10) : NaN;
+        if (el && isFinite(n)) el.textContent = (n + 1).toLocaleString('de-DE');
     };
 
-    /* ---------- 7. Besucherzähler (Beacon) ----------
-       Gleiches Muster wie auf den anderen Seiten (technology-review,
-       pillkahn.de …), hier aber über Abacus statt PHP, weil GitHub
-       Pages kein PHP ausführt. Zählt einmal pro Browser-Sitzung
-       (sessionStorage-Schlüssel je Domain eigen: oz-visit-counted),
-       je einen Gesamt- und einen Tagesschlüssel. Keine IPs, keine
-       Cookies. Anzeige: /stats.html (unverlinkt, noindex). */
-    function countVisit() {
-        try {
-            if (sessionStorage.getItem('oz-visit-counted')) return;
-            sessionStorage.setItem('oz-visit-counted', '1');
-        } catch (e) { /* sessionStorage blockiert → trotzdem zählen */ }
-        var day = new Date().toISOString().slice(0, 10); // JJJJ-MM-TT
-        fetch('https://abacus.jasoncameron.dev/hit/' + COUNTER_NS + '/visits').catch(function () {});
-        fetch('https://abacus.jasoncameron.dev/hit/' + COUNTER_NS + '/visits-' + day).catch(function () {});
-    }
+    /* ---------- 7. Besucherzähler ----------
+       Liegt vollständig in track.js (Besuch, Herkunft, Klicks, Sicht). */
 
     /* ---------- 8. Angebotsbilder ----------
        Lädt ein Angebotsbild nicht, wird das <img> ausgeblendet; dann
@@ -269,9 +252,6 @@
         initParallax();
         initVideos();
         initNav();
-        Object.keys(COUNTERS).forEach(function (key) {
-            loadCount(key, COUNTERS[key]);
-        });
-        countVisit();
+        loadCounts();
     });
 })();

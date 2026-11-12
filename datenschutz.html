@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <!-- ENTWURF – vor Veröffentlichung rechtlich prüfen -->
 <!-- Offene Prüfpunkte für die rechtliche Durchsicht:
-     1. Besucherzähler: Der sessionStorage-Merker (oz-visit-counted) ist eine
+     1. Besucherzähler: Der sessionStorage-Merker (oz-besuch) ist eine
         Speicherung im Endgerät — Einordnung nach § 25 TDDDG (Einwilligung
         erforderlich oder nicht?) prüfen.
-     2. abacus.jasoncameron.dev: Betreiber, Serverstandort und ggf.
-        Drittlandübermittlung sind nicht belegt.
+     2. abacus.jasoncameron.dev: entfällt seit 12.11.2026, gezählt wird
+        auf pillkahn.de (all-inkl, AV-Vertrag laut pillkahn.de/datenschutz).
      3. GitHub: Zertifizierung unter dem EU-US Data Privacy Framework prüfen.
      4. Abschnitt „Schriftarten": Seit 12.11.2026 sind alle Schriften lokal
         eingebunden (fonts/), auch in Blog und stats.html. Erledigt. -->
@@ -60,9 +60,10 @@
         <p>Wenn Sie uns per E-Mail kontaktieren – etwa über die Anfrage-Schaltflächen, die Ihr E-Mail-Programm mit einem vorbefüllten Betreff öffnen –, verarbeiten wir Ihre E-Mail-Adresse, Ihren Namen und den Inhalt Ihrer Nachricht, um Ihre Anfrage zu beantworten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, soweit Ihre Anfrage auf einen Vertrag zielt, im Übrigen Art. 6 Abs. 1 lit. f DSGVO. Die Daten werden gelöscht, sobald sie für die Bearbeitung nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
 
         <h2>5. Zählung von Besuchen und Downloads</h2>
-        <p>Um die Reichweite der Seite einschätzen zu können, zählen wir Besuche und die Downloads kostenloser Workbooks über den Zählerdienst abacus.jasoncameron.dev. Beim Seitenaufruf bzw. beim Klick auf einen Download sendet Ihr Browser eine Anfrage an diesen Dienst, die lediglich den Namen des betreffenden Zählers enthält (z.&nbsp;B. einen Tageszähler). Technisch bedingt wird dabei Ihre IP-Adresse an den Dienst übermittelt. Es werden keine Cookies gesetzt und keine Nutzerprofile gebildet; gespeichert werden ausschließlich Zählerstände.</p>
-        <p>Zusätzlich wird je Browser-Sitzung einmal die Herkunftskategorie des Besuchs gezählt (zum Beispiel Suchmaschine, soziales Netzwerk oder direkter Aufruf; ermittelt aus dem vom Browser übermittelten Referrer, gespeichert wird nur die Kategorie, nicht die Adresse) sowie Klicks auf ausgewählte Schaltflächen dieser Website sowie den Start des Erklärfilms auf der Seite „Szenarien als Film". Gespeichert werden ausschließlich monatliche Summen ohne Bezug zu einzelnen Besuchern; Cookies werden nicht gesetzt. Für die Dauer der Sitzung wird im Sitzungsspeicher des Browsers ein Merker abgelegt, damit die Herkunft nicht doppelt gezählt wird.</p>
-        <p>Damit ein Besuch nur einmal gezählt wird, legt die Seite im Sitzungsspeicher Ihres Browsers (sessionStorage) einen Merker ab, der beim Schließen des Tabs automatisch gelöscht wird. Rechtsgrundlage für die Zählung ist Art. 6 Abs. 1 lit. f DSGVO; unser berechtigtes Interesse liegt in der anonymen Auswertung der Nutzung unseres Angebots.</p>
+        <!-- NEU 12.11.2026: Zähler auf pillkahn.de statt abacus.jasoncameron.dev — bitte gegenlesen -->
+        <p>Um die Reichweite der Seite einschätzen zu können, zählen wir Besuche, Klicks und die Downloads kostenloser Workbooks mit einem eigenen Zähler. Er läuft nicht bei einem Drittanbieter, sondern auf dem Webserver von Prof. Dr. Ulf Pillkahn unter pillkahn.de. Dieser wird gehostet bei der ALL-INKL.COM – Neue Medien Münnich, Inh. René Münnich, Hauptstraße 68, 02742 Friedersdorf; mit ihr besteht ein Vertrag über die Auftragsverarbeitung gemäß Art. 28 DSGVO. Beim Seitenaufruf bzw. bei einem Klick sendet Ihr Browser eine kurze Meldung an diesen Server. Technisch bedingt wird dabei Ihre IP-Adresse übertragen; der Zähler speichert sie nicht, der Hoster protokolliert den Abruf in Server-Logfiles, die nach spätestens sieben Tagen gelöscht werden.</p>
+        <p>Gespeichert werden ausschließlich Summen pro Tag: die Anzahl der Besuche; der Hostname der Seite, von der ein Besuch kam (zum Beispiel <em>linkedin.com</em>), oder der Vermerk „direkt" – nicht die vollständige Adresse der vorherigen Seite; die Anzahl der Klicks auf ausgewählte Schaltflächen und auf externe Links (nur deren Hostname); ob die Angebotsübersicht ins Bild gescrollt wurde; der Start des Erklärfilms auf der Seite „Szenarien als Film" sowie die Zahl der Workbook-Downloads. Es werden keine Cookies gesetzt, keine IP-Adressen gespeichert und keine Nutzerprofile gebildet. Besuchszahlen je Tag werden nach 400 Tagen gelöscht, Herkunft und Klicks nach 40 Tagen.</p>
+        <p>Damit ein Besuch nur einmal gezählt wird, legt die Seite im Sitzungsspeicher Ihres Browsers (sessionStorage) einen Merker ohne Kennung ab, der beim Schließen des Tabs automatisch gelöscht und auf keinen Server übertragen wird. Rechtsgrundlage für die Zählung ist Art. 6 Abs. 1 lit. f DSGVO; unser berechtigtes Interesse liegt darin, die Reichweite unseres Angebots in Summe einschätzen zu können.</p>
 
         <h2>6. Schriftarten, Bilder und Videos</h2>
         <p>Schriftarten, Bilder und Videos dieser Website werden vom selben Server ausgeliefert wie die Seite selbst. Dabei werden keine Daten an Dritte übermittelt.</p>
@@ -76,7 +77,7 @@
         <h2>9. Beschwerderecht</h2>
         <p>Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren (Art. 77 DSGVO). Zuständig ist das Bayerische Landesamt für Datenschutzaufsicht (BayLDA), <a href="https://www.lda.bayern.de" target="_blank" rel="noopener">www.lda.bayern.de</a>.</p>
 
-        <p class="legal-date">Stand: September 2026</p>
+        <p class="legal-date">Stand: November 2026</p>
     </div>
 </section>
 
@@ -105,9 +106,9 @@
 </footer>
 
 <!-- Seitenverhalten (Navigation, Impressum-Toggle) -->
-<script src="main.js?v=2026-11-07"></script>
-<!-- Herkunft und Klicks (Summenzähler, siehe track.js) -->
-<script src="track.js?v=2026-11-09" defer></script>
+<script src="main.js?v=2026-11-12"></script>
+<!-- Besucherzähler (eigener Zähler auf pillkahn.de, siehe track.js) -->
+<script src="track.js?v=2026-11-12" defer></script>
 
 </body>
 </html>
