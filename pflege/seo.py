@@ -202,6 +202,24 @@ SEITEN = [
     {"datei": "blog/warum-prognosen-scheitern.html",
      "title": "Warum Prognosen scheitern | Operation Zukunft",
      "desc": None},
+    {"datei": "blog/index.html", "pfad": "/blog/", "title": None, "desc": None,
+     "og": "website", "bild": HERO, "art": "seite"},
+    {"datei": "blog/corporate-foresight-ki.html", "veroeffentlicht": "2026-04-01",
+     "title": None, "desc": None},
+    {"datei": "blog/szenarioentwicklung-ki.html", "veroeffentlicht": "2026-05-01",
+     "title": None, "desc": None},
+    {"datei": "blog/schwache-signale-ki-agenten.html", "veroeffentlicht": "2026-06-01",
+     "title": None, "desc": None},
+    {"datei": "blog/ki-agenten-einfuehren-fehler.html", "veroeffentlicht": "2026-07-01",
+     "title": None, "desc": None},
+    {"datei": "blog/flipped-foresight-methode.html", "veroeffentlicht": "2026-08-01",
+     "title": None, "desc": None},
+    {"datei": "blog/abbruchkriterien-innovationsprojekte.html", "veroeffentlicht": "2026-09-01",
+     "title": None, "desc": None},
+    {"datei": "blog/technologiereife-einschaetzen.html", "veroeffentlicht": "2026-10-01",
+     "title": None, "desc": None},
+    {"datei": "blog/szenarien-als-film.html", "veroeffentlicht": "2026-11-12",
+     "title": None, "desc": None},
 ]
 for s in SEITEN:
     if s["datei"].startswith("blog/"):
@@ -336,8 +354,9 @@ def main():
         if s["art"] == "blog":
             s["headline"] = re.sub(r"<[^>]+>", "", re.search(r"<h1[^>]*>(.*?)</h1>", t, re.S).group(1)).strip()
             s["headline"] = html.unescape(re.sub(r"\s+", " ", s["headline"]))
-            s.setdefault("veroeffentlicht",
-                         re.search(r'"datePublished":\s*"([^"]+)"', kopf).group(1))
+            # Neue Beiträge bringen das Datum in SEITEN mit, alte tragen es im Graph
+            if "veroeffentlicht" not in s:
+                s["veroeffentlicht"] = re.search(r'"datePublished":\s*"([^"]+)"', kopf).group(1)
         s["_title"], s["_desc"] = title, desc
     if zu_lang:
         sys.exit("Zu lang:\n  " + "\n  ".join(zu_lang))
