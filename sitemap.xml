@@ -23,7 +23,11 @@
   <!-- Blogbeitraege (lastmod = Publikationsdatum aus posts.js) -->
   <url>
     <loc>https://operation-zukunft.de/blog/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-14</lastmod>
+  </url>
+  <url>
+    <loc>https://operation-zukunft.de/blog/was-ist-zukunftsforschung.html</loc>
+    <lastmod>2026-11-14</lastmod>
   </url>
   <url>
     <loc>https://operation-zukunft.de/blog/szenarien-als-film.html</loc>
