@@ -110,13 +110,14 @@
 
 <!-- track.js liefert die Zähler-Adresse (window.OZ_ZAEHLER) und zählt
      auf dieser Seite nichts. -->
-<script src="track.js?v=2026-11-12"></script>
+<script src="track.js?v=2026-11-15"></script>
 <script>
 (function () {
     var URL_ = window.OZ_ZAEHLER || 'https://pillkahn.de/api/oz/visits.php';
 
     var LABEL = {
         direkt: 'Direkt eingegeben', intern: 'Eigene Seite', unbekannt: 'Unbekannt', weitere: 'Weitere',
+        'google-ads': 'Google Ads (Anzeige)',
         google: 'Google', bing: 'Bing', duckduckgo: 'DuckDuckGo', ecosia: 'Ecosia', chatgpt: 'ChatGPT',
         perplexity: 'Perplexity', claude: 'Claude', gemini: 'Gemini', linkedin: 'LinkedIn', x: 'X / Twitter',
         meta: 'Facebook / Instagram', xing: 'Xing', youtube: 'YouTube', andere: 'Andere Seiten',

@@ -50,9 +50,28 @@
         }
     }
 
-    /* ---------- 1. Besuch mit Herkunft ---------- */
+    /* ---------- 1. Besuch mit Herkunft ----------
+       Besuche aus Google-Anzeigen bekommen die eigene Herkunft
+       „google-ads". Ohne diese Unterscheidung stünden sie als „google.com"
+       neben der unbezahlten Suche, und es ließe sich nicht sagen, was eine
+       Kampagne gebracht hat. Erkannt wird die Anzeige an der Klick-Kennung,
+       die Google an die Zieladresse hängt (gclid, bei Apple-Geräten gbraid
+       oder wbraid), ersatzweise an utm_source=google mit utm_medium=cpc.
+       Geprüft wird nur, OB eine Kennung da ist — ihr Wert wird weder
+       gelesen noch übertragen. Der Zähler behält von „quelle" ohnehin nur
+       den Hostnamen, deshalb die Schreibweise als Adresse. */
+    function ausAnzeige() {
+        try {
+            var p = new URLSearchParams(location.search);
+            if (p.has('gclid') || p.has('gbraid') || p.has('wbraid')) return true;
+            return /google/i.test(p.get('utm_source') || '') &&
+                   /^(cpc|ppc|paid)$/i.test(p.get('utm_medium') || '');
+        } catch (e) {
+            return false;
+        }
+    }
     if (einmalJeSitzung('oz-besuch')) {
-        senden({ aktion: 'besuch', quelle: document.referrer || '' });
+        senden({ aktion: 'besuch', quelle: ausAnzeige() ? 'https://google-ads/' : (document.referrer || '') });
     }
 
     /* ---------- 2. Klicks ----------
