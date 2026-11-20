@@ -1,0 +1,39 @@
+{
+  "titel": "Was ist Zukunftsforschung?",
+  "name": "Was ist Zukunftsforschung? Methoden, Grenzen und die Rolle von KI",
+  "seitentitel": "Was ist Zukunftsforschung? – Video | Operation Zukunft",
+  "meta_description": "Was ist Zukunftsforschung? Drei Philosophien, die Grenzen des Fachs und die Rolle von KI – Video mit Kapiteln und Transkript von Prof. Dr. Ulf Pillkahn.",
+  "beschreibung": "Zukunftsforschung ist die wissenschaftliche Untersuchung möglicher, wahrscheinlicher und wünschbarer Zukünfte – mit dem Ziel, heute bessere Entscheidungen zu treffen. Das Video erklärt die drei Philosophien des Fachs (Vorhersagen, Erkunden, Gestalten), seine Grenzen und die Rolle von KI.",
+  "antwort": "<strong>Zukunftsforschung ist die wissenschaftliche Untersuchung möglicher, wahrscheinlicher und wünschbarer Zukünfte – mit dem Ziel, heute bessere Entscheidungen zu treffen.</strong> Zukünfte, im Plural: Es gibt nicht die eine Zukunft, die auf uns wartet. Das Video erklärt die drei Philosophien des Fachs (Vorhersagen, Erkunden, Gestalten), seine Grenzen und die Rolle von KI.",
+  "antwort_quelle": "Definition: Prof. Dr. Ulf Pillkahn, in Anlehnung an Kreibich 2006",
+  "worum_es_geht": [
+    "Der Film beginnt bei der Herkunft des Fachs: 1943 prägt Ossip Flechtheim das Wort Futurologie, später holt Herman Kahn den Begriff Szenario in die Strategie.",
+    "Dann stellt er drei Philosophien nebeneinander: die Prognose (das Wahrscheinliche), die Szenarien (das Mögliche) und die Vision (das Wünschbare).",
+    "Er zeigt, warum Zukunftsforschung wissenschaftlich so schwer ist und warum Unternehmen sich mit Foresight schwertun – und was die Studie von Rohrbeck und Kum über den Nutzen sagt.",
+    "Zum Schluss geht es um die Rolle von KI und um Flipped Foresight: Die Maschine entwirft die Breite, der Mensch prüft, wählt aus und entscheidet."
+  ],
+  "karte": "Methoden, Grenzen und die Rolle von KI – in knapp sechs Minuten erklärt, mit Transkript.",
+  "youtube_id": "lWqYWYmL73A",
+  "mp4": "https://pillkahn.de/media/zukunftsforschung-1080p.mp4",
+  "poster": "/videos/zukunftsforschung-poster.jpg",
+  "poster_breite": 1280,
+  "poster_hoehe": 720,
+  "vtt": "/videos/zukunftsforschung.de.vtt",
+  "upload_date": "2026-11-14",
+  "dauer_sekunden": 357,
+  "seite_stand": "2026-11-20",
+  "alte_url": "/blog/was-ist-zukunftsforschung.html",
+  "kapitel": [
+    [0, "Was ist Zukunftsforschung?"],
+    [37, "Woher das Fach kommt"],
+    [75, "Drei Philosophien"],
+    [166, "Warum Zukunftsforschung so schwer ist"],
+    [230, "Warum Unternehmen sich schwertun"],
+    [272, "Lohnt sich Foresight?"],
+    [296, "Die Rolle von KI"],
+    [341, "Fazit"]
+  ],
+  "cta_text": "Die Zukunft lässt sich nicht vorhersagen – aber man kann vorbereitet sein. Wie das in Ihrem Unternehmen aussehen kann:",
+  "cta_link": "/#angebote",
+  "cta_label": "Zu den Angeboten von Operation Zukunft →"
+}

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- VORLAGE: wird von pflege/videos/build.py erzeugt und nicht veröffentlicht.
+         Neue Filme NICHT hier eintragen, sondern in pflege/videos/filme/<slug>/
+         (siehe videos/NEUER-FILM.md). -->
+    <title>{{TITEL}} – Video | Operation Zukunft</title>
+    <meta name="description" content="{{META_DESCRIPTION_MAX_155}}">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="https://operation-zukunft.de/videos/{{SLUG}}/">
+    <meta property="og:type" content="video.other">
+    <meta property="og:site_name" content="Operation Zukunft">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:url" content="https://operation-zukunft.de/videos/{{SLUG}}/">
+    <meta property="og:title" content="{{TITEL}} – Video | Operation Zukunft">
+    <meta property="og:description" content="{{META_DESCRIPTION_MAX_155}}">
+    <meta property="og:image" content="https://operation-zukunft.de/videos/{{POSTER}}.jpg">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="720">
+    <meta property="og:image:alt" content="{{TITEL}}">
+    <meta property="og:video" content="https://pillkahn.de/media/{{DATEI}}.mp4">
+    <meta property="og:video:secure_url" content="https://pillkahn.de/media/{{DATEI}}.mp4">
+    <meta property="og:video:type" content="video/mp4">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@Ulf_Pillkahn">
+    <meta name="twitter:title" content="{{TITEL}} – Video | Operation Zukunft">
+    <meta name="twitter:description" content="{{META_DESCRIPTION_MAX_155}}">
+    <meta name="twitter:image" content="https://operation-zukunft.de/videos/{{POSTER}}.jpg">
+    <meta name="twitter:image:alt" content="{{TITEL}}">
+    <!-- Strukturdaten: generiert von pflege/videos/build.py -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://pillkahn.de/#person",
+          "name": "Ulf Pillkahn",
+          "honorificPrefix": "Prof. Dr.",
+          "url": "https://pillkahn.de/",
+          "worksFor": {
+            "@id": "https://operation-zukunft.de/#organization"
+          }
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://operation-zukunft.de/#organization",
+          "name": "Operation Zukunft",
+          "url": "https://operation-zukunft.de/",
+          "logo": "https://operation-zukunft.de/videos/hero-poster.jpg",
+          "image": "https://operation-zukunft.de/videos/hero-poster.jpg",
+          "description": "Beratung für Corporate Foresight, strategische Frühaufklärung und KI-gestützte Strategieentwicklung; Aufbau und Betrieb von KI-Agenten für Agentic und Continuous Foresight.",
+          "founder": {
+            "@id": "https://pillkahn.de/#person"
+          },
+          "email": "info@operation-zukunft.de",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Maxhofstraße 28",
+            "postalCode": "81475",
+            "addressLocality": "München",
+            "addressCountry": "DE"
+          },
+          "areaServed": [
+            "DE",
+            "AT",
+            "CH"
+          ],
+          "knowsAbout": [
+            "Corporate Foresight",
+            "Strategische Vorausschau",
+            "Strategische Frühaufklärung",
+            "KI-Frühwarnsysteme",
+            "Agentic Foresight",
+            "Continuous Foresight",
+            "Szenarioentwicklung",
+            "KI-gestützte Strategieentwicklung",
+            "KI-Agenten",
+            "Innovationsmanagement"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://operation-zukunft.de/#website",
+          "url": "https://operation-zukunft.de/",
+          "name": "Operation Zukunft",
+          "inLanguage": "de-DE",
+          "about": {
+            "@id": "https://operation-zukunft.de/#organization"
+          },
+          "publisher": {
+            "@id": "https://operation-zukunft.de/#organization"
+          },
+          "author": {
+            "@id": "https://pillkahn.de/#person"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://operation-zukunft.de/videos/{{SLUG}}/#webpage",
+          "url": "https://operation-zukunft.de/videos/{{SLUG}}/",
+          "name": "{{TITEL}} – Video | Operation Zukunft",
+          "description": "{{META_DESCRIPTION_MAX_155}}",
+          "inLanguage": "de-DE",
+          "isPartOf": {
+            "@id": "https://operation-zukunft.de/#website"
+          },
+          "mainEntity": {
+            "@id": "https://operation-zukunft.de/videos/{{SLUG}}/#video"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://operation-zukunft.de/videos/{{POSTER}}.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "breadcrumb": {
+            "@id": "https://operation-zukunft.de/videos/{{SLUG}}/#breadcrumb"
+          },
+          "author": {
+            "@id": "https://pillkahn.de/#person"
+          },
+          "publisher": {
+            "@id": "https://operation-zukunft.de/#organization"
+          },
+          "datePublished": "{{JJJJ-MM-TT}}",
+          "dateModified": "{{JJJJ-MM-TT}}"
+        },
+        {
+          "@type": "VideoObject",
+          "@id": "https://operation-zukunft.de/videos/{{SLUG}}/#video",
+          "name": "{{VOLLER_NAME}}",
+          "description": "{{BESCHREIBUNG_VIDEOOBJECT}}",
+          "thumbnailUrl": "https://operation-zukunft.de/videos/{{POSTER}}.jpg",
+          "uploadDate": "{{JJJJ-MM-TT}}",
+          "duration": "{{DAUER}}",
+          "contentUrl": "https://pillkahn.de/media/{{DATEI}}.mp4",
+          "embedUrl": "https://www.youtube.com/embed/{{YOUTUBE_ID}}",
+          "sameAs": "https://www.youtube.com/watch?v={{YOUTUBE_ID}}",
+          "inLanguage": "de",
+          "transcript": "{{ABSATZ}} {{ABSATZ}}",
+          "creator": {
+            "@id": "https://pillkahn.de/#person"
+          },
+          "author": {
+            "@id": "https://pillkahn.de/#person"
+          },
+          "publisher": {
+            "@id": "https://operation-zukunft.de/#organization"
+          },
+          "isPartOf": {
+            "@id": "https://operation-zukunft.de/videos/#reihe"
+          },
+          "mainEntityOfPage": {
+            "@id": "https://operation-zukunft.de/videos/{{SLUG}}/#webpage"
+          },
+          "hasPart": [
+            {
+              "@type": "Clip",
+              "name": "{{KAPITEL_1}}",
+              "startOffset": 0,
+              "endOffset": 60,
+              "url": "https://operation-zukunft.de/videos/{{SLUG}}/?t=0"
+            },
+            {
+              "@type": "Clip",
+              "name": "{{KAPITEL_2}}",
+              "startOffset": 60,
+              "endOffset": "{{DAUER}}",
+              "url": "https://operation-zukunft.de/videos/{{SLUG}}/?t=60"
+            }
+          ]
+        },
+        {
+          "@type": "CreativeWorkSeries",
+          "@id": "https://operation-zukunft.de/videos/#reihe",
+          "name": "Foresight erklärt",
+          "url": "https://operation-zukunft.de/videos/"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://operation-zukunft.de/videos/{{SLUG}}/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Startseite",
+              "item": "https://operation-zukunft.de/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Videos",
+              "item": "https://operation-zukunft.de/videos/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "{{TITEL}}",
+              "item": "https://operation-zukunft.de/videos/{{SLUG}}/"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <link rel="stylesheet" href="/style.css?v=2026-11-20">
+</head>
+<body>
+
+<!-- Kino-Ebenen: feines Raster, Film-Grain, Vignette -->
+<div class="grid-bg" aria-hidden="true"></div>
+<div class="film-grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+
+<!-- ===================== NAVIGATION ===================== -->
+<nav aria-label="Hauptnavigation">
+    <a href="/" class="nav-logo">OPERATION<span>::ZUKUNFT</span></a>
+    <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
+    <ul class="nav-links">
+        <li><a href="/#angebote">Angebote</a></li>
+        <li><a href="/#leistungen">Beratung</a></li>
+        <li><a href="/#publikationen">Buch &amp; Workbooks</a></li>
+        <li><a href="/#ueber">Über mich</a></li>
+        <li><a href="/videos/" aria-current="page" data-track="nav-videos">Videos</a></li>
+        <li><a href="/cluster.html" data-track="nav-cluster">Das Cluster</a></li>
+        <li><a href="/#kontakt">Kontakt</a></li>
+    </ul>
+</nav>
+
+<!-- ===================== INHALT (generiert von pflege/videos/build.py) ===================== -->
+<main class="mediathek video-seite">
+    <nav class="brotkrumen" aria-label="Brotkrumen">
+        <a href="/videos/">Videos</a> <span aria-hidden="true">›</span> <span aria-current="page">{{TITEL}}</span>
+    </nav>
+
+    <h1 class="video-titel">{{TITEL}}</h1>
+
+    <figure class="video-player">
+        <video id="video" controls preload="none" playsinline width="1280" height="720" poster="/videos/{{POSTER}}.jpg">
+            <source src="https://pillkahn.de/media/{{DATEI}}.mp4" type="video/mp4">
+            <track kind="subtitles" srclang="de" label="Deutsch" src="/videos/{{UNTERTITEL}}.de.vtt">
+        </video>
+    </figure>
+
+    <p class="video-antwort"><strong>{{ANTWORTSATZ}}</strong> {{ANTWORT_REST_40_BIS_60_WOERTER}} <span class="video-quelle">({{QUELLE_DER_DEFINITION}})</span></p>
+
+    <p class="video-meta">{{DAUER}} Min. · Untertitel im Player zuschaltbar · <a href="https://www.youtube.com/watch?v={{YOUTUBE_ID}}" rel="noopener" data-track="video-youtube">Auf YouTube ansehen</a></p>
+
+    <h2>Kapitel</h2>
+    <ol class="kapitel">
+        <li><a href="?t=0" data-t="0"><span class="zeit">0:00</span> {{KAPITEL_1}}</a></li>
+        <li><a href="?t=60" data-t="60"><span class="zeit">1:00</span> {{KAPITEL_2}}</a></li>
+    </ol>
+
+    <h2>Worum es geht</h2>
+    <p>{{SATZ_1}} {{SATZ_2}} {{SATZ_3}}</p>
+
+    <h2 id="transkript">Transkript</h2>
+    <h3>{{KAPITEL_1}}</h3>
+    <p>{{ABSATZ}}</p>
+    <h3>{{KAPITEL_2}}</h3>
+    <p>{{ABSATZ}}</p>
+
+    <h2>Weiter in der Reihe</h2>
+    <ul class="reihe-liste">
+        <li><a href="/videos/was-ist-zukunftsforschung/">Was ist Zukunftsforschung?</a> <span class="reihe-dauer">5:57 Min.</span></li>
+    </ul>
+    <p class="reihe-naechstes">Als Nächstes: Foresight mit Szenarien</p>
+    <p><a href="/videos/" class="reihe-alle">Alle Videos der Reihe „Foresight erklärt“ →</a></p>
+
+    <div class="video-cta">
+        <p>{{AUFRUF_TEXT}}</p>
+        <a href="{{/vorhandene-seite.html}}" class="btn btn-primary" data-track="video-cta">{{LINKTEXT →}}</a>
+    </div>
+</main>
+
+<!-- ===================== FOOTER & IMPRESSUM ===================== -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-top">
+            <div class="footer-links">
+                <a href="https://pillkahn.de/">Ein Projekt von Prof. Dr. Ulf Pillkahn</a>
+                <a href="/videos/" data-track="footer-videos">Videos</a>
+                <a href="/datenschutz.html" data-track="datenschutz">Datenschutz</a>
+            </div>
+            <button class="impressum-toggle" aria-expanded="false" aria-controls="impressum">Impressum ▼</button>
+        </div>
+
+        <div id="impressum" class="impressum-content">
+            <h3>Impressum</h3>
+            <p><strong>Angaben gemäß § 5 DDG</strong></p>
+            <p>Prof. Dr. Ulf Pillkahn<br>Maxhofstraße 28<br>81475 München</p>
+            <p><strong>Kontakt:</strong> <a href="mailto:info@operation-zukunft.de">info@operation-zukunft.de</a></p>
+            <p><strong>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV:</strong><br>Prof. Dr. Ulf Pillkahn</p>
+            <p><strong>Haftungsausschluss:</strong> Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+        </div>
+
+        <p class="footer-copy">© 2026 Prof. Dr. Ulf Pillkahn · Operation Zukunft</p>
+    </div>
+</footer>
+
+<script>
+/* Kapitel und ?t=Sekunden springen im eigenen Player an die Stelle
+   (die Clip-Adressen in den Strukturdaten nutzen genau dieses Muster).
+   preload="none": Beim Klick startet play() das Laden, die Zeit wird
+   gesetzt, sobald die Metadaten da sind. */
+(function () {
+    var v = document.getElementById('video');
+    if (!v) return;
+    function springe(s, abspielen) {
+        if (v.readyState >= 1) {
+            v.currentTime = s;
+            if (abspielen) v.play().catch(function () {});
+            return;
+        }
+        v.addEventListener('loadedmetadata', function () { v.currentTime = s; }, { once: true });
+        if (abspielen) { v.play().catch(function () {}); }
+        else { v.preload = 'metadata'; v.load(); }
+    }
+    var t = parseInt(new URLSearchParams(location.search).get('t'), 10);
+    if (t > 0) { springe(t, false); v.scrollIntoView({ block: 'center' }); }
+    document.querySelectorAll('.kapitel a[data-t]').forEach(function (a) {
+        a.addEventListener('click', function (ev) {
+            ev.preventDefault();
+            springe(parseInt(a.getAttribute('data-t'), 10), true);
+            v.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    });
+})();
+</script>
+
+<!-- Seitenverhalten -->
+<script src="/main.js?v=2026-11-12"></script>
+<!-- Besucherzähler (eigener Zähler auf pillkahn.de, siehe track.js) -->
+<script src="/track.js?v=2026-11-12" defer></script>
+
+</body>
+</html>

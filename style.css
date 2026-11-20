@@ -1367,3 +1367,113 @@ picture img { height: auto; }
     letter-spacing: 0.06em;
     color: var(--text-dim);
 }
+
+/* ---------- 20. Mediathek „Foresight erklärt“ (videos/, Startseite #videos) ----------
+   Seiten werden von pflege/videos/build.py erzeugt. Der Player steht direkt
+   unter der H1, damit er bei 1440 und 390 px ohne Scrollen sichtbar ist. */
+.mediathek {
+    max-width: 1100px; margin: 0 auto; padding: 5.6rem 2rem 4rem;
+    position: relative; z-index: 1;
+}
+nav.brotkrumen {
+    position: static; display: block; padding: 0; z-index: auto;
+    background: none; backdrop-filter: none; -webkit-backdrop-filter: none; border: 0;
+    font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.06em;
+    color: var(--text-dim); margin: 0 0 0.5rem;
+}
+.mediathek nav.brotkrumen a { color: var(--text-secondary); border-bottom: 0; }
+.mediathek nav.brotkrumen a:hover { color: var(--accent); }
+.video-titel {
+    font-family: var(--font-display); font-weight: 600; color: var(--text-primary);
+    font-size: clamp(1.6rem, 3.6vw, 2.4rem); line-height: 1.15; margin: 0 0 1.1rem;
+}
+.video-player { margin: 0 0 1.6rem; }
+.video-player video {
+    display: block; width: 100%; height: auto; aspect-ratio: 16 / 9;
+    background: #000; border: 1px solid var(--border); border-radius: 8px;
+}
+.mediathek p { color: var(--text-secondary); max-width: 820px; margin: 0 0 1rem; line-height: 1.7; }
+.mediathek .video-antwort { color: var(--text-primary); font-size: 1.12rem; margin-bottom: 0.8rem; }
+.video-quelle { color: var(--text-dim); font-size: 0.85rem; }
+.mediathek .video-meta { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-dim); margin-bottom: 2.4rem; }
+.mediathek a:not(.btn):not(.film-karte) {
+    color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-soft);
+}
+.mediathek a:not(.btn):not(.film-karte):hover { border-bottom-color: var(--accent); }
+.mediathek h2 { font-family: var(--font-display); font-size: 1.4rem; color: var(--text-primary); margin: 2.6rem 0 1rem; }
+.mediathek h3 { font-family: var(--font-display); font-size: 1.1rem; color: var(--text-primary); margin: 1.8rem 0 0.5rem; }
+.kapitel { list-style: none; padding: 0; margin: 0; columns: 2; column-gap: 2rem; max-width: 860px; }
+.kapitel li { break-inside: avoid; margin: 0 0 0.55rem; }
+.mediathek .kapitel a { color: var(--text-primary); border-bottom: 0; }
+.mediathek .kapitel a:hover { color: var(--accent); }
+.kapitel .zeit {
+    font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent);
+    display: inline-block; width: 3.2rem;
+}
+.reihe-liste { list-style: none; padding: 0; margin: 0 0 1rem; }
+.reihe-liste li { margin: 0 0 0.4rem; }
+.reihe-dauer { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim); }
+.mediathek .reihe-naechstes { font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-dim); }
+.video-cta {
+    margin-top: 3rem; padding: 1.8rem; max-width: 860px;
+    background: var(--bg-card); border: 1px solid var(--border-bright); border-radius: 8px;
+}
+.mediathek .video-cta p { color: var(--text-primary); }
+.mediathek-lead { font-size: 1.08rem; }
+.film-karten {
+    list-style: none; padding: 0; margin: 2rem 0;
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.6rem;
+}
+.film-karte {
+    display: block; height: 100%; text-decoration: none; overflow: hidden;
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;
+    transition: border-color 0.3s var(--ease-soft), transform 0.3s var(--ease-soft);
+}
+.film-karte:hover { border-color: var(--accent); transform: translateY(-2px); }
+.film-bild { display: block; position: relative; }
+.film-bild img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+.film-dauer {
+    position: absolute; right: 0.6rem; bottom: 0.6rem; padding: 0.15rem 0.45rem; border-radius: 4px;
+    background: rgba(0, 0, 0, 0.75); color: #fff; font-family: var(--font-mono); font-size: 0.75rem;
+}
+.film-nr {
+    display: block; padding: 1rem 1.2rem 0; color: var(--accent);
+    font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.mediathek .film-karte h2 { margin: 0.3rem 1.2rem 0.4rem; font-size: 1.2rem; }
+.mediathek .film-karte p { margin: 0 1.2rem 1.2rem; font-size: 0.95rem; }
+.mediathek .in-vorbereitung { font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-dim); }
+
+/* Startseite: Abschnitt „Foresight erklärt“ */
+.mediathek-teaser-grid {
+    display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: 2.5rem; align-items: center; margin-top: 2rem;
+}
+.mediathek-teaser-bild {
+    position: relative; display: block; overflow: hidden;
+    border: 1px solid var(--border); border-radius: 8px;
+}
+.mediathek-teaser-bild img { display: block; width: 100%; height: auto; transition: transform 0.6s var(--ease-soft); }
+.mediathek-teaser-bild:hover img { transform: scale(1.02); }
+.mediathek-play {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    width: 64px; height: 64px; border-radius: 50%; padding-left: 4px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(11, 14, 21, 0.72); border: 1px solid var(--accent);
+    color: var(--accent); font-size: 1.4rem;
+}
+.mediathek-teaser-neu {
+    font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem;
+}
+.mediathek-teaser-text h3 { font-family: var(--font-display); font-size: 1.5rem; margin: 0 0 0.6rem; }
+.mediathek-teaser-text h3 a { color: var(--text-primary); text-decoration: none; }
+.mediathek-teaser-text h3 a:hover { color: var(--accent); }
+.mediathek-teaser-text p { color: var(--text-secondary); margin-bottom: 1.4rem; }
+@media (max-width: 800px) {
+    .mediathek-teaser-grid { grid-template-columns: 1fr; gap: 1.4rem; }
+}
+@media (max-width: 640px) {
+    .mediathek { padding: 4.6rem 1rem 3rem; }
+    .kapitel { columns: 1; }
+}

@@ -32,6 +32,10 @@ body="""
         Corporate Foresight – die strategische Vorausschau im Unternehmen – hat drei Aufgaben: <strong>Veränderungen früh erkennen</strong>, <strong>mögliche Zukünfte durchdenken</strong> und <strong>daraus Entscheidungen ableiten</strong>. Die ersten beiden Schritte waren bisher so aufwendig, dass für den dritten oft keine Kraft mehr blieb. Ein klassischer Szenarioprozess bindet über Monate ein Dutzend Köpfe, und am Ende liegt ein Bericht vor, der beim Erscheinen schon altert.
     </p>
 
+    <p>
+        Woher das Fach kommt, welche drei Philosophien es prägen und warum sich Unternehmen mit Foresight schwertun, erklärt das Video <a href="../videos/was-ist-zukunftsforschung/">Was ist Zukunftsforschung?</a>
+    </p>
+
     <h2>Was KI übernimmt</h2>
 
     <p>
@@ -358,6 +362,10 @@ body="""
     <p>
         Die Grundlagen beschreibt das Working Paper <em>Flipped Foresight: Inverting the Division of Labor between Humans and Machines in Scenario-Based Futures Work</em>, erschienen im August 2026 auf SSRN. Eine Einführung bietet <a href="https://flipped-foresight.com/">flipped-foresight.com</a>, ein Buch zur Methode ist in Vorbereitung.
     </p>
+
+    <p>
+        Wie Flipped Foresight in die Zukunftsforschung insgesamt passt, zeigt das Video <a href="../videos/was-ist-zukunftsforschung/">Was ist Zukunftsforschung?</a> im Kapitel „Die Rolle von KI“.
+    </p>
 """),
 
 # ---------------------------------------------------------------- September
@@ -555,18 +563,5 @@ body="""
 """),
 ]
 
-# ---------------------------------------------------------------- Video 19 (14.11.2026)
-import os as _os
-ARTIKEL.append(dict(
-slug="was-ist-zukunftsforschung",
-datum="2026-11-14", label="November 2026",
-h1="Was ist Zukunftsforschung? Methoden, Grenzen und die Rolle von KI",
-title="Was ist Zukunftsforschung? Video | Operation Zukunft",
-desc=("Was ist Zukunftsforschung? Drei Philosophien, die Grenzen des Fachs und die Rolle "
-      "von KI – erklärt von Prof. Dr. Ulf Pillkahn. Video mit Transkript."),
-kurz="Was ist Zukunftsforschung? (Video)",
-teaser="Methoden, Grenzen und die Rolle von KI – in knapp sechs Minuten erklärt, mit Transkript.",
-cta=("Die Zukunft lässt sich nicht vorhersagen – aber man kann vorbereitet sein. Wie das in Ihrem Unternehmen aussehen kann:",
-     "../index.html#angebote", "Zu den Angeboten von Operation Zukunft →"),
-body=open(_os.path.join(_os.path.dirname(_os.path.abspath(__file__)), 'video19_body.html'), encoding='utf-8').read(),
-))
+# Video 19 („Was ist Zukunftsforschung?“) ist seit 20.11.2026 kein Blogartikel mehr,
+# sondern eine Videoseite der Mediathek: pflege/videos/filme/was-ist-zukunftsforschung/

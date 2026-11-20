@@ -25,3 +25,4 @@ User-agent: Google-Extended
 Allow: /
 
 Sitemap: https://operation-zukunft.de/sitemap.xml
+Sitemap: https://operation-zukunft.de/video-sitemap.xml

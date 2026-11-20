@@ -43,7 +43,7 @@ const posts = [
         titel: "Was ist Zukunftsforschung? (Video)",
         datum: "2026-11-14",
         teaser: "Methoden, Grenzen und die Rolle von KI – in knapp sechs Minuten erklärt, mit Transkript.",
-        url: "blog/was-ist-zukunftsforschung.html"
+        url: "videos/was-ist-zukunftsforschung/"
     },
     {
         titel: "Szenarien als Film",

@@ -1,0 +1,11 @@
+{
+  "_hinweis": "Reihenfolge der Reihe „Foresight erklärt“. Ein Film gilt als veröffentlicht, sobald es filme/<slug>/film.json gibt. Bis dahin erscheint nur der Titel (ohne Link) unter „In Vorbereitung“ bzw. „Als Nächstes“.",
+  "name": "Foresight erklärt",
+  "youtube_kanal": "https://www.youtube.com/@profandprompt",
+  "filme": [
+    {"nr": 1, "slug": "was-ist-zukunftsforschung", "titel": "Was ist Zukunftsforschung?"},
+    {"nr": 2, "slug": "foresight-mit-szenarien", "titel": "Foresight mit Szenarien"},
+    {"nr": 3, "slug": "foresight-mit-trends", "titel": "Foresight mit Trends"},
+    {"nr": 4, "slug": "wie-ki-foresight-veraendert", "titel": "Wie KI Foresight verändert"}
+  ]
+}

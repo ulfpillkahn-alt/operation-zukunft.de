@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Video-Sitemap: generiert von pflege/videos/build.py -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url>
+    <loc>https://operation-zukunft.de/videos/was-ist-zukunftsforschung/</loc>
+    <video:video>
+      <video:thumbnail_loc>https://operation-zukunft.de/videos/zukunftsforschung-poster.jpg</video:thumbnail_loc>
+      <video:title>Was ist Zukunftsforschung? Methoden, Grenzen und die Rolle von KI</video:title>
+      <video:description>Zukunftsforschung ist die wissenschaftliche Untersuchung möglicher, wahrscheinlicher und wünschbarer Zukünfte – mit dem Ziel, heute bessere Entscheidungen zu treffen. Das Video erklärt die drei Philosophien des Fachs (Vorhersagen, Erkunden, Gestalten), seine Grenzen und die Rolle von KI.</video:description>
+      <video:content_loc>https://pillkahn.de/media/zukunftsforschung-1080p.mp4</video:content_loc>
+      <video:player_loc>https://www.youtube.com/embed/lWqYWYmL73A</video:player_loc>
+      <video:duration>357</video:duration>
+      <video:publication_date>2026-11-14</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+</urlset>

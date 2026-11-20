@@ -41,6 +41,7 @@ NAV = """<nav>
     <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menü">☰</button>
     <ul class="nav-links">
         <li><a href="../index.html#angebote">Angebote</a></li>
+        <li><a href="../videos/">Videos</a></li>
         <li><a href="../cluster.html">Das Cluster</a></li>
         <li><a href="./">Blog</a></li>
         <li><a href="../index.html#kontakt">Kontakt</a></li>
@@ -50,6 +51,7 @@ NAV = """<nav>
 FUSS = """<footer>
     <div class="footer-links">
         <a href="../index.html#impressum">Impressum</a>
+        <a href="../videos/">Videos</a>
         <a href="https://pillkahn.de/">Ein Projekt von Prof. Dr. Ulf Pillkahn</a>
     </div>
     <p class="footer-copy">© 2026 Prof. Dr. Ulf Pillkahn · Operation Zukunft</p>
@@ -123,6 +125,8 @@ for a in sorted(ARTIKEL, key=lambda a: a["datum"], reverse=True):
 pj = pj.replace("const posts = [", "const posts = [" + neu, 1)
 schreib(P("posts.js"), pj)
 
+# Einträge in posts.js dürfen auch auf Seiten außerhalb von blog/ zeigen
+# (Video 19 → videos/was-ist-zukunftsforschung/); Übersicht und Sitemap beachten das.
 # Alle Einträge (für Übersicht, posts.json, Sitemap, noscript)
 array = pj[pj.index("const posts = ["):]
 eintraege = re.findall(r'titel:\s*"([^"\n]*)",\s*datum:\s*"([^"\n]*)",\s*teaser:\s*"([^"\n]*)",\s*url:\s*"([^"\n]*)"', array)
@@ -139,7 +143,7 @@ schreib(P("posts.json"), json.dumps(
 liste = "\n".join(
     f"""        <li>
             <span class="datum">{label(d)}</span>
-            <h2><a href="{u.replace('blog/', '')}">{html.escape(t, quote=False)}</a></h2>
+            <h2><a href="{u.replace('blog/', '') if u.startswith('blog/') else '../' + u}">{html.escape(t, quote=False)}</a></h2>
             <p>{html.escape(te, quote=False)}</p>
         </li>""" for t, d, te, u in eintraege)
 schreib(P("blog", "index.html"), seite(
@@ -163,6 +167,8 @@ for f in os.listdir(P("blog")):
     if not f.endswith(".html") or f == "index.html":
         continue
     t = lies(P("blog", f))
+    if 'http-equiv="refresh"' in t:
+        continue  # Weiterleitungsseiten (z. B. Video 19) erzeugt pflege/videos/build.py
     t2 = (t.replace('<a href="../index.html#buch">Buch</a>', '<a href="../index.html#publikationen">Buch</a>')
            .replace('href="../index.html#blog"', 'href="./"'))
     if "track.js" not in t2:
@@ -176,6 +182,8 @@ block = "  <!-- Blogbeitraege (lastmod = Publikationsdatum aus posts.js) -->\n"
 block += "  <url>\n    <loc>https://operation-zukunft.de/blog/</loc>\n" \
          f"    <lastmod>{eintraege[0][1]}</lastmod>\n  </url>\n"
 for t, d, te, u in eintraege:
+    if not u.startswith("blog/"):
+        continue  # z. B. Videoseiten: stehen im Videos-Block (pflege/videos/build.py)
     block += f"  <url>\n    <loc>https://operation-zukunft.de/{u}</loc>\n    <lastmod>{d}</lastmod>\n  </url>\n"
 sm = re.sub(r"  <!-- Blogbeitraege.*?(?=\n  <!-- Indexierbares)", block.rstrip("\n") + "\n", sm, flags=re.S)
 schreib(P("sitemap.xml"), sm)
