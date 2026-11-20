@@ -1,5 +1,20 @@
 # Changelog operation-zukunft.de
 
+## 2026-11-20 – Kontakt: Telefon und robuster E-Mail-Weg
+
+Commit `aeb4427`, live seit 2026-11-20. Rollback: `git revert aeb4427`, Sicherungs-Tag `pre-kontakt-2026-11-20`.
+
+- Telefon `+49 152 3619 1599` (`tel:+4915236191599`) im Kontaktbereich der Startseite, im Footer und Impressum
+  (Startseite, Cluster, Szenariofilme, Datenschutz, Videoseiten), unter dem CTA von `szenariofilme.html`
+  und im JSON-LD der Organisation (über `pflege/seo.py`, daher auf allen Seiten mit Strukturdaten).
+- Startseite: Direktkontakt-Block mit sichtbarer Adresse und „Adresse kopieren“ (Clipboard-API,
+  sonst Markieren der Adresse); alle Anfrage-mailtos mit vorbefülltem Body, Betreffs unverändert.
+- Zähler: neue Kennungen `telefon-kontakt`, `telefon-footer`, `telefon-szenariofilme`, `mail-direkt`,
+  `mail-kopieren`; Bezeichnungen in `stats.html`. `track.js` unverändert (meldet jedes `data-track`).
+- Datenschutz Abschnitt 4: „per E-Mail oder Telefon“, Telefonnummer bei den verarbeiteten Daten.
+- `sitemap.xml`: `lastmod` der Startseite 2026-11-20; CSS-Cache-Buster `2026-11-20b`.
+- Live geprüft: Seiten 200, `tel:`-Links vorhanden, Klick „Adresse kopieren“ erscheint in /stats.
+
 ## 2026-11-20 – Mediathek „Foresight erklärt“
 
 Commit `9175342`, live seit 2026-11-20.
