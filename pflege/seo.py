@@ -27,7 +27,7 @@ import sys
 BASIS = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOMAIN = "https://operation-zukunft.de"
 HEUTE = "2026-11-11"
-CSS_VERSION = "2026-11-20"
+CSS_VERSION = "2026-11-20b"
 
 # ------------------------------------------------------------------ Kanon
 PERSON_ID = "https://pillkahn.de/#person"
@@ -59,6 +59,7 @@ ORG = {
                     "für Agentic und Continuous Foresight."),
     "founder": {"@id": PERSON_ID},
     "email": "info@operation-zukunft.de",
+    "telephone": "+49 152 3619 1599",
     "address": {
         "@type": "PostalAddress",
         "streetAddress": "Maxhofstraße 28",

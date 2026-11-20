@@ -1477,3 +1477,50 @@ nav.brotkrumen {
     .mediathek { padding: 4.6rem 1rem 3rem; }
     .kapitel { columns: 1; }
 }
+
+/* Kontakt direkt (20.11.2026) */
+.kontakt-direkt {
+    margin-top: 3.2rem; padding-top: 2.4rem;
+    border-top: 1px solid var(--border);
+}
+.contact-inner p.kontakt-direkt-intro { margin-bottom: 1.6rem; }
+.kontakt-direkt-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+@media (min-width: 769px) {
+    .kontakt-direkt-grid { grid-template-columns: 1fr 1fr; gap: 2.4rem; }
+}
+.kontakt-direkt-item { display: flex; flex-direction: column; align-items: center; gap: 0.45rem; min-width: 0; }
+.kontakt-direkt-label {
+    font-family: var(--font-mono); font-size: 0.7rem;
+    color: var(--text-dim); letter-spacing: 0.18em; text-transform: uppercase;
+}
+.kontakt-direkt-wert {
+    font-family: var(--font-display); font-size: 1.25rem; font-weight: 600;
+    color: var(--text-primary); text-decoration: none; white-space: nowrap;
+    transition: color 0.3s var(--ease-soft);
+}
+.kontakt-direkt-wert:hover, .kontakt-direkt-wert:focus-visible { color: var(--accent); }
+.kontakt-direkt-zeile {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+    gap: 0.5rem 0.8rem;
+}
+.kontakt-kopieren {
+    background: none; border: 1px solid var(--border-bright); border-radius: 4px;
+    color: var(--text-secondary); font-family: var(--font-body); font-size: 0.8rem;
+    line-height: 1.2; padding: 0.35rem 0.8rem; cursor: pointer;
+    transition: border-color 0.3s var(--ease-soft), color 0.3s var(--ease-soft);
+}
+.kontakt-kopieren:hover { border-color: var(--accent); color: var(--accent); }
+.contact-inner p.kontakt-direkt-hinweis {
+    font-size: 0.85rem; color: var(--text-dim); margin: 0; line-height: 1.5;
+}
+.kontakt-kopiert-status {
+    display: block; min-height: 1.5em; line-height: 1.5;
+    font-size: 0.85rem; color: var(--accent);
+}
+/* Kontaktzeile im Footer, Telefon unter dem Szenariofilm-Aufruf */
+.footer-kontakt { font-size: 0.85rem; color: var(--text-dim); margin-bottom: 1rem; }
+.footer-kontakt a { color: var(--text-dim); text-decoration: none; white-space: nowrap; transition: color 0.3s var(--ease-soft); }
+.footer-kontakt a:hover { color: var(--accent); }
+.film-telefon { flex-basis: 100%; font-size: 0.85rem; color: var(--text-dim); margin: -0.6rem 0 0; }
+.film-telefon a { color: var(--text-secondary); text-decoration: none; white-space: nowrap; }
+.film-telefon a:hover { color: var(--accent); }
