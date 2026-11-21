@@ -1,5 +1,18 @@
 # Changelog operation-zukunft.de
 
+## 2026-11-21 – Mediathek: Film 2 „Foresight mit Szenarien“
+
+Commit `dfa0806`, live seit 2026-11-21. YouTube `S5p6pTU4SuE`.
+
+- Neu: `/videos/foresight-mit-szenarien/` mit eigenem Player, 8 Kapiteln, Untertiteln und Transkript
+  (Wortlaut der Untertitel). Die mp4 liegt auf `pillkahn.de/media/Video20_Foresight-mit-Szenarien_clean_1080p.mp4`
+  (174 MB, ohne eingebrannte Untertitel). Eine Webfassung mit 62 MB liegt im Produktionsordner, Umstellung optional.
+- Übersicht `/videos/`, Startseitenabschnitt, „Weiter in der Reihe“, `sitemap.xml`, `video-sitemap.xml`
+  und `llms.txt` über den Generator aktualisiert.
+- Linksätze in `szenarioentwicklung-ki` und `szenarien-als-film`.
+- Live geprüft (curl): neue Seiten 200, Sitemaps als `application/xml`, VTT als `text/vtt`, mp4 206 `video/mp4`;
+  Kapitelsprung in der Vorschau geprüft.
+
 ## 2026-11-20 – Kontakt: Telefon und robuster E-Mail-Weg
 
 Commit `aeb4427`, live seit 2026-11-20. Rollback: `git revert aeb4427`, Sicherungs-Tag `pre-kontakt-2026-11-20`.
