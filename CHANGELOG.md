@@ -5,8 +5,9 @@
 Commit `dfa0806`, live seit 2026-11-21. YouTube `S5p6pTU4SuE`.
 
 - Neu: `/videos/foresight-mit-szenarien/` mit eigenem Player, 8 Kapiteln, Untertiteln und Transkript
-  (Wortlaut der Untertitel). Die mp4 liegt auf `pillkahn.de/media/Video20_Foresight-mit-Szenarien_clean_1080p.mp4`
-  (174 MB, ohne eingebrannte Untertitel). Eine Webfassung mit 62 MB liegt im Produktionsordner, Umstellung optional.
+  (Wortlaut der Untertitel). Die mp4 liegt auf `pillkahn.de/media/foresight-mit-szenarien-1080p.mp4`
+  (Webfassung, 62 MB, 1,2 Mbit/s wie Film 1, ohne eingebrannte Untertitel). Bis zur Umstellung am selben Tag
+  lief der Master `Video20_Foresight-mit-Szenarien_clean_1080p.mp4` (174 MB); er liegt weiter in `/media/`.
 - Übersicht `/videos/`, Startseitenabschnitt, „Weiter in der Reihe“, `sitemap.xml`, `video-sitemap.xml`
   und `llms.txt` über den Generator aktualisiert.
 - Linksätze in `szenarioentwicklung-ki` und `szenarien-als-film`.
