@@ -39,7 +39,7 @@
 
 
 
-    <link rel="stylesheet" href="style.css?v=2026-11-21">
+    <link rel="stylesheet" href="style.css?v=2026-11-21b">
     <!-- Strukturdaten: generiert von pflege/seo.py nach dem Cluster-Standard -->
     <script type="application/ld+json">
     {
@@ -314,12 +314,26 @@
             </article>
         </div>
 
-        <!-- Hinweis auf die Szenariofilme. Bewusst ohne Bild und ohne Video:
-             die Startseite soll dadurch nicht langsamer werden. -->
-        <a class="film-band reveal" href="szenariofilme.html" data-track="band-szenariofilm">
-          <span class="film-band-label">Neu</span>
-          <span class="film-band-text"><strong>Szenarien als Film.</strong> Vier Zukünfte, vier Filme, ein direkter Vergleich.</span>
-          <span class="film-band-cta">Ansehen →</span>
+        <!-- Hinweis auf die Szenariofilme, mit 20-Sekunden-Teaser der vier Szenarien
+             (21.11.2026). Damit die Startseite nicht langsamer wird: preload="none",
+             das Video (1,9 MB) lädt und läuft erst, wenn das Band sichtbar ist
+             (Skript am Seitenende); bei „Bewegung reduzieren" bleibt das Posterbild. -->
+        <a class="film-band film-band--video reveal" href="szenariofilme.html" data-track="band-szenariofilm">
+          <span class="film-band-media">
+            <video class="film-band-teaser" muted loop playsinline preload="none"
+                   width="960" height="540"
+                   poster="videos/szenariofilme/szenarien-teaser.jpg"
+                   aria-label="Teaser: vier Szenarien, je fünf Sekunden, ohne Ton">
+              <source src="videos/szenariofilme/szenarien-teaser.mp4" type="video/mp4">
+            </video>
+          </span>
+          <span class="film-band-body">
+            <span class="film-band-label">Neu</span>
+            <span class="film-band-titel">Szenarien als Film.</span>
+            <span class="film-band-text">Vier Zukünfte, vier Filme, ein direkter Vergleich. Dieselbe Fokusfrage, vier Welten – für Führungsteams, Strategieworkshops und die interne Kommunikation.</span>
+            <span class="film-band-hinweis">Beispiel: Photonik und Optik in Deutschland 2040 · KI-generiert, keine Prognose</span>
+            <span class="film-band-cta">Szenariofilme ansehen →</span>
+          </span>
         </a>
     </div>
     <span class="hero-scroll-hint" aria-hidden="true">Scroll</span>
@@ -640,6 +654,27 @@
 <script src="track.js?v=2026-11-15" defer></script>
 <!-- Black-Week-Aktion der Strategie-Pakete (bis 18.12.2026) -->
 <script src="aktion.js"></script>
+<!-- Szenariofilm-Teaser im Band: spielt nur, solange er im Bild ist.
+     Bei „Bewegung reduzieren" oder ohne IntersectionObserver bleibt es beim Posterbild. -->
+<script>
+(function () {
+    var v = document.querySelector('.film-band-teaser');
+    if (!v) return;
+    var sparsam = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (sparsam || !('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function (eintraege) {
+        eintraege.forEach(function (e) {
+            if (e.isIntersecting) {
+                var p = v.play();
+                if (p && p.catch) p.catch(function () { /* Autoplay verweigert: Poster bleibt */ });
+            } else if (!v.paused) {
+                v.pause();
+            }
+        });
+    }, { threshold: 0.35 });
+    io.observe(v);
+})();
+</script>
 <!-- Kontakt: „Adresse kopieren" (20.11.2026). Ohne Clipboard-API wird die
      Adresse markiert, damit Besucher sie selbst kopieren können. -->
 <script>
