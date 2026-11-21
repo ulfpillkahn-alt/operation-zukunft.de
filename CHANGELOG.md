@@ -5,6 +5,17 @@
 - `f1a8ac42c31a43c9a2be4aa8f3e7db39.txt` im Wurzelverzeichnis (Inhalt genau der Schlüssel, für Bing/IndexNow). Die Meldung läuft über OpenSEO.
   Die Datei nicht löschen oder umbenennen, sonst lehnt IndexNow künftige Meldungen ab (403).
 
+## 2026-11-21 – Szenariofilme-Seite: Teaser
+
+Commit `9a1866d`, live seit 2026-11-21. Rollback: `git revert 9a1866d`.
+
+- `szenariofilme.html`: Teaser der vier Szenarien (wie im Startseiten-Band) neben „Was Sie erhalten“,
+  Bildunterschrift „Die vier Szenarien des Beispiels in 20 Sekunden · KI-generiert, keine Prognose“.
+  Desktop zwei gleich breite Spalten, mobil Teaser unter der Liste.
+- Start erst bei Sichtbarkeit über das bestehende Kachel-Skript (Selektor um `.film-teaser video` erweitert).
+- CSS-Cache-Buster `2026-11-21c` auf allen Seiten.
+- Live geprüft (curl): Seite, Stylesheet, Teaser und Poster 200, neues Markup und Skript ausgeliefert.
+
 ## 2026-11-21 – Szenariofilm-Band mit Teaser
 
 Commit `ac21ea6`, live seit 2026-11-21. Rollback: `git revert ac21ea6`.
