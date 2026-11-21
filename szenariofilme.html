@@ -25,7 +25,7 @@
     <meta name="robots" content="index, follow">
 
 
-    <link rel="stylesheet" href="style.css?v=2026-11-21b">
+    <link rel="stylesheet" href="style.css?v=2026-11-21c">
     <!-- Strukturdaten: generiert von pflege/seo.py nach dem Cluster-Standard -->
     <script type="application/ld+json">
     {
@@ -266,12 +266,23 @@
 <!-- ===================== 5. LEISTUNGSUMFANG ===================== -->
 <section id="umfang" class="section-full film-section">
     <h2 class="section-title reveal">Was Sie erhalten</h2>
-    <ul class="film-includes reveal">
-        <li>Szenariokreuz mit Begründung der Achsen</li>
-        <li>vier Szenariofilme und der Vierfach-Vergleich, zur Nutzung im eigenen Haus</li>
-        <li>Szenario-Auswertung als PDF: Treiber, Unsicherheiten, Frühindikatoren, Handlungsoptionen</li>
-        <li>moderierte Auswertungssitzung, vor Ort oder remote</li>
-    </ul>
+    <div class="film-umfang">
+        <ul class="film-includes reveal">
+            <li>Szenariokreuz mit Begründung der Achsen</li>
+            <li>vier Szenariofilme und der Vierfach-Vergleich, zur Nutzung im eigenen Haus</li>
+            <li>Szenario-Auswertung als PDF: Treiber, Unsicherheiten, Frühindikatoren, Handlungsoptionen</li>
+            <li>moderierte Auswertungssitzung, vor Ort oder remote</li>
+        </ul>
+        <!-- Teaser (wie im Band der Startseite): stumm, Schleife, startet erst bei Sichtbarkeit (Skript am Seitenende) -->
+        <figure class="film-teaser reveal">
+            <video muted loop playsinline preload="none" width="960" height="540"
+                   poster="videos/szenariofilme/szenarien-teaser.jpg"
+                   aria-label="Teaser: die vier Szenarien des Beispiels nacheinander, ohne Ton">
+                <source src="videos/szenariofilme/szenarien-teaser.mp4" type="video/mp4">
+            </video>
+            <figcaption>Die vier Szenarien des Beispiels in 20 Sekunden · KI-generiert, keine Prognose</figcaption>
+        </figure>
+    </div>
     <p class="offer-price film-price reveal">Preis auf Anfrage<span class="offer-price-note">abhängig von Umfang und Anzahl der Filme</span></p>
 
     <!-- 6. Hinweis -->
@@ -361,7 +372,7 @@
 <script src="track.js?v=2026-11-15" defer></script>
 
 <!-- ============================================================
-     Kachel-Videos: spielen nur, solange sie im Bild sind.
+     Kachel-Videos und Teaser: spielen nur, solange sie im Bild sind.
      Vier gleichzeitig laufende Videos kosten sonst dauerhaft
      Rechenzeit und Akku, auch wenn niemand hinsieht.
      Bei „Bewegung reduzieren" bleibt es beim Posterbild; die
@@ -369,7 +380,7 @@
      ============================================================ -->
 <script>
 (function () {
-    var videos = document.querySelectorAll('.film-tile video');
+    var videos = document.querySelectorAll('.film-tile video, .film-teaser video');
     if (!videos.length) return;
 
     var sparsam = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
