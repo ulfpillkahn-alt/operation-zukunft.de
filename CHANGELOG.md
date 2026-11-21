@@ -5,6 +5,28 @@
 - `f1a8ac42c31a43c9a2be4aa8f3e7db39.txt` im Wurzelverzeichnis (Inhalt genau der Schlüssel, für Bing/IndexNow). Die Meldung läuft über OpenSEO.
   Die Datei nicht löschen oder umbenennen, sonst lehnt IndexNow künftige Meldungen ab (403).
 
+## 2026-11-21 – Bücher verankern (Prompt 13)
+
+Commit `ba5bec8` (Branch `buch-verankerung`, auf main übernommen), live seit 2026-11-21. Rollback: `git revert ba5bec8`.
+
+- JSON-LD nur noch mit Verweisen auf die Book-Knoten von pillkahn.de (`@type`, `@id`, `name`), zentral in
+  `pflege/seo.py` (`BUCH`, `buecher()`):
+  - `…/trends-und-szenarien/#book`, `…/weisheit-der-roulettekugel/#book`, `…/the-automated-future/#book`,
+    `…/publikationen/#flipped-foresight-buch`
+  - Startseite: vollständige Book-Knoten entfernt (alte @id `#automated-future`), stattdessen `WebPage.mentions`
+    mit allen vier Büchern; Organisation ohne Buchangaben
+  - `citation` in sieben Blogartikeln (Feld `zitiert` in `SEITEN`) und auf beiden Videoseiten
+    (Feld `weiterlesen` in `film.json`); `strategie-pakete.html`: `Service.subjectOf` → The Automated Future
+- Sichtbar: je ein Linksatz in warum-prognosen-scheitern, szenarioentwicklung-ki, red-queen-effekt,
+  dilemma-organisationen, lebenszyklus-innovationen (zwei), strategieplanung-ki, ki-agenten-einfuehren-fehler;
+  Kasten „Zum Weiterlesen“ auf den Videoseiten; Satz zu den vier Büchern im Abschnitt „Über mich“;
+  Satz auf der Paketseite; „Zum Buch“ in der Seitenleisten-Buchbox (Startseite, Cluster, Szenariofilme).
+  Amazon-Links unverändert. abbruchkriterien-innovationsprojekte bewusst ohne Satz (Thema trägt es nicht).
+- `llms.txt`: Abschnitt „Publikationen“ (Wortlaut wie pillkahn.de/llms.txt) statt der Pauschalzeile.
+- Blogartikel ohne neues Änderungsdatum (Entscheidung 21.11.2026); Videoseiten `seite_stand` 2026-11-21.
+- Zähler: `buch-ueber`, `buch-seitenleiste`, `sp-link-buch` in `stats.html`. CSS-Cache-Buster `2026-11-21d`.
+- Live geprüft (curl): 13 geänderte Seiten und llms.txt 200, JSON-LD gültig, nur Verweise, alle vier @ids exakt.
+
 ## 2026-11-21 – Szenariofilme-Seite: Teaser
 
 Commit `9a1866d`, live seit 2026-11-21. Rollback: `git revert 9a1866d`.
