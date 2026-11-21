@@ -1,5 +1,10 @@
 # Changelog operation-zukunft.de
 
+## 21.11.2026 — IndexNow-Schlüsseldatei
+
+- `f1a8ac42c31a43c9a2be4aa8f3e7db39.txt` im Wurzelverzeichnis (Inhalt genau der Schlüssel, für Bing/IndexNow). Die Meldung läuft über OpenSEO.
+  Die Datei nicht löschen oder umbenennen, sonst lehnt IndexNow künftige Meldungen ab (403).
+
 ## 2026-11-21 – Szenariofilm-Band mit Teaser
 
 Commit `ac21ea6`, live seit 2026-11-21. Rollback: `git revert ac21ea6`.
