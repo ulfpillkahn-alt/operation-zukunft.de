@@ -119,6 +119,10 @@ body="""
         Die Schritte zwei bis fünf sind Fleißarbeit. Eine Konsistenzmatrix mit zwanzig Faktoren und je drei Ausprägungen umfasst bereits über 1.700 Paarvergleiche. Kein Workshop-Team prüft das mit voller Aufmerksamkeit. In der Praxis wird abgekürzt – und genau dort entstehen blinde Flecken.
     </p>
 
+    <p>
+        Wie ein Szenarioprozess von der Fokusfrage über das Szenariokreuz bis zum Strategietest abläuft, zeigt das Video <a href="../videos/foresight-mit-szenarien/">Foresight mit Szenarien</a> an einem durchgehenden Fallbeispiel.
+    </p>
+
     <h2>Wo KI den Prozess beschleunigt</h2>
 
     <p>
@@ -539,6 +543,10 @@ body="""
 
     <p>
         Der eigentliche Gewinn liegt nicht im einzelnen Film, sondern im Nebeneinander. Wenn vier Zukünfte im selben Format, mit derselben Länge und aus derselben Perspektive erzählt werden, treten die Unterschiede klar hervor. Die Diskussion verlagert sich von „Welches Szenario ist richtig?" zu <strong>„Worauf müssen wir in jedem Fall vorbereitet sein?"</strong>
+    </p>
+
+    <p>
+        Wie Bilder und kurze Filme der vier Welten in einen Szenarioprozess eingebettet sind, zeigt das Video <a href="../videos/foresight-mit-szenarien/">Foresight mit Szenarien</a> im Kapitel „Szenarien erzählen und sichtbar machen“.
     </p>
 
     <h2>Wofür sich Szenariofilme eignen</h2>

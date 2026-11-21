@@ -1,0 +1,38 @@
+{
+  "titel": "Foresight mit Szenarien",
+  "name": "Foresight mit Szenarien: Wie man mit mehreren Zukünften plant",
+  "seitentitel": "Foresight mit Szenarien – Video | Operation Zukunft",
+  "meta_description": "Wie plant man mit mehreren Zukünften? Szenariokreuz, Strategietest und Frühindikatoren am Fallbeispiel VISEON AG – Video mit Kapiteln und Transkript.",
+  "beschreibung": "Ein Szenario ist eine in sich stimmige Beschreibung einer möglichen Zukunft und des Weges dorthin – keine Vorhersage, sondern ein Werkzeug, um heute bessere Entscheidungen zu treffen. Das Video zeigt am fiktiven Fallbeispiel der VISEON AG, wie Szenarien entstehen: von den kritischen Unsicherheiten über das Szenariokreuz bis zu robusten Optionen und Frühindikatoren.",
+  "antwort": "<strong>Ein Szenario ist eine in sich stimmige Beschreibung einer möglichen Zukunft und des Weges dorthin – keine Vorhersage, sondern ein Werkzeug, um heute bessere Entscheidungen zu treffen.</strong> Das Video zeigt am fiktiven Fallbeispiel der VISEON AG, wie Szenarien entstehen: von den kritischen Unsicherheiten über das Szenariokreuz bis zu robusten Optionen und Frühindikatoren.",
+  "antwort_quelle": "Definition: Prof. Dr. Ulf Pillkahn, Operation Zukunft",
+  "worum_es_geht": [
+    "Der Film beginnt mit dem Unterschied zwischen Prognose und Szenario und mit Shell, deren Planungsteam um Pierre Wack die Ölkrise 1973 nicht vorhergesagt, aber schon einmal durchdacht hatte.",
+    "Dann klärt er, was ein gutes Szenario ausmacht: plausibel, in sich stimmig, relevant – und echte Alternativen statt eines Basisfalls mit Fehlerbalken.",
+    "Am fiktiven Fallbeispiel der VISEON AG aus Jena führt er von der Fokusfrage über die kritischen Unsicherheiten zum Szenariokreuz mit vier Welten für 2035.",
+    "Zum Schluss kommt die Strategie in den Windkanal: Was in allen Welten trägt, wird robuster Kern, der Rest wird Option mit Auslöser, beobachtet über Frühindikatoren."
+  ],
+  "karte": "Szenariokreuz, vier Welten und der Strategietest – in gut sieben Minuten erklärt, mit Transkript.",
+  "youtube_id": "S5p6pTU4SuE",
+  "mp4": "https://pillkahn.de/media/Video20_Foresight-mit-Szenarien_clean_1080p.mp4",
+  "poster": "/videos/foresight-mit-szenarien-poster.jpg",
+  "poster_breite": 1280,
+  "poster_hoehe": 720,
+  "vtt": "/videos/foresight-mit-szenarien.de.vtt",
+  "upload_date": "2026-11-21",
+  "dauer_sekunden": 427,
+  "seite_stand": "2026-11-21",
+  "kapitel": [
+    [0, "Planen ohne Vorhersage"],
+    [46, "Prognose oder Szenario? Shell und die Ölkrise 1973"],
+    [108, "Was ein Szenario ist – und was nicht"],
+    [149, "Fokusfrage und kritische Unsicherheiten"],
+    [228, "Das Szenariokreuz: vier Welten für 2035"],
+    [294, "Szenarien erzählen und sichtbar machen"],
+    [332, "Vom Szenario zur Entscheidung"],
+    [393, "Fazit und nächster Film"]
+  ],
+  "cta_text": "Szenarien sagen nicht, was kommt. Sie sorgen dafür, dass man nicht überrascht wird. Wie das in Ihrem Unternehmen aussehen kann:",
+  "cta_link": "/#angebote",
+  "cta_label": "Zu den Angeboten von Operation Zukunft →"
+}

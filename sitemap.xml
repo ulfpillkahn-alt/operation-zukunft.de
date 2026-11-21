@@ -23,11 +23,15 @@
   <!-- Videos (generiert von pflege/videos/build.py) -->
   <url>
     <loc>https://operation-zukunft.de/videos/</loc>
-    <lastmod>2026-11-20</lastmod>
+    <lastmod>2026-11-21</lastmod>
   </url>
   <url>
     <loc>https://operation-zukunft.de/videos/was-ist-zukunftsforschung/</loc>
     <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://operation-zukunft.de/videos/foresight-mit-szenarien/</loc>
+    <lastmod>2026-11-21</lastmod>
   </url>
   <!-- /Videos -->
 
