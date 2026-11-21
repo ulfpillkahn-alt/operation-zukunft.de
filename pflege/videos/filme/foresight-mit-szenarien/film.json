@@ -23,16 +23,46 @@
   "dauer_sekunden": 427,
   "seite_stand": "2026-11-21",
   "kapitel": [
-    [0, "Planen ohne Vorhersage"],
-    [46, "Prognose oder Szenario? Shell und die Ölkrise 1973"],
-    [108, "Was ein Szenario ist – und was nicht"],
-    [149, "Fokusfrage und kritische Unsicherheiten"],
-    [228, "Das Szenariokreuz: vier Welten für 2035"],
-    [294, "Szenarien erzählen und sichtbar machen"],
-    [332, "Vom Szenario zur Entscheidung"],
-    [393, "Fazit und nächster Film"]
+    [
+      0,
+      "Planen ohne Vorhersage"
+    ],
+    [
+      46,
+      "Prognose oder Szenario? Shell und die Ölkrise 1973"
+    ],
+    [
+      108,
+      "Was ein Szenario ist – und was nicht"
+    ],
+    [
+      149,
+      "Fokusfrage und kritische Unsicherheiten"
+    ],
+    [
+      228,
+      "Das Szenariokreuz: vier Welten für 2035"
+    ],
+    [
+      294,
+      "Szenarien erzählen und sichtbar machen"
+    ],
+    [
+      332,
+      "Vom Szenario zur Entscheidung"
+    ],
+    [
+      393,
+      "Fazit und nächster Film"
+    ]
   ],
   "cta_text": "Szenarien sagen nicht, was kommt. Sie sorgen dafür, dass man nicht überrascht wird. Wie das in Ihrem Unternehmen aussehen kann:",
   "cta_link": "/#angebote",
-  "cta_label": "Zu den Angeboten von Operation Zukunft →"
+  "cta_label": "Zu den Angeboten von Operation Zukunft →",
+  "weiterlesen": {
+    "text": "Wie aus dem Abgleich von Umfeld- und Unternehmensszenarien robuste Strategien entstehen, beschreibt Prof. Dr. Ulf Pillkahn in seinem Praktikerbuch <a href=\"https://pillkahn.de/publikationen/trends-und-szenarien/\">Trends und Szenarien als Werkzeuge zur Strategieentwicklung</a> (Publicis 2007; englisch 2008). Strategieentwicklung ist darin kein einmaliges Projekt, sondern ein dauerhafter Prozess.",
+    "buecher": [
+      "trends-und-szenarien"
+    ]
+  }
 }

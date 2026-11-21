@@ -1868,3 +1868,14 @@ nav.brotkrumen {
 @media (min-width: 900px) {
     .film-umfang { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
 }
+
+/* ---------- Videoseiten: Kasten „Zum Weiterlesen“ (21.11.2026) ---------- */
+.mediathek .video-weiterlesen {
+    border-left: 2px solid var(--accent); background: var(--bg-card);
+    padding: 1rem 1.2rem; margin: 1.6rem 0 2rem; border-radius: 0 6px 6px 0;
+}
+.mediathek .video-weiterlesen h2 { font-size: 1rem; margin: 0 0 0.4rem; }
+.mediathek .video-weiterlesen p { margin: 0; }
+/* Seitenleisten-Buchbox: zweiter Link zur Buchseite */
+.sidebar-book a + a { margin-left: 0.4rem; }
+.sp-buch { margin-top: 1rem; font-size: 0.98rem; color: var(--text-secondary); }

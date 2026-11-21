@@ -21,19 +21,49 @@
   "vtt": "/videos/zukunftsforschung.de.vtt",
   "upload_date": "2026-11-14",
   "dauer_sekunden": 357,
-  "seite_stand": "2026-11-20",
+  "seite_stand": "2026-11-21",
   "alte_url": "/blog/was-ist-zukunftsforschung.html",
   "kapitel": [
-    [0, "Was ist Zukunftsforschung?"],
-    [37, "Woher das Fach kommt"],
-    [75, "Drei Philosophien"],
-    [166, "Warum Zukunftsforschung so schwer ist"],
-    [230, "Warum Unternehmen sich schwertun"],
-    [272, "Lohnt sich Foresight?"],
-    [296, "Die Rolle von KI"],
-    [341, "Fazit"]
+    [
+      0,
+      "Was ist Zukunftsforschung?"
+    ],
+    [
+      37,
+      "Woher das Fach kommt"
+    ],
+    [
+      75,
+      "Drei Philosophien"
+    ],
+    [
+      166,
+      "Warum Zukunftsforschung so schwer ist"
+    ],
+    [
+      230,
+      "Warum Unternehmen sich schwertun"
+    ],
+    [
+      272,
+      "Lohnt sich Foresight?"
+    ],
+    [
+      296,
+      "Die Rolle von KI"
+    ],
+    [
+      341,
+      "Fazit"
+    ]
   ],
   "cta_text": "Die Zukunft lässt sich nicht vorhersagen – aber man kann vorbereitet sein. Wie das in Ihrem Unternehmen aussehen kann:",
   "cta_link": "/#angebote",
-  "cta_label": "Zu den Angeboten von Operation Zukunft →"
+  "cta_label": "Zu den Angeboten von Operation Zukunft →",
+  "weiterlesen": {
+    "text": "Welche Rolle Szenarien in der Zukunftsforschung spielen und wie ihre Ergebnisse in die Strategieentwicklung einfließen, beschreibt Prof. Dr. Ulf Pillkahn in seinem Praktikerbuch <a href=\"https://pillkahn.de/publikationen/trends-und-szenarien/\">Trends und Szenarien als Werkzeuge zur Strategieentwicklung</a> (Publicis 2007; englisch 2008).",
+    "buecher": [
+      "trends-und-szenarien"
+    ]
+  }
 }

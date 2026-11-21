@@ -123,6 +123,10 @@ body="""
         Wie ein Szenarioprozess von der Fokusfrage über das Szenariokreuz bis zum Strategietest abläuft, zeigt das Video <a href="../videos/foresight-mit-szenarien/">Foresight mit Szenarien</a> an einem durchgehenden Fallbeispiel.
     </p>
 
+    <p>
+        Welche Rolle Szenarien in der Strategieentwicklung spielen und wie ihre Ergebnisse in die Planung einfließen, habe ich 2007 in meinem Buch <a href="https://pillkahn.de/publikationen/trends-und-szenarien/">Trends und Szenarien als Werkzeuge zur Strategieentwicklung</a> beschrieben.
+    </p>
+
     <h2>Wo KI den Prozess beschleunigt</h2>
 
     <p>
@@ -297,6 +301,10 @@ body="""
 
     <p>
         <strong>KI-Agenten scheitern selten an der Technik, sondern an Zuschnitt, Betrieb und Organisation.</strong> Wer klein beginnt, Prüfschritte einbaut und den Betrieb ernst nimmt, hat nach wenigen Monaten ein System, das täglich Arbeit abnimmt – und eine Organisation, die gelernt hat, damit umzugehen.
+    </p>
+
+    <p>
+        Wie KI-Agenten in der Strategiearbeit eingesetzt werden, mit einem Vergleich von Agentensystemen und den technischen Grundlagen von OpenClaw, beschreibe ich in meinem Buch <a href="https://pillkahn.de/publikationen/the-automated-future/">The Automated Future</a>.
     </p>
 """),
 

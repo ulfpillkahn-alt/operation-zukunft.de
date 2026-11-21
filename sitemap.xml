@@ -11,7 +11,7 @@
   <!-- Unterseite: Szenarien als Film -->
   <url>
     <loc>https://operation-zukunft.de/szenariofilme.html</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-21</lastmod>
   </url>
 
   <!-- Unterseite: Strategie-Pakete 2027 -->
@@ -23,7 +23,7 @@
   <!-- Unterseite: das Agenten-Cluster -->
   <url>
     <loc>https://operation-zukunft.de/cluster.html</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-21</lastmod>
   </url>
 
   <!-- Videos (generiert von pflege/videos/build.py) -->
@@ -33,7 +33,7 @@
   </url>
   <url>
     <loc>https://operation-zukunft.de/videos/was-ist-zukunftsforschung/</loc>
-    <lastmod>2026-11-20</lastmod>
+    <lastmod>2026-11-21</lastmod>
   </url>
   <url>
     <loc>https://operation-zukunft.de/videos/foresight-mit-szenarien/</loc>

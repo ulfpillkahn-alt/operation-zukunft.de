@@ -27,7 +27,14 @@ Prof. Dr. Ulf Pillkahn ist Professor an der FOM Hochschule (Innovations- und Tec
 ## Person
 
 - [Prof. Dr. Ulf Pillkahn](https://pillkahn.de/about/): Prof. Dr. Ulf Pillkahn (FOM Hochschule, TU München) entwickelt mit Operation Zukunft KI-gestützte Verfahren für Corporate Foresight und Szenarioentwicklung (Flipped Foresight) und baut KI-Agenten für Trend- und Technologiemonitoring.
-- [Publikationen](https://pillkahn.de/publikationen/): Bücher, Workbooks, Working Paper und Dissertation.
+
+## Publikationen
+
+- [The Automated Future](https://pillkahn.de/publikationen/the-automated-future/): Strategieentwicklung mit KI und Agenten (2026).
+- [Flipped Foresight: Wie Maschinen Zukünfte entwerfen und Menschen entscheiden](https://pillkahn.de/publikationen/#flipped-foresight-buch): Buch, erscheint 2026.
+- [Die Weisheit der Roulettekugel](https://pillkahn.de/publikationen/weisheit-der-roulettekugel/): Innovation durch Irritation – Zufall als Methode im Innovationsmanagement (Publicis 2013).
+- [Trends und Szenarien als Werkzeuge zur Strategieentwicklung](https://pillkahn.de/publikationen/trends-und-szenarien/): Praktikerbuch zu Trendforschung und Szenariotechnik in der Strategieentwicklung (Publicis 2007; englisch 2008 „Using Trends and Scenarios as Tools for Strategy Development“).
+- [Alle Publikationen](https://pillkahn.de/publikationen/): Bücher, Workbooks, Working Paper und Dissertation.
 
 ## Kontakt
 

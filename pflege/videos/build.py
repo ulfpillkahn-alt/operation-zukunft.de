@@ -303,6 +303,15 @@ def videoseite(f, vorlage=False):
         f'    <h3>{e(h)}</h3>\n' + "\n".join(f"    <p>{e(a)}</p>" for a in ps)
         for h, ps in f["transkript"])
     worum = " ".join(f["worum_es_geht"])
+    weiterlesen = ""
+    if f.get("weiterlesen"):
+        # Satz/Sätze als HTML aus film.json, Bücher nur als Verweis (seo.BUCH)
+        weiterlesen = f"""
+    <aside class="video-weiterlesen">
+        <h2>Zum Weiterlesen</h2>
+        <p>{f["weiterlesen"]["text"]}</p>
+    </aside>
+"""
     quelle = (f' <span class="video-quelle">({e(f["antwort_quelle"])})</span>'
               if f.get("antwort_quelle") else "")
     inhalt = f"""<main class="mediathek video-seite">
@@ -330,7 +339,7 @@ def videoseite(f, vorlage=False):
 
     <h2>Worum es geht</h2>
     <p>{e(worum)}</p>
-
+{weiterlesen}
     <h2 id="transkript">Transkript</h2>
 {transkript}
 
@@ -360,6 +369,8 @@ def videoseite(f, vorlage=False):
                   "publisher": {"@id": seo.ORG_ID},
                   "datePublished": f["upload_date"],
                   "dateModified": f["seite_stand"],
+                  **({"citation": seo.buecher(*f["weiterlesen"]["buecher"])}
+                     if f.get("weiterlesen") else {}),
               },
               video_objekt(f),
               SERIE_KURZ,

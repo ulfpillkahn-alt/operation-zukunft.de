@@ -27,7 +27,7 @@ import sys
 BASIS = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOMAIN = "https://operation-zukunft.de"
 HEUTE = "2026-11-11"
-CSS_VERSION = "2026-11-21c"
+CSS_VERSION = "2026-11-21d"
 
 # ------------------------------------------------------------------ Kanon
 PERSON_ID = "https://pillkahn.de/#person"
@@ -125,33 +125,29 @@ LEISTUNGEN = [
     },
 ]
 
-# Dieselben @ids wie auf pillkahn.de/publikationen/, damit Google beide
-# Fundstellen als dasselbe Werk zusammenführt.
-BUECHER = [
-    {
-        "@type": "Book",
-        "@id": "https://pillkahn.de/publikationen/#automated-future",
-        "name": "The Automated Future",
-        "author": {"@id": PERSON_ID},
-        "isbn": "9798254694953",
-        "description": ("Wie KI Foresight, Strategieplanung und Innovationsmanagement "
-                        "revolutioniert. Mit Kapitel zu OpenClaw."),
-        "inLanguage": "de",
-        "bookFormat": "https://schema.org/Paperback",
-    },
-    {
-        "@type": "Book",
-        "@id": "https://pillkahn.de/publikationen/#flipped-foresight-buch",
-        "name": "Flipped Foresight",
-        "alternateName": "Flipped Foresight – Wie Maschinen Zukünfte entwerfen und Menschen entscheiden",
-        "author": {"@id": PERSON_ID},
-        "description": ("Wie Maschinen Zukünfte entwerfen und Menschen entscheiden. KI-gestützte "
-                        "Szenarioarbeit: Referenzmodell mit 4 Phasen und 5 Prinzipien, "
-                        "Szenario-Engine zum Nachbauen."),
-        "creativeWorkStatus": "Erscheint 2026",
-        "inLanguage": "de",
-    },
-]
+# Bücher: nur Verweise (@id + name). Beschrieben werden sie auf pillkahn.de,
+# jedes Buch hat dort eine eigene Seite mit Book-Knoten „#book“.
+# Flipped Foresight hat noch keine eigene Seite, daher der Anker auf der Übersicht.
+BUCH = {
+    "trends-und-szenarien": {
+        "@type": "Book", "@id": "https://pillkahn.de/publikationen/trends-und-szenarien/#book",
+        "name": "Trends und Szenarien als Werkzeuge zur Strategieentwicklung"},
+    "weisheit-der-roulettekugel": {
+        "@type": "Book", "@id": "https://pillkahn.de/publikationen/weisheit-der-roulettekugel/#book",
+        "name": "Die Weisheit der Roulettekugel"},
+    "the-automated-future": {
+        "@type": "Book", "@id": "https://pillkahn.de/publikationen/the-automated-future/#book",
+        "name": "The Automated Future: Strategieentwicklung mit KI"},
+    "flipped-foresight": {
+        "@type": "Book", "@id": "https://pillkahn.de/publikationen/#flipped-foresight-buch",
+        "name": "Flipped Foresight: Wie Maschinen Zukünfte entwerfen und Menschen entscheiden"},
+}
+
+
+def buecher(*schluessel):
+    """Book-Verweise für citation/mentions/subjectOf (Kopien, damit json.dumps sauber bleibt)."""
+    return [dict(BUCH[k]) for k in schluessel]
+
 
 HERO = {"url": DOMAIN + "/videos/hero-poster.jpg", "w": 1920, "h": 1080,
         "alt": "Operation Zukunft – Foresight und KI-Agenten"}
@@ -173,7 +169,7 @@ SEITEN = [
      "desc": ("Szenarien als Film: vier Zukünfte, vier kurze Filme, ein direkter Vergleich. "
               "Für Strategieworkshops, Führungskreise und interne Kommunikation."),
      "og": "website", "bild": FILM_BILD, "art": "seite"},
-    {"datei": "blog/dilemma-organisationen.html",
+    {"datei": "blog/dilemma-organisationen.html", "zitiert": ["weisheit-der-roulettekugel"],
      "title": "Das Innovationsdilemma in Organisationen | Operation Zukunft",
      "desc": ("Organisationen stellen die smartesten Leute ein, um ihnen dann zu erklären, was "
               "zu tun ist. Warum das Innovation verhindert und was KI-Agenten ändern.")},
@@ -185,33 +181,33 @@ SEITEN = [
      "title": "Der Hype um OpenClaw – gerechtfertigt? | Operation Zukunft",
      "desc": ("OpenClaw ist ein autonomer KI-Agent, gesteuert über WhatsApp oder Telegram, der "
               "echte Aufgaben auf dem Rechner ausführt. Funktionen und Einordnung.")},
-    {"datei": "blog/lebenszyklus-innovationen.html",
+    {"datei": "blog/lebenszyklus-innovationen.html", "zitiert": ["weisheit-der-roulettekugel", "the-automated-future"],
      "title": "Der Lebenszyklus von Innovationen | Operation Zukunft",
      "desc": None},
     {"datei": "blog/pictures-of-the-future.html",
      "title": "Pictures of the Future: Zukunftsbilder | Operation Zukunft",
      "desc": ("Die Pictures-of-the-Future-Methodik: Wie Unternehmen Zukunftsbilder entwickeln "
               "und für ihre Strategie nutzen. Erfahrungen aus der Praxis bei Siemens.")},
-    {"datei": "blog/red-queen-effekt.html",
+    {"datei": "blog/red-queen-effekt.html", "zitiert": ["weisheit-der-roulettekugel"],
      "title": "Der Red-Queen-Effekt in Unternehmen | Operation Zukunft",
      "desc": ("Warum Unternehmen trotz ständiger Innovation nicht vorankommen – und wie man dem "
               "Hamsterrad der inkrementellen Verbesserung entkommt.")},
-    {"datei": "blog/strategieplanung-ki.html",
+    {"datei": "blog/strategieplanung-ki.html", "zitiert": ["the-automated-future"],
      "title": "KI in der Strategieplanung | Operation Zukunft",
      "desc": ("Wie KI-Agenten die Strategieplanung verändern: von der jährlichen "
               "PowerPoint-Schlacht zum permanenten Echtzeit-Prozess.")},
-    {"datei": "blog/warum-prognosen-scheitern.html",
+    {"datei": "blog/warum-prognosen-scheitern.html", "zitiert": ["trends-und-szenarien"],
      "title": "Warum Prognosen scheitern | Operation Zukunft",
      "desc": None},
     {"datei": "blog/index.html", "pfad": "/blog/", "title": None, "desc": None,
      "og": "website", "bild": HERO, "art": "seite"},
     {"datei": "blog/corporate-foresight-ki.html", "veroeffentlicht": "2026-04-01",
      "title": None, "desc": None},
-    {"datei": "blog/szenarioentwicklung-ki.html", "veroeffentlicht": "2026-05-01",
+    {"datei": "blog/szenarioentwicklung-ki.html", "zitiert": ["trends-und-szenarien"], "veroeffentlicht": "2026-05-01",
      "title": None, "desc": None},
     {"datei": "blog/schwache-signale-ki-agenten.html", "veroeffentlicht": "2026-06-01",
      "title": None, "desc": None},
-    {"datei": "blog/ki-agenten-einfuehren-fehler.html", "veroeffentlicht": "2026-07-01",
+    {"datei": "blog/ki-agenten-einfuehren-fehler.html", "zitiert": ["the-automated-future"], "veroeffentlicht": "2026-07-01",
      "title": None, "desc": None},
     {"datei": "blog/flipped-foresight-methode.html", "veroeffentlicht": "2026-08-01",
      "title": None, "desc": None},
@@ -286,7 +282,9 @@ def graph(s, title, desc, url):
     knoten = [PERSON, ORG, SITE]
     if s["art"] == "start":
         seite["mainEntity"] = {"@id": ORG_ID}
-        knoten += [seite] + LEISTUNGEN + BUECHER
+        # Bücher gehören zur Person, nicht zur Organisation: nur als Erwähnung der Seite
+        seite["mentions"] = buecher(*BUCH)
+        knoten += [seite] + LEISTUNGEN
     elif s["art"] == "seite":
         knoten.append(seite)
     elif s["art"] == "blog":
@@ -307,6 +305,8 @@ def graph(s, title, desc, url):
             "author": {"@id": PERSON_ID},
             "publisher": {"@id": ORG_ID},
         }
+        if s.get("zitiert"):
+            artikel["citation"] = buecher(*s["zitiert"])
         knoten += [seite, artikel] + s.get("zusatz", [])
     daten = {"@context": "https://schema.org", "@graph": knoten}
     text = json.dumps(daten, ensure_ascii=False, indent=2)
