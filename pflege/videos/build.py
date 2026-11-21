@@ -116,7 +116,7 @@ def _aus_cluster(tag):
 
 def wurzelpfade(t):
     t = re.sub(r'href="index\.html(#[^"]*)?"', lambda m: f'href="/{m.group(1) or ""}"', t)
-    t = re.sub(r'href="(cluster|datenschutz|szenariofilme)\.html"', r'href="/\1.html"', t)
+    t = re.sub(r'href="(cluster|datenschutz|szenariofilme|strategie-pakete)\.html"', r'href="/\1.html"', t)
     t = t.replace('href="videos/"', 'href="/videos/"')
     return t
 

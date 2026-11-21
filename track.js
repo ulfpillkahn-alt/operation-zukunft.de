@@ -56,7 +56,9 @@
        neben der unbezahlten Suche, und es ließe sich nicht sagen, was eine
        Kampagne gebracht hat. Erkannt wird die Anzeige an der Klick-Kennung,
        die Google an die Zieladresse hängt (gclid, bei Apple-Geräten gbraid
-       oder wbraid), ersatzweise an utm_source=google mit utm_medium=cpc.
+       oder wbraid), ersatzweise an utm_source=google mit utm_medium=cpc
+       oder an utm_source=google-ads allein (Zieladressen der Kampagne
+       Strategie-Pakete, seit 21.11.2026).
        Geprüft wird nur, OB eine Kennung da ist — ihr Wert wird weder
        gelesen noch übertragen. Der Zähler behält von „quelle" ohnehin nur
        den Hostnamen, deshalb die Schreibweise als Adresse. */
@@ -64,6 +66,7 @@
         try {
             var p = new URLSearchParams(location.search);
             if (p.has('gclid') || p.has('gbraid') || p.has('wbraid')) return true;
+            if ((p.get('utm_source') || '').toLowerCase() === 'google-ads') return true;
             return /google/i.test(p.get('utm_source') || '') &&
                    /^(cpc|ppc|paid)$/i.test(p.get('utm_medium') || '');
         } catch (e) {
