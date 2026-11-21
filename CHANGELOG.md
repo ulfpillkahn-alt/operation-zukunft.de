@@ -1,5 +1,23 @@
 # Changelog operation-zukunft.de
 
+## 2026-11-21 – Strategie-Pakete 2027 (Light, Safari, Navigator)
+
+Commit `21c2083`, live seit 2026-11-21. Rollback: `git revert 21c2083`, Sicherungs-Tag `pre-strategie-pakete-2026-11-21`.
+
+- Neu: `strategie-pakete.html` mit Kopf und Claim, drei Fragen, Grafik „So läuft Strategie Safari“
+  (HTML/CSS, Etappen und Zeitleiste), Paketvergleich, FAQ und Anfrage. Ohne Blog-Leiste (volle Breite).
+  JSON-LD von Hand: `Service` mit `OfferCatalog` und drei `Offer` (nicht in `seo.py`, Title 67 Zeichen).
+- Black-Week-Aktion über `aktion.js` (Startseite und Paketseite): `[data-bw]` bis 18.12.2026,
+  ab 19.12.2026 00:00 Uhr Berlin ausgeblendet, `[data-bw-nach]` eingeblendet.
+- Startseite: Brückensatz ohne „Paketlösungen“, Band „Neu für 2027“ im Angebotsraster zwischen Brücke und Karten.
+- Navigation „Pakete 2027“ auf Startseite, Cluster, Szenariofilme, Paketseite und (über den Generator) allen
+  Videoseiten; `pflege/videos/build.py` kennt den Pfad. Zwischen 901 und 1100 px engerer Menüabstand.
+- Steuerhinweis nur in `<span class="sp-steuer">zzgl. USt.</span>`: 4 Fundstellen (Paketseite 3, Startseite 1).
+- Zähler: `track.js` zählt `utm_source=google-ads` auch ohne `utm_medium` als Google Ads; 11 neue
+  Bezeichnungen in `stats.html`. CSS-Cache-Buster `2026-11-21`; `sitemap.xml` ergänzt.
+- Live geprüft: Seiten 200, Band und Navigation verlinkt, „Paketlösungen“ weg; Testaufruf mit
+  `?utm_source=google-ads` und Klick „Pakete vergleichen“ erscheinen in /stats (je 1 Testzählung).
+
 ## 2026-11-21 – Mediathek: Film 2 „Foresight mit Szenarien“
 
 Commit `dfa0806`, live seit 2026-11-21. YouTube `S5p6pTU4SuE`.
