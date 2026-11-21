@@ -1,5 +1,18 @@
 # Changelog operation-zukunft.de
 
+## 2026-11-21 – Szenariofilm-Band mit Teaser
+
+Commit `ac21ea6`, live seit 2026-11-21. Rollback: `git revert ac21ea6`.
+
+- Startseite: Das Band „Szenarien als Film“ zeigt im linken Drittel einen Teaser
+  (`videos/szenariofilme/szenarien-teaser.mp4`, 20,5 s, 960×540, ohne Ton, 1,9 MB): die vier
+  Szenariofilme à gut 5 s mit Überblendung und Beschriftung „Szenario n/4 · Name“. Rechts Titel,
+  zwei Sätze (aus `szenariofilme.html`), Beispielzeile und „Szenariofilme ansehen →“. Mobil Video oben.
+- Ladeverhalten: `preload="none"`, Start erst bei Sichtbarkeit, Pause beim Wegscrollen (Inline-Skript,
+  IntersectionObserver); bei „Bewegung reduzieren“ nur das Posterbild. Zähler unverändert `band-szenariofilm`.
+- CSS-Cache-Buster `2026-11-21b`.
+- Live geprüft: Teaser lädt erst beim Hinscrollen, spielt sichtbar, pausiert beim Wegscrollen.
+
 ## 2026-11-21 – Strategie-Pakete 2027 (Light, Safari, Navigator)
 
 Commit `21c2083`, live seit 2026-11-21. Rollback: `git revert 21c2083`, Sicherungs-Tag `pre-strategie-pakete-2026-11-21`.
