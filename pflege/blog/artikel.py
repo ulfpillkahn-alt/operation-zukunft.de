@@ -207,7 +207,7 @@ body="""
     </ul>
 
     <p>
-        Damit wird aus dem Trendradar, das einmal im Jahr aktualisiert wird, ein <strong>laufendes Frühwarnsystem</strong>.
+        Damit wird aus dem Trendradar, das einmal im Jahr aktualisiert wird, ein <strong>laufendes Frühwarnsystem</strong>. Wo Agenten über das Scanning hinaus arbeiten, von der Verdichtung bis zu den Szenarien, beschreibt die Seite <a href="../foresight-mit-ki-agenten/">Foresight mit KI-Agenten</a>.
     </p>
 
     <h2>Woran man ein schwaches Signal erkennt</h2>
@@ -301,6 +301,10 @@ body="""
 
     <p>
         <strong>KI-Agenten scheitern selten an der Technik, sondern an Zuschnitt, Betrieb und Organisation.</strong> Wer klein beginnt, Prüfschritte einbaut und den Betrieb ernst nimmt, hat nach wenigen Monaten ein System, das täglich Arbeit abnimmt – und eine Organisation, die gelernt hat, damit umzugehen.
+    </p>
+
+    <p>
+        Was Agenten in der strategischen Vorausschau übernehmen und was beim Menschen bleibt, steht auf der Seite <a href="../foresight-mit-ki-agenten/">Foresight mit KI-Agenten</a>.
     </p>
 
     <p>

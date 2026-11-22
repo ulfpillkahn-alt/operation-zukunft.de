@@ -26,8 +26,8 @@ import sys
 
 BASIS = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOMAIN = "https://operation-zukunft.de"
-HEUTE = "2026-11-11"
-CSS_VERSION = "2026-11-21d"
+HEUTE = "2026-11-22"
+CSS_VERSION = "2026-11-22"
 
 # ------------------------------------------------------------------ Kanon
 PERSON_ID = "https://pillkahn.de/#person"

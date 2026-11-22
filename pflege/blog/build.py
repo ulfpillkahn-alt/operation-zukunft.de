@@ -41,6 +41,7 @@ NAV = """<nav>
     <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menü">☰</button>
     <ul class="nav-links">
         <li><a href="../index.html#angebote">Angebote</a></li>
+        <li><a href="../index.html#themen">Themen</a></li>
         <li><a href="../videos/">Videos</a></li>
         <li><a href="../cluster.html">Das Cluster</a></li>
         <li><a href="./">Blog</a></li>
@@ -212,3 +213,8 @@ if zusatz:
     schreib(P("pflege", "seo.py"), sp)
 
 print(len(ARTIKEL), "Artikel,", len(eintraege), "Einträge gesamt")
+
+# 8. Footer-Links auf die Leitseiten: Die Artikel oben werden ohne sie neu gebaut,
+#    pflege/leitseiten/build.py trägt sie wieder ein (und baut Leit- und Videoseiten).
+import subprocess
+subprocess.run([sys.executable, P("pflege", "leitseiten", "build.py")], check=True)

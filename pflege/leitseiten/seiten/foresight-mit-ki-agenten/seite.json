@@ -1,0 +1,40 @@
+{
+  "reihenfolge": 1,
+  "live": true,
+  "begriff": "Foresight mit KI-Agenten",
+  "nebenbegriffe": ["Foresight mit Agenten", "KI-Agenten für Corporate Foresight", "Trendmonitoring mit KI-Agenten"],
+  "title": "Foresight mit KI-Agenten – Operation Zukunft",
+  "description": "Foresight mit KI-Agenten: was Agenten im Foresight-Prozess übernehmen, was beim Menschen bleibt, wo die Grenzen liegen und wie der Einstieg gelingt.",
+  "h1": "Foresight mit KI-Agenten",
+  "kurztitel": "Foresight mit KI-Agenten",
+  "antwort": "Foresight mit KI-Agenten bedeutet, dass spezialisierte KI-Agenten die laufende Informationsarbeit der strategischen Vorausschau übernehmen: Sie durchsuchen Quellen, belegen Signale, verdichten sie zu Themen und entwerfen Szenarien. Menschen legen die Fragen fest, bewerten die Ergebnisse und entscheiden. So wird aus dem einmaligen Foresight-Projekt ein dauerhafter Betrieb, der Veränderungen früher sichtbar macht.",
+  "veroeffentlicht": "2026-11-22",
+  "stand": "2026-11-22",
+  "karte": "Was KI-Agenten im Foresight-Prozess übernehmen, was beim Menschen bleibt und wie der Einstieg gelingt.",
+  "leistungen": ["workshop", "agenten"],
+  "buecher": ["the-automated-future"],
+  "faq": [
+    ["Was sind KI-Agenten im Foresight?",
+     "KI-Agenten im Foresight sind Systeme, die einen Beobachtungs- oder Analyseauftrag eigenständig und wiederholt abarbeiten. Sie durchsuchen Quellen, belegen Signale, bündeln sie zu Themen und entwerfen Szenarien. Die Fragen stellt der Mensch, und er entscheidet, was aus den Ergebnissen folgt."],
+    ["Was ist der Unterschied zwischen einem Chatbot und einem KI-Agenten?",
+     "Ein Chatbot antwortet auf eine einzelne Frage, und sein Gedächtnis endet mit dem Gespräch. Ein KI-Agent arbeitet einen Auftrag in mehreren Schritten ab, nutzt dafür Werkzeuge und Quellen und wiederholt den Auftrag nach festen Regeln. Er merkt sich, was er gesehen hat, und meldet Veränderungen."],
+    ["Welche Foresight-Aufgaben können KI-Agenten übernehmen?",
+     "Agenten übernehmen das Scanning von Quellen, die Verdichtung von Signalen zu Themen und Einflussfaktoren, das Ausformulieren und Prüfen von Szenarien, ihre Bebilderung und das laufende Monitoring von Indikatoren. Nicht übernehmen können sie die Wahl der Frage, das Urteil über die Plausibilität und die Entscheidung."],
+    ["Können KI-Agenten die Zukunft vorhersagen?",
+     "Nein. Agenten finden Signale für Entwicklungen, die bereits begonnen haben, und spielen mögliche Zukünfte durch. Was es noch nicht gibt, hinterlässt kaum Spuren in Daten. Foresight mit KI-Agenten erweitert den Blick auf das Mögliche, eine Vorhersage liefert es nicht."],
+    ["Was kostet ein Agenten-System für Foresight?",
+     "Für das Angebot „KI-Agenten für Innovation und Foresight“ nennt Operation Zukunft den Preis auf Anfrage. Der Aufbau läuft als Projekt, der Betrieb als monatlicher Service. Für den Einstieg gibt es den Orientierungsworkshop ab 1.500 € zzgl. USt."],
+    ["Wo laufen die Agenten, und was passiert mit unseren Daten?",
+     "Die Agenten laufen auf Ihrer eigenen oder auf gehosteter Infrastruktur. Für die Beobachtung des Umfelds arbeiten sie mit öffentlichen Quellen. Interne Unterlagen bleiben vertraulich, eine Vertraulichkeitsvereinbarung ist möglich."]
+  ],
+  "quellen": [
+    {"text": "Fröhling, L., Giaconia, A., Bogucka, E. P., Quercia, D. (2026): Agent-Supported Foresight for AI Systemic Risks: AI Agents for Breadth, Experts for Judgment. arXiv:2602.08565.",
+     "url": "https://arxiv.org/abs/2602.08565", "typ": "ScholarlyArticle",
+     "name": "Agent-Supported Foresight for AI Systemic Risks: AI Agents for Breadth, Experts for Judgment"},
+    {"text": "Pillkahn, U. (2026): Flipped Foresight: Inverting the Division of Labor between Humans and Machines in Scenario-Based Futures Work. SSRN Working Paper.",
+     "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7322758", "typ": "ScholarlyArticle",
+     "name": "Flipped Foresight: Inverting the Division of Labor between Humans and Machines in Scenario-Based Futures Work"},
+    {"text": "Pillkahn, U. (2026): The Automated Future: Strategieentwicklung mit KI.",
+     "url": "https://pillkahn.de/publikationen/the-automated-future/", "typ": "buch"}
+  ]
+}
