@@ -1,5 +1,40 @@
 # Changelog operation-zukunft.de
 
+## 2026-11-22 – Leitseiten B–E: Szenariotechnik, Corporate Foresight, Szenarioentwicklung mit KI, Zukunftsforschung
+
+Commit `62f0dc4` (Branch `leitseiten`, auf main übernommen), live seit 2026-11-22. Rollback: `git revert 62f0dc4`,
+Sicherungs-Tag `pre-leitseiten-b-e-2026-11-22`. Damit ist der Auftrag „fünf Leitseiten“ (`AUFTRAG.md`) umgesetzt.
+
+- Neu: `/szenariotechnik/` (mit Trichter-Grafik als Inline-SVG, acht Schritten, Musterfall VISEON AG),
+  `/corporate-foresight/`, `/szenarioentwicklung-mit-ki/` (mit Tool-Überblick, Stand November 2026) und
+  `/zukunftsforschung/` (Dach mit Methodenlandkarte). Quelltext je Seite unter `pflege/leitseiten/seiten/<slug>/`.
+- `blog/corporate-foresight-ki.html` und `blog/szenarioentwicklung-ki.html` sind Weiterleitungsseiten auf die
+  Leitseiten (Meta-Refresh 0 s, Canonical, kein `noindex`; Feld `ersetzt` in `seite.json`). Beide Artikel sind aus
+  `pflege/blog/artikel.py` und `pflege/seo.py` entfernt, der Wortlaut steht in der Git-Historie (bis `8c4214f`).
+  `posts.js`, `posts.json` und die Blogübersicht zeigen auf die Leitseiten; der Buchverweis „Trends und Szenarien“
+  liegt jetzt auf B und D.
+- Startseite: Title „Foresight mit KI für Unternehmen | Operation Zukunft“ (über `seo.py`), neuer Absatz
+  `.hero-lead` unter der H1, fünf Karten in `#themen`, fünf Footer-Links.
+- Linksätze mit dem Hauptbegriff als Ankertext: `warum-prognosen-scheitern`, `pictures-of-the-future`,
+  `szenarien-als-film` (Szenariotechnik); `strategieplanung-ki`, `flipped-foresight-methode` (Corporate Foresight);
+  `strategie-pakete.html` (beide). „Weiter im Thema“ auf allen fünf Leitseiten.
+- JSON-LD: zusätzliche Service-Knoten in `pflege/leitseiten/build.py` (`LEISTUNGEN_ZUSATZ`): Strategie-Pakete mit
+  Preisspanne 4.900–24.900 €, Szenariofilme und Vorträge ohne Preis.
+- Fachquellen über Crossref und OpenAlex geprüft (Rohrbeck/Battistella/Huizingh 2015, Rohrbeck/Kum 2018,
+  Ansoff 1975, Voros 2003, von Reibnitz 1992), Wack 1985 über die Seite der Harvard Business Review.
+- `pflege/leitseiten/pruefen.py`: DOI-Links werden auf Auflösung geprüft (Verlage weisen curl ab).
+- `sitemap.xml` (vier neue Leitseiten, die beiden Blog-URLs entfernt), `llms.txt` (fünf Zeilen unter
+  „Leitseiten“), sieben neue Zähler-Bezeichnungen in `stats.html` (`leit-pakete`, `leit-szenariofilme`,
+  `leit-vortrag`, `leit-person`, `leit-strategy-review`, `leit-vice-versa`, `sp-link-thema`).
+- `style.css`: Schrittfolge (`ls-schrittfolge`), Grafik (`ls-grafik`), Karten (`ls-karten`), `.hero-lead`.
+- `videos/NEUER-FILM.md` und Skill `mediathek-neuer-film` verweisen auf die Leitseiten statt auf die beiden Artikel.
+- Live geprüft (curl): 21 URLs 200; alle fünf Leitseiten mit einer H1, Canonical auf sich selbst, 8 Knoten im
+  JSON-LD, 6 Fragen und vier Links unter „Weiter im Thema“; beide Weiterleitungsseiten mit Refresh und Canonical;
+  Startseite, Sitemap, `llms.txt`, Blogübersicht, Paketseite und alle fünf Linksätze ausgeliefert.
+  15 URLs per IndexNow gemeldet.
+- Folgeaufgaben in anderen Repos (nicht umgesetzt): je ein Link mit dem Hauptbegriff auf die passende Leitseite
+  in pillkahn.de (dazu `llms.txt`), flipped-foresight.com, squawk.de, picturesoftomorrow.com, agentic-foresight.com.
+
 ## 2026-11-22 – Leitseite „Foresight mit KI-Agenten“
 
 Commit `b493006` (Branch `leitseiten`, auf main übernommen), live seit 2026-11-22. Rollback: `git revert b493006`,
