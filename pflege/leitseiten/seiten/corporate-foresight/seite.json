@@ -1,0 +1,43 @@
+{
+  "reihenfolge": 3,
+  "live": true,
+  "ersetzt": "blog/corporate-foresight-ki.html",
+  "begriff": "Corporate Foresight",
+  "nebenbegriffe": ["Corporate Foresight mit KI", "Strategic Foresight", "strategische Frühaufklärung", "Foresight-Methoden", "Foresight-Beratung"],
+  "title": "Corporate Foresight mit KI – Beratung | Operation Zukunft",
+  "description": "Corporate Foresight: Definition, Prozess und Einführung im Unternehmen, mit klarer Arbeitsteilung zwischen KI und Mensch. Beratung und Strategie-Pakete.",
+  "h1": "Corporate Foresight: Definition, Prozess und Einführung mit KI",
+  "kurztitel": "Corporate Foresight",
+  "antwort": "Corporate Foresight ist die strategische Vorausschau im Unternehmen: ein dauerhafter Prozess, der Veränderungen im Umfeld früh erkennt, mögliche Zukünfte durchdenkt und daraus Entscheidungen ableitet. Corporate Foresight liefert keine Vorhersage, sondern Orientierung unter Unsicherheit. KI übernimmt dabei zunehmend das Beobachten und Verdichten; Urteil und Entscheidung bleiben beim Menschen.",
+  "veroeffentlicht": "2026-11-22",
+  "stand": "2026-11-22",
+  "karte": "Definition, Prozess und Einführung im Unternehmen: was KI übernimmt und was beim Menschen bleibt.",
+  "leistungen": ["pakete", "workshop"],
+  "buecher": ["the-automated-future"],
+  "faq": [
+    ["Was ist der Unterschied zwischen Corporate Foresight und Strategic Foresight?",
+     "Strategic Foresight bezeichnet die strategische Vorausschau allgemein, auch bei Staaten, Verbänden und öffentlichen Einrichtungen. Corporate Foresight meint dieselbe Arbeit im Unternehmen und richtet sie auf Geschäft, Wettbewerb und Strategie aus. In der Praxis werden beide Begriffe oft gleich verwendet."],
+    ["Was bedeutet strategische Frühaufklärung?",
+     "Strategische Frühaufklärung ist der ältere deutsche Begriff für das frühe Erkennen von Chancen und Bedrohungen im Umfeld eines Unternehmens. Er geht auf die Arbeit von Igor Ansoff zu schwachen Signalen zurück. Corporate Foresight schließt die Frühaufklärung ein und ergänzt sie um Szenarien und um die Ableitung von Entscheidungen."],
+    ["Welche Methoden gehören zu Corporate Foresight?",
+     "Zu den Foresight-Methoden gehören Umfeldscanning, Trendmonitoring, die Analyse schwacher Signale, Delphi-Befragungen, Szenariotechnik, Roadmapping und der Test der Strategie gegen Szenarien. Welche Methode passt, hängt von der Phase ab: Beobachten, Deuten, Szenarien oder Strategie."],
+    ["Braucht ein mittelständisches Unternehmen eine eigene Foresight-Abteilung?",
+     "Nein. Es braucht eine strategische Frage, eine Person, die für das Thema verantwortlich ist, und einen festen Termin, an dem die Ergebnisse besprochen werden. Das Beobachten und Verdichten können KI-Agenten oder ein externer Partner übernehmen."],
+    ["Ersetzt KI die Foresight-Abteilung?",
+     "Nein. KI übernimmt Scanning, Verdichtung und Variantenbildung, also die Tätigkeiten, die bisher die meiste Zeit gekostet haben. Urteil, Entscheidung und Verantwortung bleiben beim Menschen. Die gesparte Zeit gehört in die Diskussion im Führungskreis."],
+    ["Was kostet Foresight-Beratung?",
+     "Bei Operation Zukunft beginnt der Orientierungsworkshop bei 1.500 € zzgl. USt. Die Strategie-Pakete 2027 kosten 4.900 €, 9.900 € und 24.900 €, jeweils zzgl. USt. Welches Paket passt, klärt ein Erstgespräch von 20 Minuten."]
+  ],
+  "quellen": [
+    {"text": "Rohrbeck, R., Battistella, C., Huizingh, E. (2015): Corporate foresight: An emerging field with a rich tradition. Technological Forecasting and Social Change 101, S. 1–9.",
+     "url": "https://doi.org/10.1016/j.techfore.2015.11.002", "typ": "ScholarlyArticle", "name": "Corporate foresight: An emerging field with a rich tradition"},
+    {"text": "Rohrbeck, R., Kum, M. (2018): Corporate foresight and its impact on firm performance: A longitudinal analysis. Technological Forecasting and Social Change 129, S. 105–116.",
+     "url": "https://doi.org/10.1016/j.techfore.2017.12.013", "typ": "ScholarlyArticle", "name": "Corporate foresight and its impact on firm performance: A longitudinal analysis"},
+    {"text": "Ansoff, H. I. (1975): Managing Strategic Surprise by Response to Weak Signals. California Management Review 18 (2), S. 21–33.",
+     "url": "https://doi.org/10.2307/41164635", "typ": "ScholarlyArticle", "name": "Managing Strategic Surprise by Response to Weak Signals"},
+    {"text": "Voros, J. (2003): A generic foresight process framework. Foresight 5 (3), S. 10–21.",
+     "url": "https://doi.org/10.1108/14636680310698379", "typ": "ScholarlyArticle", "name": "A generic foresight process framework"},
+    {"text": "Pillkahn, U. (2026): The Automated Future: Strategieentwicklung mit KI.",
+     "url": "https://pillkahn.de/publikationen/the-automated-future/", "typ": "buch"}
+  ]
+}

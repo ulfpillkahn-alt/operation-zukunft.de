@@ -1,0 +1,75 @@
+{
+  "reihenfolge": 4,
+  "live": true,
+  "ersetzt": "blog/szenarioentwicklung-ki.html",
+  "begriff": "Szenarioentwicklung mit KI",
+  "nebenbegriffe": [
+    "Szenarien mit KI entwickeln",
+    "Szenarioplanung mit KI",
+    "Tools für Szenarioentwicklung mit KI"
+  ],
+  "title": "Szenarioentwicklung mit KI: Ablauf, Tools, Grenzen",
+  "description": "Szenarioentwicklung mit KI: der Ablauf Schritt für Schritt, ein Überblick über Tools, die Grenzen der Modelle und warum der Workshop bleibt.",
+  "h1": "Szenarioentwicklung mit KI: Ablauf, Werkzeuge und Grenzen",
+  "kurztitel": "Szenarioentwicklung mit KI",
+  "antwort": "Szenarioentwicklung mit KI nutzt Sprachmodelle und KI-Agenten, um Einflussfaktoren zu sammeln, ihre Ausprägungen zu beschreiben, Kombinationen auf Widersprüche zu prüfen und Szenarien auszuformulieren. Was im klassischen Verfahren Wochen bis Monate dauert, liegt in Stunden bis Tagen als Rohmaterial vor. Auswahl, Bewertung und die Schlüsse für die Strategie bleiben Aufgabe des Führungsteams.",
+  "veroeffentlicht": "2026-11-22",
+  "stand": "2026-11-22",
+  "karte": "Was KI an der Szenarioarbeit ändert: der Ablauf Schritt für Schritt, ein Überblick über Tools und die Grenzen.",
+  "leistungen": [
+    "pakete",
+    "szenariofilme"
+  ],
+  "buecher": [
+    "trends-und-szenarien"
+  ],
+  "faq": [
+    [
+      "Kann KI Szenarien entwickeln?",
+      "Ja. KI kann Einflussfaktoren sammeln, ihre Ausprägungen beschreiben, Kombinationen auf Widersprüche prüfen und Szenarien ausformulieren. Sie liefert damit Rohmaterial in Stunden bis Tagen. Ob ein Szenario plausibel ist und was es für die Strategie bedeutet, entscheidet weiterhin das Führungsteam."
+    ],
+    [
+      "Welche Tools gibt es für Szenarioentwicklung mit KI?",
+      "Es gibt Foresight-Plattformen wie Futures Platform, ITONICS, FIBRES, Shaping Tomorrow und 4strat, allgemeine Sprachmodelle wie ChatGPT, Claude und Gemini sowie spezialisierte Werkzeuge wie Pictures of Tomorrow. Sie unterscheiden sich darin, welche Schritte sie abdecken und woher ihre Quellen stammen."
+    ],
+    [
+      "Reicht ein Chatbot wie ChatGPT für die Szenarioentwicklung?",
+      "Für einen ersten Entwurf reicht ein Chatbot. Ein einzelner Prompt erzeugt plausible Texte, aber noch kein belastbares Szenarioset. Dafür braucht es belegte Einflussfaktoren, eine Konsistenzprüfung und die Auswertung durch Menschen, die das Geschäft kennen."
+    ],
+    [
+      "Wie zuverlässig sind Szenarien, die eine KI entwickelt hat?",
+      "Ein Szenario ist keine Vorhersage und kann deshalb nicht richtig oder falsch sein. Zuverlässig ist es, wenn seine Annahmen belegt sind und seine Teile einander nicht widersprechen. Sprachmodelle neigen zum Mittelweg und können Belege erfinden, deshalb gehören Quellenprüfung und das Einfordern von Extremen zum Verfahren."
+    ],
+    [
+      "Wie lange dauert Szenarioentwicklung mit KI?",
+      "Das Rohmaterial liegt in Stunden bis Tagen vor statt in Wochen bis Monaten. Die Auswertung im Führungsteam bleibt ein eigener Termin. Bei den Strategie-Paketen von Operation Zukunft ist das ein Workshop von einem halben bis ganzen Tag."
+    ],
+    [
+      "Was bleibt bei der Szenarioplanung mit KI Aufgabe des Menschen?",
+      "Der Mensch legt die Fokusfrage fest, wählt die Faktoren aus und beurteilt, ob ein Szenario plausibel ist. Er zieht die Schlüsse für die Strategie und trägt die Verantwortung für die Entscheidung. Die KI bereitet diese Schritte vor, sie ersetzt sie nicht."
+    ]
+  ],
+  "quellen": [
+    {
+      "text": "Pillkahn, U. (2026): Flipped Foresight: Inverting the Division of Labor between Humans and Machines in Scenario-Based Futures Work. SSRN Working Paper.",
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7322758",
+      "typ": "ScholarlyArticle",
+      "name": "Flipped Foresight: Inverting the Division of Labor between Humans and Machines in Scenario-Based Futures Work"
+    },
+    {
+      "text": "Pillkahn, U. (2007): Trends und Szenarien als Werkzeuge zur Strategieentwicklung. Der Weg in die unternehmerische Zukunft. Publicis Corporate Publishing, Erlangen.",
+      "url": "https://pillkahn.de/publikationen/trends-und-szenarien/",
+      "typ": "buch"
+    },
+    {
+      "text": "Pillkahn, U. (2026): Pictures of the Future. Ein Foresight-Prozess von der Frage bis zur Strategie. Musterfall VISEON AG.",
+      "url": "https://picturesofthefuture.de/",
+      "typ": "WebPage",
+      "name": "Pictures of the Future: Foresight-Prozess am Beispiel"
+    },
+    {
+      "text": "Selbstbeschreibungen der Anbieter auf den in der Tool-Übersicht verlinkten Seiten, abgerufen im November 2026.",
+      "typ": "hinweis"
+    }
+  ]
+}

@@ -125,7 +125,7 @@ def pruefe_seite(s, alle):
                 if feld not in k:
                     f(f"WebPage ohne {feld}")
             for z in k.get("citation", []):
-                if z.get("@type") == "Book" and "pillkahn.de/publikationen/" not in z.get("@id", ""):
+                if z.get("@type") == "Book" and "@id" in z and "pillkahn.de/publikationen/" not in z["@id"]:
                     f(f"Buch ohne Book-@id auf pillkahn.de: {z}")
         if k.get("@type") == "Service":
             if k.get("provider") != {"@id": seo.ORG_ID}:
@@ -170,7 +170,7 @@ def pruefe_seite(s, alle):
     if not 5 <= len(faq_sichtbar) <= 6:
         f(f"{len(faq_sichtbar)} Fragen statt 5–6")
     for frage, a in faq_sichtbar:
-        saetze = len(re.findall(r"[.!?](?:\s|$)", klartext(a).replace("zzgl. USt.", "zzgl USt.")))
+        saetze = len(re.findall(r"[.!?](?:\s|$)", klartext(a).replace("zzgl. USt.", "zzgl USt.").replace("Prof. Dr.", "Prof Dr")))
         if not 2 <= saetze <= 4:
             f(f"Antwort mit {saetze} Sätzen: {klartext(frage)}")
 
@@ -198,7 +198,8 @@ def pruefe_seite(s, alle):
         if zahl > 1:
             f(f"„{begriff}“ steht {zahl}-mal im Text (höchstens einmal)")
         if zahl == 1 and not re.search(
-                rf'<a href="https://(?:www\.)?{re.escape(domain)}[^"]*"[^>]*>[^<]*{re.escape(begriff)}', text_ohne_quellen):
+                rf'<a\b[^>]*href="https://(?:www\.)?{re.escape(domain)}[^"]*"[^>]*>(?:(?!</a>).)*?{re.escape(begriff)}',
+                text_ohne_quellen, re.S):
             f(f"„{begriff}“ ist nicht auf {domain} verlinkt")
 
     # 8. Preise wörtlich aus dem Bestand
@@ -270,6 +271,15 @@ def pruefe_links(seiten, extern):
     for h in aussen:
         if any(d in h for d in NUR_BROWSER):
             hinweise.append(f"im Browser prüfen (weist curl ab): {h}")
+            continue
+        if h.startswith("https://doi.org/"):
+            # Verlage weisen curl oft ab. Geprüft wird, ob die DOI registriert ist (302 von doi.org).
+            r = subprocess.run(["curl", "-s", "-o", "/dev/null", "--max-time", "25", "-w", "%{http_code}", h],
+                               capture_output=True, text=True)
+            code = r.stdout.strip()
+            print(f"  {code}  {h}  (DOI aufgelöst)")
+            if code not in ("301", "302"):
+                fehler.append(f"DOI löst nicht auf ({code}): {h}")
             continue
         r = subprocess.run(["curl", "-s", "-o", "/dev/null", "-L", "--max-time", "25", "-w", "%{http_code}", h],
                            capture_output=True, text=True)

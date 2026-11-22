@@ -159,7 +159,7 @@ FILM_BILD = {"url": DOMAIN + "/videos/szenariofilme/szenariofilm-poster.jpg", "w
 # ------------------------------------------------------------------ Seiten
 # title/desc None = bisherigen Wert aus der Datei behalten
 SEITEN = [
-    {"datei": "index.html", "pfad": "/", "title": None, "desc": None,
+    {"datei": "index.html", "pfad": "/", "title": "Foresight mit KI für Unternehmen | Operation Zukunft", "desc": None,
      "og": "website", "bild": HERO, "art": "start"},
     {"datei": "cluster.html", "pfad": "/cluster.html", "title": None,
      "desc": ("Fünf Mac Minis, fünf KI-Agenten: Recherche, Szenarien und Veröffentlichung im "
@@ -201,10 +201,6 @@ SEITEN = [
      "desc": None},
     {"datei": "blog/index.html", "pfad": "/blog/", "title": None, "desc": None,
      "og": "website", "bild": HERO, "art": "seite"},
-    {"datei": "blog/corporate-foresight-ki.html", "veroeffentlicht": "2026-04-01",
-     "title": None, "desc": None},
-    {"datei": "blog/szenarioentwicklung-ki.html", "zitiert": ["trends-und-szenarien"], "veroeffentlicht": "2026-05-01",
-     "title": None, "desc": None},
     {"datei": "blog/schwache-signale-ki-agenten.html", "veroeffentlicht": "2026-06-01",
      "title": None, "desc": None},
     {"datei": "blog/ki-agenten-einfuehren-fehler.html", "zitiert": ["the-automated-future"], "veroeffentlicht": "2026-07-01",

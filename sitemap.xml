@@ -31,6 +31,22 @@
     <loc>https://operation-zukunft.de/foresight-mit-ki-agenten/</loc>
     <lastmod>2026-11-22</lastmod>
   </url>
+  <url>
+    <loc>https://operation-zukunft.de/szenariotechnik/</loc>
+    <lastmod>2026-11-22</lastmod>
+  </url>
+  <url>
+    <loc>https://operation-zukunft.de/corporate-foresight/</loc>
+    <lastmod>2026-11-22</lastmod>
+  </url>
+  <url>
+    <loc>https://operation-zukunft.de/szenarioentwicklung-mit-ki/</loc>
+    <lastmod>2026-11-22</lastmod>
+  </url>
+  <url>
+    <loc>https://operation-zukunft.de/zukunftsforschung/</loc>
+    <lastmod>2026-11-22</lastmod>
+  </url>
   <!-- /Leitseiten -->
 
   <!-- Videos (generiert von pflege/videos/build.py) -->
@@ -76,14 +92,6 @@
   <url>
     <loc>https://operation-zukunft.de/blog/schwache-signale-ki-agenten.html</loc>
     <lastmod>2026-06-01</lastmod>
-  </url>
-  <url>
-    <loc>https://operation-zukunft.de/blog/szenarioentwicklung-ki.html</loc>
-    <lastmod>2026-05-01</lastmod>
-  </url>
-  <url>
-    <loc>https://operation-zukunft.de/blog/corporate-foresight-ki.html</loc>
-    <lastmod>2026-04-01</lastmod>
   </url>
   <url>
     <loc>https://operation-zukunft.de/blog/einstein-openclaw.html</loc>

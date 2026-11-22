@@ -15,6 +15,10 @@ Prof. Dr. Ulf Pillkahn ist Professor an der FOM Hochschule (Innovations- und Tec
 ## Leitseiten
 
 - [Foresight mit KI-Agenten](https://operation-zukunft.de/foresight-mit-ki-agenten/): Was KI-Agenten im Foresight-Prozess übernehmen, was beim Menschen bleibt und wie der Einstieg gelingt.
+- [Szenariotechnik](https://operation-zukunft.de/szenariotechnik/): Die Methode Schritt für Schritt: Szenariotrichter, acht Schritte, ein durchgehendes Beispiel und typische Fehler.
+- [Corporate Foresight](https://operation-zukunft.de/corporate-foresight/): Definition, Prozess und Einführung im Unternehmen: was KI übernimmt und was beim Menschen bleibt.
+- [Szenarioentwicklung mit KI](https://operation-zukunft.de/szenarioentwicklung-mit-ki/): Was KI an der Szenarioarbeit ändert: der Ablauf Schritt für Schritt, ein Überblick über Tools und die Grenzen.
+- [Zukunftsforschung](https://operation-zukunft.de/zukunftsforschung/): Das Dach über allen Methoden: was Zukunftsforschung leistet, was nicht, und woran man seriöse Arbeit erkennt.
 
 ## Videos
 

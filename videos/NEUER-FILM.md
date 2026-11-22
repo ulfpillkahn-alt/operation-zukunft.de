@@ -19,7 +19,7 @@ und die Angaben unten mitgeben. Der Skill legt den Datensatz an, baut, prüft un
 | Dauer | 5:57 | in Sekunden umgerechnet: 357 |
 | Kernaussage/Definition | „Zukunftsforschung ist …“ | wird der Antwortabsatz (40–60 Wörter) |
 | Passende Leitseite für den Aufruf | `/#angebote` oder `/szenariofilme.html` | vorhandene Seite, kein mailto |
-| Artikel, die auf den Film zeigen sollen | z. B. `blog/szenarioentwicklung-ki.html` | nur wo es inhaltlich passt |
+| Artikel, die auf den Film zeigen sollen | z. B. `blog/szenarien-als-film.html` oder eine Leitseite (`pflege/leitseiten/seiten/…`) | nur wo es inhaltlich passt |
 
 ## 2. Wo die Angaben landen
 

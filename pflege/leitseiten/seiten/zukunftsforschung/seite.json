@@ -1,0 +1,45 @@
+{
+  "reihenfolge": 5,
+  "live": true,
+  "begriff": "Zukunftsforschung",
+  "nebenbegriffe": ["Zukunftsforschung für Unternehmen", "strategische Vorausschau", "Methoden der Zukunftsforschung"],
+  "title": "Zukunftsforschung für Unternehmen | Operation Zukunft",
+  "description": "Zukunftsforschung für Unternehmen: was sie leistet und was nicht, Methoden im Überblick, Abgrenzung zur Trendforschung und die Rolle von KI.",
+  "h1": "Zukunftsforschung für Unternehmen: Methoden, Nutzen, Grenzen",
+  "kurztitel": "Zukunftsforschung",
+  "antwort": "Zukunftsforschung ist die systematische Untersuchung möglicher, wahrscheinlicher und wünschbarer Zukünfte. Sie sagt nicht vorher, was kommt, sondern legt Annahmen offen, beschreibt Alternativen und zeigt, worauf heutige Entscheidungen vorbereitet sein sollten. Unternehmen nutzen Zukunftsforschung, um Trends einzuordnen, Szenarien zu entwickeln und ihre Strategie gegen mehrere Zukünfte zu prüfen.",
+  "veroeffentlicht": "2026-11-22",
+  "stand": "2026-11-22",
+  "karte": "Das Dach über allen Methoden: was Zukunftsforschung leistet, was nicht, und woran man seriöse Arbeit erkennt.",
+  "leistungen": ["vortraege", "workshop"],
+  "buecher": ["trends-und-szenarien", "weisheit-der-roulettekugel", "the-automated-future"],
+  "video": {
+    "slug": "was-ist-zukunftsforschung",
+    "text": "Woher das Fach kommt und warum sich Unternehmen mit Foresight schwertun, erklärt das Video in knapp sechs Minuten. Es hat Kapitel, Untertitel und ein Transkript.",
+    "linktext": "Video „Was ist Zukunftsforschung?“ ansehen"
+  },
+  "faq": [
+    ["Kann Zukunftsforschung die Zukunft vorhersagen?",
+     "Nein. Aus vergangenen Regelmäßigkeiten lässt sich nicht zwingend auf die Zukunft schließen. Zukunftsforschung beschreibt deshalb mehrere mögliche Entwicklungen und zeigt, worauf Entscheidungen vorbereitet sein sollten."],
+    ["Ist Zukunftsforschung eine Wissenschaft?",
+     "Zukunftsforschung arbeitet mit wissenschaftlichen Methoden, hat aber ein Grundproblem: Aussagen über die Zukunft lassen sich erst prüfen, wenn die Zukunft eingetreten ist. Umso wichtiger sind offengelegte Annahmen, nachvollziehbare Methoden und belegte Quellen. An einer theoretischen Grundlage arbeitet Prof. Dr. Ulf Pillkahn im Forschungsprojekt „Theorie der Zukunft“."],
+    ["Was ist der Unterschied zwischen Zukunftsforschung und Trendforschung?",
+     "Trendforschung beschreibt, was sich gerade verändert. Zukunftsforschung fragt weiter: Welche Zukünfte ergeben sich daraus, und was folgt für heutige Entscheidungen? Trends sind damit ein Baustein der Zukunftsforschung, aber nicht ihr Ergebnis."],
+    ["Welche Methoden nutzt die Zukunftsforschung?",
+     "Zu den Methoden der Zukunftsforschung gehören Umfeldscanning und Trendanalyse, Delphi-Befragungen, Szenariotechnik, Roadmapping und Backcasting. Für Unternehmen steht die Szenariotechnik im Mittelpunkt, weil sie Beobachtungen in mehrere Zukünfte übersetzt und die Strategie daran prüft."],
+    ["Was bringt Zukunftsforschung einem Unternehmen?",
+     "Zukunftsforschung macht sichtbar, auf welchen Annahmen die eigene Strategie ruht und welche Entwicklungen diese Annahmen gefährden. Das Führungsteam hat mögliche Überraschungen dann schon einmal durchdacht und kann schneller reagieren. Das Ergebnis ist keine Vorhersage, sondern ein geprüfter Handlungsraum."],
+    ["Wie verändert KI die Zukunftsforschung?",
+     "KI übernimmt die Informationsarbeit: Quellen lesen, Signale sammeln, Szenarien entwerfen und auf Widersprüche prüfen. Dadurch wird aus der einmaligen Studie eine laufende Beobachtung. Auswahl, Bewertung und Entscheidung bleiben beim Menschen."]
+  ],
+  "quellen": [
+    {"text": "Pillkahn, U. (2007): Trends und Szenarien als Werkzeuge zur Strategieentwicklung. Der Weg in die unternehmerische Zukunft. Publicis Corporate Publishing, Erlangen.",
+     "url": "https://pillkahn.de/publikationen/trends-und-szenarien/", "typ": "buch"},
+    {"text": "Voros, J. (2003): A generic foresight process framework. Foresight 5 (3), S. 10–21.",
+     "url": "https://doi.org/10.1108/14636680310698379", "typ": "ScholarlyArticle", "name": "A generic foresight process framework"},
+    {"text": "Rohrbeck, R., Battistella, C., Huizingh, E. (2015): Corporate foresight: An emerging field with a rich tradition. Technological Forecasting and Social Change 101, S. 1–9.",
+     "url": "https://doi.org/10.1016/j.techfore.2015.11.002", "typ": "ScholarlyArticle", "name": "Corporate foresight: An emerging field with a rich tradition"},
+    {"text": "Pillkahn, U. (2016): Warum Prognosen scheitern: Das Grundproblem der Zukunftsforschung. Operation Zukunft.",
+     "url": "https://operation-zukunft.de/blog/warum-prognosen-scheitern.html", "typ": "Article", "name": "Warum Prognosen scheitern: Das Grundproblem der Zukunftsforschung"}
+  ]
+}

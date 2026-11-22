@@ -1,174 +1,13 @@
-# Acht neue Blogbeiträge für operation-zukunft.de (April–November 2026).
+# Sechs Blogbeiträge (ursprünglich acht) für operation-zukunft.de (April–November 2026).
 # Entwurf: Claude, 12.11.2026, im Auftrag von Prof. Pillkahn.
 # Nur belegbare Fakten (Klassiker der Literatur, eigene Angebote der Seite),
 # keine Tagesmeldungen mit unsicherer Quellenlage.
 
 ARTIKEL = [
-# ---------------------------------------------------------------- April
-dict(
-slug="corporate-foresight-ki",
-datum="2026-04-01", label="April 2026",
-h1="Corporate Foresight mit KI: Was sich wirklich ändert – und was nicht",
-title="Corporate Foresight mit KI | Operation Zukunft",
-desc=("Corporate Foresight mit KI: Welche Aufgaben Maschinen übernehmen, wo der Mensch "
-      "unersetzlich bleibt und wie Unternehmen den Einstieg schaffen."),
-kurz="Corporate Foresight mit KI",
-teaser="Welche Foresight-Aufgaben Maschinen übernehmen – und wo der Mensch unersetzlich bleibt.",
-cta=("Wo steht Ihr Unternehmen? Der Orientierungsworkshop klärt in einem halben oder ganzen Tag, "
-     "welche Foresight-Aufgaben sich mit KI sinnvoll automatisieren lassen.",
-     "../index.html#angebote", "Zum Orientierungsworkshop →"),
-body="""
-    <blockquote>
-        „Brauchen wir überhaupt noch eine Foresight-Abteilung, wenn die KI alles liest?"
-    </blockquote>
-
-    <p>
-        Diese Frage höre ich inzwischen in fast jedem Gespräch. Sie ist berechtigt, aber falsch gestellt. <strong>Corporate Foresight war nie ein Leseproblem, sondern ein Aufmerksamkeitsproblem.</strong> Unternehmen scheitern selten daran, dass Informationen fehlen. Sie scheitern daran, dass niemand die richtigen Informationen zur richtigen Zeit ernst nimmt.
-    </p>
-
-    <h2>Was Corporate Foresight eigentlich leisten soll</h2>
-
-    <p>
-        Corporate Foresight – die strategische Vorausschau im Unternehmen – hat drei Aufgaben: <strong>Veränderungen früh erkennen</strong>, <strong>mögliche Zukünfte durchdenken</strong> und <strong>daraus Entscheidungen ableiten</strong>. Die ersten beiden Schritte waren bisher so aufwendig, dass für den dritten oft keine Kraft mehr blieb. Ein klassischer Szenarioprozess bindet über Monate ein Dutzend Köpfe, und am Ende liegt ein Bericht vor, der beim Erscheinen schon altert.
-    </p>
-
-    <p>
-        Woher das Fach kommt, welche drei Philosophien es prägen und warum sich Unternehmen mit Foresight schwertun, erklärt das Video <a href="../videos/was-ist-zukunftsforschung/">Was ist Zukunftsforschung?</a>
-    </p>
-
-    <h2>Was KI übernimmt</h2>
-
-    <p>
-        Genau hier verschiebt KI die Gewichte. Drei Tätigkeiten, die früher den größten Teil der Arbeit ausmachten, lassen sich heute weitgehend an Maschinen übergeben:
-    </p>
-
-    <ul>
-        <li><strong>Scanning:</strong> KI-Agenten durchsuchen täglich Fachmedien, Patente, Studien und Nachrichten und filtern nach Relevanz für das eigene Geschäft.</li>
-        <li><strong>Verdichtung:</strong> Aus hunderten Einzelmeldungen werden Trendbündel, Einflussfaktoren und Treiber – nachvollziehbar mit Quellen belegt.</li>
-        <li><strong>Variantenbildung:</strong> Die Maschine entwirft Rohszenarien und prüft sie auf Widersprüche, schneller und vollständiger, als es ein Workshop je könnte.</li>
-    </ul>
-
-    <p>
-        Das Ergebnis ist kein Bericht mehr, der einmal im Jahr erscheint, sondern ein <strong>fortlaufender Strom aus Signalen und Szenarien</strong>. Aus Foresight als Projekt wird Foresight als Betrieb.
-    </p>
-
-    <h2>Was beim Menschen bleibt</h2>
-
-    <p>
-        Was sich nicht automatisieren lässt, ist das Urteil. Welche Entwicklung ist für <em>unser</em> Geschäft entscheidend? Welches Szenario wollen wir verhindern, welches herbeiführen? Und wer trägt die Verantwortung für die Konsequenzen? Diese Fragen sind keine Rechenaufgaben, sondern Führungsaufgaben.
-    </p>
-
-    <p>
-        <strong>KI macht Foresight nicht überflüssig, sie macht es entscheidungsnah.</strong> Die gesparte Zeit gehört in die Diskussion im Führungskreis, nicht in die Personalplanung.
-    </p>
-
-    <h2>Drei typische Missverständnisse</h2>
-
-    <ul>
-        <li><strong>„KI sagt die Zukunft voraus."</strong> Nein. Sie erweitert den Möglichkeitsraum. Wer Prognosen erwartet, hat das Prinzip von Foresight nicht verstanden – mehr dazu in <a href="warum-prognosen-scheitern.html">Warum Prognosen scheitern</a>.</li>
-        <li><strong>„Ein Chatbot reicht."</strong> Ein einzelner Prompt erzeugt plausible Texte, aber kein belastbares System. Dafür braucht es Quellenpflege, Wiederholbarkeit und Prüfschritte.</li>
-        <li><strong>„Das machen wir nebenbei."</strong> Foresight mit KI spart Arbeit, aber es braucht einen Eigentümer im Unternehmen, der die Ergebnisse in Entscheidungen übersetzt.</li>
-    </ul>
-
-    <h2>Wie der Einstieg gelingt</h2>
-
-    <p>
-        Beginnen Sie klein und konkret: <strong>eine strategische Frage, ein Suchfeld, ein Agent.</strong> Nach wenigen Wochen zeigt sich, ob die gelieferten Signale in Entscheidungen einfließen. Erst dann lohnt der Ausbau. Wie so etwas im Dauerbetrieb aussieht, zeigt unser eigenes <a href="../cluster.html">Agenten-Cluster</a>.
-    </p>
-
-    <h2>Fazit</h2>
-
-    <p>
-        Corporate Foresight mit KI ist kein Werkzeugwechsel, sondern ein Rollenwechsel: Die Maschine sammelt, verdichtet und variiert. <strong>Der Mensch wählt aus, entscheidet und verantwortet.</strong> Wer diese Arbeitsteilung sauber organisiert, gewinnt vor allem eines: Zeit für die Fragen, die wirklich zählen.
-    </p>
-"""),
-
-# ---------------------------------------------------------------- Mai
-dict(
-slug="szenarioentwicklung-ki",
-datum="2026-05-01", label="Mai 2026",
-h1="Szenarioentwicklung mit KI: Von Monaten auf Tage",
-title="Szenarioentwicklung mit KI | Operation Zukunft",
-desc=("Szenarioentwicklung mit KI: Wie Maschinen Einflussfaktoren, Rohszenarien und "
-      "Konsistenzprüfung übernehmen – und warum der Workshop trotzdem bleibt."),
-kurz="Szenarioentwicklung mit KI",
-teaser="Wie Maschinen Rohszenarien und Konsistenzprüfung übernehmen – und warum der Workshop trotzdem bleibt.",
-cta=("Probieren Sie es selbst aus: Pictures of Tomorrow erzeugt zu Ihrer Frage vier stimmige Zukunftsszenarien.",
-     "https://www.picturesoftomorrow.com", "Pictures of Tomorrow öffnen →"),
-body="""
-    <p>
-        Szenarien gelten als das stärkste Werkzeug der strategischen Vorausschau – und als das teuerste. Seit Herman Kahn in den 1950er-Jahren bei RAND das Denken in alternativen Zukünften populär machte und Shell in den 1970ern zeigte, wie Szenarien ein Unternehmen auf Brüche vorbereiten, hat sich an der Methode wenig geändert. <strong>Geändert hat sich jetzt der Aufwand.</strong>
-    </p>
-
-    <h2>Der klassische Szenarioprozess</h2>
-
-    <p>
-        Ein sauber geführter Prozess folgt in der Regel diesen Schritten:
-    </p>
-
-    <ol>
-        <li>Fragestellung und Zeithorizont festlegen</li>
-        <li>Einflussfaktoren sammeln und bewerten</li>
-        <li>Schlüsselfaktoren auswählen und ihre möglichen Ausprägungen beschreiben</li>
-        <li>Ausprägungen paarweise auf Verträglichkeit prüfen (Konsistenzanalyse)</li>
-        <li>Stimmige Kombinationen zu Szenarien bündeln und ausformulieren</li>
-        <li>Konsequenzen und Handlungsoptionen ableiten</li>
-    </ol>
-
-    <p>
-        Die Schritte zwei bis fünf sind Fleißarbeit. Eine Konsistenzmatrix mit zwanzig Faktoren und je drei Ausprägungen umfasst bereits über 1.700 Paarvergleiche. Kein Workshop-Team prüft das mit voller Aufmerksamkeit. In der Praxis wird abgekürzt – und genau dort entstehen blinde Flecken.
-    </p>
-
-    <p>
-        Wie ein Szenarioprozess von der Fokusfrage über das Szenariokreuz bis zum Strategietest abläuft, zeigt das Video <a href="../videos/foresight-mit-szenarien/">Foresight mit Szenarien</a> an einem durchgehenden Fallbeispiel.
-    </p>
-
-    <p>
-        Welche Rolle Szenarien in der Strategieentwicklung spielen und wie ihre Ergebnisse in die Planung einfließen, habe ich 2007 in meinem Buch <a href="https://pillkahn.de/publikationen/trends-und-szenarien/">Trends und Szenarien als Werkzeuge zur Strategieentwicklung</a> beschrieben.
-    </p>
-
-    <h2>Wo KI den Prozess beschleunigt</h2>
-
-    <p>
-        <strong>Sprachmodelle sind gut darin, Möglichkeitsräume vollständig aufzuspannen.</strong> Sie schlagen Einflussfaktoren vor, auf die das Team allein nicht gekommen wäre, beschreiben Ausprägungen trennscharf und arbeiten Konsistenzmatrizen geduldig ab. Was früher Wochen dauerte, liegt nach Stunden als Rohmaterial vor.
-    </p>
-
-    <table class="article-table">
-        <thead>
-            <tr><th>Schritt</th><th>Klassisch</th><th>Mit KI</th></tr>
-        </thead>
-        <tbody>
-            <tr><td><strong>Einflussfaktoren</strong></td><td>Brainstorming im Workshop</td><td>Systematische Sammlung mit Quellen</td></tr>
-            <tr><td><strong>Konsistenzanalyse</strong></td><td>Stichproben, oft abgekürzt</td><td>Vollständig, nachvollziehbar begründet</td></tr>
-            <tr><td><strong>Szenariotexte</strong></td><td>Tage an Redaktionsarbeit</td><td>Entwürfe in Minuten</td></tr>
-            <tr><td><strong>Aktualisierung</strong></td><td>Neues Projekt</td><td>Laufend bei neuen Signalen</td></tr>
-        </tbody>
-    </table>
-
-    <h2>Warum der Workshop bleibt</h2>
-
-    <p>
-        Szenarien wirken nicht, weil sie existieren, sondern weil Menschen sie gemeinsam durchdacht haben. Die Diskussion im Führungskreis, das Ringen um Annahmen, das Aha-Erlebnis, wenn ein unbequemes Szenario plötzlich plausibel wird – <strong>das ist der eigentliche Wert des Verfahrens.</strong> KI liefert besseres Rohmaterial, aber sie ersetzt nicht die gemeinsame Auseinandersetzung damit.
-    </p>
-
-    <p>
-        Die sinnvolle Arbeitsteilung lautet deshalb: Die Maschine entwirft, der Mensch wählt aus, verwirft und verantwortet. Aus diesem Gedanken ist die Methode <a href="https://flipped-foresight.com/">Flipped Foresight</a> entstanden.
-    </p>
-
-    <h2>Worauf Sie achten sollten</h2>
-
-    <ul>
-        <li><strong>Quellen offenlegen:</strong> Jede Annahme muss sich auf eine Quelle oder eine begründete Einschätzung zurückführen lassen.</li>
-        <li><strong>Gegen das Wahrscheinliche arbeiten:</strong> Sprachmodelle neigen zum Mittelweg. Fordern Sie ausdrücklich Extreme und Brüche ein.</li>
-        <li><strong>Szenarien erlebbar machen:</strong> Ein Text überzeugt weniger als ein Bild oder Film. Dazu mehr in <a href="szenarien-als-film.html">Szenarien als Film</a>.</li>
-    </ul>
-
-    <h2>Fazit</h2>
-
-    <p>
-        <strong>Szenarioentwicklung mit KI verkürzt den Weg vom Auftrag zu belastbaren Szenarien von Monaten auf Tage.</strong> Die gewonnene Zeit gehört nicht in den nächsten Bericht, sondern in die Frage, was die Szenarien für die eigene Strategie bedeuten.
-    </p>
-"""),
+# April (Corporate Foresight mit KI) und Mai (Szenarioentwicklung mit KI) sind seit 22.11.2026
+# in den Leitseiten /corporate-foresight/ und /szenarioentwicklung-mit-ki/ aufgegangen.
+# Die alten Adressen sind Weiterleitungsseiten (pflege/leitseiten/build.py, Feld „ersetzt“).
+# Der frühere Wortlaut steht in der Git-Historie (Commit b493006).
 
 # ---------------------------------------------------------------- Juni
 dict(
@@ -364,7 +203,7 @@ body="""
     </p>
 
     <p>
-        Ein zweiter Effekt ist mindestens ebenso wichtig: Aus dem Einmalprojekt wird ein <strong>kontinuierlicher Prozess</strong>. Weil die Erzeugung kaum noch Aufwand kostet, können Szenarien mit der Welt Schritt halten, statt im Regal zu altern.
+        Ein zweiter Effekt ist mindestens ebenso wichtig: Aus dem Einmalprojekt wird ein <strong>kontinuierlicher Prozess</strong>. Weil die Erzeugung kaum noch Aufwand kostet, können Szenarien mit der Welt Schritt halten, statt im Regal zu altern. Wie sich diese Arbeit im Unternehmen verankern lässt, beschreibt die Seite <a href="../corporate-foresight/">Corporate Foresight</a>.
     </p>
 
     <h2>Was das nicht bedeutet</h2>
@@ -572,7 +411,7 @@ body="""
     <h2>Worauf es ankommt</h2>
 
     <p>
-        Ein Szenariofilm ist kein Werbefilm. Er muss die Logik des Szenarios zeigen, nicht nur schöne Bilder. Deshalb gehört an den Anfang immer ein sauber erarbeitetes Szenario – heute häufig mit KI entwickelt, wie in <a href="szenarioentwicklung-ki.html">Szenarioentwicklung mit KI</a> beschrieben. <strong>Erst die Substanz, dann die Inszenierung.</strong>
+        Ein Szenariofilm ist kein Werbefilm. Er muss die Logik des Szenarios zeigen, nicht nur schöne Bilder. Deshalb gehört an den Anfang immer ein sauber erarbeitetes Szenario – heute häufig mit KI entwickelt, wie in <a href="../szenarioentwicklung-mit-ki/">Szenarioentwicklung mit KI</a> beschrieben. Wie ein Szenario Schritt für Schritt entsteht, zeigt die Seite <a href="../szenariotechnik/">Szenariotechnik</a>. <strong>Erst die Substanz, dann die Inszenierung.</strong>
     </p>
 
     <h2>Fazit</h2>

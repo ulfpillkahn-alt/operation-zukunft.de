@@ -85,13 +85,13 @@ const posts = [
         titel: "Szenarioentwicklung mit KI",
         datum: "2026-05-01",
         teaser: "Wie Maschinen Rohszenarien und Konsistenzprüfung übernehmen – und warum der Workshop trotzdem bleibt.",
-        url: "blog/szenarioentwicklung-ki.html"
+        url: "szenarioentwicklung-mit-ki/"
     },
     {
         titel: "Corporate Foresight mit KI",
         datum: "2026-04-01",
         teaser: "Welche Foresight-Aufgaben Maschinen übernehmen – und wo der Mensch unersetzlich bleibt.",
-        url: "blog/corporate-foresight-ki.html"
+        url: "corporate-foresight/"
     },
     {
         titel: "Einstein würde OpenClaw nutzen",

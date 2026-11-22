@@ -1,0 +1,45 @@
+{
+  "reihenfolge": 2,
+  "live": true,
+  "begriff": "Szenariotechnik",
+  "nebenbegriffe": ["Szenarioanalyse", "Szenarioplanung", "Szenario-Methode", "Szenariotrichter"],
+  "title": "Szenariotechnik: Schritte und Beispiel | Operation Zukunft",
+  "description": "Szenariotechnik erklärt: Szenariotrichter, Schritte von der Fokusfrage bis zum Strategietest, ein durchgehendes Beispiel und typische Fehler.",
+  "h1": "Szenariotechnik: Methode, Schritte und Beispiel",
+  "kurztitel": "Szenariotechnik",
+  "antwort": "Szenariotechnik ist eine Methode der strategischen Planung, die mehrere in sich stimmige Zukünfte beschreibt, statt eine einzige vorherzusagen. Aus den Einflussfaktoren des Umfelds werden die wirkungsstärksten und unsichersten ausgewählt und zu alternativen Szenarien kombiniert. An ihnen prüfen Unternehmen, ob ihre Strategie auch dann trägt, wenn die Zukunft anders verläuft als erwartet.",
+  "veroeffentlicht": "2026-11-22",
+  "stand": "2026-11-22",
+  "karte": "Die Methode Schritt für Schritt: Szenariotrichter, acht Schritte, ein durchgehendes Beispiel und typische Fehler.",
+  "leistungen": ["pakete", "szenariofilme"],
+  "buecher": ["trends-und-szenarien"],
+  "video": {
+    "slug": "foresight-mit-szenarien",
+    "text": "Wie ein Szenarioprozess von der Fokusfrage über das Szenariokreuz bis zum Test der Strategie abläuft, zeigt das Video am Beispiel der VISEON AG. Es dauert gut sieben Minuten und hat Kapitel, Untertitel und ein Transkript.",
+    "linktext": "Video „Foresight mit Szenarien“ ansehen"
+  },
+  "faq": [
+    ["Was ist Szenariotechnik einfach erklärt?",
+     "Szenariotechnik beschreibt mehrere mögliche Zukünfte statt einer Vorhersage. Man sammelt die Kräfte, die das Umfeld eines Unternehmens verändern, und kombiniert die unsichersten zu unterschiedlichen, in sich stimmigen Zukunftsbildern. An diesen Bildern prüft das Unternehmen seine Strategie."],
+    ["Was ist der Unterschied zwischen Szenario und Prognose?",
+     "Eine Prognose sagt, was kommen wird, und schreibt dafür bisherige Muster fort. Ein Szenario beschreibt, was kommen könnte, und steht immer neben anderen Szenarien. Prognosen eignen sich für stabile Umfelder und kurze Zeiträume, Szenarien für mögliche Umbrüche und lange Zeiträume."],
+    ["Wie viele Szenarien sind sinnvoll?",
+     "Üblich sind drei bis fünf Szenarien, das Szenariokreuz liefert vier. Bei weniger als drei wird schnell eines zum wahrscheinlichsten erklärt, und die Methode verliert ihren Zweck. Mehr als fünf kann ein Führungsteam kaum noch miteinander vergleichen."],
+    ["Was ist der Szenariotrichter?",
+     "Der Szenariotrichter ist ein Bild für den wachsenden Raum möglicher Zukünfte. Die Gegenwart bildet die enge Stelle, mit dem Abstand zu ihr öffnet sich der Trichter. In der Mitte liegt das Trendszenario, an den Rändern liegen die Extremszenarien."],
+    ["Wie lange dauert ein Szenarioprozess?",
+     "Ein klassisch geführter Szenarioprozess dauert Wochen bis Monate, weil das Sammeln und Prüfen der Faktoren viel Expertenzeit bindet. Mit KI liegt das Rohmaterial in Tagen vor. Die Diskussion im Führungsteam und der Test der Strategie brauchen weiterhin ihre Zeit."],
+    ["Für welchen Zeithorizont eignet sich die Szenariotechnik?",
+     "Die Szenariotechnik eignet sich für Zeiträume, die über die übliche Planung hinausreichen, häufig fünf bis fünfzehn Jahre. Der Zeitraum muss lang genug sein, damit sich das Umfeld spürbar ändern kann. Er sollte zugleich so kurz sein, dass heutige Entscheidungen dann noch wirken."]
+  ],
+  "quellen": [
+    {"text": "Pillkahn, U. (2007): Trends und Szenarien als Werkzeuge zur Strategieentwicklung. Der Weg in die unternehmerische Zukunft. Publicis Corporate Publishing, Erlangen.",
+     "url": "https://pillkahn.de/publikationen/trends-und-szenarien/", "typ": "buch"},
+    {"text": "von Reibnitz, U. (1992): Szenario-Technik. Gabler Verlag, Wiesbaden.",
+     "url": "https://doi.org/10.1007/978-3-663-15720-5", "typ": "Book", "name": "Szenario-Technik"},
+    {"text": "Wack, P. (1985): Scenarios: Uncharted Waters Ahead. Harvard Business Review, September 1985.",
+     "url": "https://hbr.org/1985/09/scenarios-uncharted-waters-ahead", "typ": "Article", "name": "Scenarios: Uncharted Waters Ahead"},
+    {"text": "Pillkahn, U. (2026): Pictures of the Future. Ein Foresight-Prozess von der Frage bis zur Strategie. Musterfall VISEON AG.",
+     "url": "https://picturesofthefuture.de/", "typ": "WebPage", "name": "Pictures of the Future: Foresight-Prozess am Beispiel"}
+  ]
+}

@@ -85,6 +85,51 @@ KONTAKT = f"""<div class="ls-kontakt">
 </div>
 </div>"""
 
+# Leistungen, die auf der Startseite keinen eigenen Service-Knoten haben. Schlüssel in
+# seite.json ist der Teil der @id hinter dem #. „offers“ nur, wo die Website einen Preis nennt.
+LEISTUNGEN_ZUSATZ = [
+    {
+        "@type": "Service",
+        "@id": DOMAIN + "/strategie-pakete.html#pakete",
+        "name": "Strategie-Pakete 2027: Light, Safari, Navigator",
+        "serviceType": "Beratung",
+        "description": ("Umfeldbeobachtung, Szenarien, Strategie-Stresstest und Workshop als Paket für 2027: "
+                        "Strategie Light, Strategie Safari und Strategie Navigator."),
+        "url": DOMAIN + "/strategie-pakete.html",
+        "areaServed": "DE",
+        "provider": {"@id": seo.ORG_ID},
+        "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "EUR",
+            "lowPrice": 4900,
+            "highPrice": 24900,
+            "offerCount": 3,
+        },
+    },
+    {
+        "@type": "Service",
+        "@id": DOMAIN + "/szenariofilme.html#szenariofilme",
+        "name": "Szenarien als Film",
+        "serviceType": "Beratung",
+        "description": ("Vier Zukünfte, vier kurze Filme, ein direkter Vergleich: Szenariokreuz, vier "
+                        "Szenariofilme, Szenario-Auswertung und moderierte Auswertungssitzung."),
+        "url": DOMAIN + "/szenariofilme.html",
+        "areaServed": ["DE", "AT", "CH"],
+        "provider": {"@id": seo.ORG_ID},
+    },
+    {
+        "@type": "Service",
+        "@id": DOMAIN + "/#vortraege",
+        "name": "Vorträge",
+        "serviceType": "Keynotes und Fachvorträge",
+        "description": ("Keynotes und Fachvorträge zu KI-Agenten in der Strategieentwicklung, "
+                        "Innovationsmanagement, Zukunftsforschung und der OpenClaw-Methodik."),
+        "url": DOMAIN + "/#leistungen",
+        "areaServed": ["DE", "AT", "CH"],
+        "provider": {"@id": seo.ORG_ID},
+    },
+]
+
 e = lambda t: html.escape(str(t), quote=True)
 P = lambda *a: os.path.join(REPO, *a)
 
@@ -205,6 +250,9 @@ def weiter(s):
 def quellen(s):
     z = ['<section id="quellen">', "<h2>Quellen</h2>", '<ol class="ls-quellen">']
     for q in s["quellen"]:
+        if not q.get("url"):
+            z.append(f'<li>{e(q["text"])}</li>')
+            continue
         kurz = re.sub(r"^https?://(www\.)?", "", q["url"]).split("?")[0].rstrip("/")
         z.append(f'<li>{e(q["text"])} <a href="{e(q["url"])}">{e(kurz)}</a></li>')
     z += ["</ol>", "</section>"]
@@ -215,7 +263,7 @@ def graph(s):
     url = s["url"]
     zitiert = seo.buecher(*s.get("buecher", []))
     zitiert += [{"@type": q["typ"], "name": q["name"], "url": q["url"]}
-                for q in s["quellen"] if q["typ"] != "buch"]
+                for q in s["quellen"] if q["typ"] not in ("buch", "hinweis")]
     seite = {
         "@type": "WebPage",
         "@id": url + "#webpage",
@@ -254,7 +302,7 @@ def graph(s):
                         "acceptedAnswer": {"@type": "Answer", "text": a}} for f, a in s["faq"]],
     }
     # Leistungen: dieselben Knoten wie auf der Startseite (gleiche @id, offers nur mit Preis)
-    leistungen = [dict(l) for l in seo.LEISTUNGEN
+    leistungen = [dict(l) for l in seo.LEISTUNGEN + LEISTUNGEN_ZUSATZ
                   if l["@id"].split("#")[1] in s.get("leistungen", [])]
     assert len(leistungen) == len(s.get("leistungen", [])), f'{s["slug"]}: unbekannte Leistung'
     knoten = [seo.PERSON, seo.ORG, seo.SITE, seite, krumen, faq] + leistungen
@@ -405,6 +453,30 @@ def llms(t):
     return t.replace("## Videos", block + "## Videos", 1)
 
 
+def weiterleitung(s):
+    """Schlanke Weiterleitungsseite für einen Blogartikel, der in einer Leitseite aufgegangen ist
+    (Muster wie blog/was-ist-zukunftsforschung.html: Meta-Refresh 0 s, Canonical, sichtbarer Link)."""
+    ziel = s["url"]
+    return f"""<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Umgezogen: Der Inhalt dieses Artikels steht jetzt auf der Leitseite. GitHub Pages kennt
+         keine Server-Weiterleitung; eine sofortige Meta-Weiterleitung wertet Google wie eine
+         dauerhafte. Erzeugt von pflege/leitseiten/build.py. -->
+    <title>{e(s["kurztitel"])} – umgezogen | Operation Zukunft</title>
+    <link rel="canonical" href="{ziel}">
+    <meta http-equiv="refresh" content="0; url={ziel}">
+    <style>body{{background:#0b0e15;color:#e9edf6;font:1.05rem/1.6 system-ui,sans-serif;padding:3rem 1.5rem}}a{{color:#4fd8ff}}</style>
+</head>
+<body>
+    <p>Diese Seite ist umgezogen: <a href="{ziel}">{e(s["h1"])}</a></p>
+</body>
+</html>
+"""
+
+
 WURZELSEITEN = ["index.html", "cluster.html", "szenariofilme.html", "strategie-pakete.html"]
 
 
@@ -422,6 +494,8 @@ def main():
     # 2. Leitseiten (Menü und Footer aus cluster.html, deshalb nach Schritt 1)
     for s in SEITEN:
         schreib(P(s["slug"], "index.html"), leitseite(s))
+        if s.get("ersetzt") and s["live"]:
+            schreib(P(s["ersetzt"]), weiterleitung(s))
     # 3. Videoseiten übernehmen Menü und Footer ebenfalls aus cluster.html
     videos.main()
     print(len(SEITEN), "Leitseiten gebaut,", len(LIVE), "davon live geschaltet")

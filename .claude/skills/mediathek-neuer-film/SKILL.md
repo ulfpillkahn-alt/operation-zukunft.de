@@ -39,10 +39,11 @@ in `pflege/videos/filme/<slug>/`.
 4. **Bauen**: `python3 pflege/videos/build.py`. Der Generator ändert Videoseite, Übersicht,
    „Weiter in der Reihe“ auf allen Videoseiten, Startseitenabschnitt, `sitemap.xml`,
    `video-sitemap.xml`, `llms.txt`.
-5. **Linksätze** (je ein Satz, nur wo es inhaltlich passt): Szenarien → `blog/szenarioentwicklung-ki.html`,
+5. **Linksätze** (je ein Satz, nur wo es inhaltlich passt): Szenarien → Leitseite `szenarioentwicklung-mit-ki`,
    `blog/szenarien-als-film.html`, ggf. `szenariofilme.html`; Trends → `blog/schwache-signale-ki-agenten.html`,
-   `blog/technologiereife-einschaetzen.html`; KI und Foresight → `blog/corporate-foresight-ki.html`,
+   `blog/technologiereife-einschaetzen.html`; KI und Foresight → Leitseite `corporate-foresight`,
    `blog/flipped-foresight-methode.html`, `cluster.html`. Erst den Artikel lesen, dann entscheiden.
+   Leitseiten liegen unter `pflege/leitseiten/seiten/<slug>/inhalt.html` (Videohinweis über das Feld `video` in `seite.json`).
    Artikel aus `pflege/blog/artikel.py` dort ändern und danach `python3 pflege/blog/build.py .`,
    `python3 pflege/seo.py` und noch einmal `python3 pflege/videos/build.py` laufen lassen.
 6. **Prüfen**:
