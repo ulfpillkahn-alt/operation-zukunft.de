@@ -1,5 +1,32 @@
 # Changelog operation-zukunft.de
 
+## 2026-11-22 – Leitseite „Foresight mit KI-Agenten“
+
+Commit `b493006` (Branch `leitseiten`, auf main übernommen), live seit 2026-11-22. Rollback: `git revert b493006`,
+Sicherungs-Tag `pre-leitseiten-2026-11-22`. Auftrag: `AUFTRAG.md` (fünf Leitseiten, Stand 22.11.2026), Seite A von fünf.
+
+- Neu: `/foresight-mit-ki-agenten/` – eine Seite für genau einen Suchbegriff: Antwortabsatz, Inhaltsverzeichnis,
+  Hauptteil, Angebot (Workshop ab 1.500 €, Agenten auf Anfrage), Belege, sechs Häufige Fragen, Quellen.
+  JSON-LD: WebPage, BreadcrumbList, FAQPage und die Service-Knoten der Startseite (`#workshop`, `#agenten`).
+- Neu: `pflege/leitseiten/` – `build.py` (Generator), `pruefen.py` (Prüfung nach Schritt 6 des Auftrags, auch für
+  den Bestand), Inhalt je Seite unter `seiten/<slug>/` (`seite.json`, `inhalt.html`). Eine Seite erscheint erst
+  mit `"live": true` in Menü-Abschnitt, Footer, Sitemap und `llms.txt`.
+- Startseite: Abschnitt `#themen` („Foresight zum Nachlesen“) zwischen Leistungen und Videos, generiert.
+- Menüpunkt „Themen“ nach „Angebote“ in allen Menüvarianten (Hauptseiten, Videoseiten, neue und alte
+  Blogartikel). Datenschutzseite: nur Menü, dabei „Pakete 2027“ nachgetragen.
+- Footer-Link auf die Leitseite zwischen `<!-- THEMEN-LINKS -->` (Hauptseiten, Blog, Videoseiten).
+- Linksätze mit Ankertext „Foresight mit KI-Agenten“ in `schwache-signale-ki-agenten`,
+  `ki-agenten-einfuehren-fehler` (beide über `pflege/blog/artikel.py`) und `cluster.html`.
+- `sitemap.xml` (Block „Leitseiten“), `llms.txt` (Abschnitt „Leitseiten“), 21 neue Zähler-Bezeichnungen in
+  `stats.html` (`nav-themen`, `themen-karte`, `footer-thema`, `cluster-thema`, `leit-…`).
+- `style.css`: Abschnitte 21 (Leitseiten, Präfix `ls-`) und 22 (Themen-Karten, Menü mit neun Einträgen).
+  CSS-Cache-Buster `2026-11-22`; `seo.py` `HEUTE` = 2026-11-22.
+- Pflege: Reihenfolge `pflege/blog/build.py .` (ruft Leitseiten- und Video-Generator selbst auf) →
+  `pflege/seo.py` → `pflege/leitseiten/pruefen.py --links`.
+- Live geprüft (curl): 16 URLs 200, Seite A mit einer H1, Canonical auf sich selbst und 8 Knoten im JSON-LD;
+  `#themen`, Menü, Sitemap, `llms.txt`, Footer und Linksätze ausgeliefert. Fünf URLs per IndexNow gemeldet.
+- Offen: Der SSRN-Link lässt sich nicht automatisch prüfen (Bot-Prüfung bei SSRN).
+
 ## 21.11.2026 — IndexNow-Schlüsseldatei
 
 - `f1a8ac42c31a43c9a2be4aa8f3e7db39.txt` im Wurzelverzeichnis (Inhalt genau der Schlüssel, für Bing/IndexNow). Die Meldung läuft über OpenSEO.
