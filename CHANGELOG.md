@@ -11,9 +11,9 @@ Commit `2253641`, live seit 2026-11-23. YouTube `Jy-NL_2-KJ0`. Rollback: `git re
   Hinweis: Film 2 kündigt im Abspann „Foresight mit Trends“ als nächsten Film an.
 - Übersicht, Startseite („Neueste Folge“), „Weiter in der Reihe“, `sitemap.xml`, `video-sitemap.xml`,
   `llms.txt` über den Generator; Linksätze in `schwache-signale-ki-agenten` und `flipped-foresight-methode`.
-- Nicht enthalten: Der Blog-Generator baut die Leitseiten mit und trägt dabei die Angebotsnamen
-  (Pearl Harbor, Sputnik) in deren JSON-LD ein. Diese Änderung wurde für diesen Commit zurückgesetzt
-  und kommt beim nächsten Blog-Build wieder, solange `pflege/leitseiten/build.py` unverändert ist.
+- Leitseiten: Der Blog-Generator baut sie mit und hätte die Angebotsnamen (Pearl Harbor, Sputnik) in
+  ihr JSON-LD übernommen. Seit `66a06b5` legt `pflege/leitseiten/build.py` (`NAME_LEITSEITE`) dort die
+  beschreibenden Namen fest; die neuen Namen stehen nur auf der Startseite (Entscheidung 23.11.2026).
 - Live geprüft (curl): Seite, Übersicht, Poster, VTT (`text/vtt`), Sitemaps (`application/xml`) 200,
   mp4 206 `video/mp4`; Teaser auf der Startseite und beide Blog-Links live.
 
