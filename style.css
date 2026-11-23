@@ -2125,3 +2125,7 @@ nav.brotkrumen {
 @media (max-width: 640px) {
     .hero-lead { font-size: 0.98rem; margin-bottom: 1rem; }
 }
+
+/* Angebotsnamen (23.11.2026) */
+.pn-name { display: block; font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--accent); }
+.pn-zeile { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.5; margin-bottom: 1rem; }

@@ -91,7 +91,7 @@ LEISTUNGEN = [
     {
         "@type": "Service",
         "@id": "https://operation-zukunft.de/#workshop",
-        "name": "Orientierungsworkshop: KI für Innovation und Foresight",
+        "name": "Pearl Harbor – Orientierungsworkshop: KI für Innovation und Foresight",
         "serviceType": "Beratung",
         "description": ("Standortbestimmung zum KI-Einsatz in Innovation und Foresight: halb- "
                         "oder ganztägiger Workshop mit dem Führungs- oder Innovationsteam, vor Ort "
@@ -114,7 +114,7 @@ LEISTUNGEN = [
     {
         "@type": "Service",
         "@id": "https://operation-zukunft.de/#agenten",
-        "name": "KI-Agenten für Innovation und Foresight",
+        "name": "Sputnik – KI-Agenten für Innovation und Foresight",
         "serviceType": "Aufbau und Betrieb von KI-Agenten",
         "description": ("Konzeption, Aufbau, Inbetriebnahme und laufender Betrieb eines "
                         "Agenten-Systems für Recherche, Trendbeobachtung, Frühaufklärung und "
