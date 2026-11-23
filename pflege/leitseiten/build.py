@@ -87,6 +87,12 @@ KONTAKT = f"""<div class="ls-kontakt">
 
 # Leistungen, die auf der Startseite keinen eigenen Service-Knoten haben. Schlüssel in
 # seite.json ist der Teil der @id hinter dem #. „offers“ nur, wo die Website einen Preis nennt.
+# Namen der Startseiten-Services auf den Leitseiten (ohne „Pearl Harbor“/„Sputnik“)
+NAME_LEITSEITE = {
+    DOMAIN + "/#workshop": "Orientierungsworkshop: KI für Innovation und Foresight",
+    DOMAIN + "/#agenten": "KI-Agenten für Innovation und Foresight",
+}
+
 LEISTUNGEN_ZUSATZ = [
     {
         "@type": "Service",
@@ -304,6 +310,10 @@ def graph(s):
     # Leistungen: dieselben Knoten wie auf der Startseite (gleiche @id, offers nur mit Preis)
     leistungen = [dict(l) for l in seo.LEISTUNGEN + LEISTUNGEN_ZUSATZ
                   if l["@id"].split("#")[1] in s.get("leistungen", [])]
+    # Die Angebotsnamen „Pearl Harbor“ und „Sputnik“ gelten nur auf der Startseite
+    # (Entscheidung 23.11.2026). Die Leitseiten behalten die beschreibenden Namen.
+    for l in leistungen:
+        l["name"] = NAME_LEITSEITE.get(l["@id"], l["name"])
     assert len(leistungen) == len(s.get("leistungen", [])), f'{s["slug"]}: unbekannte Leistung'
     knoten = [seo.PERSON, seo.ORG, seo.SITE, seite, krumen, faq] + leistungen
     daten = {"@context": "https://schema.org", "@graph": knoten}
