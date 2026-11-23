@@ -1,5 +1,22 @@
 # Changelog operation-zukunft.de
 
+## 2026-11-23 – Mediathek: Film 3 „Der Pearl-Harbor-Effekt“
+
+Commit `2253641`, live seit 2026-11-23. YouTube `Jy-NL_2-KJ0`. Rollback: `git revert 2253641`.
+
+- Neu: `/videos/pearl-harbor-effekt/` mit eigenem Player, 6 Kapiteln, Untertiteln und Transkript
+  (Wortlaut der Untertitel). mp4 auf `pillkahn.de/media/pearl-harbor-effekt-1080p.mp4` (Webfassung aus
+  der Fassung ohne eingebrannte Untertitel, 29 MB). CTA auf den Workshop `/#pearl-harbor`.
+- Reihe: als Film 3 eingeschoben; „Foresight mit Trends“ und „Wie KI Foresight verändert“ jetzt 4 und 5.
+  Hinweis: Film 2 kündigt im Abspann „Foresight mit Trends“ als nächsten Film an.
+- Übersicht, Startseite („Neueste Folge“), „Weiter in der Reihe“, `sitemap.xml`, `video-sitemap.xml`,
+  `llms.txt` über den Generator; Linksätze in `schwache-signale-ki-agenten` und `flipped-foresight-methode`.
+- Nicht enthalten: Der Blog-Generator baut die Leitseiten mit und trägt dabei die Angebotsnamen
+  (Pearl Harbor, Sputnik) in deren JSON-LD ein. Diese Änderung wurde für diesen Commit zurückgesetzt
+  und kommt beim nächsten Blog-Build wieder, solange `pflege/leitseiten/build.py` unverändert ist.
+- Live geprüft (curl): Seite, Übersicht, Poster, VTT (`text/vtt`), Sitemaps (`application/xml`) 200,
+  mp4 206 `video/mp4`; Teaser auf der Startseite und beide Blog-Links live.
+
 ## 2026-11-23 – Angebotsnamen „Pearl Harbor“ und „Sputnik“
 
 Commit `c28afe9`, live seit 2026-11-23. Rollback: `git revert c28afe9`, Sicherungs-Tag `pre-angebotsnamen-2026-11-23`.
