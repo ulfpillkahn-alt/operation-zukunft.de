@@ -1,5 +1,21 @@
 # Changelog operation-zukunft.de
 
+## 2026-11-23 – Angebotsnamen „Pearl Harbor“ und „Sputnik“
+
+Commit `c28afe9`, live seit 2026-11-23. Rollback: `git revert c28afe9`, Sicherungs-Tag `pre-angebotsnamen-2026-11-23`.
+
+- Startseite, Angebotskarten: Name als `<span class="pn-name">` in der bestehenden Überschrift (Titel wörtlich
+  unverändert), darunter Erklärzeile `<p class="pn-zeile">`; Karten-IDs `#pearl-harbor` und `#sputnik`.
+- Mail-Betreffs: „Anfrage Pearl Harbor – Orientierungsworkshop“, „Anfrage Sputnik – KI-Agenten“ (Body unverändert).
+- JSON-LD: `name` der Services `#workshop`/`#agenten` in `pflege/seo.py` (LEISTUNGEN) auf
+  „Pearl Harbor – …“ bzw. „Sputnik – …“.
+- `style.css`: zwei Regeln `.pn-name`, `.pn-zeile`; `stats.html`: Bezeichnungen um den Namen ergänzt;
+  `sitemap.xml`: `/` lastmod 2026-11-23. Zähler-Schlüssel unverändert.
+- Offen: Die Leitseiten (foresight-mit-ki-agenten, zukunftsforschung, corporate-foresight) tragen die Services
+  noch mit altem Namen; `pflege/leitseiten/build.py` übernimmt die Namen aus `seo.py` beim nächsten Lauf.
+  Ihre Mail-Betreffs stehen fest im Generator und lauten noch wie vorher.
+- Live geprüft (curl): `/`, `/stats`, `/sitemap.xml` 200; `pn-name` 2×, „Habor“ 0×; JSON-LD mit neuen Namen.
+
 ## 2026-11-22 – Leitseiten B–E: Szenariotechnik, Corporate Foresight, Szenarioentwicklung mit KI, Zukunftsforschung
 
 Commit `62f0dc4` (Branch `leitseiten`, auf main übernommen), live seit 2026-11-22. Rollback: `git revert 62f0dc4`,
@@ -66,22 +82,6 @@ Sicherungs-Tag `pre-leitseiten-2026-11-22`. Auftrag: `AUFTRAG.md` (fünf Leitsei
 
 - `f1a8ac42c31a43c9a2be4aa8f3e7db39.txt` im Wurzelverzeichnis (Inhalt genau der Schlüssel, für Bing/IndexNow). Die Meldung läuft über OpenSEO.
   Die Datei nicht löschen oder umbenennen, sonst lehnt IndexNow künftige Meldungen ab (403).
-
-## 2026-11-23 – Angebotsnamen „Pearl Harbor“ und „Sputnik“
-
-Commit `c28afe9`, live seit 2026-11-23. Rollback: `git revert c28afe9`, Sicherungs-Tag `pre-angebotsnamen-2026-11-23`.
-
-- Startseite, Angebotskarten: Name als `<span class="pn-name">` in der bestehenden Überschrift (Titel wörtlich
-  unverändert), darunter Erklärzeile `<p class="pn-zeile">`; Karten-IDs `#pearl-harbor` und `#sputnik`.
-- Mail-Betreffs: „Anfrage Pearl Harbor – Orientierungsworkshop“, „Anfrage Sputnik – KI-Agenten“ (Body unverändert).
-- JSON-LD: `name` der Services `#workshop`/`#agenten` in `pflege/seo.py` (LEISTUNGEN) auf
-  „Pearl Harbor – …“ bzw. „Sputnik – …“.
-- `style.css`: zwei Regeln `.pn-name`, `.pn-zeile`; `stats.html`: Bezeichnungen um den Namen ergänzt;
-  `sitemap.xml`: `/` lastmod 2026-11-23. Zähler-Schlüssel unverändert.
-- Offen: Die Leitseiten (foresight-mit-ki-agenten, zukunftsforschung, corporate-foresight) tragen die Services
-  noch mit altem Namen; `pflege/leitseiten/build.py` übernimmt die Namen aus `seo.py` beim nächsten Lauf.
-  Ihre Mail-Betreffs stehen fest im Generator und lauten noch wie vorher.
-- Live geprüft (curl): `/`, `/stats`, `/sitemap.xml` 200; `pn-name` 2×, „Habor“ 0×; JSON-LD mit neuen Namen.
 
 ## 2026-11-21 – Bücher verankern (Prompt 13)
 
