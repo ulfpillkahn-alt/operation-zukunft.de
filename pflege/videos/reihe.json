@@ -5,7 +5,8 @@
   "filme": [
     {"nr": 1, "slug": "was-ist-zukunftsforschung", "titel": "Was ist Zukunftsforschung?"},
     {"nr": 2, "slug": "foresight-mit-szenarien", "titel": "Foresight mit Szenarien"},
-    {"nr": 3, "slug": "foresight-mit-trends", "titel": "Foresight mit Trends"},
-    {"nr": 4, "slug": "wie-ki-foresight-veraendert", "titel": "Wie KI Foresight verändert"}
+    {"nr": 3, "slug": "pearl-harbor-effekt", "titel": "Der Pearl-Harbor-Effekt"},
+    {"nr": 4, "slug": "foresight-mit-trends", "titel": "Foresight mit Trends"},
+    {"nr": 5, "slug": "wie-ki-foresight-veraendert", "titel": "Wie KI Foresight verändert"}
   ]
 }

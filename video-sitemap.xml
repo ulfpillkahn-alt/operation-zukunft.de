@@ -28,4 +28,17 @@
       <video:family_friendly>yes</video:family_friendly>
     </video:video>
   </url>
+  <url>
+    <loc>https://operation-zukunft.de/videos/pearl-harbor-effekt/</loc>
+    <video:video>
+      <video:thumbnail_loc>https://operation-zukunft.de/videos/pearl-harbor-effekt-poster.jpg</video:thumbnail_loc>
+      <video:title>Der Pearl-Harbor-Effekt: Warum Unternehmen trotz aller Signale überrascht werden</video:title>
+      <video:description>Der Pearl-Harbor-Effekt: Signale im Haus, Szenario in der Schublade, und trotzdem überrascht. Das Video zeigt, welche Signale es vor dem Angriff auf Pearl Harbor gab, warum niemand sie verbunden hat und warum es sogar ein Szenario gab, das genau diesen Angriff beschrieb. Daraus folgt der Unterschied zwischen Foresight und Smart Foresight.</video:description>
+      <video:content_loc>https://pillkahn.de/media/pearl-harbor-effekt-1080p.mp4</video:content_loc>
+      <video:player_loc>https://www.youtube.com/embed/Jy-NL_2-KJ0</video:player_loc>
+      <video:duration>248</video:duration>
+      <video:publication_date>2026-11-23</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
 </urlset>

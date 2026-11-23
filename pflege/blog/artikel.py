@@ -72,6 +72,10 @@ body="""
         Gute Frühaufklärung braucht deshalb neben Technik auch einen festen Ort im Unternehmen: einen Termin, an dem Signale besprochen werden, und eine Person, die sie gegen Widerstände vertritt.
     </p>
 
+    <p>
+        Was geschieht, wenn dieser Ort fehlt, zeigt das Video <a href="../videos/pearl-harbor-effekt/">Der Pearl-Harbor-Effekt</a>: 1941 lagen die Signale an vier Stellen vor, und niemand legte sie nebeneinander.
+    </p>
+
     <h2>Fazit</h2>
 
     <p>
@@ -220,6 +224,10 @@ body="""
 
     <p>
         Wie Flipped Foresight in die Zukunftsforschung insgesamt passt, zeigt das Video <a href="../videos/was-ist-zukunftsforschung/">Was ist Zukunftsforschung?</a> im Kapitel „Die Rolle von KI“.
+    </p>
+
+    <p>
+        Warum Signale und Szenarien allein nicht reichen, wenn niemand sie verbindet, zeigt das Video <a href="../videos/pearl-harbor-effekt/">Der Pearl-Harbor-Effekt</a> am Angriff auf Pearl Harbor 1941.
     </p>
 """),
 
